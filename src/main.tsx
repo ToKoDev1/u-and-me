@@ -9,16 +9,11 @@ import './styles/tokens.css';
 import './styles/app.css';
 import App from './App';
 import { darstellungAnwenden, systemBeobachten } from './lib/darstellung';
+import { allesLoeschen } from './lib/speicher';
 
 // Nur in der Entwicklung: ?neu löscht alle gespeicherten Angaben und startet mit dem Onboarding
 if (import.meta.env.DEV && new URLSearchParams(window.location.search).has('neu')) {
-  try {
-    Object.keys(localStorage)
-      .filter((k) => k.startsWith('u-and-me:'))
-      .forEach((k) => localStorage.removeItem(k));
-  } catch {
-    // Speicher nicht verfügbar – dann ist ohnehin nichts gespeichert
-  }
+  allesLoeschen();
   window.history.replaceState(null, '', window.location.pathname); // ?neu aus der Adresse entfernen
 }
 
