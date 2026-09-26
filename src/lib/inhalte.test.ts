@@ -31,7 +31,13 @@ describe('nächste und vorherige U', () => {
 
   it('kennt am Tag der Geburt die U1 und danach keine U mehr', () => {
     expect(naechsteUntersuchung(kind('2026-09-26', '2026-09-26'))?.untersuchung.id).toBe('U1');
-    expect(naechsteUntersuchung(kind('2024-01-01', '2026-09-26'))).toBeUndefined();
+    expect(naechsteUntersuchung(kind('2020-01-01', '2026-09-26'))).toBeUndefined(); // nach der U9
+  });
+
+  it('kennt nach der U7 die U7a, U8 und U9', () => {
+    expect(naechsteUntersuchung(kind('2024-01-01', '2026-09-26'))?.untersuchung.id).toBe('U7a'); // 2 Jahre 8 Monate
+    expect(naechsteUntersuchung(kind('2022-12-01', '2026-09-26'))?.untersuchung.id).toBe('U8'); // 3 Jahre 9 Monate
+    expect(naechsteUntersuchung(kind('2021-10-01', '2026-09-26'))?.untersuchung.id).toBe('U9'); // 4 Jahre 11 Monate
   });
 });
 

@@ -19,7 +19,7 @@
     },
     {
       "titel": "Fluoridlack",
-      "text": "Vom 6. bis zum 33. Lebensmonat kann zweimal im Halbjahr Fluoridlack auf die Zähne aufgetragen werden. Er härtet den Zahnschmelz. Bei gesetzlich Versicherten zahlt das die Krankenkasse."
+      "text": "Vom 6. bis zum 33. Lebensmonat kann zweimal im Halbjahr Fluoridlack auf die Zähne aufgetragen werden. Er härtet den Zahnschmelz. Bei gesetzlich Versicherten zahlt das die Krankenkasse. Ob und wie oft das danach sinnvoll ist, bespricht eure Zahnarztpraxis mit euch."
     }
   ],
   "hinweise": [
@@ -28,8 +28,65 @@
     "Nehmt euer Kind gern schon vorher zu euren eigenen Kontrollterminen mit – so wird die Praxis vertraut."
   ],
   "termine": [
-    { "id": "Z1", "zeitraum": "6. bis 9. Lebensmonat", "von": { "monate": 5 }, "bis": { "monate": 9 } },
-    { "id": "Z2", "zeitraum": "10. bis 20. Lebensmonat", "von": { "monate": 9 }, "bis": { "monate": 20 } },
-    { "id": "Z3", "zeitraum": "21. bis 33. Lebensmonat", "von": { "monate": 20 }, "bis": { "monate": 33 } }
+    {
+      "id": "Z1",
+      "zeitraum": "6. bis 9. Lebensmonat",
+      "von": {
+        "monate": 5
+      },
+      "bis": {
+        "monate": 9
+      }
+    },
+    {
+      "id": "Z2",
+      "zeitraum": "10. bis 20. Lebensmonat",
+      "von": {
+        "monate": 9
+      },
+      "bis": {
+        "monate": 20
+      }
+    },
+    {
+      "id": "Z3",
+      "zeitraum": "21. bis 33. Lebensmonat",
+      "von": {
+        "monate": 20
+      },
+      "bis": {
+        "monate": 33
+      }
+    },
+    {
+      "id": "Z4",
+      "zeitraum": "34. bis 48. Lebensmonat",
+      "von": {
+        "monate": 33
+      },
+      "bis": {
+        "monate": 48
+      }
+    },
+    {
+      "id": "Z5",
+      "zeitraum": "49. bis 60. Lebensmonat",
+      "von": {
+        "monate": 48
+      },
+      "bis": {
+        "monate": 60
+      }
+    },
+    {
+      "id": "Z6",
+      "zeitraum": "61. bis 72. Lebensmonat",
+      "von": {
+        "monate": 60
+      },
+      "bis": {
+        "monate": 72
+      }
+    }
   ]
 }

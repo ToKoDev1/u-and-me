@@ -1,5 +1,5 @@
 {
-  "_hinweis": "Zeitfenster nach G-BA Kinder-Richtlinie. 'von'/'bis' = Alter ab Geburt (bis = exklusiv). 'passiert', 'impfungen' und 'mitbringen' sind aus der jeweiligen Quellseite (kindergesundheit-info.de, abgerufen am 26.09.2026) zusammengefasst. 'beobachten' und 'fragen' sind eigene Anregungen (Entwurf). {kind} wird durch den Namen bzw. 'euer Kind' ersetzt. 'impfungen' + 'impfQuelle' nach STIKO-Empfehlungen 2026 (Epid. Bulletin 4/2026), abgerufen am 26.09.2026.",
+  "_hinweis": "Zeitfenster nach G-BA Kinder-Richtlinie. 'von'/'bis' = Alter ab Geburt (bis = exklusiv). 'passiert', 'impfungen' und 'mitbringen' (auch U7a–U9) sind aus der jeweiligen Quellseite (kindergesundheit-info.de, abgerufen am 26.09.2026) zusammengefasst. 'beobachten' und 'fragen' sind eigene Anregungen (Entwurf). {kind} wird durch den Namen bzw. 'euer Kind' ersetzt. 'impfungen' + 'impfQuelle' nach STIKO-Empfehlungen 2026 (Epid. Bulletin 4/2026), abgerufen am 26.09.2026.",
   "abgerufen": "26.09.2026",
   "quelle": {
     "name": "kindergesundheit-info.de – Die Untersuchungen U1 bis U9",
@@ -382,6 +382,180 @@
         "name": "STIKO-Empfehlungen 2026 (Epid. Bulletin 4/2026, RKI)",
         "url": "https://www.rki.de/DE/Aktuelles/Publikationen/Epidemiologisches-Bulletin/2026/04_26.pdf?__blob=publicationFile&v=6"
       }
+    },
+    {
+      "id": "U7a",
+      "zeitraum": "34. bis 36. Lebensmonat",
+      "von": {
+        "monate": 33
+      },
+      "bis": {
+        "monate": 36
+      },
+      "url": "https://www.kindergesundheit-info.de/themen/frueherkennung-u1-u9-und-j1/untersuchungen-u1-bis-u9/u7a-untersuchung/",
+      "passiert": [
+        {
+          "titel": "Körper",
+          "text": "Körperliche Untersuchung – die Ärztin achtet auf Auffälligkeiten in der Entwicklung"
+        },
+        {
+          "titel": "Sehen",
+          "text": "Sehtest zur Früherkennung von Sehstörungen"
+        },
+        {
+          "titel": "Zähne & Kiefer",
+          "text": "Wie sind die Zähne beschaffen, wie entwickelt sich der Kiefer?"
+        },
+        {
+          "titel": "Sprache",
+          "text": "Die Sprachentwicklung bekommt besondere Aufmerksamkeit"
+        },
+        {
+          "titel": "Miteinander",
+          "text": "Wie ist der Kontakt zwischen euch und eurem Kind?"
+        },
+        {
+          "titel": "Gespräch",
+          "text": "Ernährung, Bewegung, Unfallverhütung, Sprachförderung, Medien im Alltag, Zahnarzt-Untersuchung Z4"
+        }
+      ],
+      "impfungen": "Zwischen 2 und 4 Jahren gibt es keine neuen Standardimpfungen. Eure Praxis schaut, ob alles vollständig ist, und holt Fehlendes bei Bedarf nach.",
+      "impfQuelle": {
+        "name": "STIKO-Empfehlungen 2026 (Epid. Bulletin 4/2026, RKI)",
+        "url": "https://www.rki.de/DE/Aktuelles/Publikationen/Epidemiologisches-Bulletin/2026/04_26.pdf?__blob=publicationFile&v=6"
+      },
+      "mitbringen": [
+        "Gesundheitskarte",
+        "Impfausweis",
+        "Gelbes Kinderuntersuchungsheft mit Teilnahmekarte"
+      ],
+      "beobachten": [
+        "Was erzählt {kind} gerade am liebsten?",
+        "Womit spielt {kind} ausdauernd – allein oder mit anderen?",
+        "Wie geht es {kind} mit Wut, Trauer oder Abschieden?",
+        "Was klappt schon allein – und wo will {kind} noch Hilfe?"
+      ],
+      "fragen": [
+        "Wie können wir die Sprache gut begleiten?",
+        "Wie viel Bildschirmzeit ist in diesem Alter in Ordnung?",
+        "Sind alle Impfungen vollständig?"
+      ]
+    },
+    {
+      "id": "U8",
+      "zeitraum": "46. bis 48. Lebensmonat",
+      "von": {
+        "monate": 45
+      },
+      "bis": {
+        "monate": 48
+      },
+      "url": "https://www.kindergesundheit-info.de/themen/frueherkennung-u1-u9-und-j1/untersuchungen-u1-bis-u9/u8-untersuchung/",
+      "passiert": [
+        {
+          "titel": "Körper",
+          "text": "Untersuchung von Kopf bis Fuß, Messen und Wiegen, Zähne und Kiefer"
+        },
+        {
+          "titel": "Bewegung",
+          "text": "Wie beweglich und geschickt ist euer Kind?"
+        },
+        {
+          "titel": "Sehen & Hören",
+          "text": "Sehtest und Hörtest"
+        },
+        {
+          "titel": "Sprache",
+          "text": "Die Sprachfähigkeit wird angeschaut"
+        },
+        {
+          "titel": "Spielen & Verhalten",
+          "text": "Wie spielt euer Kind – allein, in der Familie, in der Gruppe? Kann es sich eine Weile selbst beschäftigen?"
+        },
+        {
+          "titel": "Gespräch",
+          "text": "Impfungen, Ernährung, Bewegung, Unfallverhütung, Sprachförderung, Mediennutzung, Zahnarzt-Untersuchung Z5"
+        }
+      ],
+      "impfungen": "Auch jetzt gibt es keine neuen Standardimpfungen. Eure Praxis prüft den Impfschutz und holt Fehlendes bei Bedarf nach.",
+      "impfQuelle": {
+        "name": "STIKO-Empfehlungen 2026 (Epid. Bulletin 4/2026, RKI)",
+        "url": "https://www.rki.de/DE/Aktuelles/Publikationen/Epidemiologisches-Bulletin/2026/04_26.pdf?__blob=publicationFile&v=6"
+      },
+      "mitbringen": [
+        "Gesundheitskarte",
+        "Impfausweis",
+        "Gelbes Kinderuntersuchungsheft mit Teilnahmekarte"
+      ],
+      "beobachten": [
+        "Wie bewegt sich {kind} am liebsten – rennen, klettern, Rad fahren?",
+        "Womit beschäftigt sich {kind} gern eine Weile allein?",
+        "Wie ist {kind} in der Kita oder mit anderen Kindern?",
+        "Was beschäftigt {kind} gerade – Fragen, Ängste, Lieblingsthemen?"
+      ],
+      "fragen": [
+        "Hört und sieht unser Kind gut?",
+        "Wie gehen wir mit Ängsten in diesem Alter um?",
+        "Worauf sollten wir bei Medien achten?"
+      ]
+    },
+    {
+      "id": "U9",
+      "zeitraum": "60. bis 64. Lebensmonat",
+      "von": {
+        "monate": 59
+      },
+      "bis": {
+        "monate": 64
+      },
+      "url": "https://www.kindergesundheit-info.de/themen/frueherkennung-u1-u9-und-j1/untersuchungen-u1-bis-u9/u9-untersuchung/",
+      "passiert": [
+        {
+          "titel": "Körper",
+          "text": "Körperliche Untersuchung, Körperhaltung, Beweglichkeit und Geschicklichkeit"
+        },
+        {
+          "titel": "Sehen",
+          "text": "Sehtest zur Früherkennung von Sehstörungen"
+        },
+        {
+          "titel": "Sprache",
+          "text": "Die Sprachentwicklung ist ein Schwerpunkt"
+        },
+        {
+          "titel": "Euer Kind",
+          "text": "Was interessiert euer Kind, was macht ihm Freude, wovor hat es vielleicht Angst?"
+        },
+        {
+          "titel": "Miteinander",
+          "text": "Wie ist die Beziehung zwischen euch und eurem Kind?"
+        },
+        {
+          "titel": "Gespräch",
+          "text": "Ernährung, Bewegung, Unfallverhütung, Sprachförderung, Medien, Zahngesundheit, Impfungen, Zahnarzt-Untersuchung Z6 – und bei Bedarf der Schulstart"
+        }
+      ],
+      "impfungen": "Mit 5 bis 6 Jahren ist die erste Auffrischung gegen Tetanus, Diphtherie und Keuchhusten dran – oft passend zur U9. Außerdem schaut eure Praxis, ob alles vollständig ist.",
+      "impfQuelle": {
+        "name": "STIKO-Empfehlungen 2026 (Epid. Bulletin 4/2026, RKI)",
+        "url": "https://www.rki.de/DE/Aktuelles/Publikationen/Epidemiologisches-Bulletin/2026/04_26.pdf?__blob=publicationFile&v=6"
+      },
+      "mitbringen": [
+        "Gesundheitskarte",
+        "Impfausweis",
+        "Gelbes Kinderuntersuchungsheft mit Teilnahmekarte"
+      ],
+      "beobachten": [
+        "Worauf freut sich {kind} – und was macht vielleicht Sorgen, etwa beim Schulstart?",
+        "Was malt, baut oder bastelt {kind} gern?",
+        "Wie erzählt {kind} von seinem Tag?",
+        "Wie findet {kind} Anschluss an andere Kinder?"
+      ],
+      "fragen": [
+        "Gibt es etwas, das wir vor dem Schulstart noch unterstützen können?",
+        "Ist die Auffrischimpfung jetzt dran?",
+        "Worauf sollten wir beim Schulweg achten?"
+      ]
     }
   ]
 }

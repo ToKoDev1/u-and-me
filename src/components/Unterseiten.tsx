@@ -179,7 +179,7 @@ export function Zahnarzt({ kind }: { kind: Kind }) {
     <Unterseite
       titel="Beim Zahnarzt"
       kurztitel="Zahnarzt"
-      intro="Neben den U-Untersuchungen gibt es bis zum 3. Geburtstag drei Termine in der Zahnarztpraxis. Bei gesetzlich Versicherten übernimmt die Krankenkasse sie."
+      intro="Neben den U-Untersuchungen gibt es bis zum 6. Geburtstag sechs Termine in der Zahnarztpraxis. Bei gesetzlich Versicherten übernimmt die Krankenkasse sie."
     >
       <ul className="ruhige-liste kompakt">
         {termine.map(({ termin, beginn, ende }) => (
