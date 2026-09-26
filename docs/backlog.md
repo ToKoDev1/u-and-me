@@ -63,8 +63,8 @@ Farben, Schrift, Ton und die Grundidee (Zeitring, drei Kacheln, „Heute wichtig
 - [x] 🟡 M · Etappen für die ersten 10 Tage (Gewicht, Nabel, Gelbsucht, Milcheinschuss, Heultage)
 - [x] 🟡 M · 2. Lebensjahr ergänzen (Nachahmen, Symbolspiel, Löffel/Becher, Mittagsschlaf) + Phase U6→U7 teilen
 - [x] 🟡 S · Zahnarzt Z1–Z3 als eigene Termine in die Zeitleiste + Seite `/zahnarzt` (G-BA: Z1 6.–9., Z2 10.–20., Z3 21.–33. Lebensmonat)
-- [ ] 🟡 S · Beobachtungs-Checkliste klingt wie Meilenstein-Test → „Was ist euch aufgefallen?“
-- [ ] 🟡 S · Spielideen ohne Prüf-Charakter formulieren; Altersangaben nachschärfen (Lächeln, Malen, Sortieren)
+- [x] 🟡 S · Beobachtungs-Checkliste klingt wie Meilenstein-Test → „Was ist euch aufgefallen?“ (offene Fragen statt Ja/Nein)
+- [x] 🟡 S · Spielideen ohne Prüf-Charakter formulieren; Altersangaben nachschärfen (Lächeln, Malen, Sortieren)
 - [x] 🟡 S · Entscheidung: Phasen/Warnzeichen bei Frühchen nach korrigiertem Alter
 - [x] 🟡 S · U7-Beginn prüfen (Quellen: „21.–24. Lebensmonat“ vs. „1 J 9 M“) → G-BA Kinder-Richtlinie (Stand 2026): 21.–24. Lebensmonat, also ab 20 vollendeten Monaten; so steht es schon in `untersuchungen.json`. „1 J 9 M“ ist eine Vereinfachung von kindergesundheit-info.de
 - [ ] 🔴 – · **Fachliche Durchsicht** (Hebamme/Kinderärztin) vor dem Teilen mit mehr Familien

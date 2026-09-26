@@ -169,8 +169,8 @@ function Notizbereich({ termin, kind }: { termin: UTermin; kind: Kind }) {
       {u.beobachten.length > 0 && (
         <section className="abschnitt">
           <div>
-            <h2>Das könnt ihr vorher beobachten</h2>
-            <p className="gedaempft klein">Nur als Gedächtnisstütze für euch – es gibt kein Richtig oder Falsch.</p>
+            <h2>Was ist euch aufgefallen?</h2>
+            <p className="gedaempft klein">Ein paar Gedankenstützen fürs Gespräch in der Praxis. Hakt ab, worüber ihr schon nachgedacht habt – es gibt kein Richtig oder Falsch.</p>
           </div>
           {u.beobachten.map((vorlage) => {
             const an = beobachtet.includes(vorlage);

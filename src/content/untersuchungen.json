@@ -90,9 +90,9 @@
         "Gelbes Kinderuntersuchungsheft"
       ],
       "beobachten": [
-        "Wie oft trinkt {kind} am Tag?",
-        "Wie viele nasse Windeln gibt es?",
-        "Wirkt die Haut gelblich?"
+        "Wie oft und wie lange trinkt {kind} gerade?",
+        "Wie viele nasse und volle Windeln gibt es am Tag?",
+        "Wie sieht die Haut aus – rosig oder eher gelblich?"
       ],
       "fragen": [
         "Wie lange sollen wir Vitamin D geben?",
@@ -145,8 +145,8 @@
         "Gelbes Kinderuntersuchungsheft"
       ],
       "beobachten": [
-        "Hebt {kind} in Bauchlage kurz den Kopf?",
-        "Schaut {kind} euch ins Gesicht?",
+        "Was macht {kind} gern in Bauchlage?",
+        "Wann schaut {kind} euch besonders aufmerksam an?",
         "Wie klappt das Trinken, wie die Verdauung?"
       ],
       "fragen": [
@@ -197,9 +197,9 @@
         "Gelbes Kinderuntersuchungsheft"
       ],
       "beobachten": [
-        "Lächelt {kind} euch an?",
-        "Folgt {kind} Gegenständen mit den Augen?",
-        "Reagiert {kind} auf Stimmen und Geräusche?"
+        "Worüber freut sich {kind} gerade?",
+        "Was schaut sich {kind} gern an?",
+        "Wie reagiert {kind} auf eure Stimmen und auf Geräusche?"
       ],
       "fragen": [
         "Wie geht es mit den Impfungen weiter?",
@@ -253,9 +253,9 @@
         "Gelbes Kinderuntersuchungsheft"
       ],
       "beobachten": [
-        "Dreht sich {kind} vom Rücken auf den Bauch?",
-        "Greift {kind} mit beiden Händen?",
-        "Wie reagiert {kind} auf Stimmen?"
+        "Wie bewegt sich {kind} gerade am liebsten?",
+        "Wonach greift {kind} gern?",
+        "Welche Laute macht {kind} – und wann?"
       ],
       "fragen": [
         "Wann und wie mit Beikost starten?",
@@ -310,10 +310,10 @@
         "Gelbes Kinderuntersuchungsheft mit Teilnahmekarte"
       ],
       "beobachten": [
-        "Sitzt {kind} ohne Hilfe?",
-        "Wie kommt {kind} vom Fleck – robben, krabbeln, rutschen?",
-        "Plappert {kind} Silben wie „ba-ba“?",
-        "Hebt {kind} kleine Dinge mit zwei Fingern auf?"
+        "Wie kommt {kind} gerade vom Fleck – robben, krabbeln, rutschen oder ganz anders?",
+        "Wie sitzt und spielt {kind} am liebsten?",
+        "Welche Laute und Silben hört ihr gerade?",
+        "Womit beschäftigt sich {kind} gern länger?"
       ],
       "fragen": [
         "Welche Impfungen stehen jetzt an?",
@@ -368,10 +368,10 @@
         "Gelbes Kinderuntersuchungsheft"
       ],
       "beobachten": [
-        "Welche Wörter sagt {kind} schon?",
-        "Versteht {kind} einfache Bitten wie „Hol mal den Ball“?",
-        "Läuft {kind} sicher?",
-        "Wie spielt {kind} mit anderen Kindern?"
+        "Welche Wörter und Laute nutzt {kind} gerade?",
+        "Was versteht {kind} im Alltag schon – woran merkt ihr das?",
+        "Wie bewegt sich {kind} am liebsten – drinnen und draußen?",
+        "Wie ist {kind} mit anderen Kindern?"
       ],
       "fragen": [
         "Ist die Sprachentwicklung im Rahmen?",
