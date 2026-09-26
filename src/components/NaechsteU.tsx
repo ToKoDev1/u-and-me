@@ -42,6 +42,9 @@ export function NaechsteU({ kind, notizen, onNotizen }: { kind: Kind } & NotizPr
             {termin.untersuchung.zeitraum}
           </h1>
         </div>
+        <Link to={`/u/${termin.untersuchung.id}/schritte`} className="u-schritte-knopf">
+          <span aria-hidden="true">▶</span> {termin.untersuchung.id} Schritt für Schritt
+        </Link>
       </div>
       <Zeitfenster termin={termin} kind={kind} />
       <WasPassiert termin={termin} />

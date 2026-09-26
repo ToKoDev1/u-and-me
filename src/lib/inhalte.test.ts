@@ -89,6 +89,7 @@ describe('Inhalte (JSON) sind plausibel', () => {
     for (const u of untersuchungen) {
       expect(u.passiert.length, u.id).toBeGreaterThan(0);
       expect(u.url, u.id).toMatch(/^https:\/\//);
+      expect(u.schritte.length, `${u.id}: Schritt für Schritt`).toBeGreaterThanOrEqual(3);
     }
   });
 });

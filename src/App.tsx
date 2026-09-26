@@ -6,6 +6,7 @@ import { Datenschutz } from './components/Datenschutz';
 import { NaechsteU } from './components/NaechsteU';
 import { Onboarding } from './components/Onboarding';
 import { Rahmen } from './components/Rahmen';
+import { USchritte } from './components/USchritte';
 import { Willkommen } from './components/Willkommen';
 import { Zeitreise } from './components/Zeitreise';
 import { heute } from './lib/alter';
@@ -163,6 +164,7 @@ export default function App() {
           />
         }
       />
+      <Route path="u/:id/schritte" element={<USchritte kind={kind} notizen={eintrag.notizen} />} />
       <Route path="tour" element={<Willkommen fertigText="Zur App" onFertig={() => navigate('/', { replace: true })} />} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

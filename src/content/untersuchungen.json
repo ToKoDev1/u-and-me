@@ -1,5 +1,5 @@
 {
-  "_hinweis": "Zeitfenster nach G-BA Kinder-Richtlinie. 'von'/'bis' = Alter ab Geburt (bis = exklusiv). 'passiert', 'impfungen' und 'mitbringen' (auch U7a–U9) sind aus der jeweiligen Quellseite (kindergesundheit-info.de, abgerufen am 26.09.2026) zusammengefasst. 'beobachten' und 'fragen' sind eigene Anregungen (Entwurf). {kind} wird durch den Namen bzw. 'euer Kind' ersetzt. 'impfungen' + 'impfQuelle' nach STIKO-Empfehlungen 2026 (Epid. Bulletin 4/2026), abgerufen am 26.09.2026.",
+  "_hinweis": "Zeitfenster nach G-BA Kinder-Richtlinie. 'von'/'bis' = Alter ab Geburt (bis = exklusiv). 'passiert', 'impfungen' und 'mitbringen' (auch U7a–U9) sind aus der jeweiligen Quellseite (kindergesundheit-info.de, abgerufen am 26.09.2026) zusammengefasst. 'beobachten' und 'fragen' sind eigene Anregungen (Entwurf). {kind} wird durch den Namen bzw. 'euer Kind' ersetzt. 'impfungen' + 'impfQuelle' nach STIKO-Empfehlungen 2026 (Epid. Bulletin 4/2026), abgerufen am 26.09.2026. 'schritte' = Untersuchungsschritte für „Ux Schritt für Schritt“, aus derselben Quellseite (url) zusammengefasst, abgerufen am 26.09.2026.",
   "abgerufen": "26.09.2026",
   "quelle": {
     "name": "kindergesundheit-info.de – Die Untersuchungen U1 bis U9",
@@ -46,7 +46,31 @@
       "fragen": [
         "Welche Tests stehen in den nächsten Tagen an?",
         "Wann sollten wir die U2 ausmachen?"
-      ]
+      ],
+      "schritte": [
+        {
+          "titel": "Der Apgar-Test",
+          "text": "Kurz nach der Geburt werden Hautfarbe, Herzschlag, Reflexe, Muskelspannung und Atmung eures Babys angeschaut – nach 5 und nach 10 Minuten noch einmal."
+        },
+        {
+          "titel": "Ein Tropfen aus der Nabelschnur",
+          "text": "Aus der Nabelschnur wird etwas Blut genommen. Daran sieht man, ob euer Baby während der Geburt genug Sauerstoff bekommen hat."
+        },
+        {
+          "titel": "Der erste Blick und die ersten Maße",
+          "text": "Hebamme oder Ärztin schauen, ob äußerlich alles in Ordnung ist, und messen und wiegen euer Baby."
+        },
+        {
+          "titel": "Vitamin K",
+          "text": "Euer Baby bekommt ein paar Tropfen Vitamin K. Sie beugen inneren Blutungen vor."
+        },
+        {
+          "titel": "In den nächsten Tagen",
+          "text": "Ein Hörtest, eine Blutuntersuchung auf Stoffwechselkrankheiten und Mukoviszidose und ein Test auf Herzfehler folgen in den ersten Tagen."
+        }
+      ],
+      "vorher": "Die U1 machen Hebamme oder Ärztin direkt nach der Geburt – ihr müsst nichts vorbereiten.",
+      "ohneMessen": true
     },
     {
       "id": "U2",
@@ -101,7 +125,30 @@
       "impfQuelle": {
         "name": "infektionsschutz.de – RSV-Prophylaxe bei Neugeborenen und Säuglingen",
         "url": "https://www.infektionsschutz.de/impfen/fuer-kinder-0-12-jahre/rsv-prophylaxe-bei-neugeborenen-und-saeuglingen/"
-      }
+      },
+      "schritte": [
+        {
+          "titel": "Von Kopf bis Fuß",
+          "text": "Herz, Bauch, Geschlechtsorgane, Mund, Nase, Augen, Ohren, Haut, Muskeln und Nerven – euer Baby wird gründlich untersucht."
+        },
+        {
+          "titel": "Die Neugeborenen-Tests",
+          "text": "Ein paar Tropfen Blut aus der Ferse werden auf angeborene Stoffwechselkrankheiten und Mukoviszidose untersucht. Dazu kommen ein Hörtest und die Messung des Sauerstoffs im Blut, die Herzfehler erkennen hilft."
+        },
+        {
+          "titel": "Gelbsucht im Blick",
+          "text": "Die Ärztin achtet darauf, ob eine Gelbsucht behandelt werden muss. Schaut auch selbst auf die Farbe des Stuhls – ist er auffällig hell, sprecht die Praxis an."
+        },
+        {
+          "titel": "Vitamine für Knochen und Zähne",
+          "text": "Euer Baby bekommt noch einmal Vitamin K. Außerdem wird besprochen, wie ihr ihm ab jetzt Vitamin D und Fluorid gebt."
+        },
+        {
+          "titel": "Die Hüfte",
+          "text": "Gibt es Risiken für die Hüfte, wird der Ultraschall der Hüftgelenke schon jetzt gemacht – sonst bei der U3."
+        }
+      ],
+      "vorher": "Die U2 findet meist noch in der Geburtsklinik statt. Nach einer Hausgeburt oder frühen Entlassung macht ihr selbst zeitnah einen Termin aus."
     },
     {
       "id": "U3",
@@ -156,7 +203,29 @@
       "impfQuelle": {
         "name": "STIKO-Empfehlungen 2026 (Epid. Bulletin 4/2026, RKI)",
         "url": "https://www.rki.de/DE/Aktuelles/Publikationen/Epidemiologisches-Bulletin/2026/04_26.pdf?__blob=publicationFile&v=6"
-      }
+      },
+      "schritte": [
+        {
+          "titel": "Was euer Baby schon zeigt",
+          "text": "Die Ärztin schaut, ob euer Baby in Bauchlage kurz den Kopf halten kann, die Hände öffnet und aufmerksam in Gesichter schaut."
+        },
+        {
+          "titel": "Ultraschall der Hüfte",
+          "text": "Mit Ultraschall werden die Hüftgelenke angeschaut. So werden Fehlstellungen früh erkannt und können gut behandelt werden."
+        },
+        {
+          "titel": "Gelbsucht im Blick",
+          "text": "Noch einmal wird geschaut, ob eine Gelbsucht behandelt werden muss. Ein auffällig heller Stuhl kann ein Warnzeichen sein."
+        },
+        {
+          "titel": "Die Neugeborenen-Tests",
+          "text": "Die Tests auf Stoffwechselkrankheiten und Mukoviszidose und das Hörscreening sollten jetzt abgeschlossen sein. Die Praxis schaut, ob alles im gelben Heft steht."
+        },
+        {
+          "titel": "Wie geht es euch?",
+          "text": "Auch eure Erschöpfung hat hier Platz. Wenn ihr euch überfordert fühlt, sagt es – die Praxis kennt Angebote, die entlasten."
+        }
+      ]
     },
     {
       "id": "U4",
@@ -208,7 +277,25 @@
       "impfQuelle": {
         "name": "STIKO-Empfehlungen 2026 (Epid. Bulletin 4/2026, RKI)",
         "url": "https://www.rki.de/DE/Aktuelles/Publikationen/Epidemiologisches-Bulletin/2026/04_26.pdf?__blob=publicationFile&v=6"
-      }
+      },
+      "schritte": [
+        {
+          "titel": "Bewegung",
+          "text": "Die Ärztin schaut, wie sich euer Baby bewegt und wie es sich seit der U3 entwickelt hat."
+        },
+        {
+          "titel": "Sehen und Hören",
+          "text": "Sie prüft, ob euer Baby sehen und hören kann – beides ist für die Entwicklung besonders wichtig."
+        },
+        {
+          "titel": "Die Fontanelle",
+          "text": "Die weiche Stelle am Kopf wird abgetastet. So sieht man, ob der Schädel genug Platz zum Wachsen hat."
+        },
+        {
+          "titel": "Eure Beobachtungen zählen",
+          "text": "Sprecht an, was euch beschäftigt – ob Schlafmangel, Überforderung oder eine Frage zur Entwicklung. Was ihr beobachtet, ist wertvoll."
+        }
+      ]
     },
     {
       "id": "U5",
@@ -265,7 +352,29 @@
       "impfQuelle": {
         "name": "STIKO-Empfehlungen 2026 (Epid. Bulletin 4/2026, RKI)",
         "url": "https://www.rki.de/DE/Aktuelles/Publikationen/Epidemiologisches-Bulletin/2026/04_26.pdf?__blob=publicationFile&v=6"
-      }
+      },
+      "schritte": [
+        {
+          "titel": "Bewegung",
+          "text": "Die Ärztin schaut, wie beweglich euer Baby ist und wie es seinen Körper beherrscht."
+        },
+        {
+          "titel": "Sehen",
+          "text": "Mit speziellen Tests wird geschaut, ob euer Baby gut sieht."
+        },
+        {
+          "titel": "Hören",
+          "text": "Auch das Hören wird geprüft – es ist wichtig für die Sprachentwicklung."
+        },
+        {
+          "titel": "Ihr und euer Baby",
+          "text": "Die Ärztin interessiert sich dafür, wie der Kontakt zwischen euch und eurem Baby ist."
+        },
+        {
+          "titel": "Die ersten Zähne",
+          "text": "Ihr bekommt Tipps zur Mundpflege und den Hinweis auf den ersten Zahnarzt-Termin Z1."
+        }
+      ]
     },
     {
       "id": "U6",
@@ -323,7 +432,25 @@
       "impfQuelle": {
         "name": "STIKO-Empfehlungen 2026 (Epid. Bulletin 4/2026, RKI)",
         "url": "https://www.rki.de/DE/Aktuelles/Publikationen/Epidemiologisches-Bulletin/2026/04_26.pdf?__blob=publicationFile&v=6"
-      }
+      },
+      "schritte": [
+        {
+          "titel": "Bewegung",
+          "text": "Die Ärztin schaut, wie beweglich euer Kind ist und wie es seinen Körper beherrscht."
+        },
+        {
+          "titel": "Sehen",
+          "text": "Die Augen werden untersucht, um Sehstörungen früh zu erkennen."
+        },
+        {
+          "titel": "Ihr und euer Kind",
+          "text": "Die Ärztin interessiert sich dafür, wie der Kontakt zwischen euch und eurem Kind ist."
+        },
+        {
+          "titel": "Zähne",
+          "text": "Mundpflege, Fluorid und der Zahnarzt-Termin Z2 zwischen dem 10. und 20. Lebensmonat sind Thema."
+        }
+      ]
     },
     {
       "id": "U7",
@@ -381,7 +508,25 @@
       "impfQuelle": {
         "name": "STIKO-Empfehlungen 2026 (Epid. Bulletin 4/2026, RKI)",
         "url": "https://www.rki.de/DE/Aktuelles/Publikationen/Epidemiologisches-Bulletin/2026/04_26.pdf?__blob=publicationFile&v=6"
-      }
+      },
+      "schritte": [
+        {
+          "titel": "Körper",
+          "text": "Euer Kind wird körperlich untersucht – wie hat es sich seit der letzten U entwickelt?"
+        },
+        {
+          "titel": "Sehen",
+          "text": "Die Augen werden untersucht, um Sehstörungen früh zu erkennen."
+        },
+        {
+          "titel": "Sprache verstehen",
+          "text": "Die Ärztin schaut, ob euer Kind einfache Wörter und Sätze versteht."
+        },
+        {
+          "titel": "Spielen und Miteinander",
+          "text": "Ihr werdet gefragt, wie euer Kind spielt – allein, in der Familie, mit anderen Kindern – und wie der Kontakt zwischen euch ist."
+        }
+      ]
     },
     {
       "id": "U7a",
@@ -439,6 +584,24 @@
         "Wie können wir die Sprache gut begleiten?",
         "Wie viel Bildschirmzeit ist in diesem Alter in Ordnung?",
         "Sind alle Impfungen vollständig?"
+      ],
+      "schritte": [
+        {
+          "titel": "Körper",
+          "text": "Euer Kind wird körperlich untersucht. Die Ärztin achtet darauf, ob es Auffälligkeiten in der Entwicklung gibt."
+        },
+        {
+          "titel": "Sehtest",
+          "text": "Mit einem Sehtest werden Sehstörungen früh erkannt."
+        },
+        {
+          "titel": "Zähne und Kiefer",
+          "text": "Wie sind die Zähne beschaffen, wie entwickelt sich der Kiefer?"
+        },
+        {
+          "titel": "Sprache",
+          "text": "Die Sprachentwicklung bekommt bei der U7a besondere Aufmerksamkeit."
+        }
       ]
     },
     {
@@ -497,6 +660,24 @@
         "Hört und sieht unser Kind gut?",
         "Wie gehen wir mit Ängsten in diesem Alter um?",
         "Worauf sollten wir bei Medien achten?"
+      ],
+      "schritte": [
+        {
+          "titel": "Von Kopf bis Fuß",
+          "text": "Euer Kind wird gründlich untersucht, auch Zähne und Kiefer."
+        },
+        {
+          "titel": "Bewegung und Geschick",
+          "text": "Die Ärztin schaut, wie beweglich und geschickt euer Kind ist."
+        },
+        {
+          "titel": "Sehen und Hören",
+          "text": "Es gibt einen Sehtest und einen Hörtest."
+        },
+        {
+          "titel": "Sprache und Spielen",
+          "text": "Die Ärztin hört, wie euer Kind spricht, und fragt, wie es spielt – allein, in der Familie, in der Gruppe."
+        }
       ]
     },
     {
@@ -555,6 +736,24 @@
         "Gibt es etwas, das wir vor dem Schulstart noch unterstützen können?",
         "Ist die Auffrischimpfung jetzt dran?",
         "Worauf sollten wir beim Schulweg achten?"
+      ],
+      "schritte": [
+        {
+          "titel": "Körper und Haltung",
+          "text": "Euer Kind wird körperlich untersucht – auch Haltung, Beweglichkeit und Geschicklichkeit."
+        },
+        {
+          "titel": "Sehtest",
+          "text": "Mit einem Sehtest werden Sehstörungen früh erkannt."
+        },
+        {
+          "titel": "Sprache",
+          "text": "Die Sprachentwicklung ist ein Schwerpunkt der U9."
+        },
+        {
+          "titel": "Was euer Kind bewegt",
+          "text": "Die Ärztin interessiert sich dafür, was euer Kind gern macht, was ihm Freude macht – und wovor es vielleicht Angst hat."
+        }
       ]
     }
   ],

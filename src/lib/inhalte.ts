@@ -4,6 +4,7 @@ import etappenDaten from '../content/etappen.json';
 import untersuchungenDaten from '../content/untersuchungen.json';
 import maskottchenDaten from '../content/maskottchen.json';
 import zahnarztDaten from '../content/zahnarzt.json';
+import uSchritteDaten from '../content/u-schritte.json';
 import { datumBeiAlter, imZeitfenster, type Alter } from './alter';
 import type { Kind } from './kind';
 
@@ -55,6 +56,12 @@ export type Untersuchung = {
   /** eigene Anregungen (Entwurf); {kind} = Name bzw. „euer Kind“ */
   beobachten: string[];
   fragen: string[];
+  /** Untersuchungsschritte für „Ux Schritt für Schritt“ */
+  schritte: { titel: string; text: string }[];
+  /** ersetzt den allgemeinen Vorbereitungs-Tipp (U1: nichts vorzubereiten, U2: meist in der Klinik) */
+  vorher?: string;
+  /** Messen und Wiegen steckt schon in den Schritten (U1) */
+  ohneMessen?: boolean;
 };
 export type MaskottchenId = 'loewe' | 'hund' | 'pinguin' | 'elefant';
 export type Maskottchen = { id: MaskottchenId; name: string; geschichte: string };
@@ -66,6 +73,9 @@ export const untersuchungen = untersuchungenDaten.untersuchungen as Untersuchung
 /** Bis wann U & Me begleitet: Ende des Zeitfensters der letzten U in untersuchungen.json */
 export const begleitetBis: Alter = untersuchungen.at(-1)!.bis;
 export const letzteUntersuchung = untersuchungen.at(-1)!;
+/** Allgemeine Schritte für „Ux Schritt für Schritt“ (Vorher, Messen, Gespräch, Impfung, Danach) */
+export const uSchritte = uSchritteDaten;
+
 /** Was nach der letzten U kommt (J1, Zusatz-Untersuchungen) */
 export const danach = untersuchungenDaten.danach;
 export const untersuchungenAbgerufen: string = untersuchungenDaten.abgerufen;

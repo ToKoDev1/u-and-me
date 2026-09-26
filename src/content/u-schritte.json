@@ -1,0 +1,51 @@
+{
+  "_hinweis": "Allgemeine Schritte für „Ux Schritt für Schritt“. „baby“ gilt bis zur U6, „kind“ ab der U7. Quellen je Schritt, abgerufen am 26.09.2026.",
+  "vorher": {
+    "titel": "Vorher",
+    "baby": {
+      "text": "Im gelben Heft steht zu jeder U, was untersucht und besprochen wird. Schreibt euch eure Fragen vorher auf – das geht bei jeder U hier in der App.",
+      "quelle": {
+        "name": "kindergesundheit-info.de – Elterninfos zu den Früherkennungsuntersuchungen",
+        "url": "https://www.kindergesundheit-info.de/fachkraefte/kindergesundheit-in-der-kita/u-untersuchungen/elterninformationen/"
+      }
+    },
+    "kind": {
+      "text": "Erzählt eurem Kind, was ungefähr passieren wird – zum Beispiel mit einem Bilderbuch oder indem ihr mit dem Kuscheltier Arzt spielt. Versprecht nichts, was nicht stimmt, aber: Ihr bleibt die ganze Zeit dabei.",
+      "quelle": {
+        "name": "kindergesundheit-info.de – Keine Angst vor dem Arztbesuch",
+        "url": "https://www.kindergesundheit-info.de/themen/krankes-kind/im-krankheitsfall/arztbesuch/"
+      }
+    },
+    "mitbringenTitel": "Mitbringen"
+  },
+  "messen": {
+    "titel": "Messen und Wiegen",
+    "text": "Euer Kind wird gemessen und gewogen. Die Werte und alle Ergebnisse trägt die Praxis ins gelbe Heft ein."
+  },
+  "gespraech": {
+    "titel": "Euer Gespräch",
+    "text": "Jetzt ist Zeit für eure Fragen. Besprochen wird meist:",
+    "eigeneTitel": "Eure Fragen und Gedanken",
+    "leer": "Noch keine eigenen Fragen notiert – auf der Seite der U könnt ihr welche aufschreiben."
+  },
+  "impfung": {
+    "titel": "Impfungen",
+    "baby": {
+      "text": "Haltet euer Baby aufrecht auf dem Arm oder Schoß. Stillen oder ein Schnuller kurz vor oder direkt nach dem Piks lindert den Schmerz. Umarmen, streicheln, ein vertrautes Lied – eure Stimme gibt Geborgenheit.",
+      "rotaviren": "Bei der Schluckimpfung gegen Rotaviren: eine Stunde vorher bis eine Stunde nachher möglichst nicht stillen."
+    },
+    "kind": {
+      "text": "Haltet euer Kind aufrecht auf dem Schoß. Sagt ehrlich, dass es kurz piksen kann, bleibt ganz nah und tröstet danach mit Umarmen und ruhigen Worten."
+    },
+    "quelle": {
+      "name": "impfen-info.de – Stress- und schmerzarmes Impfen",
+      "url": "https://www.impfen-info.de/wissenswertes/stress-und-schmerzarmes-impfen/"
+    }
+  },
+  "danach": {
+    "titel": "Geschafft",
+    "text": "Schaut kurz ins gelbe Heft, ob die U eingetragen ist.",
+    "naechste": "Als Nächstes kommt die",
+    "letzte": "Das war die letzte U-Untersuchung – schön, dass ihr dabei wart."
+  }
+}
