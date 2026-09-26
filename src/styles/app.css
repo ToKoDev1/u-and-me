@@ -283,10 +283,11 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 
 /* ---------- Zeitreise (Test-Werkzeug) ---------- */
 .zeitreise {
-  position: relative;
-  margin: 12px 12px 0; padding: 12px 14px; display: flex; flex-direction: column; gap: 8px;
-  background: var(--farbe-hinweis); border: 2px dashed var(--farbe-akzent); border-radius: var(--radius-s);
-  box-shadow: var(--schatten-weich); font-size: 14px;
+  /* Band über die volle Breite, Inhalt bündig mit der Seite */
+  position: relative; width: 100%;
+  margin: 12px 0 0; padding: 12px 20px 10px; display: flex; flex-direction: column; gap: 8px;
+  background: var(--farbe-hinweis); border-top: 1px solid var(--farbe-linie); border-bottom: 1px solid var(--farbe-linie);
+  font-size: 14px;
 }
 .zeitreise-kopf { display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; }
 .zeitreise-kopf > span { flex: 1; color: var(--farbe-text-gedaempft); }
@@ -316,5 +317,5 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
   .zeitring-grafik { width: 280px; height: 280px; }
   .zeitring-tier { height: 180px; width: 180px; }
   .onboarding { padding-top: 24px; }
-  .zeitreise { max-width: calc(var(--inhalt-max) - 80px); margin: 16px auto 0; }
+  .zeitreise { margin-top: 16px; padding-inline: max(40px, calc((100% - var(--inhalt-max)) / 2 + 40px)); }
 }
