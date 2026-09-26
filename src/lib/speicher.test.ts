@@ -3,11 +3,21 @@ import {
   allesLoeschen,
   alsNotizen,
   alsProfil,
+  aktivesKind,
+  datenLaden,
+  datenSpeichern,
   istIsoDatum,
-  notizenLaden,
-  profilLaden,
+  kindEntfernen,
+  kindHinzufuegen,
+  kindWaehlen,
+  leereDaten,
+  notizenSetzen,
+  sicherungErstellen,
   sicherungLesen,
 } from './speicher';
+
+const hund = { maskottchen: 'hund' as const, geburtsdatum: '2026-01-02' };
+const loewe = { maskottchen: 'loewe' as const, geburtsdatum: '2024-05-06', name: 'Ben' };
 
 // Einfacher localStorage-Ersatz für die Tests
 function speicherAttrappe() {
@@ -58,16 +68,21 @@ describe('alsProfil', () => {
 });
 
 describe('Laden aus dem Speicher', () => {
-  it('liefert bei kaputten Daten kein Profil statt abzustürzen', () => {
-    localStorage.setItem('u-and-me:profil', '{kaputt');
-    expect(profilLaden()).toBeNull();
-    localStorage.setItem('u-and-me:profil', '{"maskottchen":"loewe"}');
-    expect(profilLaden()).toBeNull();
+  it('liefert bei kaputten Daten leere Daten statt abzustürzen', () => {
+    localStorage.setItem('u-and-me:daten', '{kaputt');
+    expect(datenLaden().kinder).toEqual([]);
+    localStorage.setItem('u-and-me:daten', '{"version":2,"kinder":[{"profil":{"maskottchen":"loewe"}}]}');
+    expect(datenLaden().kinder).toEqual([]);
+  });
+
+  it('behält gültige Kinder, auch wenn ein anderes kaputt ist', () => {
+    localStorage.setItem('u-and-me:daten', JSON.stringify({ version: 2, kinder: [{ id: 'a', profil: hund }, { id: 'b', profil: 'kaputt' }], aktiv: 'b' }));
+    const daten = datenLaden();
+    expect(daten.kinder.map((k) => k.id)).toEqual(['a']);
+    expect(daten.aktiv).toBe('a'); // aktives Kind gab es nicht mehr → das erste
   });
 
   it('liefert immer vollständige Notizen', () => {
-    localStorage.setItem('u-and-me:notizen', '{}');
-    expect(notizenLaden()).toEqual({ beobachtet: {}, eigeneFragen: {} });
     expect(alsNotizen({ beobachtet: { U5: ['a', 3] }, eigeneFragen: 'x' })).toEqual({ beobachtet: { U5: ['a'] }, eigeneFragen: {} });
   });
 
@@ -80,11 +95,61 @@ describe('Laden aus dem Speicher', () => {
   });
 });
 
-describe('sicherungLesen', () => {
-  it('liest gültige Sicherungen und lehnt fremde Dateien ab', () => {
-    const gut = JSON.stringify({ app: 'u-and-me', version: 1, profil: { maskottchen: 'hund', geburtsdatum: '2026-01-02' }, notizen: {} });
-    expect(sicherungLesen(gut)?.profil.maskottchen).toBe('hund');
+describe('Migration von Version 1', () => {
+  it('übernimmt Profil und Notizen als erstes Kind und räumt die alten Schlüssel auf', () => {
+    localStorage.setItem('u-and-me:profil', JSON.stringify(loewe));
+    localStorage.setItem('u-and-me:notizen', JSON.stringify({ beobachtet: { U7: ['x'] }, eigeneFragen: { U7: ['Zähne?'] } }));
+    const daten = datenLaden();
+    expect(daten.kinder).toHaveLength(1);
+    expect(aktivesKind(daten)?.profil.name).toBe('Ben');
+    expect(aktivesKind(daten)?.notizen.eigeneFragen.U7).toEqual(['Zähne?']);
+    expect(localStorage.getItem('u-and-me:profil')).toBeNull();
+    expect(localStorage.getItem('u-and-me:notizen')).toBeNull();
+    // beim nächsten Laden kommt dasselbe Kind aus dem neuen Format
+    expect(datenLaden().kinder[0].id).toBe(daten.kinder[0].id);
+  });
+
+  it('startet ohne alte Daten leer', () => {
+    expect(datenLaden()).toEqual(leereDaten());
+  });
+});
+
+describe('mehrere Kinder', () => {
+  it('hinzufügen, wählen, Notizen pro Kind, entfernen', () => {
+    let d = kindHinzufuegen(leereDaten(), hund);
+    const erstes = d.aktiv!;
+    d = kindHinzufuegen(d, loewe);
+    const zweites = d.aktiv!;
+    expect(d.kinder).toHaveLength(2);
+    expect(aktivesKind(d)?.profil.maskottchen).toBe('loewe'); // neues Kind wird gleich gezeigt
+
+    d = notizenSetzen(d, zweites, { beobachtet: {}, eigeneFragen: { U7: ['nur Ben'] } });
+    d = kindWaehlen(d, erstes);
+    expect(aktivesKind(d)?.notizen.eigeneFragen).toEqual({}); // Notizen gehören zum Kind
+
+    d = kindEntfernen(d, erstes);
+    expect(d.kinder.map((k) => k.id)).toEqual([zweites]);
+    expect(d.aktiv).toBe(zweites);
+  });
+
+  it('wird gespeichert und wieder geladen', () => {
+    const d = kindHinzufuegen(kindHinzufuegen(leereDaten(), hund), loewe);
+    datenSpeichern(d);
+    expect(datenLaden()).toEqual(d);
+  });
+});
+
+describe('Sicherung', () => {
+  it('liest Sicherungen aus Version 1 und 2 und lehnt fremde Dateien ab', () => {
+    const v1 = JSON.stringify({ app: 'u-and-me', version: 1, profil: hund, notizen: {} });
+    expect(aktivesKind(sicherungLesen(v1)!)?.profil.maskottchen).toBe('hund');
+
+    const d = kindHinzufuegen(kindHinzufuegen(leereDaten(), hund), loewe);
+    const v2 = JSON.stringify(sicherungErstellen(d));
+    expect(sicherungLesen(v2)).toEqual(d);
+
     expect(sicherungLesen('{"app":"andere"}')).toBeNull();
     expect(sicherungLesen('kein json')).toBeNull();
+    expect(sicherungErstellen(leereDaten())).toBeNull();
   });
 });

@@ -11,13 +11,15 @@ import {
 } from '../lib/inhalte';
 import type { Kind } from '../lib/kind';
 import { uKalenderHerunterladen } from '../lib/kalender';
-import { notizenLaden, notizenSpeichern, type Notizen } from '../lib/speicher';
+import type { Notizen } from '../lib/speicher';
 import { Datumskacheln } from './Datumskacheln';
 import { Symbol } from './Symbol';
 import { useSeitentitel } from '../lib/seite';
 
 /** Detailseite einer U – ohne Parameter die nächste U, unter /u/U3 eine bestimmte */
-export function NaechsteU({ kind }: { kind: Kind }) {
+type NotizProps = { notizen: Notizen; onNotizen: (neu: Notizen) => void };
+
+export function NaechsteU({ kind, notizen, onNotizen }: { kind: Kind } & NotizProps) {
   const { id } = useParams();
   const naechste = naechsteUntersuchung(kind);
   const gewaehlt = id ? uTermin(kind, id.toUpperCase()) : undefined;
@@ -44,7 +46,7 @@ export function NaechsteU({ kind }: { kind: Kind }) {
       <Zeitfenster termin={termin} kind={kind} />
       <WasPassiert termin={termin} />
       {/* key: Zustand beim Wechsel der U neu laden */}
-      <Notizbereich key={termin.untersuchung.id} termin={termin} kind={kind} />
+      <Notizbereich key={termin.untersuchung.id} termin={termin} kind={kind} notizen={notizen} onNotizen={onNotizen} />
     </div>
   );
 }
@@ -127,9 +129,8 @@ function WasPassiert({ termin }: { termin: UTermin }) {
 }
 
 /** Checkliste und Fragen – beides nur lokal gespeichert */
-function Notizbereich({ termin, kind }: { termin: UTermin; kind: Kind }) {
+function Notizbereich({ termin, kind, notizen, onNotizen }: { termin: UTermin; kind: Kind } & NotizProps) {
   const u = termin.untersuchung;
-  const [notizen, setNotizen] = useState<Notizen>(notizenLaden);
   const [neueFrage, setNeueFrage] = useState('');
   const [eingabeOffen, setEingabeOffen] = useState(false);
 
@@ -137,8 +138,7 @@ function Notizbereich({ termin, kind }: { termin: UTermin; kind: Kind }) {
   const eigene = notizen.eigeneFragen[u.id] ?? [];
 
   function aendern(neu: Notizen) {
-    setNotizen(neu);
-    notizenSpeichern(neu);
+    onNotizen(neu);
   }
 
   function umschalten(text: string) {

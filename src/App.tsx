@@ -11,7 +11,21 @@ import { Zeitreise } from './components/Zeitreise';
 import { heute } from './lib/alter';
 import { akzentSetzen } from './lib/darstellung';
 import { kindAus } from './lib/kind';
-import { alsProfil, profilLaden, profilSpeichern, tourGesehen, tourMerken, type Profil } from './lib/speicher';
+import {
+  aktivesKind,
+  alsProfil,
+  datenLaden,
+  datenSpeichern,
+  kindAendern,
+  kindHinzufuegen,
+  leereDaten,
+  notizenSetzen,
+  tourGesehen,
+  tourMerken,
+  type Daten,
+  type Notizen,
+  type Profil,
+} from './lib/speicher';
 
 const url = new URLSearchParams(window.location.search);
 
@@ -26,7 +40,9 @@ const demoProfil: Profil | null = demo
 const zeitreiseVerfuegbar = import.meta.env.DEV || url.has('zeitreise');
 
 export default function App() {
-  const [profil, setProfil] = useState<Profil | null>(() => demoProfil ?? profilLaden());
+  const [daten, setDaten] = useState<Daten>(() => (demoProfil ? kindHinzufuegen(leereDaten(), demoProfil) : datenLaden()));
+  const eintrag = aktivesKind(daten);
+  const profil = eintrag?.profil ?? null;
   const [tourVorbei, setTourVorbei] = useState(tourGesehen);
   const [zeitreiseAn, setZeitreiseAn] = useState(url.has('zeitreise'));
   const [simuliert, setSimuliert] = useState<Date | null>(null);
@@ -35,11 +51,19 @@ export default function App() {
   // Persönlicher Akzent nach gewähltem Maskottchen
   useEffect(() => akzentSetzen(profil?.maskottchen), [profil]);
 
+  /** Neuen Stand übernehmen und speichern (im Demo-Modus nur im Speicher der Seite) */
+  function aendern(neu: Daten) {
+    setDaten(neu);
+    if (!demoProfil) datenSpeichern(neu);
+  }
+
+  /** Angaben aus dem Formular: neues Kind anlegen oder das aktive Kind ändern */
   function speichern(neu: Profil) {
-    profilSpeichern(neu);
-    setProfil(neu);
+    aendern(eintrag ? kindAendern(daten, eintrag.id, neu) : kindHinzufuegen(daten, neu));
     navigate('/', { replace: true }); // Zurück-Knopf führt nicht wieder ins Formular
   }
+
+  const notizenAendern = (notizen: Notizen) => eintrag && aendern(notizenSetzen(daten, eintrag.id, notizen));
 
   // Erstes Öffnen: erst die Welcome-Tour, dann die Angaben zum Kind
   if (!profil && !tourVorbei) {
@@ -53,7 +77,7 @@ export default function App() {
       />
     );
   }
-  if (!profil) return <Onboarding onFertig={speichern} />;
+  if (!profil || !eintrag) return <Onboarding onFertig={speichern} />;
 
   const echtesHeute = heute();
   const kind = kindAus(profil, zeitreiseAn && simuliert ? simuliert : echtesHeute);
@@ -85,8 +109,8 @@ export default function App() {
         <Route path="entwicklung" element={<Entwicklung kind={kind} />} />
         <Route path="spielen" element={<Spielen kind={kind} />} />
         <Route path="zahnarzt" element={<Zahnarzt kind={kind} />} />
-        <Route path="naechste-u" element={<NaechsteU kind={kind} />} />
-        <Route path="u/:id" element={<NaechsteU kind={kind} />} />
+        <Route path="naechste-u" element={<NaechsteU kind={kind} notizen={eintrag.notizen} onNotizen={notizenAendern} />} />
+        <Route path="u/:id" element={<NaechsteU kind={kind} notizen={eintrag.notizen} onNotizen={notizenAendern} />} />
         <Route path="datenschutz" element={<Datenschutz />} />
       </Route>
       <Route

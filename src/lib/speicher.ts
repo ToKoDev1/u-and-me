@@ -16,9 +16,17 @@ export type Notizen = {
   eigeneFragen: Record<string, string[]>;
 };
 
+/** Ein Kind mit seinen Angaben und Notizen */
+export type KindEintrag = { id: string; profil: Profil; notizen: Notizen };
+
+/** Alles, was U & Me speichert (Version 2: mehrere Kinder) */
+export type Daten = { version: 2; kinder: KindEintrag[]; aktiv: string | null };
+
 export const PRAEFIX = 'u-and-me:';
-const PROFIL = `${PRAEFIX}profil`;
-const NOTIZEN = `${PRAEFIX}notizen`;
+const DATEN = `${PRAEFIX}daten`;
+// Version 1 (ein Kind, zwei Schlüssel) – wird beim ersten Laden übernommen
+const ALT_PROFIL = `${PRAEFIX}profil`;
+const ALT_NOTIZEN = `${PRAEFIX}notizen`;
 const MASKOTTCHEN: readonly MaskottchenId[] = ['elefant', 'loewe', 'pinguin', 'hund'];
 
 function lesen(schluessel: string): unknown {
@@ -27,6 +35,14 @@ function lesen(schluessel: string): unknown {
     return roh ? JSON.parse(roh) : null;
   } catch {
     return null; // privater Modus, blockierter Speicher oder kaputtes JSON
+  }
+}
+
+function entfernen(schluessel: string): void {
+  try {
+    localStorage.removeItem(schluessel);
+  } catch {
+    // egal
   }
 }
 
@@ -81,11 +97,69 @@ export function alsNotizen(wert: unknown): Notizen {
 
 // ---- Öffentliche Funktionen ------------------------------------------------------
 
-export const profilLaden = (): Profil | null => alsProfil(lesen(PROFIL));
-export const profilSpeichern = (profil: Profil) => schreiben(PROFIL, profil);
+export const leereNotizen = (): Notizen => ({ beobachtet: {}, eigeneFragen: {} });
+export const leereDaten = (): Daten => ({ version: 2, kinder: [], aktiv: null });
 
-export const notizenLaden = (): Notizen => alsNotizen(lesen(NOTIZEN));
-export const notizenSpeichern = (notizen: Notizen) => schreiben(NOTIZEN, notizen);
+const neueId = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
+
+export function alsDaten(wert: unknown): Daten | null {
+  if (!istObjekt(wert) || wert.version !== 2 || !Array.isArray(wert.kinder)) return null;
+  const kinder: KindEintrag[] = [];
+  for (const k of wert.kinder) {
+    if (!istObjekt(k)) continue;
+    const profil = alsProfil(k.profil);
+    if (!profil) continue; // unbrauchbares Kind überspringen, die anderen behalten
+    const id = typeof k.id === 'string' && k.id && !kinder.some((x) => x.id === k.id) ? k.id : neueId();
+    kinder.push({ id, profil, notizen: alsNotizen(k.notizen) });
+  }
+  const aktiv = kinder.find((k) => k.id === wert.aktiv)?.id ?? kinder[0]?.id ?? null;
+  return { version: 2, kinder, aktiv };
+}
+
+export const datenSpeichern = (daten: Daten) => schreiben(DATEN, daten);
+
+/** Lädt die Daten – und übernimmt beim ersten Mal die alten Daten aus Version 1 */
+export function datenLaden(): Daten {
+  const daten = alsDaten(lesen(DATEN));
+  if (daten) return daten;
+  const altesProfil = alsProfil(lesen(ALT_PROFIL));
+  if (!altesProfil) return leereDaten();
+  const migriert = kindHinzufuegen(leereDaten(), altesProfil, alsNotizen(lesen(ALT_NOTIZEN)));
+  // Alte Schlüssel erst löschen, wenn das neue Format sicher gespeichert ist
+  if (datenSpeichern(migriert)) {
+    entfernen(ALT_PROFIL);
+    entfernen(ALT_NOTIZEN);
+  }
+  return migriert;
+}
+
+// Kleine Helfer: geben jeweils einen neuen Stand zurück, statt den alten zu verändern
+
+export const aktivesKind = (daten: Daten): KindEintrag | null =>
+  daten.kinder.find((k) => k.id === daten.aktiv) ?? null;
+
+export function kindHinzufuegen(daten: Daten, profil: Profil, notizen: Notizen = leereNotizen()): Daten {
+  const id = neueId();
+  return { ...daten, kinder: [...daten.kinder, { id, profil, notizen }], aktiv: id };
+}
+
+export const kindAendern = (daten: Daten, id: string, profil: Profil): Daten => ({
+  ...daten,
+  kinder: daten.kinder.map((k) => (k.id === id ? { ...k, profil } : k)),
+});
+
+export const kindWaehlen = (daten: Daten, id: string): Daten =>
+  daten.kinder.some((k) => k.id === id) ? { ...daten, aktiv: id } : daten;
+
+export function kindEntfernen(daten: Daten, id: string): Daten {
+  const kinder = daten.kinder.filter((k) => k.id !== id);
+  return { ...daten, kinder, aktiv: daten.aktiv === id ? (kinder[0]?.id ?? null) : daten.aktiv };
+}
+
+export const notizenSetzen = (daten: Daten, id: string, notizen: Notizen): Daten => ({
+  ...daten,
+  kinder: daten.kinder.map((k) => (k.id === id ? { ...k, notizen } : k)),
+});
 
 /** Darf der Browser speichern? (Nein z. B. bei blockierten Website-Daten) */
 export function speicherVerfuegbar(): boolean {
@@ -112,29 +186,31 @@ export function allesLoeschen(): void {
 
 // ---- Sicherung (Export/Import) -----------------------------------------------------
 
-export type Sicherung = { app: 'u-and-me'; version: 1; erstellt: string; profil: Profil; notizen: Notizen };
+export type Sicherung = { app: 'u-and-me'; version: 2; erstellt: string; daten: Daten };
 
-export function sicherungErstellen(): Sicherung | null {
-  const profil = profilLaden();
-  if (!profil) return null;
-  return { app: 'u-and-me', version: 1, erstellt: new Date().toISOString(), profil, notizen: notizenLaden() };
+export function sicherungErstellen(daten: Daten): Sicherung | null {
+  if (daten.kinder.length === 0) return null;
+  return { app: 'u-and-me', version: 2, erstellt: new Date().toISOString(), daten };
 }
 
-/** Prüft eine Sicherungsdatei; gibt die Daten zurück oder null, wenn sie nicht passt */
-export function sicherungLesen(text: string): { profil: Profil; notizen: Notizen } | null {
+/** Prüft eine Sicherungsdatei (Version 1 oder 2); gibt die Daten zurück oder null, wenn sie nicht passt */
+export function sicherungLesen(text: string): Daten | null {
   try {
-    const daten: unknown = JSON.parse(text);
-    if (!istObjekt(daten) || daten.app !== 'u-and-me') return null;
-    const profil = alsProfil(daten.profil);
-    return profil ? { profil, notizen: alsNotizen(daten.notizen) } : null;
+    const datei: unknown = JSON.parse(text);
+    if (!istObjekt(datei) || datei.app !== 'u-and-me') return null;
+    if (datei.version === 2) {
+      const daten = alsDaten(datei.daten);
+      return daten && daten.kinder.length > 0 ? daten : null;
+    }
+    // Version 1: ein Kind
+    const profil = alsProfil(datei.profil);
+    return profil ? kindHinzufuegen(leereDaten(), profil, alsNotizen(datei.notizen)) : null;
   } catch {
     return null;
   }
 }
 
-export function sicherungEinspielen(daten: { profil: Profil; notizen: Notizen }): boolean {
-  return profilSpeichern(daten.profil) && notizenSpeichern(daten.notizen);
-}
+export const sicherungEinspielen = (daten: Daten): boolean => datenSpeichern(daten);
 
 // ---- Welcome-Tour ------------------------------------------------------------
 

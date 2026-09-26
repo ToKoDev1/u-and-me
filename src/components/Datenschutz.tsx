@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useSeitentitel } from '../lib/seite';
 import {
   allesLoeschen,
+  datenLaden,
   sicherungEinspielen,
   sicherungErstellen,
   sicherungLesen,
@@ -17,7 +18,7 @@ export function Datenschutz() {
   const dateiFeld = useRef<HTMLInputElement>(null);
 
   function exportieren() {
-    const sicherung = sicherungErstellen();
+    const sicherung = sicherungErstellen(datenLaden());
     if (!sicherung) return setMeldung('Es sind noch keine Angaben gespeichert.');
     const blob = new Blob([JSON.stringify(sicherung, null, 2)], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
