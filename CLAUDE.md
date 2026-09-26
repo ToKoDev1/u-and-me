@@ -35,4 +35,5 @@ Web-App, die Eltern zwischen den U-Untersuchungen (U1–U7, 0–2 Jahre) begleit
 - Code: https://github.com/ToKoDev1/u-and-me (öffentlich)
 - Veröffentlichen per `npm run veroeffentlichen` (baut und lädt `dist` hoch). Vorher committen und `git push`.
 - Nur auf ausdrücklichen Wunsch veröffentlichen – die Seite ist für Freunde erreichbar.
+- Nach jedem Veröffentlichen den Live-Link nennen.
 - Entwicklungs-Helfer (nur lokal): `?demo=tier,YYYY-MM-DD,Name`, `?zeitreise`, `?neu`, `?darstellung=dunkel`
