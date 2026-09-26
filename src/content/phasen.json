@@ -201,7 +201,8 @@
         {
           "bereich": "miteinander",
           "titel": "Mithelfen im Alltag",
-          "text": "Lappen zum Wischen, Wäsche in die Trommel, Löffel in die Schublade: Kinder lieben es, nachzumachen."
+          "text": "Lappen zum Wischen, Wäsche in die Trommel, Löffel in die Schublade: Kinder lieben es, nachzumachen.",
+          "hinweis": "Waschmaschine und Trockner immer geschlossen halten, wenn ihr nicht direkt daneben seid."
         },
         {
           "bereich": "sprache",
@@ -211,7 +212,8 @@
         {
           "bereich": "bewegung",
           "titel": "Etwas zum Schieben",
-          "text": "Ein stabiler Karton oder ein Lauflernwagen gibt Halt bei den ersten Schritten."
+          "text": "Ein stabiler Karton oder ein standfester Schiebewagen zum Spielen gibt Halt bei den ersten Schritten.",
+          "hinweis": "Keine Lauflernhilfe zum Hineinsetzen („Gehfrei“) – Kinderärzt:innen raten wegen Unfallgefahr davon ab."
         }
       ]
     },
