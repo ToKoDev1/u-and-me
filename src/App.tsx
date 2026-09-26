@@ -17,7 +17,9 @@ import {
   datenLaden,
   datenSpeichern,
   kindAendern,
+  kindEntfernen,
   kindHinzufuegen,
+  kindWaehlen,
   leereDaten,
   notizenSetzen,
   tourGesehen,
@@ -57,11 +59,33 @@ export default function App() {
     if (!demoProfil) datenSpeichern(neu);
   }
 
-  /** Angaben aus dem Formular: neues Kind anlegen oder das aktive Kind ändern */
+  const zurStartseite = () => navigate('/', { replace: true }); // Zurück-Knopf führt nicht wieder ins Formular
+
+  /** Angaben aus dem Formular: aktives Kind ändern – oder das erste Kind anlegen */
   function speichern(neu: Profil) {
     aendern(eintrag ? kindAendern(daten, eintrag.id, neu) : kindHinzufuegen(daten, neu));
-    navigate('/', { replace: true }); // Zurück-Knopf führt nicht wieder ins Formular
+    zurStartseite();
   }
+
+  function kindNeu(neu: Profil) {
+    aendern(kindHinzufuegen(daten, neu));
+    zurStartseite();
+  }
+
+  function entfernen() {
+    if (!eintrag) return;
+    const name = eintrag.profil.name ?? 'dieses Kind';
+    if (!window.confirm(`Alle Angaben, Notizen und Fragen zu ${name} auf diesem Gerät löschen?`)) return;
+    aendern(kindEntfernen(daten, eintrag.id));
+    zurStartseite();
+  }
+
+  function waehlen(id: string) {
+    aendern(kindWaehlen(daten, id));
+    navigate('/'); // nach dem Wechsel auf die Startseite des Kindes
+  }
+
+  const mehrereKinder = daten.kinder.length > 1;
 
   const notizenAendern = (notizen: Notizen) => eintrag && aendern(notizenSetzen(daten, eintrag.id, notizen));
 
@@ -99,6 +123,8 @@ export default function App() {
         element={
           <Rahmen
             profil={profil}
+            daten={daten}
+            onKindWaehlen={waehlen}
             oben={zeitreise}
             onZeitreise={zeitreiseVerfuegbar && !zeitreiseAn ? () => setZeitreiseAn(true) : undefined}
           />
@@ -117,9 +143,23 @@ export default function App() {
         path="angaben"
         element={
           <Onboarding
+            key={eintrag.id}
             vorher={profil}
             onFertig={speichern}
-            onAbbrechen={() => navigate('/', { replace: true })}
+            onAbbrechen={zurStartseite}
+            nameNoetig={mehrereKinder}
+            onEntfernen={mehrereKinder ? entfernen : undefined}
+          />
+        }
+      />
+      <Route
+        path="kind-neu"
+        element={
+          <Onboarding
+            onFertig={kindNeu}
+            onAbbrechen={zurStartseite}
+            nameNoetig
+            akzentDanach={profil.maskottchen}
           />
         }
       />

@@ -48,7 +48,7 @@ img { display: block; }
 
 /* ---------- Avatar ---------- */
 .avatar {
-  flex: none; border-radius: 50%;
+  display: inline-block; flex: none; border-radius: 50%; vertical-align: middle;
   border: var(--umriss-avatar) solid var(--farbe-umriss);
   background: var(--farbe-akzent-flaeche) center / cover no-repeat;
 }
@@ -100,9 +100,6 @@ img { display: block; }
 .fusszeile a, .fusszeile button.link { color: inherit; text-decoration: underline; background: none; border: 0; padding: 10px 4px; margin: -10px 0; cursor: pointer; font-size: inherit; }
 .fusszeile-info { max-width: 440px; background: var(--farbe-hinweis); border-radius: 14px; padding: 10px 12px; }
 .fusszeile-einstellungen { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px 14px; margin-top: 6px; }
-.darstellung { display: inline-flex; gap: 4px; }
-.darstellung button { background: none; border: 1px solid var(--farbe-linie); border-radius: var(--radius-rund); padding: 2px 12px; cursor: pointer; font-size: 13px; color: var(--farbe-text-gedaempft); min-height: 44px; }
-.darstellung button[aria-pressed='true'] { border-color: var(--farbe-akzent); color: var(--farbe-akzent-text); font-weight: 800; }
 .titel-mit-quelle { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
 .titel-mit-quelle a { font-size: 12.5px; color: var(--farbe-text-gedaempft); white-space: nowrap; }
 
@@ -357,3 +354,31 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 .tour-breit { grid-column: 1 / -1; }
 @keyframes tour-rein { from { opacity: 0; transform: translateX(16px); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { .tour-inhalt { animation: none; } .tour-punkte button::after { transition: none; } }
+
+/* Menü hinter dem Avatar */
+.menue { position: relative; }
+.menue-knopf { display: block; padding: 2px; border: 0; background: none; border-radius: 50%; cursor: pointer; }
+.menue-knopf:focus-visible { outline: 3px solid var(--farbe-akzent); outline-offset: 2px; }
+.menue-panel {
+  position: absolute; right: 0; top: calc(100% + 8px); z-index: 50;
+  width: min(320px, calc(100vw - 32px)); padding: 14px;
+  background: var(--farbe-flaeche); border: 1.5px solid var(--farbe-linie); border-radius: var(--radius-m);
+  box-shadow: var(--schatten-nav); display: flex; flex-direction: column; gap: 2px;
+}
+.menue-titel { font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--farbe-text-gedaempft); padding: 2px 8px 6px; }
+.menue-kinder { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; }
+.menue-kind { display: flex; align-items: center; gap: 12px; width: 100%; padding: 8px; border: 0; border-radius: 16px; background: none; cursor: pointer; text-align: left; min-height: 56px; }
+.menue-kind.aktiv { background: var(--farbe-akzent-flaeche); }
+.menue-kind:hover { background: var(--farbe-hintergrund); }
+.menue-kind.aktiv:hover { background: var(--farbe-akzent-flaeche); }
+.menue-kind-text { display: flex; flex-direction: column; line-height: 1.3; flex: 1; font-size: 15.5px; }
+.menue-kind-text .gedaempft { font-size: 13.5px; }
+.menue-haken { font-weight: 800; color: var(--farbe-akzent-text); padding-right: 6px; }
+.menue-eintrag { display: flex; align-items: center; min-height: 44px; padding: 0 8px; border-radius: 12px; text-decoration: none; font-size: 15.5px; }
+.menue-eintrag:hover { background: var(--farbe-hintergrund); }
+.menue-neu { font-weight: 800; color: var(--farbe-akzent-text); }
+.menue-panel hr { width: 100%; border: 0; border-top: 1.5px solid var(--farbe-linie); margin: 8px 0; }
+.menue-darstellung { display: flex; gap: 4px; padding: 8px 4px 2px; }
+.menue-darstellung button { flex: 1; min-height: 44px; padding: 4px 6px; border: 1.5px solid var(--farbe-linie); border-radius: var(--radius-rund); background: none; cursor: pointer; font-size: 13.5px; color: var(--farbe-text-gedaempft); }
+.menue-darstellung button[aria-pressed='true'] { border-color: var(--farbe-akzent); color: var(--farbe-akzent-text); font-weight: 800; }
+.knopf-leise { display: block; width: 100%; margin-top: 14px; min-height: 44px; border: 0; background: none; cursor: pointer; font-size: 15px; color: var(--farbe-text-gedaempft); text-decoration: underline; }

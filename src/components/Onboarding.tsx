@@ -11,23 +11,29 @@ type Props = {
   vorher?: Profil | null;
   onFertig: (profil: Profil) => void;
   onAbbrechen?: () => void;
+  /** ab dem 2. Kind: Name ist Pflicht, damit man die Kinder im Menü unterscheiden kann */
+  nameNoetig?: boolean;
+  /** bei „Angaben ändern“ mit mehreren Kindern: dieses Kind entfernen */
+  onEntfernen?: () => void;
+  /** Akzentfarbe, die nach dem Verlassen wieder gilt (beim Hinzufügen: das bisher gezeigte Kind) */
+  akzentDanach?: MaskottchenId;
 };
 
 const isoHeute = () => heute().toLocaleDateString('sv-SE'); // sv-SE = YYYY-MM-DD in lokaler Zeit
 
 /** Schritt 1: Angaben zum Kind · Schritt 2: Maskottchen wählen */
-export function Onboarding({ vorher, onFertig, onAbbrechen }: Props) {
+export function Onboarding({ vorher, onFertig, onAbbrechen, nameNoetig, onEntfernen, akzentDanach }: Props) {
   const [schritt, setSchritt] = useState<1 | 2>(1);
   const [geburtsdatum, setGeburtsdatum] = useState(vorher?.geburtsdatum ?? '');
   const [name, setName] = useState(vorher?.name ?? '');
   const [zuFrueh, setZuFrueh] = useState(!!vorher?.errechneterTermin);
   const [termin, setTermin] = useState(vorher?.errechneterTermin ?? '');
   const [tier, setTier] = useState<MaskottchenId>(vorher?.maskottchen ?? 'elefant');
-  const [fehler, setFehler] = useState<{ feld: 'geburt' | 'termin'; text: string } | null>(null);
+  const [fehler, setFehler] = useState<{ feld: 'geburt' | 'name' | 'termin'; text: string } | null>(null);
 
   // Beim Verlassen (Abbrechen, Zurück, Speichern) die Vorschau-Farbe zurücksetzen;
   // nach dem Speichern setzt die App danach die neue.
-  useEffect(() => () => akzentSetzen(vorher?.maskottchen), [vorher]);
+  useEffect(() => () => akzentSetzen(akzentDanach ?? vorher?.maskottchen), [vorher, akzentDanach]);
 
   function pruefen(): typeof fehler {
     if (!geburtsdatum) return { feld: 'geburt', text: 'Bitte tragt das Geburtsdatum ein.' };
@@ -39,6 +45,9 @@ export function Onboarding({ vorher, onFertig, onAbbrechen }: Props) {
         feld: 'geburt',
         text: 'Euer Kind ist schon älter als 2 Jahre. U & Me begleitet euch im Moment nur bis zur U7 – für ältere Kinder folgen die Inhalte später.',
       };
+    }
+    if (nameNoetig && !name.trim()) {
+      return { feld: 'name', text: 'Bitte gebt einen Namen an – so könnt ihr eure Kinder im Menü auseinanderhalten.' };
     }
     if (zuFrueh) {
       if (!termin) return { feld: 'termin', text: 'Bitte tragt den errechneten Termin ein – oder nehmt den Haken bei „Zu früh geboren?“ heraus.' };
@@ -87,7 +96,7 @@ export function Onboarding({ vorher, onFertig, onAbbrechen }: Props) {
           <span className="schritt">Schritt 1 von 2</span>
         </div>
         <div className="onboarding-intro">
-          <h1>{vorher ? 'Angaben ändern' : 'Schön, dass ihr da seid.'}</h1>
+          <h1>{vorher ? 'Angaben ändern' : onAbbrechen ? 'Ein weiteres Kind' : 'Schön, dass ihr da seid.'}</h1>
           <p className="gedaempft">U &amp; Me begleitet euch zwischen den U-Untersuchungen – mit Spannbreiten statt Terminen.</p>
         </div>
 
@@ -110,9 +119,18 @@ export function Onboarding({ vorher, onFertig, onAbbrechen }: Props) {
           </label>
           {fehler?.feld === 'geburt' && <p id="fehler-meldung" className="fehler" role="alert">{fehler.text}</p>}
           <label className="feld">
-            <span className="feld-label">Name <span className="gedaempft">(optional)</span></span>
-            <input type="text" value={name} placeholder="z. B. Mila" autoComplete="off" onChange={(e) => setName(e.target.value)} />
+            <span className="feld-label">Name {!nameNoetig && <span className="gedaempft">(optional)</span>}</span>
+            <input
+              type="text"
+              value={name}
+              placeholder="z. B. Mila"
+              autoComplete="off"
+              aria-invalid={fehler?.feld === 'name'}
+              aria-describedby={fehler?.feld === 'name' ? 'fehler-meldung' : undefined}
+              onChange={(e) => { setName(e.target.value); setFehler(null); }}
+            />
           </label>
+          {fehler?.feld === 'name' && <p id="fehler-meldung" className="fehler" role="alert">{fehler.text}</p>}
           <label className="ankreuzen">
             <input type="checkbox" checked={zuFrueh} onChange={(e) => { setZuFrueh(e.target.checked); setFehler(null); }} />
             <span className="kaestchen" aria-hidden="true">{zuFrueh ? '✓' : ''}</span>
@@ -142,6 +160,11 @@ export function Onboarding({ vorher, onFertig, onAbbrechen }: Props) {
 
         <div className="onboarding-cta">
           <button type="submit" className="knopf">Weiter</button>
+          {onEntfernen && (
+            <button type="button" className="knopf-leise" onClick={onEntfernen}>
+              {vorher?.name ?? 'Dieses Kind'} aus U &amp; Me entfernen
+            </button>
+          )}
         </div>
       </form>
     );

@@ -1,19 +1,10 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { darstellungLaden, darstellungSpeichern, type Darstellung } from '../lib/darstellung';
 import { etappenInfo } from '../lib/inhalte';
-
-const optionen: { wert: Darstellung; text: string }[] = [
-  { wert: 'hell', text: 'Hell' },
-  { wert: 'dunkel', text: 'Dunkel' },
-  { wert: 'auto', text: 'Wie das Gerät' },
-];
 
 type Props = { fruehgeboren?: boolean; onZeitreise?: () => void };
 
-/** Einheitliche Fußzeile auf jeder Seite: Hinweise, Quelle, Einstellungen – klein und immer am Seitenende */
+/** Fußzeile auf jeder Seite: Haftungshinweis und Quelle – Einstellungen stecken im Menü hinter dem Avatar */
 export function Fusszeile({ fruehgeboren, onZeitreise }: Props) {
-  const [darstellung, setDarstellung] = useState(darstellungLaden);
   const [fruehInfo, setFruehInfo] = useState(false);
   const quelle = etappenInfo.quelle;
 
@@ -35,34 +26,16 @@ export function Fusszeile({ fruehgeboren, onZeitreise }: Props) {
           nach dem tatsächlichen Geburtsdatum.{' '}
           {fruehgeboren
             ? 'Ihr habt einen errechneten Termin eingetragen – die Etappen sind danach berechnet.'
-            : 'Tragt unter „Angaben ändern“ den errechneten Termin ein, dann rechnet U & Me damit.'}
+            : 'Tragt den errechneten Termin unter „Angaben ändern“ ein (Menü hinter dem Tier oben rechts), dann rechnet U & Me damit.'}
         </p>
       )}
-      <div className="fusszeile-einstellungen">
-        <Link to="/angaben">Angaben ändern</Link>
-        <Link to="/datenschutz">Datenschutz &amp; Daten</Link>
-        <Link to="/tour">App-Tour ansehen</Link>
-        <span className="darstellung" role="group" aria-label="Darstellung">
-          {optionen.map((o) => (
-            <button
-              key={o.wert}
-              type="button"
-              aria-pressed={darstellung === o.wert}
-              onClick={() => {
-                darstellungSpeichern(o.wert);
-                setDarstellung(o.wert);
-              }}
-            >
-              {o.text}
-            </button>
-          ))}
-        </span>
-        {onZeitreise && (
+      {onZeitreise && (
+        <div className="fusszeile-einstellungen">
           <button type="button" className="link" onClick={onZeitreise}>
             Zeitreise (Test)
           </button>
-        )}
-      </div>
+        </div>
+      )}
       <p className="fusszeile-version">Version {__APP_VERSION__} · {__BUILD_DATUM__}</p>
     </footer>
   );

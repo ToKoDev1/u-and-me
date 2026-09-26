@@ -2,12 +2,14 @@ import { useEffect, useRef, type ReactNode } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import { kindAus } from '../lib/kind';
 import { speicherVerfuegbar } from '../lib/speicher';
-import type { Profil } from '../lib/speicher';
-import { Avatar } from './Avatar';
+import type { Profil, Daten } from '../lib/speicher';
 import { Fusszeile } from './Fusszeile';
+import { KinderMenue } from './KinderMenue';
 
 type Props = {
   profil: Profil;
+  daten: Daten;
+  onKindWaehlen: (id: string) => void;
   /** z. B. die Zeitreise-Leiste */
   oben?: ReactNode;
   /** zeigt in der Fußzeile einen Link „Zeitreise (Test)“ */
@@ -18,7 +20,7 @@ type Props = {
  * Kopfzeile + Inhalt + Fußzeile. Keine Navigation: Die Startseite ist das Dashboard,
  * von dem aus alles erreichbar ist; Unterseiten führen mit „← Heute“ zurück.
  */
-export function Rahmen({ profil, oben, onZeitreise }: Props) {
+export function Rahmen({ profil, daten, onKindWaehlen, oben, onZeitreise }: Props) {
   const { pathname, hash } = useLocation();
   const ersterAufruf = useRef(true);
 
@@ -44,7 +46,7 @@ export function Rahmen({ profil, oben, onZeitreise }: Props) {
         </Link>
         <div className="kopfzeile-rechts">
           <span className="chip-entwurf">Entwurf</span>
-          <Avatar tier={profil.maskottchen} groesse={40} />
+          <KinderMenue daten={daten} onKindWaehlen={onKindWaehlen} />
         </div>
       </header>
       {oben}
