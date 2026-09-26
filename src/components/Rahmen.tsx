@@ -11,8 +11,9 @@ const ziele = [
 
 function Navigation({ className }: { className: string }) {
   const { pathname } = useLocation();
-  // Detailseiten einzelner Us (/u/U3) gehören zum Bereich „Nächste U“
-  const uDetail = pathname.startsWith('/u/');
+  // Detailseiten gehören zu ihrem Bereich: /u/U3 → „Nächste U“, /begegnen usw. → „Heute“
+  const bereichVon: Record<string, string> = { '/begegnen': '/', '/entwicklung': '/', '/spielen': '/' };
+  const zugehoerig = pathname.startsWith('/u/') ? '/naechste-u' : bereichVon[pathname];
   return (
     <nav className={className} aria-label="Hauptnavigation">
       {ziele.map((z) => (
@@ -20,7 +21,7 @@ function Navigation({ className }: { className: string }) {
           key={z.pfad}
           to={z.pfad}
           end
-          className={({ isActive }) => (isActive || (uDetail && z.pfad === '/naechste-u') ? 'active' : undefined)}
+          className={({ isActive }) => (isActive || zugehoerig === z.pfad ? 'active' : undefined)}
         >
           {z.text}
         </NavLink>

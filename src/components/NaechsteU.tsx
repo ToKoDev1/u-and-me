@@ -13,7 +13,7 @@ import type { Kind } from '../lib/kind';
 import { uKalenderHerunterladen } from '../lib/kalender';
 import { notizenLaden, notizenSpeichern, type Notizen } from '../lib/speicher';
 import { Fussnoten } from './Fussnoten';
-import { Datumskacheln } from './Heute';
+import { Datumskacheln } from './Datumskacheln';
 
 /** Detailseite einer U – ohne Parameter die nächste U, unter /u/U3 eine bestimmte */
 export function NaechsteU({ kind }: { kind: Kind }) {

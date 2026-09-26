@@ -79,6 +79,9 @@ export function aktuellePhase(kind: Kind): Phase | undefined {
 const beginn = (kind: Kind, e: Etappe) => datumBeiAlter(kind.entwicklungsStart, e.von);
 const ende = (kind: Kind, e: Etappe) => datumBeiAlter(kind.entwicklungsStart, e.bis);
 
+/** Datum, ab dem eine Etappe typisch ist (bei Frühchen nach korrigiertem Alter) */
+export const etappenBeginn = beginn;
+
 export type EtappenStatus = 'vergangen' | 'gerade-dran' | 'kommend';
 
 export function etappenStatus(kind: Kind, e: Etappe): EtappenStatus {
