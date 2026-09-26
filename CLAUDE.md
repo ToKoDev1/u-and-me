@@ -20,6 +20,7 @@ Web-App, die Eltern zwischen den U-Untersuchungen (U1–U7, 0–2 Jahre) begleit
 
 - Stilrichtung „Bilderbuch“: warm, verspielt, rund – aber Texte klar und gut lesbar.
 - Vier wählbare Maskottchen: Löwen-, Hunde-, Pinguin- und Elefantenbaby.
+- **Logo ist immer der Elefantenkopf** – unabhängig davon, welches Tier als Avatar gewählt ist (entschieden 26.09.2026).
 - Dunkelmodus ist Pflicht und soll warm wirken (Nachtlicht), nicht kalt invertiert.
 - Keine Rosa/Hellblau-Codierung, keine Bewertung des Kindes (Ampeln, Scores, Streaks).
 - Details: `docs/claude-design/briefing.md` (später `docs/design.md` mit den finalen Werten).
