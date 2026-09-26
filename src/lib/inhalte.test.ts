@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { datumBeiAlter, parseDatum, tageZwischen, type Alter } from './alter';
 import {
   aktuellePhase,
+  begleitetBis,
   etappen,
   etappenStatus,
   naechsteUntersuchung,
@@ -59,9 +60,10 @@ describe('Frühgeborene', () => {
 describe('Inhalte (JSON) sind plausibel', () => {
   const tage = (a: Alter) => tageZwischen(parseDatum('2026-01-01'), datumBeiAlter(parseDatum('2026-01-01'), a));
 
-  it('Phasen sind lückenlos von der Geburt bis 24 Monate', () => {
+  it('Phasen sind lückenlos von der Geburt bis zum Ende der letzten U', () => {
     const k = (heute: string) => kind('2025-01-01', heute);
-    for (let t = 0; t < 730; t++) {
+    const bisTag = tageZwischen(parseDatum('2025-01-01'), datumBeiAlter(parseDatum('2025-01-01'), begleitetBis));
+    for (let t = 0; t < bisTag; t++) {
       const datum = new Date(2025, 0, 1 + t).toLocaleDateString('sv-SE');
       expect(aktuellePhase(k(datum)), `Tag ${t}`).toBeDefined();
     }

@@ -1,5 +1,5 @@
 {
-  "_hinweis": "Phasen = Abschnitte zwischen zwei Us (lückenlos 0–24 Monate). Was in der Phase passiert, steht in etappen.json. Hier nur Titel und Warnzeichen ('abklaeren' = Satzende nach 'Nicht bis zur nächsten U warten, wenn …'). 'abklaeren'/'notfall' wurden am 26.09.2026 gegen die unter 'quellen' genannten Seiten recherchiert (noch keine fachliche Durchsicht). Spielideen sind eigene Anregungen (Entwurf). 'spielideen' = eigene Anregungen pro Phase (Entwurf), optional mit Sicherheits-'hinweis'.",
+  "_hinweis": "Phasen = Abschnitte zwischen zwei Us (lückenlos von der Geburt bis zum Ende der U9). Was in der Phase passiert, steht in etappen.json. Hier nur Titel und Warnzeichen ('abklaeren' = Satzende nach 'Nicht bis zur nächsten U warten, wenn …'). 'abklaeren'/'notfall' wurden am 26.09.2026 gegen die unter 'quellen' genannten Seiten recherchiert (noch keine fachliche Durchsicht). Spielideen sind eigene Anregungen (Entwurf). 'spielideen' = eigene Anregungen pro Phase (Entwurf), optional mit Sicherheits-'hinweis'.",
   "status": "entwurf",
   "quelle": {
     "name": "kindergesundheit-info.de",
@@ -410,6 +410,217 @@
         {
           "name": "kindergesundheit-info.de – Früherkennung von Sprachstörungen",
           "url": "https://www.kindergesundheit-info.de/themen/entwicklung/entwicklungsschritte/sprachentwicklung/frueherkennung-sprachstoerung/"
+        }
+      ]
+    },
+    {
+      "id": "u7-u7a",
+      "titel": "Zwischen U7 und U7a",
+      "von": {
+        "monate": 24
+      },
+      "bis": {
+        "monate": 33
+      },
+      "abklaeren": "euer Kind mit gut 2 Jahren weniger als 50 Wörter spricht oder noch keine Zwei-Wort-Sätze bildet, oft die Augen zusammenkneift, schielt oder den Kopf schief hält, kaum auf leises Ansprechen reagiert – oder Fähigkeiten, die es schon hatte, wieder verliert.",
+      "notfall": "Bei Atemnot, einem Krampfanfall oder wenn euer Kind kaum ansprechbar ist: sofort 112.",
+      "quellen": [
+        {
+          "name": "kindergesundheit-info.de – Früherkennung von Sprachstörungen",
+          "url": "https://www.kindergesundheit-info.de/themen/entwicklung/entwicklungsschritte/sprachentwicklung/frueherkennung-sprachstoerung/"
+        },
+        {
+          "name": "kindergesundheit-info.de – Sehstörungen frühzeitig erkennen",
+          "url": "https://www.kindergesundheit-info.de/themen/entwicklung/entwicklungsschritte/sehvermoegen/sehstoerungen/"
+        },
+        {
+          "name": "kindergesundheit-info.de – Hörüberprüfung",
+          "url": "https://www.kindergesundheit-info.de/themen/entwicklung/alltagstipps/entwicklungsschritte/hoerueberpruefung/"
+        }
+      ],
+      "spielideen": [
+        {
+          "bereich": "bewegung",
+          "titel": "Rutschauto und Laufrad",
+          "text": "Die Welt auf Rädern erkunden – im eigenen Tempo, mit Pausen, wann immer euer Kind will.",
+          "hinweis": "Mit Helm – und nur dort, wo keine Autos fahren."
+        },
+        {
+          "bereich": "miteinander",
+          "titel": "Kaufladen und Kochen",
+          "text": "Ein paar Dosen, ein Topf, ein Kochlöffel: Einkaufen und Kochen spielen, wie es euer Kind bei euch sieht."
+        },
+        {
+          "bereich": "sprache",
+          "titel": "Bilderbuch-Gespräch",
+          "text": "Nicht nur vorlesen: Fragt, was auf dem Bild passiert, und denkt euch gemeinsam aus, wie es weitergehen könnte."
+        },
+        {
+          "bereich": "alltag",
+          "titel": "Mitkochen",
+          "text": "Gemüse waschen, Teig rühren, Nudeln in den Topf zählen – kleine Aufgaben machen stolz.",
+          "hinweis": "Messer und Herd bleiben bei euch."
+        },
+        {
+          "bereich": "bewegung",
+          "titel": "Kneten und Matschen",
+          "text": "Knete, Sand, Wasser, Rasierschaum auf dem Tablett: Mit den Händen gestalten tut gut."
+        }
+      ]
+    },
+    {
+      "id": "u7a-u8",
+      "titel": "Zwischen U7a und U8",
+      "von": {
+        "monate": 33
+      },
+      "bis": {
+        "monate": 45
+      },
+      "abklaeren": "Sprechen eurem Kind über Monate große Mühe macht – etwa mit Grimassen oder Mitbewegungen von Kopf und Armen, wenn Silben nicht herauskommen –, es oft blinzelt, die Augen reibt oder schief schaut, kaum reagiert, wenn ihr leise sprecht, oder Fähigkeiten wieder verliert.",
+      "notfall": "Bei Atemnot, einem Krampfanfall oder wenn euer Kind kaum ansprechbar ist: sofort 112.",
+      "quellen": [
+        {
+          "name": "kinderaerzte-im-netz.de – Stottern: frühzeitig behandeln",
+          "url": "https://www.kinderaerzte-im-netz.de/news-archiv/meldung/stottern-fruehzeitig-behandeln/"
+        },
+        {
+          "name": "kindergesundheit-info.de – Sehstörungen frühzeitig erkennen",
+          "url": "https://www.kindergesundheit-info.de/themen/entwicklung/entwicklungsschritte/sehvermoegen/sehstoerungen/"
+        },
+        {
+          "name": "kindergesundheit-info.de – Hörüberprüfung",
+          "url": "https://www.kindergesundheit-info.de/themen/entwicklung/alltagstipps/entwicklungsschritte/hoerueberpruefung/"
+        }
+      ],
+      "spielideen": [
+        {
+          "bereich": "miteinander",
+          "titel": "Erste Tischspiele",
+          "text": "Memory mit wenigen Karten oder ein einfaches Farbwürfelspiel. Verlieren gehört dazu – gewinnen auch."
+        },
+        {
+          "bereich": "sprache",
+          "titel": "Reime und Quatschwörter",
+          "text": "Maus, Haus, Klaus, Laus: Reime erfinden und über ausgedachte Wörter lachen."
+        },
+        {
+          "bereich": "bewegung",
+          "titel": "Hindernis-Parcours",
+          "text": "Kissen zum Drüberspringen, ein Seil zum Balancieren, ein Tisch zum Drunterkriechen – drinnen oder draußen."
+        },
+        {
+          "bereich": "bewegung",
+          "titel": "Schneiden und Kleben",
+          "text": "Buntes Papier in Schnipsel schneiden und zu einem Bild kleben. Gerade Linien sind egal.",
+          "hinweis": "Kinderschere mit runder Spitze."
+        },
+        {
+          "bereich": "miteinander",
+          "titel": "Verkleidungskiste",
+          "text": "Alte Tücher, Hüte und Taschen: Heute ist euer Kind Feuerwehrfrau, morgen Drache."
+        }
+      ]
+    },
+    {
+      "id": "u8-u9",
+      "titel": "Zwischen U8 und U9",
+      "von": {
+        "monate": 45
+      },
+      "bis": {
+        "monate": 59
+      },
+      "abklaeren": "euer Kind mit 4 bis 5 Jahren noch sehr schwer zu verstehen ist, Stottern länger als etwa ein halbes Jahr anhält oder mit sichtbarer Anstrengung verbunden ist, es oft blinzelt, schief schaut oder Farben wie Rot und Grün schlecht unterscheidet – oder Fähigkeiten wieder verliert.",
+      "notfall": "Bei Atemnot, einem Krampfanfall oder wenn euer Kind kaum ansprechbar ist: sofort 112.",
+      "quellen": [
+        {
+          "name": "kindergesundheit-info.de – Hörüberprüfung",
+          "url": "https://www.kindergesundheit-info.de/themen/entwicklung/alltagstipps/entwicklungsschritte/hoerueberpruefung/"
+        },
+        {
+          "name": "kinderaerzte-im-netz.de – Stottern: frühzeitig behandeln",
+          "url": "https://www.kinderaerzte-im-netz.de/news-archiv/meldung/stottern-fruehzeitig-behandeln/"
+        },
+        {
+          "name": "kindergesundheit-info.de – Sehstörungen frühzeitig erkennen",
+          "url": "https://www.kindergesundheit-info.de/themen/entwicklung/entwicklungsschritte/sehvermoegen/sehstoerungen/"
+        }
+      ],
+      "spielideen": [
+        {
+          "bereich": "sprache",
+          "titel": "Geschichten weitererzählen",
+          "text": "Ihr fangt an – „Es war einmal ein Igel, der …“ – und euer Kind erzählt weiter. Dann wieder ihr."
+        },
+        {
+          "bereich": "miteinander",
+          "titel": "Gemeinsam backen",
+          "text": "Abwiegen, Eier aufschlagen, kneten, ausstechen – und am Ende zusammen probieren."
+        },
+        {
+          "bereich": "bewegung",
+          "titel": "Roller, Fahrrad, Klettern",
+          "text": "Draußen gibt es jetzt viel Neues auszuprobieren – euer Kind entscheidet, was es sich zutraut.",
+          "hinweis": "Mit Helm – und nur dort, wo keine Autos fahren."
+        },
+        {
+          "bereich": "alltag",
+          "titel": "Eine eigene Aufgabe",
+          "text": "Blumen gießen, Servietten verteilen, die Katze füttern: Eine feste kleine Aufgabe gibt Selbstvertrauen."
+        },
+        {
+          "bereich": "miteinander",
+          "titel": "Natur entdecken",
+          "text": "Mit Lupe und Beutel losziehen: Blätter, Steine, Käfer anschauen – und gemeinsam staunen."
+        }
+      ]
+    },
+    {
+      "id": "rund-um-u9",
+      "titel": "Rund um die U9",
+      "von": {
+        "monate": 59
+      },
+      "bis": {
+        "monate": 64
+      },
+      "abklaeren": "euer Kind noch sehr schwer zu verstehen ist, über Monate stottert, oft blinzelt, schief schaut oder Farben schlecht unterscheidet – oder Fähigkeiten wieder verliert. Sorgen rund um den Schulstart könnt ihr gut bei der U9 ansprechen.",
+      "notfall": "Bei Atemnot, einem Krampfanfall oder wenn euer Kind kaum ansprechbar ist: sofort 112.",
+      "quellen": [
+        {
+          "name": "kindergesundheit-info.de – Früherkennung von Sprachstörungen",
+          "url": "https://www.kindergesundheit-info.de/themen/entwicklung/entwicklungsschritte/sprachentwicklung/frueherkennung-sprachstoerung/"
+        },
+        {
+          "name": "kinderaerzte-im-netz.de – Stottern: frühzeitig behandeln",
+          "url": "https://www.kinderaerzte-im-netz.de/news-archiv/meldung/stottern-fruehzeitig-behandeln/"
+        },
+        {
+          "name": "kindergesundheit-info.de – Sehstörungen frühzeitig erkennen",
+          "url": "https://www.kindergesundheit-info.de/themen/entwicklung/entwicklungsschritte/sehvermoegen/sehstoerungen/"
+        }
+      ],
+      "spielideen": [
+        {
+          "bereich": "alltag",
+          "titel": "Den Schulweg erkunden",
+          "text": "Den Weg ein paarmal gemeinsam gehen, Ampeln und Übergänge zeigen – ohne Zeitdruck."
+        },
+        {
+          "bereich": "miteinander",
+          "titel": "Regelspiele",
+          "text": "Kartenspiele und Brettspiele mit einfachen Regeln – abwarten, würfeln, sich mitfreuen."
+        },
+        {
+          "bereich": "sprache",
+          "titel": "Buchstaben im Alltag",
+          "text": "Wo steht der eigene Anfangsbuchstabe – auf Schildern, Packungen, Nummernschildern? Nur, wenn euer Kind Lust hat."
+        },
+        {
+          "bereich": "bewegung",
+          "titel": "Draußen toben",
+          "text": "Fangen, Seilspringen, Hüpfkästchen – Spiele, die mit anderen Kindern noch mehr Spaß machen."
         }
       ]
     }
