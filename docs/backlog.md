@@ -56,6 +56,7 @@ Farben, Schrift, Ton und die Grundidee (Zeitring, drei Kacheln, „Heute wichtig
 - [x] „Ux Schritt für Schritt“ für alle 10 U (Ablauf des Praxisbesuchs, mit Quellen, eigene Fragen im Gespräch)
 - [x] Auf U-Seiten per Wischen (und Leiste unten) zur vorigen/nächsten U blättern
 - [x] Fehler behoben: /u/U7a war nicht erreichbar (Großschreibung)
+- [x] U-Untersuchungen abhaken („erledigt am“, änderbar, rückgängig) – nächste U rückt weiter, Haken in der Zeitleiste
 
 ## Guidance für Erst-Eltern (26.09., nach Brainstorming)
 
@@ -111,7 +112,7 @@ Farben, Schrift, Ton und die Grundidee (Zeitring, drei Kacheln, „Heute wichtig
 
 ## Ideenspeicher (später)
 
-- Impf- & Terminübersicht mit „erledigt am“ (ergänzt den gelben Impfpass)
+- Impfübersicht mit „erledigt am“ (ergänzt den gelben Impfpass) – U-Untersuchungen lassen sich schon abhaken (0.6.0)
 - Fragen-Zettel fürs Wartezimmer + Notiz „Was die Ärztin gesagt hat“; Fragen abhakbar, teilen
 - Fotos zu Momenten (lokal, IndexedDB) – erst nach Export/Import
 - Teilen mit Partner:in ohne Server (Datei/Code, ggf. QR)

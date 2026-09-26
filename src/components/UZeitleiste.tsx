@@ -48,7 +48,13 @@ export function UZeitleiste({ kind, onDatum }: Props) {
       ...t,
       von: tageBis(t.beginn),
       bis: tageBis(t.ende),
-      zustand: t.ende <= kind.jetzt ? 'vorbei' : t.untersuchung.id === naechste ? 'naechste' : 'kommend',
+      zustand: kind.uErledigt[t.untersuchung.id]
+        ? 'erledigt'
+        : t.ende <= kind.jetzt
+          ? 'vorbei'
+          : t.untersuchung.id === naechste
+            ? 'naechste'
+            : 'kommend',
     }))
     .filter((t) => sichtbar(t.von, t.bis));
 
@@ -111,14 +117,14 @@ export function UZeitleiste({ kind, onDatum }: Props) {
       <nav className="zr-marken" aria-label="U-Untersuchungen">
         {marken.map((m) => {
           // „U1·2“, aber „U7·7a“ – gemeinsames „U“ nur einmal
-          const text = m.zusammen ? `${m.zusammen}·${m.id.slice(1)}` : m.id;
+          const text = (m.zusammen ? `${m.zusammen}·${m.id.slice(1)}` : m.id) + (m.zustand === 'erledigt' ? ' ✓' : '');
           return (
             <Link
               key={m.id}
               to={`/u/${m.id}`}
               className={m.zustand}
               style={{ left: `${m.mitte * 100}%` }}
-              aria-label={m.zusammen ? `${m.zusammen} und ${m.id}` : m.id}
+              aria-label={(m.zusammen ? `${m.zusammen} und ${m.id}` : m.id) + (m.zustand === 'erledigt' ? ', erledigt' : '')}
             >
               {text}
             </Link>

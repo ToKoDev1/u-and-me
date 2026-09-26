@@ -150,9 +150,9 @@ export function uTermin(kind: Kind, id: string): UTermin | undefined {
 /** {kind} im Text durch den Namen ersetzen */
 export const mitName = (text: string, kind: Kind) => text.replaceAll('{kind}', kind.name ?? 'euer Kind');
 
-/** Die nächste U, deren Zeitfenster noch nicht vorbei ist */
+/** Die nächste U, deren Zeitfenster noch nicht vorbei ist – abgehakte Us werden übersprungen */
 export function naechsteUntersuchung(kind: Kind): NaechsteU | undefined {
-  const termin = uTermine(kind).find((t) => kind.jetzt < t.ende);
+  const termin = uTermine(kind).find((t) => kind.jetzt < t.ende && !kind.uErledigt[t.untersuchung.id]);
   return termin && { ...termin, laeuftSchon: kind.jetzt >= termin.beginn };
 }
 

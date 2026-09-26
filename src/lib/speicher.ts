@@ -10,11 +10,13 @@ export type Profil = {
   name?: string;
 };
 
-/** Notizen pro U (abgehakte Beobachtungen, eigene Fragen) und erledigte Aufgaben („Zu erledigen“) */
+/** Notizen pro U (abgehakte Beobachtungen, eigene Fragen), erledigte Aufgaben und erledigte U-Untersuchungen */
 export type Notizen = {
   beobachtet: Record<string, string[]>;
   eigeneFragen: Record<string, string[]>;
   erledigt: string[];
+  /** U-Id → Datum, an dem die U war ("YYYY-MM-DD") */
+  uErledigt: Record<string, string>;
 };
 
 /** Ein Kind mit seinen Angaben und Notizen */
@@ -94,12 +96,14 @@ function alsTextListen(wert: unknown): Record<string, string[]> {
 export function alsNotizen(wert: unknown): Notizen {
   const o = istObjekt(wert) ? wert : {};
   const erledigt = Array.isArray(o.erledigt) ? o.erledigt.filter((t): t is string => typeof t === 'string') : [];
-  return { beobachtet: alsTextListen(o.beobachtet), eigeneFragen: alsTextListen(o.eigeneFragen), erledigt };
+  const uErledigt: Record<string, string> = {};
+  if (istObjekt(o.uErledigt)) for (const [u, d] of Object.entries(o.uErledigt)) if (istIsoDatum(d)) uErledigt[u] = d;
+  return { beobachtet: alsTextListen(o.beobachtet), eigeneFragen: alsTextListen(o.eigeneFragen), erledigt, uErledigt };
 }
 
 // ---- Öffentliche Funktionen ------------------------------------------------------
 
-export const leereNotizen = (): Notizen => ({ beobachtet: {}, eigeneFragen: {}, erledigt: [] });
+export const leereNotizen = (): Notizen => ({ beobachtet: {}, eigeneFragen: {}, erledigt: [], uErledigt: {} });
 export const leereDaten = (): Daten => ({ version: 2, kinder: [], aktiv: null });
 
 const neueId = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 8);

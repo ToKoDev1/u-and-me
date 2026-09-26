@@ -106,7 +106,7 @@ export default function App() {
   if (!profil || !eintrag) return <Onboarding onFertig={speichern} />;
 
   const echtesHeute = heute();
-  const kind = kindAus(profil, zeitreiseAn && simuliert ? simuliert : echtesHeute, eintrag.id);
+  const kind = kindAus(profil, zeitreiseAn && simuliert ? simuliert : echtesHeute, eintrag.id, eintrag.notizen.uErledigt);
 
   const zeitreise = zeitreiseAn ? (
     <Zeitreise
@@ -169,7 +169,7 @@ export default function App() {
           />
         }
       />
-      <Route path="u/:id/schritte" element={<USchritte kind={kind} notizen={eintrag.notizen} />} />
+      <Route path="u/:id/schritte" element={<USchritte kind={kind} notizen={eintrag.notizen} onNotizen={notizenAendern} />} />
       <Route path="tour" element={<Willkommen fertigText="Zur App" onFertig={() => navigate('/', { replace: true })} />} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

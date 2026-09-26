@@ -39,6 +39,13 @@ describe('nächste und vorherige U', () => {
     expect(naechsteUntersuchung(kind('2020-01-01', '2026-09-26'))).toBeUndefined(); // nach der U9
   });
 
+  it('überspringt abgehakte Us bei der nächsten U', () => {
+    // U5-Fenster läuft (Geburt 19.04., heute 26.09.) – ist die U5 erledigt, kommt die U6
+    const k = kindAus({ maskottchen: 'elefant', geburtsdatum: '2026-04-19' }, parseDatum('2026-09-26'), 'x', { U5: '2026-09-20' });
+    expect(naechsteUntersuchung(k)?.untersuchung.id).toBe('U6');
+    expect(vorherigeUntersuchung(k)?.untersuchung.id).toBe('U5');
+  });
+
   it('findet eine U unabhängig von Groß- und Kleinschreibung', () => {
     const k = kind('2024-01-01', '2026-09-26');
     for (const id of ['U7a', 'u7a', 'U7A']) expect(uTermin(k, id)?.untersuchung.id, id).toBe('U7a');

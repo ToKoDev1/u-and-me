@@ -14,6 +14,7 @@ import { uKalenderHerunterladen } from '../lib/kalender';
 import type { Notizen } from '../lib/speicher';
 import { Datumskacheln } from './Datumskacheln';
 import { Symbol } from './Symbol';
+import { UAbhaken } from './UAbhaken';
 import { useSeitentitel } from '../lib/seite';
 import { useWischen } from '../lib/wischen';
 
@@ -65,7 +66,7 @@ export function NaechsteU({ kind, notizen, onNotizen }: { kind: Kind } & NotizPr
           <span aria-hidden="true">▶</span> {termin.untersuchung.id} Schritt für Schritt
         </Link>
       </div>
-      <Zeitfenster termin={termin} kind={kind} />
+      <Zeitfenster termin={termin} kind={kind} notizen={notizen} onNotizen={onNotizen} />
       <WasPassiert termin={termin} />
       {/* key: Zustand beim Wechsel der U neu laden */}
       <Notizbereich key={termin.untersuchung.id} termin={termin} kind={kind} notizen={notizen} onNotizen={onNotizen} />
@@ -86,10 +87,17 @@ export function NaechsteU({ kind, notizen, onNotizen }: { kind: Kind } & NotizPr
   );
 }
 
-function Zeitfenster({ termin, kind }: { termin: UTermin; kind: Kind }) {
+function Zeitfenster({ termin, kind, notizen, onNotizen }: { termin: UTermin; kind: Kind } & NotizProps) {
+  const erledigt = !!notizen.uErledigt[termin.untersuchung.id];
   const vorbei = termin.ende <= kind.jetzt;
   const laeuft = !vorbei && termin.beginn <= kind.jetzt;
-  const status = vorbei ? 'vorbei' : laeuft ? 'Fenster läuft' : abstandAlsText(tageZwischen(kind.jetzt, termin.beginn));
+  const status = erledigt
+    ? 'erledigt'
+    : vorbei
+      ? 'vorbei'
+      : laeuft
+        ? 'Fenster läuft'
+        : abstandAlsText(tageZwischen(kind.jetzt, termin.beginn));
   const einTag = termin.untersuchung.id === 'U1';
 
   return (
@@ -103,7 +111,7 @@ function Zeitfenster({ termin, kind }: { termin: UTermin; kind: Kind }) {
       ) : (
         <Datumskacheln von={termin.beginn} bis={letzterTag(termin.ende)} />
       )}
-      {vorbei ? (
+      {erledigt ? null : vorbei ? (
         <p className="gedaempft klein">Dieses Zeitfenster liegt hinter euch. Die Inhalte bleiben zum Nachlesen hier.</p>
       ) : (
         !einTag && (
@@ -118,6 +126,7 @@ function Zeitfenster({ termin, kind }: { termin: UTermin; kind: Kind }) {
           </>
         )
       )}
+      <UAbhaken termin={termin} kind={kind} notizen={notizen} onNotizen={onNotizen} />
     </section>
   );
 }

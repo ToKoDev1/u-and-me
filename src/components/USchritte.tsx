@@ -6,6 +6,7 @@ import type { Kind } from '../lib/kind';
 import { useSeitentitel } from '../lib/seite';
 import type { Notizen } from '../lib/speicher';
 import { Schrittfolge, type Seite } from './Schrittfolge';
+import { UAbhaken } from './UAbhaken';
 
 const ERSTE_KLEINKIND_U = untersuchungen.findIndex((u) => u.id === 'U7');
 
@@ -18,7 +19,7 @@ function QuelleLink({ quelle }: { quelle: Quelle }) {
 }
 
 /** „Ux Schritt für Schritt“: die U in der Reihenfolge des Praxisbesuchs – vom Vorbereiten bis danach */
-export function USchritte({ kind, notizen }: { kind: Kind; notizen: Notizen }) {
+export function USchritte({ kind, notizen, onNotizen }: { kind: Kind; notizen: Notizen; onNotizen: (n: Notizen) => void }) {
   const { id = '' } = useParams();
   const navigate = useNavigate();
   const termine = uTermine(kind);
@@ -146,6 +147,7 @@ export function USchritte({ kind, notizen }: { kind: Kind; notizen: Notizen }) {
     inhalt: (
       <>
         <p>{alt.danach.text}</p>
+        <UAbhaken termin={termin} kind={kind} notizen={notizen} onNotizen={onNotizen} />
         {naechste ? (
           <div className="schritt-karte">
             <b>

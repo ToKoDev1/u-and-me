@@ -428,3 +428,12 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 .kontakt-nummer { font-size: 22px; font-weight: 800; color: var(--farbe-akzent-text); text-decoration: none; }
 .fuer-euch-eintrag { list-style: none; }
 .aufgaben .check-eintrag { border: 0; background: none; padding: 0; min-height: 44px; }
+
+/* U abhaken */
+.u-abgehakt { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding: 10px 14px; border-radius: 16px; background: var(--farbe-akzent-flaeche); }
+.u-abgehakt-text { display: inline-flex; align-items: center; gap: 6px; font-weight: 800; color: var(--farbe-akzent-text); }
+.u-abgehakt input[type='date'] { font: inherit; min-height: 44px; padding: 4px 10px; border: 1.5px solid var(--farbe-linie); border-radius: 12px; background: var(--farbe-flaeche); color: var(--farbe-text); }
+.link-leise { margin-left: auto; min-height: 44px; border: 0; background: none; cursor: pointer; font: inherit; font-size: 14px; color: var(--farbe-text-gedaempft); text-decoration: underline; }
+.zr-fenster.erledigt { opacity: 1; background: var(--farbe-linie-kraeftig); }
+.zr-marken a.erledigt { color: var(--farbe-akzent-text); }
+.schritt-karte + .u-abgehakt, .tour-inhalt .u-abgehakt, .tour-inhalt > .knopf { width: 100%; max-width: 420px; }

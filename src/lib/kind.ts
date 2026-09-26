@@ -14,10 +14,12 @@ export type Kind = {
   name?: string;
   /** Kennung aus dem Speicher – unterscheidet z. B. Zwillinge im Kalender */
   id?: string;
+  /** erledigte U-Untersuchungen: U-Id → Datum ("YYYY-MM-DD") */
+  uErledigt: Record<string, string>;
   profil: Profil;
 };
 
-export function kindAus(profil: Profil, jetzt = heute(), id?: string): Kind {
+export function kindAus(profil: Profil, jetzt = heute(), id?: string, uErledigt: Record<string, string> = {}): Kind {
   const geburt = parseDatum(profil.geburtsdatum);
   const termin = profil.errechneterTermin ? parseDatum(profil.errechneterTermin) : undefined;
   const fruehgeboren = !!termin && termin > geburt;
@@ -28,6 +30,7 @@ export function kindAus(profil: Profil, jetzt = heute(), id?: string): Kind {
     jetzt,
     name: profil.name,
     id,
+    uErledigt,
     profil,
   };
 }
