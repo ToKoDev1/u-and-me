@@ -1,6 +1,6 @@
 # U & Me
 
-Web-App, die Eltern zwischen den U-Untersuchungen (U1–U7, 0–2 Jahre) begleitet. Details: `docs/spec.md`.
+Web-App, die Eltern zwischen den U-Untersuchungen (U1–U9, Geburt bis Einschulung) begleitet. Details: `docs/spec.md`.
 
 ## Kontext
 

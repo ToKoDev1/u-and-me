@@ -66,6 +66,8 @@ export const untersuchungen = untersuchungenDaten.untersuchungen as Untersuchung
 /** Bis wann U & Me begleitet: Ende des Zeitfensters der letzten U in untersuchungen.json */
 export const begleitetBis: Alter = untersuchungen.at(-1)!.bis;
 export const letzteUntersuchung = untersuchungen.at(-1)!;
+/** Was nach der letzten U kommt (J1, Zusatz-Untersuchungen) */
+export const danach = untersuchungenDaten.danach;
 export const untersuchungenAbgerufen: string = untersuchungenDaten.abgerufen;
 export const maskottchen = maskottchenDaten as Maskottchen[];
 

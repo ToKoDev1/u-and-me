@@ -557,5 +557,31 @@
         "Worauf sollten wir beim Schulweg achten?"
       ]
     }
-  ]
+  ],
+  "danach": {
+    "titel": "Alle U-Untersuchungen liegen hinter euch",
+    "text": "Von der U1 bis zur U9 – schön, dass U & Me euch begleiten durfte. Auch danach gibt es noch Vorsorge-Termine:",
+    "termine": [
+      {
+        "id": "J1",
+        "alter": "mit 12 bis 14 Jahren",
+        "text": "Jugenduntersuchung – zahlt jede gesetzliche Krankenkasse."
+      },
+      {
+        "id": "U10 · U11",
+        "alter": "im Grundschulalter",
+        "text": "Zusätzliche Untersuchungen – zahlen bisher nur manche Kassen. Eine U10 als Kassenleistung für alle ist in Planung."
+      },
+      {
+        "id": "J2",
+        "alter": "mit 16 bis 17 Jahren",
+        "text": "Zusätzliche Jugenduntersuchung – zahlen nur manche Kassen."
+      }
+    ],
+    "hinweis": "Fragt am besten bei eurer Krankenkasse nach, welche zusätzlichen Untersuchungen sie übernimmt. Und bis zum 6. Geburtstag steht noch der Zahnarzt-Termin Z6 an.",
+    "quelle": {
+      "name": "kinderaerzte-im-netz.de – Vorsorgeuntersuchungen für Kinder und Jugendliche",
+      "url": "https://www.kinderaerzte-im-netz.de/vorsorge/"
+    }
+  }
 }

@@ -89,13 +89,13 @@ Farben, Schrift, Ton und die Grundidee (Zeitring, drei Kacheln, „Heute wichtig
 - [ ] 🟡 S–M · Maskottchen freut sich mit (nie traurig, kein „vermisst euch“)
 - [ ] ⚪ S · Sanfter Wochenrückblick (ohne Zahlen, leere Woche = entlastender Satz)
 
-## Sprint 6 – Bis zur Einschulung (U9)
+## Sprint 6 – Bis zur Einschulung (U9) · entschieden 26.09.: bis U9, ohne J1/U10/U11/J2 (nur Hinweis im Abschluss)
 
-- [ ] 🟡 S · Alter in Jahren + Monaten, zentrale Konstante „begleitet bis“
-- [ ] 🟡 M · U7a, U8, U9 (Inhalte aus Quelle), Zeitleiste in Lebensabschnitten (0–2 / 2–5 Jahre)
-- [ ] 🟡 M · Phasen 2–5 Jahre (Warnzeichen, Spielideen)
-- [ ] ⚪ L · Etappen 2–5 Jahre (Trotz, Sauberwerden, Kita, Laufrad, Fragealter …)
-- [ ] ⚪ S · Abschluss-Kachel „Nach der U9“ (J1, Zusatz-Us)
+- [x] 🟡 S · Alter in Jahren + Monaten, zentrale Konstante „begleitet bis“
+- [x] 🟡 M · U7a, U8, U9 (Inhalte aus Quelle), Zeitleiste in Lebensabschnitten (0–2 / 2–5 Jahre)
+- [x] 🟡 M · Phasen 2–5 Jahre (Warnzeichen, Spielideen)
+- [x] ⚪ L · Etappen 2–5 Jahre (Trotz, Sauberwerden, Kita, Laufrad, Fragealter …)
+- [x] ⚪ S · Abschluss-Kachel „Nach der U9“ (J1, Zusatz-Us)
 
 ## Ideenspeicher (später)
 

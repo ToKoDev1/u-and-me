@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { abstandAlsText, spanneAlsText, tageZwischen } from '../lib/alter';
 import {
   aktuelleEtappen,
+  danach,
   letzteUntersuchung,
   aktuellePhase,
   etappenBeginn,
@@ -67,6 +68,28 @@ export function Heute({ kind }: { kind: Kind }) {
         </nav>
       )}
 
+      {!naechsteU && (
+        // Nach der letzten U: ruhiger Abschluss statt leerer Startseite
+        <section className="ruhige-liste abschluss" aria-labelledby="abschluss-titel">
+          <h2 id="abschluss-titel">{danach.titel}</h2>
+          <p>{danach.text}</p>
+          <ul>
+            {danach.termine.map((t) => (
+              <li key={t.id}>
+                <b>
+                  {t.id} <span className="gedaempft">· {t.alter}</span>
+                </b>
+                <span>{t.text}</span>
+              </li>
+            ))}
+          </ul>
+          <p className="gedaempft klein">{danach.hinweis}</p>
+          <a className="quelle-link" href={danach.quelle.url} target="_blank" rel="noreferrer">
+            Quelle: {danach.quelle.name}
+          </a>
+        </section>
+      )}
+
       {wichtig && (
         <Link to={wichtig.bereich === 'alltag' ? '/begegnen' : '/entwicklung'} className="wichtig">
           <span className="wichtig-label">Heute wichtig</span>
@@ -88,7 +111,7 @@ export function Heute({ kind }: { kind: Kind }) {
         </Link>
       )}
 
-      {!phase && (
+      {!phase && naechsteU && (
         <p className="gedaempft" style={{ textAlign: 'center' }}>
           Für dieses Alter gibt es in U &amp; Me gerade keine Inhalte. U &amp; Me begleitet euch bis zur {letzteUntersuchung.id}.
         </p>

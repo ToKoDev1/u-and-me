@@ -382,3 +382,10 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 .menue-darstellung button { flex: 1; min-height: 44px; padding: 4px 6px; border: 1.5px solid var(--farbe-linie); border-radius: var(--radius-rund); background: none; cursor: pointer; font-size: 13.5px; color: var(--farbe-text-gedaempft); }
 .menue-darstellung button[aria-pressed='true'] { border-color: var(--farbe-akzent); color: var(--farbe-akzent-text); font-weight: 800; }
 .knopf-leise { display: block; width: 100%; margin-top: 14px; min-height: 44px; border: 0; background: none; cursor: pointer; font-size: 15px; color: var(--farbe-text-gedaempft); text-decoration: underline; }
+
+/* Abschluss nach der letzten U */
+.abschluss { display: flex; flex-direction: column; gap: 10px; padding: 20px; }
+.abschluss h2 { font-size: 19px; }
+.abschluss ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.abschluss li { display: flex; flex-direction: column; gap: 2px; padding: 10px 12px; border-radius: 14px; background: var(--farbe-hintergrund); font-size: var(--groesse-s); }
+.abschluss li .gedaempft { font-weight: 400; }
