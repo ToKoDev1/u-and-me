@@ -1,5 +1,5 @@
 import { alterAm, alterAlsText, kurzDatum, letzterTag } from '../lib/alter';
-import { maskottchenBild, naechsteUntersuchung, vorherigeUntersuchung } from '../lib/inhalte';
+import { letzteUntersuchung, maskottchenBild, naechsteUntersuchung, vorherigeUntersuchung } from '../lib/inhalte';
 import type { Kind } from '../lib/kind';
 
 const R = 88; // Radius des Rings
@@ -22,14 +22,14 @@ export function Zeitring({ kind }: { kind: Kind }) {
 
   // Läuft das Fenster schon, ist das die wichtigere Nachricht als „zwischen U4 und U5“
   const titel = !naechste
-    ? 'Bis zur U7 begleitet'
+    ? `Bis zur ${letzteUntersuchung.id} begleitet`
     : naechste.laeuftSchon
       ? `Zeit für die ${naechste.untersuchung.id}`
       : vorher
         ? `Zwischen ${vorher.untersuchung.id} und ${naechste.untersuchung.id}`
         : `Kurz vor der ${naechste.untersuchung.id}`;
   const unterzeile = !naechste
-    ? 'Als Nächstes: die U7a mit knapp 3 Jahren'
+    ? null
     : naechste.laeuftSchon
       ? `${naechste.untersuchung.id}-Fenster läuft bis ${kurzDatum.format(letzterTag(naechste.ende))}`
       : `${naechste.untersuchung.id}-Fenster ab ${kurzDatum.format(naechste.beginn)}`;
@@ -41,12 +41,12 @@ export function Zeitring({ kind }: { kind: Kind }) {
   });
 
   return (
-    <section className="zeitring" aria-label={`${titel}. ${unterzeile}`}>
+    <section className="zeitring" aria-label={unterzeile ? `${titel}. ${unterzeile}` : titel}>
       <div className="zeitring-grafik">
         <svg viewBox="0 0 200 200" aria-hidden="true">
           <g transform="rotate(-90 100 100)">
             <circle className="ring-spur" cx="100" cy="100" r={R} />
-            {/* Nach der U7 kein voller Ring – das sähe aus wie „100 % geschafft“ */}
+            {/* Nach der letzten U kein voller Ring – das sähe aus wie „100 % geschafft“ */}
             {naechste && <circle className="ring-fenster" cx="100" cy="100" r={R} style={bogen(fensterAnteil, 1)} />}
             {naechste && <circle className="ring-zeit" cx="100" cy="100" r={R} style={bogen(0, heuteAnteil)} />}
           </g>

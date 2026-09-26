@@ -63,6 +63,9 @@ export const phasen = phasenDaten.phasen as Phase[];
 export const etappen = etappenDaten.etappen as Etappe[];
 export const etappenInfo = { status: etappenDaten.status as Status, quelle: etappenDaten.quelle };
 export const untersuchungen = untersuchungenDaten.untersuchungen as Untersuchung[];
+/** Bis wann U & Me begleitet: Ende des Zeitfensters der letzten U in untersuchungen.json */
+export const begleitetBis: Alter = untersuchungen.at(-1)!.bis;
+export const letzteUntersuchung = untersuchungen.at(-1)!;
 export const untersuchungenAbgerufen: string = untersuchungenDaten.abgerufen;
 export const maskottchen = maskottchenDaten as Maskottchen[];
 

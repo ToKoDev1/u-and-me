@@ -1,7 +1,7 @@
 import { useEffect, useState, type FormEvent } from 'react';
 import { datumBeiAlter, heute, parseDatum, tageZwischen } from '../lib/alter';
 import { akzentSetzen } from '../lib/darstellung';
-import { maskottchen, maskottchenBild, type MaskottchenId } from '../lib/inhalte';
+import { begleitetBis, letzteUntersuchung, maskottchen, maskottchenBild, type MaskottchenId } from '../lib/inhalte';
 import { speicherVerfuegbar, type Profil } from '../lib/speicher';
 import { SpeicherWarnung } from './Rahmen';
 import { Symbol } from './Symbol';
@@ -40,10 +40,10 @@ export function Onboarding({ vorher, onFertig, onAbbrechen, nameNoetig, onEntfer
     const geburt = parseDatum(geburtsdatum);
     if (geburt > heute()) return { feld: 'geburt', text: 'Das Geburtsdatum liegt in der Zukunft – bitte prüft es noch einmal.' };
     // Nur beim ersten Anlegen: Bestehende Familien sollen ihre Angaben immer ändern können
-    if (!vorher && datumBeiAlter(geburt, { monate: 24 }) <= heute()) {
+    if (!vorher && datumBeiAlter(geburt, begleitetBis) <= heute()) {
       return {
         feld: 'geburt',
-        text: 'Euer Kind ist schon älter als 2 Jahre. U & Me begleitet euch im Moment nur bis zur U7 – für ältere Kinder folgen die Inhalte später.',
+        text: `Euer Kind hat die ${letzteUntersuchung.id} schon hinter sich. U & Me begleitet Familien bis zur ${letzteUntersuchung.id} – für ältere Kinder gibt es hier leider nichts mehr zu entdecken.`,
       };
     }
     if (nameNoetig && !name.trim()) {

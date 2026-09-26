@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { abstandAlsText, spanneAlsText, tageZwischen } from '../lib/alter';
 import {
   aktuelleEtappen,
+  letzteUntersuchung,
   aktuellePhase,
   etappenBeginn,
   naechsteUntersuchung,
@@ -88,8 +89,7 @@ export function Heute({ kind }: { kind: Kind }) {
 
       {!phase && (
         <p className="gedaempft" style={{ textAlign: 'center' }}>
-          U &amp; Me begleitet euch im Moment bis zum 2. Geburtstag. Inhalte bis zur Einschulung (U7a bis U9) sind in
-          Arbeit.
+          Für dieses Alter gibt es in U &amp; Me gerade keine Inhalte. U &amp; Me begleitet euch bis zur {letzteUntersuchung.id}.
         </p>
       )}
     </div>
