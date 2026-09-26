@@ -138,8 +138,9 @@ export function uTermine(kind: Kind): UTermin[] {
 
 export type NaechsteU = UTermin & { laeuftSchon: boolean };
 
+/** U nach Kennung – Groß-/Kleinschreibung egal („u7a“, „U7A“ und „U7a“ finden dieselbe U) */
 export function uTermin(kind: Kind, id: string): UTermin | undefined {
-  return uTermine(kind).find((t) => t.untersuchung.id === id);
+  return uTermine(kind).find((t) => t.untersuchung.id.toUpperCase() === id.toUpperCase());
 }
 
 /** {kind} im Text durch den Namen ersetzen */

@@ -1,5 +1,5 @@
-import { useState, type FormEvent } from 'react';
-import { Link, Navigate, useParams } from 'react-router-dom';
+import { useRef, useState, type FormEvent, type TouchEvent } from 'react';
+import { Link, Navigate, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { abstandAlsText, letzterTag, tageZwischen } from '../lib/alter';
 import {
   mitName,
@@ -22,16 +22,49 @@ type NotizProps = { notizen: Notizen; onNotizen: (neu: Notizen) => void };
 export function NaechsteU({ kind, notizen, onNotizen }: { kind: Kind } & NotizProps) {
   const { id } = useParams();
   const naechste = naechsteUntersuchung(kind);
-  const gewaehlt = id ? uTermin(kind, id.toUpperCase()) : undefined;
+  const gewaehlt = id ? uTermin(kind, id) : undefined;
   const termin = gewaehlt || naechste || uTermine(kind).at(-1)!;
   const istNaechste = termin.untersuchung.id === naechste?.untersuchung.id;
   useSeitentitel(termin.untersuchung.id);
+  const navigate = useNavigate();
+  const { state } = useLocation();
+  const wischStart = useRef<{ x: number; y: number } | null>(null);
+
+  // Nachbar-U zum Wischen und für die Leiste unten
+  const alle = uTermine(kind);
+  const index = alle.findIndex((t) => t.untersuchung.id === termin.untersuchung.id);
+  const vorige = alle[index - 1]?.untersuchung.id;
+  const folgende = alle[index + 1]?.untersuchung.id;
+  const wechseln = (ziel: string | undefined, richtung: 'vor' | 'zurueck') =>
+    ziel && navigate(`/u/${ziel}`, { replace: true, state: { richtung } });
+
+  // Deutlich waagerecht wischen wechselt die U – senkrechtes Scrollen bleibt unberührt
+  function beiStart(e: TouchEvent) {
+    const ziel = e.target as HTMLElement;
+    wischStart.current = ziel.closest('input, textarea') ? null : { x: e.touches[0].clientX, y: e.touches[0].clientY };
+  }
+  function beiEnde(e: TouchEvent) {
+    const start = wischStart.current;
+    wischStart.current = null;
+    if (!start) return;
+    const dx = e.changedTouches[0].clientX - start.x;
+    const dy = e.changedTouches[0].clientY - start.y;
+    if (Math.abs(dx) < 60 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
+    if (dx < 0) wechseln(folgende, 'vor');
+    else wechseln(vorige, 'zurueck');
+  }
+  const richtung = (state as { richtung?: string } | null)?.richtung;
 
   // Unbekannte Adresse wie /u/U9 oder /u/xyz → zur nächsten U
   if (id && !gewaehlt) return <Navigate to="/naechste-u" replace />;
 
   return (
-    <div className="u-seite">
+    <div
+      className={`u-seite ${richtung === 'vor' ? 'rein-von-rechts' : richtung === 'zurueck' ? 'rein-von-links' : ''}`}
+      key={termin.untersuchung.id}
+      onTouchStart={beiStart}
+      onTouchEnd={beiEnde}
+    >
       <Link to="/" className="zurueck-link">← Heute</Link>
       <div className="u-kopf">
         <span className="u-kreis-gross">{termin.untersuchung.id}</span>
@@ -50,6 +83,19 @@ export function NaechsteU({ kind, notizen, onNotizen }: { kind: Kind } & NotizPr
       <WasPassiert termin={termin} />
       {/* key: Zustand beim Wechsel der U neu laden */}
       <Notizbereich key={termin.untersuchung.id} termin={termin} kind={kind} notizen={notizen} onNotizen={onNotizen} />
+      <nav className="u-blaettern" aria-label="Andere U-Untersuchungen">
+        {vorige ? (
+          <Link to={`/u/${vorige}`} replace state={{ richtung: 'zurueck' }}>‹ {vorige}</Link>
+        ) : (
+          <span />
+        )}
+        <span className="gedaempft klein">Wischen zum Blättern</span>
+        {folgende ? (
+          <Link to={`/u/${folgende}`} replace state={{ richtung: 'vor' }}>{folgende} ›</Link>
+        ) : (
+          <span />
+        )}
+      </nav>
     </div>
   );
 }

@@ -36,6 +36,6 @@ Web-App, die Eltern zwischen den U-Untersuchungen (U1–U9, Geburt bis Einschulu
 - Code: https://github.com/ToKoDev1/u-and-me (öffentlich)
 - Veröffentlichen per `npm run veroeffentlichen` (baut und lädt `dist` hoch). Vorher committen und `git push`.
 - Nur auf ausdrücklichen Wunsch veröffentlichen – die Seite ist für Freunde erreichbar.
-- Nach jedem Veröffentlichen den Live-Link nennen.
+- Vor jedem Veröffentlichen die Version in `package.json` erhöhen (steht in der Fußzeile – so sieht man, welcher Stand läuft). Nach jedem Veröffentlichen den Live-Link nennen.
 - Die App hat einen Service Worker (offline nutzbar): Beim Öffnen lädt sie eine neue Version im Hintergrund und lädt sich dann einmal selbst neu (`registerSW` in `src/main.tsx`).
 - Entwicklungs-Helfer (nur lokal): `?demo=tier,YYYY-MM-DD,Name`, `?zeitreise`, `?neu`, `?darstellung=dunkel`

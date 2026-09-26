@@ -8,6 +8,7 @@ import {
   naechsteUntersuchung,
   phasen,
   untersuchungen,
+  uTermin,
   vorherigeUntersuchung,
   zahnarzt,
 } from './inhalte';
@@ -33,6 +34,12 @@ describe('nächste und vorherige U', () => {
   it('kennt am Tag der Geburt die U1 und danach keine U mehr', () => {
     expect(naechsteUntersuchung(kind('2026-09-26', '2026-09-26'))?.untersuchung.id).toBe('U1');
     expect(naechsteUntersuchung(kind('2020-01-01', '2026-09-26'))).toBeUndefined(); // nach der U9
+  });
+
+  it('findet eine U unabhängig von Groß- und Kleinschreibung', () => {
+    const k = kind('2024-01-01', '2026-09-26');
+    for (const id of ['U7a', 'u7a', 'U7A']) expect(uTermin(k, id)?.untersuchung.id, id).toBe('U7a');
+    expect(uTermin(k, 'U10')).toBeUndefined();
   });
 
   it('kennt nach der U7 die U7a, U8 und U9', () => {

@@ -54,6 +54,8 @@ Farben, Schrift, Ton und die Grundidee (Zeitring, drei Kacheln, „Heute wichtig
 - [x] Startbildschirm (1,5 s, wippender Elefant, Leitsatz)
 - [x] Welcome-Tour beim ersten Öffnen (5 Seiten, `src/content/tour.json`), erneut über das Menü
 - [x] „Ux Schritt für Schritt“ für alle 10 U (Ablauf des Praxisbesuchs, mit Quellen, eigene Fragen im Gespräch)
+- [x] Auf U-Seiten per Wischen (und Leiste unten) zur vorigen/nächsten U blättern
+- [x] Fehler behoben: /u/U7a war nicht erreichbar (Großschreibung)
 
 ## Sprint 2 – Inhalte absichern
 
