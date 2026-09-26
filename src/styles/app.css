@@ -435,5 +435,10 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 .u-abgehakt input[type='date'] { font: inherit; min-height: 44px; padding: 4px 10px; border: 1.5px solid var(--farbe-linie); border-radius: 12px; background: var(--farbe-flaeche); color: var(--farbe-text); }
 .link-leise { margin-left: auto; min-height: 44px; border: 0; background: none; cursor: pointer; font: inherit; font-size: 14px; color: var(--farbe-text-gedaempft); text-decoration: underline; }
 .zr-fenster.erledigt { opacity: 1; background: var(--farbe-linie-kraeftig); }
-.zr-marken a.erledigt { color: var(--farbe-akzent-text); }
+.zr-marken a.erledigt { color: var(--farbe-text); }
+.zr-marken a { display: inline-flex; align-items: flex-start; justify-content: center; gap: 3px; white-space: nowrap; }
+.zr-haken { display: inline-grid; place-items: center; width: 15px; height: 15px; border-radius: 50%; background: var(--farbe-erledigt); color: #fff; flex: none; margin-top: 1px; }
+[data-theme="dunkel"] .zr-haken { color: var(--farbe-hintergrund); }
+.zr-haken svg { width: 11px; height: 11px; stroke-width: 3.2; }
+.u-abgehakt-text svg { color: var(--farbe-erledigt); }
 .schritt-karte + .u-abgehakt, .tour-inhalt .u-abgehakt, .tour-inhalt > .knopf { width: 100%; max-width: 420px; }

@@ -16,6 +16,7 @@
   --farbe-text-gedaempft: #76604F;
   /* Akzent (Standard: Elefant) */
   --farbe-akzent: #3F5A78;
+  --farbe-erledigt: #3F7D4E;      /* grüner Haken für erledigte U – unabhängig vom Maskottchen */
   --farbe-akzent-text: #3F5A78;
   --farbe-auf-akzent: #FFFDF8;
   --farbe-akzent-flaeche: #DDE5EF;
@@ -92,6 +93,7 @@
   --farbe-text: #F5EEE3;
   --farbe-text-gedaempft: #B8C2CF;
   --farbe-akzent: #AFC0D4;
+  --farbe-erledigt: #7CC08C;
   --farbe-akzent-text: #C3D2E3;
   --farbe-auf-akzent: #141D2B;
   --farbe-akzent-flaeche: #283A54;

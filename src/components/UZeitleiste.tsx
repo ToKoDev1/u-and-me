@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { datumBeiAlter, datumFormat, tageZwischen } from '../lib/alter';
 import { begleitetBis, naechsteUntersuchung, uTermine, zahnTermine } from '../lib/inhalte';
 import type { Kind } from '../lib/kind';
+import { Symbol } from './Symbol';
 
 type Props = {
   kind: Kind;
@@ -74,14 +75,20 @@ export function UZeitleiste({ kind, onDatum }: Props) {
 
   // Beschriftungen, die zu dicht liegen (U1/U2 in den ersten Tagen), zu „U1·2“ zusammenfassen
   const ABSTAND = 0.07;
-  const marken: { id: string; zustand: string; mitte: number; zusammen?: string }[] = [];
+  const marken: { id: string; zustand: string; mitte: number; zusammen?: string; erledigt: boolean }[] = [];
   for (const t of termine) {
     const mitte = (position(t.von) + position(t.bis)) / 2;
     const vorige = marken.at(-1);
     if (vorige && !vorige.zusammen && mitte - vorige.mitte < ABSTAND) {
-      marken[marken.length - 1] = { id: t.untersuchung.id, zustand: t.zustand, mitte: (vorige.mitte + mitte) / 2, zusammen: vorige.id };
+      marken[marken.length - 1] = {
+        id: t.untersuchung.id,
+        zustand: t.zustand,
+        mitte: (vorige.mitte + mitte) / 2,
+        zusammen: vorige.id,
+        erledigt: vorige.erledigt && t.zustand === 'erledigt', // Haken nur, wenn beide erledigt sind
+      };
     } else {
-      marken.push({ id: t.untersuchung.id, zustand: t.zustand, mitte });
+      marken.push({ id: t.untersuchung.id, zustand: t.zustand, mitte, erledigt: t.zustand === 'erledigt' });
     }
   }
 
@@ -117,15 +124,20 @@ export function UZeitleiste({ kind, onDatum }: Props) {
       <nav className="zr-marken" aria-label="U-Untersuchungen">
         {marken.map((m) => {
           // „U1·2“, aber „U7·7a“ – gemeinsames „U“ nur einmal
-          const text = (m.zusammen ? `${m.zusammen}·${m.id.slice(1)}` : m.id) + (m.zustand === 'erledigt' ? ' ✓' : '');
+          const text = m.zusammen ? `${m.zusammen}·${m.id.slice(1)}` : m.id;
           return (
             <Link
               key={m.id}
               to={`/u/${m.id}`}
               className={m.zustand}
               style={{ left: `${m.mitte * 100}%` }}
-              aria-label={(m.zusammen ? `${m.zusammen} und ${m.id}` : m.id) + (m.zustand === 'erledigt' ? ', erledigt' : '')}
+              aria-label={(m.zusammen ? `${m.zusammen} und ${m.id}` : m.id) + (m.erledigt ? ', erledigt' : '')}
             >
+              {m.erledigt && (
+                <span className="zr-haken" aria-hidden="true">
+                  <Symbol name="haken" />
+                </span>
+              )}
               {text}
             </Link>
           );
