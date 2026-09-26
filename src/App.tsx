@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Navigate, Route, Routes, useNavigate } from 'react-router-dom';
 import { Heute } from './components/Heute';
 import { Begegnen, Entwicklung, Spielen } from './components/Unterseiten';
+import { Datenschutz } from './components/Datenschutz';
 import { NaechsteU } from './components/NaechsteU';
 import { Onboarding } from './components/Onboarding';
 import { Rahmen } from './components/Rahmen';
@@ -71,6 +72,7 @@ export default function App() {
         <Route path="spielen" element={<Spielen kind={kind} />} />
         <Route path="naechste-u" element={<NaechsteU kind={kind} />} />
         <Route path="u/:id" element={<NaechsteU kind={kind} />} />
+        <Route path="datenschutz" element={<Datenschutz />} />
       </Route>
       <Route
         path="angaben"

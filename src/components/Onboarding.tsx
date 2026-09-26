@@ -2,7 +2,8 @@ import { useEffect, useState, type FormEvent } from 'react';
 import { datumBeiAlter, heute, parseDatum, tageZwischen } from '../lib/alter';
 import { akzentSetzen } from '../lib/darstellung';
 import { maskottchen, maskottchenBild, type MaskottchenId } from '../lib/inhalte';
-import type { Profil } from '../lib/speicher';
+import { speicherVerfuegbar, type Profil } from '../lib/speicher';
+import { SpeicherWarnung } from './Rahmen';
 import { Symbol } from './Symbol';
 
 type Props = {
@@ -76,6 +77,7 @@ export function Onboarding({ vorher, onFertig, onAbbrechen }: Props) {
   if (schritt === 1) {
     return (
       <form className="onboarding" onSubmit={weiter} noValidate>
+        {!speicherVerfuegbar() && <SpeicherWarnung />}
         <div className="onboarding-kopf">
           {onAbbrechen ? (
             <button type="button" className="zurueck" onClick={onAbbrechen}>← Abbrechen</button>

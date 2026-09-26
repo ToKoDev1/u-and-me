@@ -51,11 +51,9 @@ export type MaskottchenId = 'loewe' | 'hund' | 'pinguin' | 'elefant';
 export type Maskottchen = { id: MaskottchenId; name: string; geschichte: string };
 
 export const phasen = phasenDaten.phasen as Phase[];
-export const phasenInfo = { status: phasenDaten.status as Status, quelle: phasenDaten.quelle };
 export const etappen = etappenDaten.etappen as Etappe[];
 export const etappenInfo = { status: etappenDaten.status as Status, quelle: etappenDaten.quelle };
 export const untersuchungen = untersuchungenDaten.untersuchungen as Untersuchung[];
-export const untersuchungenQuelle: Quelle = untersuchungenDaten.quelle;
 export const untersuchungenAbgerufen: string = untersuchungenDaten.abgerufen;
 export const maskottchen = maskottchenDaten as Maskottchen[];
 

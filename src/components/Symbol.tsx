@@ -19,6 +19,8 @@ const pfade = {
     </>
   ),
   haken: <path d="M5 12.5l4.5 4.5L19 7.5" />,
+  herunterladen: <path d="M12 4v11M7 10l5 5 5-5M5 20h14" />,
+  hochladen: <path d="M12 16V5M7 10l5-5 5 5M5 20h14" />,
   kalender: (
     <>
       <rect x="4" y="5" width="16" height="15" rx="2.5" />

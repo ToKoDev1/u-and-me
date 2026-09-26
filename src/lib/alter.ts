@@ -104,14 +104,5 @@ export const datumFormat = new Intl.DateTimeFormat('de-DE', { day: 'numeric', mo
 export const kurzDatum = new Intl.DateTimeFormat('de-DE', { day: 'numeric', month: 'short' });
 export const monatJahr = new Intl.DateTimeFormat('de-DE', { month: 'short', year: 'numeric' });
 
-/** „im Sommer“ – für ungefähre Zeitangaben ohne Datum */
-export function jahreszeit(datum: Date): string {
-  const m = datum.getMonth();
-  if (m >= 2 && m <= 4) return 'Frühling';
-  if (m >= 5 && m <= 7) return 'Sommer';
-  if (m >= 8 && m <= 10) return 'Herbst';
-  return 'Winter';
-}
-
 /** Letzter Tag eines Zeitfensters (unsere Enddaten sind exklusiv) */
 export const letzterTag = (ende: Date) => new Date(ende.getFullYear(), ende.getMonth(), ende.getDate() - 1);

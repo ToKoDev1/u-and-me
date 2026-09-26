@@ -1,6 +1,7 @@
 import { useEffect, useRef, type ReactNode } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import { kindAus } from '../lib/kind';
+import { speicherVerfuegbar } from '../lib/speicher';
 import type { Profil } from '../lib/speicher';
 import { Avatar } from './Avatar';
 import { Fusszeile } from './Fusszeile';
@@ -41,10 +42,20 @@ export function Rahmen({ profil, oben, onZeitreise }: Props) {
         </div>
       </header>
       {oben}
+      {!speicherVerfuegbar() && <SpeicherWarnung />}
       <main className="seite">
         <Outlet />
       </main>
       <Fusszeile fruehgeboren={kindAus(profil).fruehgeboren} onZeitreise={onZeitreise} />
     </div>
+  );
+}
+
+/** Hinweis, wenn der Browser nicht speichern darf – sonst ist nach dem Neuladen alles weg */
+export function SpeicherWarnung() {
+  return (
+    <p className="speicher-warnung" role="alert">
+      Euer Browser speichert gerade nichts (z. B. privates Fenster). Eure Angaben gehen beim Schließen verloren.
+    </p>
   );
 }

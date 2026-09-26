@@ -1,5 +1,5 @@
 import react from '@vitejs/plugin-react'
-import { copyFileSync } from 'node:fs'
+import { copyFileSync, readFileSync } from 'node:fs'
 import { defineConfig, type Plugin } from 'vite'
 
 /**
@@ -22,4 +22,9 @@ export default defineConfig(({ mode }) => ({
   // Veröffentlicht unter https://tokodev1.github.io/u-and-me/ – lokal weiterhin unter /
   base: mode === 'production' ? '/u-and-me/' : '/', // gilt für Build und Vorschau
   plugins: [react(), spaFallback()],
+  // Version und Build-Datum für die Fußzeile
+  define: {
+    __APP_VERSION__: JSON.stringify(JSON.parse(readFileSync('package.json', 'utf8')).version),
+    __BUILD_DATUM__: JSON.stringify(new Date().toLocaleDateString('de-DE')),
+  },
 }))

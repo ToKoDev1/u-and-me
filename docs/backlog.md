@@ -12,40 +12,40 @@ Farben, Schrift, Ton und die Grundidee (Zeitring, drei Kacheln, „Heute wichtig
 ## Sprint 1 – Fundament: stabil, ehrlich, aufgeräumt
 
 **Stabilität (Bugs, alle nachgewiesen)**
-- [ ] 🔴 S · Gespeicherte Daten prüfen statt blind übernehmen (kaputtes/altes Profil → weiße Seite; `speicher.ts`)
-- [ ] 🔴 S · Notizen robust laden (`{}` → Absturz auf der U-Seite)
-- [ ] 🔴 S · Fehlerseite (ErrorBoundary) mit „Neu laden“ / „Angaben zurücksetzen“ statt weißer Seite
-- [ ] 🔴 S · Ab dem 2. Geburtstag lassen sich Angaben nicht mehr ändern (Prüfung nur beim ersten Onboarding)
-- [ ] 🟡 S · Neue Seite öffnet mitten im Inhalt → beim Seitenwechsel nach oben scrollen + Fokus auf Überschrift
-- [ ] 🟡 S · „Abbrechen“/„Speichern“ bei Angaben: sauber zur Startseite, Zurück-Knopf führt nicht ins Formular, Akzent zurücksetzen
-- [ ] 🟡 S · Doppelte eigene Fragen werden gemeinsam gelöscht (IDs statt Text)
-- [ ] 🟡 S · Errechneter Termin prüfen (max. ~18 Wochen nach Geburt; Haken ohne Datum = Fehler)
-- [ ] ⚪ S · `/u/xyz` zeigt still eine andere U → umleiten; Groß-/Kleinschreibung tolerieren
+- [x] 🔴 S · Gespeicherte Daten prüfen statt blind übernehmen (kaputtes/altes Profil → weiße Seite; `speicher.ts`)
+- [x] 🔴 S · Notizen robust laden (`{}` → Absturz auf der U-Seite)
+- [x] 🔴 S · Fehlerseite (ErrorBoundary) mit „Neu laden“ / „Angaben zurücksetzen“ statt weißer Seite
+- [x] 🔴 S · Ab dem 2. Geburtstag lassen sich Angaben nicht mehr ändern (Prüfung nur beim ersten Onboarding)
+- [x] 🟡 S · Neue Seite öffnet mitten im Inhalt → beim Seitenwechsel nach oben scrollen + Fokus auf Überschrift
+- [x] 🟡 S · „Abbrechen“/„Speichern“ bei Angaben: sauber zur Startseite, Zurück-Knopf führt nicht ins Formular, Akzent zurücksetzen
+- [x] 🟡 S · Doppelte eigene Fragen werden gemeinsam gelöscht (IDs statt Text)
+- [x] 🟡 S · Errechneter Termin prüfen (max. ~18 Wochen nach Geburt; Haken ohne Datum = Fehler)
+- [x] ⚪ S · `/u/xyz` zeigt still eine andere U → umleiten; Groß-/Kleinschreibung tolerieren
 
 **Vertrauen & Daten**
-- [ ] 🔴 S · Datenschutzhinweis (localStorage, kein Tracking, Hosting GitHub Pages) – Impressumspflicht selbst prüfen
-- [ ] 🟡 S · „Alle Angaben auf diesem Gerät löschen“ (mit Bestätigung)
-- [ ] 🟡 S · Sicherung: Export/Import als Datei (Pflicht, bevor wir Erinnerungen sammeln)
-- [ ] 🟡 S · Hinweis, wenn der Browser nicht speichern darf (sonst nach Neuladen wieder Onboarding)
+- [x] 🔴 S · Datenschutzhinweis (localStorage, kein Tracking, Hosting GitHub Pages) – Impressumspflicht selbst prüfen
+- [x] 🟡 S · „Alle Angaben auf diesem Gerät löschen“ (mit Bestätigung)
+- [x] 🟡 S · Sicherung: Export/Import als Datei (Pflicht, bevor wir Erinnerungen sammeln)
+- [x] 🟡 S · Hinweis, wenn der Browser nicht speichern darf (sonst nach Neuladen wieder Onboarding)
 
 **Tests & Aufräumen**
-- [ ] 🔴 S–M · Vitest für `lib/` (Datum, Kind, nächste U, Speicher mit kaputten Daten)
-- [ ] 🟡 S · Inhalts-Test: JSON prüfen (Phasen lückenlos, gültige Bereiche, eindeutige IDs)
-- [ ] ⚪ S · Tote Exporte/CSS/Props entfernen, Version + Build-Datum in der Fußzeile
+- [x] 🔴 S–M · Vitest für `lib/` (Datum, Kind, nächste U, Speicher mit kaputten Daten)
+- [x] 🟡 S · Inhalts-Test: JSON prüfen (Phasen lückenlos, gültige Bereiche, eindeutige IDs)
+- [x] ⚪ S · Tote Exporte/CSS/Props entfernen, Version + Build-Datum in der Fußzeile
 
 **Schnelle Design-Gewinne**
-- [ ] 🔴 S · Titel widerspricht Status: „Zwischen U4 und U5“ obwohl U5-Fenster läuft → „Zeit für die U5“
-- [ ] 🔴 S · „Nächste U“ liegt am Handy unter dem Falz → Ring kleiner, Datum weg, Nächste U höher
-- [ ] 🔴 S · Zeitleiste: Tippziele 21 px & U1/U2 kleben aneinander → größere Trefferflächen, Labels entzerren
-- [ ] 🔴 S · Kontrast vergangener U-Labels zu schwach (2,6:1) → Farbe statt Transparenz
-- [ ] 🔴 S · Leere Kreise vor Hinweisen sehen aus wie Checkboxen → echte Icons (Schloss, Tasche, i)
-- [ ] 🔴 S · Leere Kacheln („gerade nichts“) führen auf leere Seiten → nicht verlinken, ruhiger Text
-- [ ] 🟡 S · Seitentitel pro Seite, `<h1>` auf der Startseite
-- [ ] 🟡 S · Tippziele ≥ 44 px (Darstellung, Fußzeilen-Links, ×)
-- [ ] 🟡 S · Name aufs Dashboard („Mila · 5 Monate und 1 Woche“), „Willkommen, Mila“ am Geburtstag
-- [ ] 🟡 S · Texte: „In euren Kalender“, einheitliche Pillen, „normal“ vermeiden, Leerzustände ruhiger
-- [ ] 🟡 S · Löwe/Hund-Akzent zu ähnlich, Löwe verschwimmt mit „Heute wichtig“ → Farben nachschärfen
-- [ ] 🟡 S · Onboarding: Häkchen auf gewähltem Tier, Platzhalter nicht fett, Fehler am Feld markieren
+- [x] 🔴 S · Titel widerspricht Status: „Zwischen U4 und U5“ obwohl U5-Fenster läuft → „Zeit für die U5“
+- [x] 🔴 S · „Nächste U“ liegt am Handy unter dem Falz → Ring kleiner, Datum weg, Nächste U höher
+- [x] 🔴 S · Zeitleiste: Tippziele 21 px & U1/U2 kleben aneinander → größere Trefferflächen, Labels entzerren
+- [x] 🔴 S · Kontrast vergangener U-Labels zu schwach (2,6:1) → Farbe statt Transparenz
+- [x] 🔴 S · Leere Kreise vor Hinweisen sehen aus wie Checkboxen → echte Icons (Schloss, Tasche, i)
+- [x] 🔴 S · Leere Kacheln („gerade nichts“) führen auf leere Seiten → nicht verlinken, ruhiger Text
+- [x] 🟡 S · Seitentitel pro Seite, `<h1>` auf der Startseite
+- [x] 🟡 S · Tippziele ≥ 44 px (Darstellung, Fußzeilen-Links, ×)
+- [x] 🟡 S · Name aufs Dashboard („Mila · 5 Monate und 1 Woche“), „Willkommen, Mila“ am Geburtstag
+- [x] 🟡 S · Texte: „In euren Kalender“, einheitliche Pillen, „normal“ vermeiden, Leerzustände ruhiger
+- [x] 🟡 S · Löwe/Hund-Akzent zu ähnlich, Löwe verschwimmt mit „Heute wichtig“ → Farben nachschärfen
+- [x] 🟡 S · Onboarding: Häkchen auf gewähltem Tier, Platzhalter nicht fett, Fehler am Feld markieren
 - [ ] ⚪ S · Schrift-Skala auf 6 Stufen vereinheitlichen
 
 ## Sprint 2 – Inhalte absichern

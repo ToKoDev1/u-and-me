@@ -40,6 +40,7 @@ export function Fusszeile({ fruehgeboren, onZeitreise }: Props) {
       )}
       <div className="fusszeile-einstellungen">
         <Link to="/angaben">Angaben ändern</Link>
+        <Link to="/datenschutz">Datenschutz &amp; Daten</Link>
         <span className="darstellung" role="group" aria-label="Darstellung">
           {optionen.map((o) => (
             <button
@@ -61,6 +62,7 @@ export function Fusszeile({ fruehgeboren, onZeitreise }: Props) {
           </button>
         )}
       </div>
+      <p className="fusszeile-version">Version {__APP_VERSION__} · {__BUILD_DATUM__}</p>
     </footer>
   );
 }
