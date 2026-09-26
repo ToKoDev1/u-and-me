@@ -101,6 +101,8 @@ export function KinderMenue({ daten, onKindWaehlen }: Props) {
 
           <hr />
           <Link to="/angaben" className="menue-eintrag">Angaben zu {aktiv.profil.name ?? 'eurem Kind'} ändern</Link>
+          <Link to="/erledigen" className="menue-eintrag">Zu erledigen</Link>
+          <Link to="/fuer-euch" className="menue-eintrag">Für euch – Hilfe und Ansprechpartner</Link>
           <Link to="/datenschutz" className="menue-eintrag">Datenschutz &amp; Daten</Link>
           <Link to="/tour" className="menue-eintrag">App-Tour ansehen</Link>
           <div className="menue-darstellung" role="group" aria-label="Darstellung">

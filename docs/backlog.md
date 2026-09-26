@@ -57,6 +57,15 @@ Farben, Schrift, Ton und die Grundidee (Zeitring, drei Kacheln, „Heute wichtig
 - [x] Auf U-Seiten per Wischen (und Leiste unten) zur vorigen/nächsten U blättern
 - [x] Fehler behoben: /u/U7a war nicht erreichbar (Großschreibung)
 
+## Guidance für Erst-Eltern (26.09., nach Brainstorming)
+
+- [x] Die ersten 12 Wochen, Woche für Woche (`wochen.json`): typisch · was hilft · für euch – Karte auf der Startseite ersetzt in dieser Zeit „Heute wichtig“
+- [x] Zu erledigen (`orga.json`): Standesamt, Krankenkasse, Kinderarzt, Steuer-ID, Elterngeld, Kindergeld, Elternzeit, Betreuungsplatz – mit Datum, abhakbar pro Kind
+- [x] Für euch (`fuer-euch.json`): Baby-Blues/Wochenbett-Depression, Ansprechpartner, Elterntelefon, Telefonseelsorge, Frühe Hilfen
+- [ ] 🟡 Idee: „Noch nicht geboren“-Modus ab errechnetem Termin (Kinderarzt suchen, Hebamme, Checkliste vor der Geburt)
+- [ ] 🟡 Idee: nach Woche 12 monatlicher Begleiter bis zum 1. Geburtstag
+- [ ] 🔴 Test mit 2–3 Familien: zwei Wochen jede gegoogelte Frage notieren lassen und mit den Inhalten abgleichen
+
 ## Sprint 2 – Inhalte absichern
 
 - [x] 🔴 M · **Impfungen auf STIKO-Impfkalender 2026** (RSV-Prophylaxe, Rotavirus ab 6. Woche, MenB prüfen) – mit Verweis + Stand statt fester Aufzählung

@@ -10,6 +10,7 @@ import orgaDaten from '../content/orga.json';
 import fuerEuchDaten from '../content/fuer-euch.json';
 import { datumBeiAlter, imZeitfenster, tageZwischen, type Alter } from './alter';
 import type { Kind } from './kind';
+import type { Notizen } from './speicher';
 
 export type Quelle = { name: string; url: string };
 export type Status = 'entwurf' | 'geprueft';
@@ -199,7 +200,18 @@ export function lebenswoche(kind: Kind): number {
 /** Die Woche, die gerade läuft – nur in den ersten 12 Wochen */
 export const aktuelleWoche = (kind: Kind): Woche | undefined => wochen.find((w) => w.woche === lebenswoche(kind));
 
-export type Aufgabe = { id: string; titel: string; text: string; von: Alter; bis: Alter; frist?: boolean; quelle: Quelle };
+export type Aufgabe = {
+  id: string;
+  titel: string;
+  text: string;
+  von: Alter;
+  bis: Alter;
+  /** echte Frist (sonst Orientierung) */
+  frist?: boolean;
+  /** ersetzt die Datumsanzeige, z. B. „kommt per Post“ */
+  status?: string;
+  quelle: Quelle;
+};
 export const aufgaben = orgaDaten.aufgaben as Aufgabe[];
 
 export type AufgabeMitDatum = Aufgabe & { beginn: Date; ende: Date };
@@ -211,3 +223,12 @@ export function aufgabenFuer(kind: Kind): AufgabeMitDatum[] {
 }
 
 export const fuerEuch = fuerEuchDaten;
+
+const TAG_MS = 24 * 60 * 60 * 1000;
+
+/** Offene Aufgaben, die gerade dran sind: begonnen, nicht erledigt, Frist höchstens 30 Tage vorbei */
+export function offeneAufgaben(kind: Kind, notizen: Notizen): AufgabeMitDatum[] {
+  return aufgabenFuer(kind).filter(
+    (a) => a.beginn <= kind.jetzt && !notizen.erledigt.includes(a.id) && kind.jetzt.getTime() < a.ende.getTime() + 30 * TAG_MS,
+  );
+}

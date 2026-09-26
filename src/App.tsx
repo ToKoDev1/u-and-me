@@ -3,6 +3,7 @@ import { Navigate, Route, Routes, useNavigate } from 'react-router-dom';
 import { Heute } from './components/Heute';
 import { Begegnen, Entwicklung, Spielen, Zahnarzt } from './components/Unterseiten';
 import { Datenschutz } from './components/Datenschutz';
+import { Erledigen, FuerEuch, WocheSeite } from './components/ErsteZeit';
 import { NaechsteU } from './components/NaechsteU';
 import { Onboarding } from './components/Onboarding';
 import { Rahmen } from './components/Rahmen';
@@ -131,7 +132,11 @@ export default function App() {
           />
         }
       >
-        <Route index element={<Heute kind={kind} />} />
+        <Route index element={<Heute kind={kind} notizen={eintrag.notizen} />} />
+        <Route path="woche" element={<WocheSeite kind={kind} />} />
+        <Route path="woche/:nr" element={<WocheSeite kind={kind} />} />
+        <Route path="erledigen" element={<Erledigen kind={kind} notizen={eintrag.notizen} onNotizen={notizenAendern} />} />
+        <Route path="fuer-euch" element={<FuerEuch />} />
         <Route path="begegnen" element={<Begegnen kind={kind} />} />
         <Route path="entwicklung" element={<Entwicklung kind={kind} />} />
         <Route path="spielen" element={<Spielen kind={kind} />} />

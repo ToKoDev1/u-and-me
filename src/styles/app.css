@@ -410,3 +410,21 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 @keyframes rein-rechts { from { opacity: 0; transform: translateX(28px); } to { opacity: 1; transform: none; } }
 @keyframes rein-links { from { opacity: 0; transform: translateX(-28px); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { .rein-von-rechts, .rein-von-links { animation: none; } }
+
+/* Die ersten 12 Wochen, Zu erledigen, Für euch */
+.woche-seite { gap: 12px; }
+.woche-jetzt { margin-left: 8px; font-size: 12px; padding: 1px 10px; }
+.woche-abschnitte { display: flex; flex-direction: column; }
+.woche-abschnitte > div { display: flex; flex-direction: column; gap: 4px; padding: 16px 0; border-bottom: 1.5px solid var(--farbe-linie); }
+.woche-abschnitte > div:last-child { border-bottom: 0; }
+.woche-abschnitte h2 { font-size: 17px; }
+.woche-link { font-weight: 800; color: var(--farbe-akzent-text); text-decoration: none; margin-top: 4px; }
+.quellen-liste { display: flex; flex-direction: column; gap: 4px; }
+.aufgaben li { gap: 6px; }
+.aufgabe-kopf { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 10px; flex: 1; }
+.aufgabe-erledigt .aufgabe-kopf b { color: var(--farbe-text-gedaempft); text-decoration: line-through; }
+.pille-frist { background: var(--farbe-hinweis); color: var(--farbe-warnung-text); }
+.kontakte li { gap: 4px; }
+.kontakt-nummer { font-size: 22px; font-weight: 800; color: var(--farbe-akzent-text); text-decoration: none; }
+.fuer-euch-eintrag { list-style: none; }
+.aufgaben .check-eintrag { border: 0; background: none; padding: 0; min-height: 44px; }

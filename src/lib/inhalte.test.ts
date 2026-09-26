@@ -2,7 +2,10 @@ import { describe, expect, it } from 'vitest';
 import { datumBeiAlter, parseDatum, tageZwischen, type Alter } from './alter';
 import {
   aktuellePhase,
+  aktuelleWoche,
+  aufgaben,
   begleitetBis,
+  wochen,
   etappen,
   etappenStatus,
   naechsteUntersuchung,
@@ -98,5 +101,28 @@ describe('Inhalte (JSON) sind plausibel', () => {
       expect(u.url, u.id).toMatch(/^https:\/\//);
       expect(u.schritte.length, `${u.id}: Schritt für Schritt`).toBeGreaterThanOrEqual(3);
     }
+  });
+
+  it('die ersten 12 Wochen sind vollständig, lückenlos und belegt', () => {
+    expect(wochen.map((w) => w.woche)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
+    for (const w of wochen) {
+      expect(w.quellen.length, `Woche ${w.woche}`).toBeGreaterThan(0);
+      if (w.u) expect(untersuchungen.map((u) => u.id), `Woche ${w.woche}`).toContain(w.u);
+    }
+  });
+
+  it('jede Aufgabe hat eine Quelle und ein sinnvolles Zeitfenster', () => {
+    for (const a of aufgaben) {
+      expect(a.quelle.url, a.id).toMatch(/^https:\/\//);
+      expect(tage(a.von), a.id).toBeLessThan(tage(a.bis));
+    }
+  });
+});
+
+describe('Lebenswoche', () => {
+  it('zählt ab Tag 0 als 1. Woche und endet nach 12 Wochen', () => {
+    expect(aktuelleWoche(kind('2026-09-05', '2026-09-05'))?.woche).toBe(1);
+    expect(aktuelleWoche(kind('2026-09-05', '2026-09-26'))?.woche).toBe(4); // 21 Tage
+    expect(aktuelleWoche(kind('2026-06-01', '2026-09-26'))).toBeUndefined(); // 16 Wochen
   });
 });

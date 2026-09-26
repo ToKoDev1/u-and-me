@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import { abstandAlsText, spanneAlsText, tageZwischen } from '../lib/alter';
 import {
   aktuelleEtappen,
+  aktuelleWoche,
+  offeneAufgaben,
   danach,
   letzteUntersuchung,
   aktuellePhase,
@@ -10,13 +12,14 @@ import {
   type Etappe,
 } from '../lib/inhalte';
 import type { Kind } from '../lib/kind';
+import type { Notizen } from '../lib/speicher';
 import { useSeitentitel } from '../lib/seite';
 import { Symbol } from './Symbol';
 import { UZeitleiste } from './UZeitleiste';
 import { Zeitring } from './Zeitring';
 
 /** Startseite im reduzierten Stil: ein Zentrum, die nächste U, drei Kacheln, eine wichtige Sache */
-export function Heute({ kind }: { kind: Kind }) {
+export function Heute({ kind, notizen }: { kind: Kind; notizen: Notizen }) {
   useSeitentitel();
   const phase = aktuellePhase(kind);
   const aktuell = aktuelleEtappen(kind);
@@ -25,6 +28,9 @@ export function Heute({ kind }: { kind: Kind }) {
   const spielideen = phase?.spielideen ?? [];
   const naechsteU = naechsteUntersuchung(kind);
   const wichtig = heuteWichtig(kind, begegnen, geradeDran);
+  // In den ersten 12 Wochen ersetzt die Woche „Heute wichtig“ – sie ist dann die wichtigste Orientierung
+  const woche = aktuelleWoche(kind);
+  const offen = offeneAufgaben(kind, notizen);
 
   const kacheln = [
     { pfad: '/begegnen', titel: 'Begegnet euch', n: begegnen.length, eins: 'Thema', viele: 'Themen' },
@@ -90,7 +96,26 @@ export function Heute({ kind }: { kind: Kind }) {
         </section>
       )}
 
-      {wichtig && (
+      {woche && (
+        <Link to="/woche" className="wichtig">
+          <span className="wichtig-label">{woche.woche}. Lebenswoche{kind.name ? ` mit ${kind.name}` : ''}</span>
+          <span className="wichtig-titel">{woche.titel}</span>
+          <span className="wichtig-text">{woche.typisch}</span>
+          <span className="wichtig-meta">Was hilft · Für euch · Mehr dazu ›</span>
+        </Link>
+      )}
+
+      {offen.length > 0 && (
+        <Link to="/erledigen" className="zeile-link">
+          <span>
+            <b>Zu erledigen</b>
+            <span className="gedaempft"> · {offen[0].titel}</span>
+          </span>
+          <span className="pille">{offen.length} offen</span>
+        </Link>
+      )}
+
+      {!woche && wichtig && (
         <Link to={wichtig.bereich === 'alltag' ? '/begegnen' : '/entwicklung'} className="wichtig">
           <span className="wichtig-label">Heute wichtig</span>
           <span className="wichtig-titel">{wichtig.titel}</span>

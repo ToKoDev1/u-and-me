@@ -1,5 +1,5 @@
 {
-  "_hinweis": "Zu erledigen nach der Geburt. von/bis = Zeitraum ab Geburt (bis = Frist oder Orientierung). frist: true = echte Frist. Quellen: Familienportal des Bundes u. a., abgerufen am 26.09.2026. Regionale Unterschiede möglich.",
+  "_hinweis": "Zu erledigen nach der Geburt. von/bis = Zeitraum ab Geburt (bis = Frist oder Orientierung). frist: true = echte Frist. Quellen: Familienportal des Bundes u. a., abgerufen am 26.09.2026. Regionale Unterschiede möglich. „status“ ersetzt optional die Datumsanzeige.",
   "aufgaben": [
     {
       "id": "standesamt",
@@ -60,7 +60,8 @@
       "quelle": {
         "name": "Bundeszentralamt für Steuern – Identifikationsnummer",
         "url": "https://www.bzst.de/DE/Privatpersonen/SteuerlicheIdentifikationsnummer/steuerlicheidentifikationsnummer_node.html"
-      }
+      },
+      "status": "kommt per Post"
     },
     {
       "id": "elterngeld",
