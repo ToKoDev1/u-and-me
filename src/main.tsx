@@ -33,13 +33,12 @@ createRoot(document.getElementById('root')!).render(
   </StrictMode>,
 );
 
-// Startbildschirm aus index.html: bleibt 10 Sekunden, „Überspringen“ blendet ihn sofort aus (onclick in index.html)
-const ANZEIGE_MS = 10_000;
+// Startbildschirm aus index.html kurz zeigen (die Erklärung übernimmt beim ersten Öffnen die Welcome-Tour)
+const ANZEIGE_MS = 1500;
 const start = document.getElementById('start');
 if (start) {
   window.setTimeout(() => {
     start.classList.add('weg');
     window.setTimeout(() => start.remove(), 400); // nach dem Ausblenden (0,35 s)
   }, Math.max(0, ANZEIGE_MS - performance.now()));
-  start.querySelector('button')?.focus();
 }

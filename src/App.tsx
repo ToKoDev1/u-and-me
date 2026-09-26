@@ -6,11 +6,12 @@ import { Datenschutz } from './components/Datenschutz';
 import { NaechsteU } from './components/NaechsteU';
 import { Onboarding } from './components/Onboarding';
 import { Rahmen } from './components/Rahmen';
+import { Willkommen } from './components/Willkommen';
 import { Zeitreise } from './components/Zeitreise';
 import { heute } from './lib/alter';
 import { akzentSetzen } from './lib/darstellung';
 import { kindAus } from './lib/kind';
-import { alsProfil, profilLaden, profilSpeichern, type Profil } from './lib/speicher';
+import { alsProfil, profilLaden, profilSpeichern, tourGesehen, tourMerken, type Profil } from './lib/speicher';
 
 const url = new URLSearchParams(window.location.search);
 
@@ -26,6 +27,7 @@ const zeitreiseVerfuegbar = import.meta.env.DEV || url.has('zeitreise');
 
 export default function App() {
   const [profil, setProfil] = useState<Profil | null>(() => demoProfil ?? profilLaden());
+  const [tourVorbei, setTourVorbei] = useState(tourGesehen);
   const [zeitreiseAn, setZeitreiseAn] = useState(url.has('zeitreise'));
   const [simuliert, setSimuliert] = useState<Date | null>(null);
   const navigate = useNavigate();
@@ -39,6 +41,18 @@ export default function App() {
     navigate('/', { replace: true }); // Zurück-Knopf führt nicht wieder ins Formular
   }
 
+  // Erstes Öffnen: erst die Welcome-Tour, dann die Angaben zum Kind
+  if (!profil && !tourVorbei) {
+    return (
+      <Willkommen
+        fertigText="Los geht's"
+        onFertig={() => {
+          tourMerken();
+          setTourVorbei(true);
+        }}
+      />
+    );
+  }
   if (!profil) return <Onboarding onFertig={speichern} />;
 
   const echtesHeute = heute();
@@ -85,6 +99,7 @@ export default function App() {
           />
         }
       />
+      <Route path="tour" element={<Willkommen fertigText="Zur App" onFertig={() => navigate('/', { replace: true })} />} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );

@@ -1,0 +1,29 @@
+{
+  "seiten": [
+    {
+      "bild": "logo",
+      "titel": "Willkommen bei U & Me",
+      "text": "U & Me begleitet euch durch die ersten zwei Lebensjahre eures Kindes – von einer U‑Untersuchung zur nächsten. Kurz, ruhig und ohne Druck."
+    },
+    {
+      "bild": "loewe",
+      "titel": "Seht, wo ihr gerade steht",
+      "text": "Der Ring zeigt die Zeit bis zur nächsten U, die Leiste oben alle Termine – auch beim Zahnarzt. Tippt auf eine U, um zu sehen, was dort passiert, und tragt den Termin in euren Kalender ein."
+    },
+    {
+      "bild": "pinguin",
+      "titel": "Was gerade dran ist",
+      "text": "Drei Bereiche: was euch im Alltag begegnen kann, welche Entwicklungsschritte jetzt häufig sind und Ideen zum gemeinsamen Spielen. Alles als Spannbreite – jedes Kind hat sein eigenes Tempo."
+    },
+    {
+      "bild": "hund",
+      "titel": "Wann ihr nicht warten solltet",
+      "text": "Auf der Startseite findet ihr immer die Zeichen, bei denen ihr lieber zeitnah mit eurer Kinderarztpraxis sprecht. U & Me ersetzt keine ärztliche Beratung."
+    },
+    {
+      "bild": "elefant",
+      "titel": "Eure Daten bleiben bei euch",
+      "text": "Kein Konto, kein Tracking: Alles wird nur auf diesem Gerät gespeichert. Unter „Datenschutz & Daten“ könnt ihr jederzeit eine Sicherung herunterladen."
+    }
+  ]
+}

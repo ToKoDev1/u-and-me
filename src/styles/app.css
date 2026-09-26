@@ -337,3 +337,23 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 .notfall { font-weight: 800; color: var(--farbe-warnung-text); }
 .zeile-warnung { border-color: var(--farbe-warnung-linie); color: var(--farbe-warnung-text); font-weight: 700; font-size: var(--groesse-s); }
 .zeile-warnung-text { display: flex; align-items: center; gap: 10px; }
+
+/* Welcome-Tour */
+.tour { min-height: 100dvh; max-width: 520px; margin: 0 auto; padding: 12px 20px 28px; display: flex; flex-direction: column; background: var(--farbe-hintergrund); }
+.tour-oben { display: flex; justify-content: flex-end; min-height: 44px; }
+.tour-skip { background: none; border: 0; padding: 10px 6px; font: inherit; font-size: 15px; font-weight: 700; color: var(--farbe-text-gedaempft); cursor: pointer; }
+.tour-inhalt { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; text-align: center; animation: tour-rein .35s ease; }
+.tour-inhalt h1 { font-size: 26px; line-height: 1.2; }
+.tour-inhalt h1:focus { outline: none; }
+.tour-inhalt p { max-width: 380px; font-size: 17px; line-height: 1.5; color: var(--farbe-text-gedaempft); }
+.tour-bild { height: 190px; width: auto; margin-bottom: 8px; }
+.tour-bild.logo { height: auto; width: 170px; }
+.tour-unten { display: flex; flex-direction: column; gap: 20px; }
+.tour-punkte { display: flex; justify-content: center; gap: 4px; }
+.tour-punkte button { width: 28px; height: 28px; border: 0; background: none; padding: 0; cursor: pointer; display: grid; place-items: center; }
+.tour-punkte button::after { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--farbe-linie-kraeftig); transition: width .2s ease; }
+.tour-punkte button.aktiv::after { width: 24px; border-radius: 5px; background: var(--farbe-akzent); }
+.tour-knoepfe { display: grid; grid-template-columns: 1fr 1.4fr; gap: 12px; }
+.tour-breit { grid-column: 1 / -1; }
+@keyframes tour-rein { from { opacity: 0; transform: translateX(16px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .tour-inhalt { animation: none; } .tour-punkte button::after { transition: none; } }

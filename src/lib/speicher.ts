@@ -135,3 +135,24 @@ export function sicherungLesen(text: string): { profil: Profil; notizen: Notizen
 export function sicherungEinspielen(daten: { profil: Profil; notizen: Notizen }): boolean {
   return profilSpeichern(daten.profil) && notizenSpeichern(daten.notizen);
 }
+
+// ---- Welcome-Tour ------------------------------------------------------------
+
+const TOUR = `${PRAEFIX}tour-gesehen`;
+
+/** Wurde die Welcome-Tour auf diesem Gerät schon gezeigt? */
+export function tourGesehen(): boolean {
+  try {
+    return localStorage.getItem(TOUR) === '1';
+  } catch {
+    return false;
+  }
+}
+
+export function tourMerken(): void {
+  try {
+    localStorage.setItem(TOUR, '1');
+  } catch {
+    // ohne Speicher kommt die Tour eben beim nächsten Mal wieder
+  }
+}
