@@ -48,6 +48,8 @@ export type Untersuchung = {
   /** Was untersucht/besprochen wird – aus der Quelle */
   passiert: { titel: string; text: string }[];
   impfungen: string | null;
+  /** Quelle der Impf-Angabe (STIKO) */
+  impfQuelle?: Quelle;
   mitbringen: string[];
   /** eigene Anregungen (Entwurf); {kind} = Name bzw. „euer Kind“ */
   beobachten: string[];

@@ -106,6 +106,11 @@ function WasPassiert({ termin }: { termin: UTermin }) {
           <div className="liste-eintrag">
             <b>Impfungen</b>
             <div className="gedaempft">{u.impfungen}</div>
+            {u.impfQuelle && (
+              <a className="quelle-link" href={u.impfQuelle.url} target="_blank" rel="noreferrer">
+                Quelle: {u.impfQuelle.name}
+              </a>
+            )}
           </div>
         )}
       </div>
