@@ -242,15 +242,7 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 /* ---------- Nächste U / Detailseite ---------- */
 .klein { font-size: var(--groesse-s); }
 .u-seite { display: flex; flex-direction: column; max-width: 640px; margin: 0 auto; }
-.u-auswahl { display: flex; flex-wrap: wrap; gap: 6px; padding-top: 16px; }
-.u-auswahl-chip {
-  min-width: 44px; min-height: 36px; display: grid; place-items: center; padding: 0 10px;
-  border-radius: var(--radius-rund); border: 1.5px solid var(--farbe-linie); background: var(--farbe-flaeche);
-  text-decoration: none; font-weight: 800; font-size: 14px;
-}
-.u-auswahl-chip.vorbei { color: var(--farbe-text-gedaempft); background: var(--farbe-flaeche-2); border-color: transparent; }
-.u-auswahl-chip[aria-current='page'] { background: var(--farbe-akzent); color: var(--farbe-auf-akzent); border-color: var(--farbe-akzent); }
-.u-kopf { display: flex; align-items: center; gap: 14px; padding-top: 18px; }
+.u-kopf { display: flex; align-items: center; gap: 14px; padding-top: 12px; }
 .u-kreis-gross { width: 64px; height: 64px; flex: none; border-radius: 50%; background: var(--farbe-akzent); color: var(--farbe-auf-akzent); display: grid; place-items: center; font-weight: 800; font-size: 22px; }
 .u-kopf-meta { font-size: 14px; color: var(--farbe-text-gedaempft); font-weight: 700; }
 .u-kopf h1 { font-size: 24px; line-height: 1.2; }

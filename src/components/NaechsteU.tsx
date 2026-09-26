@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { abstandAlsText, letzterTag, tageZwischen } from '../lib/alter';
 import {
   mitName,
@@ -23,7 +23,6 @@ export function NaechsteU({ kind }: { kind: Kind }) {
 
   return (
     <div className="u-seite">
-      <UAuswahl kind={kind} aktiv={termin.untersuchung.id} />
       <div className="u-kopf">
         <span className="u-kreis-gross">{termin.untersuchung.id}</span>
         <div>
@@ -36,26 +35,6 @@ export function NaechsteU({ kind }: { kind: Kind }) {
       {/* key: Zustand beim Wechsel der U neu laden */}
       <Notizbereich key={termin.untersuchung.id} termin={termin} kind={kind} />
     </div>
-  );
-}
-
-function UAuswahl({ kind, aktiv }: { kind: Kind; aktiv: string }) {
-  return (
-    <nav className="u-auswahl" aria-label="Untersuchung wählen">
-      {uTermine(kind).map((t) => {
-        const vorbei = t.ende <= kind.jetzt;
-        return (
-          <Link
-            key={t.untersuchung.id}
-            to={`/u/${t.untersuchung.id}`}
-            className={`u-auswahl-chip ${vorbei ? 'vorbei' : ''}`}
-            aria-current={t.untersuchung.id === aktiv ? 'page' : undefined}
-          >
-            {t.untersuchung.id}
-          </Link>
-        );
-      })}
-    </nav>
   );
 }
 
