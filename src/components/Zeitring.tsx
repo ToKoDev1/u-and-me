@@ -1,7 +1,6 @@
 import { alterAm, alterAlsText, kurzDatum, letzterTag } from '../lib/alter';
-import { naechsteUntersuchung, vorherigeUntersuchung } from '../lib/inhalte';
+import { maskottchenBild, naechsteUntersuchung, vorherigeUntersuchung } from '../lib/inhalte';
 import type { Kind } from '../lib/kind';
-import { Avatar } from './Avatar';
 
 const R = 88; // Radius des Rings
 const UMFANG = 2 * Math.PI * R;
@@ -50,7 +49,8 @@ export function Zeitring({ kind }: { kind: Kind }) {
           </g>
         </svg>
         <div className="zeitring-mitte">
-          <Avatar tier={kind.profil.maskottchen} groesse={112} />
+          {/* Ganzes Maskottchen, freigestellt – der Ring ist der Rahmen */}
+          <img className="zeitring-tier" src={maskottchenBild(kind.profil.maskottchen)} alt="" />
         </div>
       </div>
       <p className="zeitring-alter">

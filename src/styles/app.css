@@ -128,7 +128,7 @@ img { display: block; }
 .ring-fenster { stroke: var(--farbe-akzent); opacity: .22; }
 .ring-zeit { stroke: var(--farbe-akzent); stroke-linecap: round; }
 .zeitring-mitte { position: absolute; inset: 0; display: grid; place-items: center; }
-.zeitring-mitte .avatar { width: 150px; height: 150px; border-width: 3px; }
+.zeitring-tier { height: 150px; width: 150px; object-fit: contain; }
 .zeitring-alter { font-size: var(--groesse-xxl); font-weight: 800; line-height: 1.15; margin-top: 14px; }
 .zeitring-titel { font-size: 17px; font-weight: 700; margin-top: 4px; }
 .zeitring-unterzeile { font-size: var(--groesse-s); color: var(--farbe-text-gedaempft); }
@@ -302,7 +302,7 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
   .chip-entwurf { font-size: 13px; }
   .seite { max-width: var(--inhalt-max); margin: 0 auto; padding: 36px 40px 56px; }
   .zeitring-grafik { width: 280px; height: 280px; }
-  .zeitring-mitte .avatar { width: 180px; height: 180px; }
+  .zeitring-tier { height: 180px; width: 180px; }
   .onboarding { padding-top: 24px; }
   .zeitreise { max-width: calc(var(--inhalt-max) - 80px); margin: 16px auto 0; }
 }
