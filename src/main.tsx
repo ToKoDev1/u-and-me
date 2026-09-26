@@ -33,13 +33,13 @@ createRoot(document.getElementById('root')!).render(
   </StrictMode>,
 );
 
-// Startbildschirm aus index.html ausblenden – mindestens ~1 Sekunde sichtbar, damit er nicht nur aufblitzt
-const MINDESTENS_MS = 1100;
+// Startbildschirm aus index.html: bleibt 10 Sekunden, „Überspringen“ blendet ihn sofort aus (onclick in index.html)
+const ANZEIGE_MS = 10_000;
 const start = document.getElementById('start');
 if (start) {
   window.setTimeout(() => {
     start.classList.add('weg');
-    start.addEventListener('transitionend', () => start.remove(), { once: true });
-    window.setTimeout(() => start.remove(), 600); // falls kein transitionend kommt
-  }, Math.max(0, MINDESTENS_MS - performance.now()));
+    window.setTimeout(() => start.remove(), 400); // nach dem Ausblenden (0,35 s)
+  }, Math.max(0, ANZEIGE_MS - performance.now()));
+  start.querySelector('button')?.focus();
 }
