@@ -1,25 +1,182 @@
 {
-  "_hinweis": "Etappen = kleine Entwicklungsschritte zwischen den Us, immer als Spannbreite. 'von'/'bis' = (korrigiertes) Alter, in dem die Etappe typischerweise beginnt (bis = exklusiv). Bereich 'alltag' erscheint unter 'Was euch gerade begegnen kann' und hat 'zusatz' (Label + Text). Andere Bereiche haben optional 'tipp' mit 'tippArt' spiel (Spielidee) oder hinweis (Sicherheit). ALLE Inhalte sind Entwurf und noch NICHT gegen Quellen geprüft.",
+  "_hinweis": "Etappen = kleine Entwicklungsschritte zwischen den Us, immer als Spannbreite. 'von'/'bis' = (korrigiertes) Alter, in dem die Etappe typischerweise beginnt (bis = exklusiv). Bereich 'alltag' erscheint unter 'Was euch gerade begegnen kann' und hat 'zusatz' (Label + Text). Andere Bereiche haben optional 'tipp' mit 'tippArt' spiel (Spielidee) oder hinweis (Sicherheit). Einträge mit eigenem 'quelle'-Feld wurden am 26.09.2026 gegen diese Quelle recherchiert (noch keine fachliche Durchsicht); Einträge ohne sind Entwurf.",
   "status": "entwurf",
-  "quelle": { "name": "kindergesundheit-info.de", "url": "https://www.kindergesundheit-info.de/" },
+  "quelle": {
+    "name": "kindergesundheit-info.de",
+    "url": "https://www.kindergesundheit-info.de/"
+  },
   "etappen": [
+    {
+      "id": "gewicht-erste-tage",
+      "bereich": "alltag",
+      "titel": "Erst etwas leichter, dann wieder schwerer",
+      "text": "In den ersten Tagen nimmt euer Baby etwas ab. Etwa ab dem 4. Lebenstag steigt das Gewicht wieder, und bis zum Alter von etwa 2 Wochen ist das Geburtsgewicht meist wieder erreicht.",
+      "zusatz": {
+        "label": "Ganz normal dabei:",
+        "text": "Bis zu 10 Prozent weniger als bei der Geburt sind kein Grund zur Sorge. Eure Hebamme behält das Gewicht im Blick."
+      },
+      "von": {
+        "tage": 0
+      },
+      "bis": {
+        "tage": 14
+      },
+      "quelle": {
+        "name": "familienplanung.de – Gewichtsentwicklung nach der Geburt",
+        "url": "https://www.familienplanung.de/schwangerschaft/nach-der-geburt/das-wochenbett-von-a-bis-z/das-kind-im-wochenbett/gewichtsentwicklung-nach-der-geburt/"
+      }
+    },
+    {
+      "id": "nabel",
+      "bereich": "alltag",
+      "titel": "Der Nabel heilt",
+      "text": "Der Rest der Nabelschnur trocknet ein, wird dunkel und fällt meist innerhalb von zwei Wochen ab. Danach wächst in ein bis zwei Wochen neue Haut darüber.",
+      "zusatz": {
+        "label": "Darauf könnt ihr achten:",
+        "text": "Den Nabel sauber und trocken halten und die Windel unterhalb davon schließen. Seht ihr Rötung, Flüssigkeit oder eine Schwellung, fragt eure Hebamme oder die Kinderarztpraxis."
+      },
+      "von": {
+        "tage": 0
+      },
+      "bis": {
+        "tage": 21
+      },
+      "quelle": {
+        "name": "kindergesundheit-info.de – Nabelpflege",
+        "url": "https://www.kindergesundheit-info.de/themen/entwicklung/0-12-monate/babys-pflege/nabelpflege/"
+      }
+    },
+    {
+      "id": "schlaf-rund-um-die-uhr",
+      "bereich": "alltag",
+      "titel": "Schlafen rund um die Uhr",
+      "text": "Neugeborene schlafen im Schnitt 16 bis 18 Stunden, verteilt über Tag und Nacht. Einen Tag-Nacht-Rhythmus gibt es noch nicht – nach 4 bis 6 Wochen wird der Schlaf langsam regelmäßiger.",
+      "zusatz": {
+        "label": "Ganz normal dabei:",
+        "text": "Manche Babys schlafen deutlich mehr oder weniger. Nachts oft aufzuwachen ist jetzt wichtig – so meldet euer Baby, was es braucht."
+      },
+      "von": {
+        "tage": 0
+      },
+      "bis": {
+        "tage": 42
+      },
+      "quelle": {
+        "name": "kindergesundheit-info.de – Babyschlaf",
+        "url": "https://www.kindergesundheit-info.de/themen/schlafen/0-12-monate/babyschlaf/"
+      }
+    },
+    {
+      "id": "neugeborenen-screening",
+      "bereich": "alltag",
+      "titel": "Kleine Tests in den ersten Tagen",
+      "text": "Am 2. oder 3. Lebenstag werden ein paar Tropfen Blut aus der Ferse untersucht – auf seltene angeborene Erkrankungen, seit Mai 2026 auch auf Vitamin-B12-Mangel. Dazu kommen ein Hörtest und die Messung des Sauerstoffs im Blut.",
+      "zusatz": {
+        "label": "Darauf könnt ihr achten:",
+        "text": "Die Tests gibt es nur mit eurem Einverständnis. Nach einer Hausgeburt oder frühen Entlassung fragt nach, wann und wo sie gemacht werden."
+      },
+      "von": {
+        "tage": 1
+      },
+      "bis": {
+        "tage": 4
+      },
+      "quelle": {
+        "name": "kinderaerzte-im-netz.de – Neugeborenen-Screening ab Mai 2026",
+        "url": "https://www.kinderaerzte-im-netz.de/news-archiv/meldung/frueherkennung-neugeborenen-screening-auf-vitamin-b12-mangel-und-weitere-stoffwechselerkrankungen-ab-mai-2026"
+      }
+    },
+    {
+      "id": "gelbsucht",
+      "bereich": "alltag",
+      "titel": "Die Haut wird etwas gelblich",
+      "text": "Rund 70 von 100 Neugeborenen bekommen ab dem 2. oder 3. Tag eine leichte Gelbfärbung – die Leber muss sich erst einspielen. Meist ist das nach 10 bis 14 Tagen von selbst vorbei.",
+      "zusatz": {
+        "label": "Darauf könnt ihr achten:",
+        "text": "Ist euer Baby schon am ersten Tag oder nach zwei Wochen noch gelb, trinkt es schlecht oder hat es Fieber? Dann lasst es ärztlich anschauen."
+      },
+      "von": {
+        "tage": 2
+      },
+      "bis": {
+        "tage": 14
+      },
+      "quelle": {
+        "name": "familienplanung.de – Neugeborenen-Gelbsucht",
+        "url": "https://www.familienplanung.de/schwangerschaft/nach-der-geburt/das-wochenbett-von-a-bis-z/das-kind-im-wochenbett/neugeborenen-gelbsucht/"
+      }
+    },
+    {
+      "id": "milcheinschuss",
+      "bereich": "alltag",
+      "titel": "Die Milch kommt in Gang",
+      "text": "Wenn ihr stillt: Zuerst gibt es kleine Mengen Vormilch – die reichen eurem Baby. Zwischen dem 2. und 5. Tag bildet die Brust deutlich mehr Milch und kann spannen.",
+      "zusatz": {
+        "label": "Das hilft oft:",
+        "text": "Häufig anlegen, vor dem Stillen etwas Milch ausstreichen und danach kühlen. Die Spannung hält selten länger als einen Tag an – wenn doch, fragt eure Hebamme."
+      },
+      "von": {
+        "tage": 2
+      },
+      "bis": {
+        "tage": 7
+      },
+      "quelle": {
+        "name": "familienplanung.de – Milcheinschuss",
+        "url": "https://www.familienplanung.de/schwangerschaft/nach-der-geburt/das-wochenbett-von-a-bis-z/stillen-im-wochenbett/initiale-brustdruesenschwellung-milcheinschuss/"
+      }
+    },
+    {
+      "id": "heultage",
+      "bereich": "alltag",
+      "titel": "Gefühle fahren Achterbahn",
+      "text": "In den ersten Tagen nach der Geburt schwankt die Stimmung oft ohne erkennbaren Grund zwischen Glück und Traurigkeit – die sogenannten Heultage. Die Hormone stellen sich um, dazu kommen wenig Schlaf und viel Neues.",
+      "zusatz": {
+        "label": "Ganz normal dabei:",
+        "text": "Heultage sind keine Krankheit und gehen meist nach Stunden oder wenigen Tagen vorbei. Hält die Traurigkeit länger als ein bis zwei Wochen an, sprecht mit eurer Hebamme oder Ärztin."
+      },
+      "von": {
+        "tage": 3
+      },
+      "bis": {
+        "tage": 14
+      },
+      "quelle": {
+        "name": "familienplanung.de – Baby-Blues",
+        "url": "https://www.familienplanung.de/schwangerschaft/nach-der-geburt/das-wochenbett-von-a-bis-z/die-mutter-im-wochenbett/baby-blues/"
+      }
+    },
     {
       "id": "haeufiges-trinken",
       "bereich": "alltag",
       "titel": "Phasen mit sehr häufigem Trinken",
       "text": "Es gibt Tage, an denen euer Baby fast ständig trinken möchte. Das ist in den ersten Wochen häufig.",
-      "zusatz": { "label": "Ganz normal dabei:", "text": "Es ist kein Zeichen, dass euer Baby nicht satt wird." },
-      "von": { "tage": 7 },
-      "bis": { "monate": 3 }
+      "zusatz": {
+        "label": "Ganz normal dabei:",
+        "text": "Es ist kein Zeichen, dass euer Baby nicht satt wird."
+      },
+      "von": {
+        "tage": 7
+      },
+      "bis": {
+        "monate": 3
+      }
     },
     {
       "id": "abendliche-unruhe",
       "bereich": "alltag",
       "titel": "Unruhige Abende, viel Weinen",
       "text": "Viele Babys weinen in den ersten Wochen besonders abends viel – oft am meisten um die 6. Woche. Danach wird es meist nach und nach ruhiger.",
-      "zusatz": { "label": "Das hilft oft:", "text": "Tragen, leises Summen, ein abgedunkelter Raum – und euch abwechseln und Pausen machen." },
-      "von": { "tage": 14 },
-      "bis": { "monate": 3 }
+      "zusatz": {
+        "label": "Das hilft oft:",
+        "text": "Tragen, leises Summen, ein abgedunkelter Raum – und euch abwechseln und Pausen machen."
+      },
+      "von": {
+        "tage": 14
+      },
+      "bis": {
+        "monate": 3
+      }
     },
     {
       "id": "kopf-heben",
@@ -28,8 +185,16 @@
       "text": "In Bauchlage hebt euer Baby kurz den Kopf – erst für Sekunden, dann immer länger.",
       "tipp": "Legt euch auf Augenhöhe vor euer Baby, wenn es auf dem Bauch liegt.",
       "tippArt": "spiel",
-      "von": { "tage": 28 },
-      "bis": { "monate": 3 }
+      "von": {
+        "tage": 28
+      },
+      "bis": {
+        "monate": 3
+      },
+      "quelle": {
+        "name": "kindergesundheit-info.de – Bewegungsentwicklung",
+        "url": "https://www.kindergesundheit-info.de/themen/entwicklung/0-12-monate/bewegungsentwicklung/"
+      }
     },
     {
       "id": "soziales-laecheln",
@@ -38,8 +203,16 @@
       "text": "Euer Baby lächelt euch gezielt an, wenn es euer Gesicht sieht.",
       "tipp": "Lächelt zurück und sprecht mit ihm – so entsteht euer erstes kleines „Gespräch“.",
       "tippArt": "spiel",
-      "von": { "tage": 35 },
-      "bis": { "tage": 70 }
+      "von": {
+        "tage": 28
+      },
+      "bis": {
+        "monate": 4
+      },
+      "quelle": {
+        "name": "kinderaerzte-im-netz.de – Babys beginnen richtig zu lächeln",
+        "url": "https://www.kinderaerzte-im-netz.de/news-archiv/meldung/etwa-mit-zwei-monaten-beginnen-babys-richtig-zu-laecheln/"
+      }
     },
     {
       "id": "gurren",
@@ -48,16 +221,28 @@
       "text": "Aus Weinen werden erste weiche Laute wie „ah“ und „gu“.",
       "tipp": "Macht die Laute nach und wartet kurz – viele Babys „antworten“.",
       "tippArt": "spiel",
-      "von": { "tage": 42 },
-      "bis": { "monate": 4 }
+      "von": {
+        "tage": 42
+      },
+      "bis": {
+        "monate": 4
+      },
+      "quelle": {
+        "name": "kindergesundheit-info.de – Sprechen und Verstehen",
+        "url": "https://www.kindergesundheit-info.de/themen/entwicklung/0-12-monate/sprechen-verstehen/"
+      }
     },
     {
       "id": "lachen",
       "bereich": "miteinander",
       "titel": "Lacht laut",
       "text": "Kitzeln, Grimassen, Geräusche – euer Baby kann richtig laut lachen.",
-      "von": { "monate": 3 },
-      "bis": { "monate": 5 }
+      "von": {
+        "monate": 3
+      },
+      "bis": {
+        "monate": 5
+      }
     },
     {
       "id": "greifen",
@@ -66,17 +251,28 @@
       "text": "Euer Baby streckt die Hände nach Spielzeug aus – und alles wandert in den Mund.",
       "tipp": "Ein Spielzeug knapp außer Reichweite legen und zum Greifen ermuntern.",
       "tippArt": "spiel",
-      "von": { "monate": 3 },
-      "bis": { "monate": 6 }
+      "von": {
+        "monate": 3
+      },
+      "bis": {
+        "monate": 6
+      }
     },
     {
       "id": "schlafunruhe-4-monate",
       "bereich": "alltag",
       "titel": "Der Schlaf wird wieder unruhiger",
       "text": "Um den 4. Monat herum schlafen viele Babys plötzlich schlechter und wachen nachts öfter auf.",
-      "zusatz": { "label": "Ganz normal dabei:", "text": "Der Schlaf reift gerade – das geht meist von selbst vorbei." },
-      "von": { "monate": 3 },
-      "bis": { "monate": 5 }
+      "zusatz": {
+        "label": "Ganz normal dabei:",
+        "text": "Der Schlaf reift gerade – das geht meist von selbst vorbei."
+      },
+      "von": {
+        "monate": 3
+      },
+      "bis": {
+        "monate": 5
+      }
     },
     {
       "id": "drehen",
@@ -85,34 +281,48 @@
       "text": "Erst zur Seite, dann ganz herum – manche drehen sich zuerst vom Bauch auf den Rücken.",
       "tipp": "Ab jetzt nie mehr unbeaufsichtigt auf dem Wickeltisch lassen.",
       "tippArt": "hinweis",
-      "von": { "monate": 4 },
-      "bis": { "monate": 7 }
+      "von": {
+        "monate": 3
+      },
+      "bis": {
+        "monate": 7
+      },
+      "quelle": {
+        "name": "kindergesundheit-info.de – Bewegungsentwicklung",
+        "url": "https://www.kindergesundheit-info.de/themen/entwicklung/0-12-monate/bewegungsentwicklung/"
+      }
     },
     {
       "id": "beikost",
       "bereich": "alltag",
       "titel": "Beikost wird ein Thema",
       "text": "Frühestens ab dem 5., spätestens ab dem 7. Monat kann Brei oder Fingerfood dazukommen.",
-      "zusatz": { "label": "Darauf könnt ihr achten:", "text": "Sitzt euer Kind mit Hilfe aufrecht und schaut euch neugierig beim Essen zu?" },
-      "von": { "monate": 4 },
-      "bis": { "monate": 7 }
+      "zusatz": {
+        "label": "Darauf könnt ihr achten:",
+        "text": "Sitzt euer Kind mit Hilfe aufrecht und schaut euch neugierig beim Essen zu?"
+      },
+      "von": {
+        "monate": 4
+      },
+      "bis": {
+        "monate": 7
+      }
     },
     {
       "id": "zaehne",
       "bereich": "alltag",
       "titel": "Die ersten Zähne",
-      "text": "Viele Kinder bekommen zwischen dem 6. und 10. Monat den ersten Zahn – manche früher, manche deutlich später.",
-      "zusatz": { "label": "Ganz normal dabei:", "text": "Sabbern, Kauen und etwas mehr Unruhe." },
-      "von": { "monate": 5 },
-      "bis": { "monate": 12 }
-    },
-    {
-      "id": "sitzen",
-      "bereich": "bewegung",
-      "titel": "Sitzt allein",
-      "text": "Euer Kind sitzt ohne Stütze und hat die Hände frei zum Spielen.",
-      "von": { "monate": 6 },
-      "bis": { "monate": 10 }
+      "text": "Viele Kinder bekommen mit 6 bis 8 Monaten den ersten Zahn – manche früher, manche deutlich später.",
+      "zusatz": {
+        "label": "Ganz normal dabei:",
+        "text": "Sabbern, Kauen und etwas mehr Unruhe."
+      },
+      "von": {
+        "monate": 5
+      },
+      "bis": {
+        "monate": 12
+      }
     },
     {
       "id": "silbenketten",
@@ -121,17 +331,48 @@
       "text": "„Ba-ba-ba“, „da-da-da“ – euer Kind übt die Laute seiner Sprache.",
       "tipp": "Sprecht viel mit eurem Kind und benennt, was ihr tut und seht.",
       "tippArt": "spiel",
-      "von": { "monate": 6 },
-      "bis": { "monate": 10 }
+      "von": {
+        "monate": 5
+      },
+      "bis": {
+        "monate": 10
+      },
+      "quelle": {
+        "name": "kindergesundheit-info.de – Sprechen und Verstehen",
+        "url": "https://www.kindergesundheit-info.de/themen/entwicklung/0-12-monate/sprechen-verstehen/"
+      }
+    },
+    {
+      "id": "sitzen",
+      "bereich": "bewegung",
+      "titel": "Sitzt allein",
+      "text": "Euer Kind sitzt ohne Stütze und hat die Hände frei zum Spielen.",
+      "von": {
+        "monate": 6
+      },
+      "bis": {
+        "monate": 11
+      },
+      "quelle": {
+        "name": "kindergesundheit-info.de – Bewegungsentwicklung",
+        "url": "https://www.kindergesundheit-info.de/themen/entwicklung/0-12-monate/bewegungsentwicklung/"
+      }
     },
     {
       "id": "fremdeln",
       "bereich": "alltag",
       "titel": "Fremdeln",
       "text": "Euer Kind reagiert auf fremde Menschen plötzlich zurückhaltend oder weint.",
-      "zusatz": { "label": "Ganz normal dabei:", "text": "Ein gutes Zeichen – euer Kind unterscheidet jetzt klar zwischen vertraut und fremd. Gebt ihm Zeit und drängt es nicht auf fremde Arme." },
-      "von": { "monate": 6 },
-      "bis": { "monate": 10 }
+      "zusatz": {
+        "label": "Ganz normal dabei:",
+        "text": "Ein gutes Zeichen – euer Kind unterscheidet jetzt klar zwischen vertraut und fremd. Gebt ihm Zeit und drängt es nicht auf fremde Arme."
+      },
+      "von": {
+        "monate": 6
+      },
+      "bis": {
+        "monate": 10
+      }
     },
     {
       "id": "krabbeln",
@@ -140,16 +381,32 @@
       "text": "Euer Kind kommt vom Fleck – robbend, krabbelnd oder rutschend. Manche lassen das Krabbeln auch ganz aus.",
       "tipp": "Zeit für einen Rundgang auf Knien: Steckdosen, Kabel und Treppen sichern.",
       "tippArt": "hinweis",
-      "von": { "monate": 7 },
-      "bis": { "monate": 11 }
+      "von": {
+        "monate": 7
+      },
+      "bis": {
+        "monate": 11
+      },
+      "quelle": {
+        "name": "kindergesundheit-info.de – Bewegungsentwicklung",
+        "url": "https://www.kindergesundheit-info.de/themen/entwicklung/0-12-monate/bewegungsentwicklung/"
+      }
     },
     {
       "id": "hochziehen",
       "bereich": "bewegung",
       "titel": "Zieht sich hoch zum Stehen",
       "text": "An Sofa oder Couchtisch zieht sich euer Kind in den Stand und hangelt sich seitlich entlang.",
-      "von": { "monate": 8 },
-      "bis": { "monate": 12 }
+      "von": {
+        "monate": 9
+      },
+      "bis": {
+        "monate": 15
+      },
+      "quelle": {
+        "name": "kindergesundheit-info.de – Bewegungsentwicklung",
+        "url": "https://www.kindergesundheit-info.de/themen/entwicklung/0-12-monate/bewegungsentwicklung/"
+      }
     },
     {
       "id": "pinzettengriff",
@@ -158,17 +415,28 @@
       "text": "Kleine Dinge werden mit Daumen und Zeigefinger aufgehoben – auch Krümel vom Boden.",
       "tipp": "Kleine, weiche Fingerfood-Stücke sind perfektes Training.",
       "tippArt": "spiel",
-      "von": { "monate": 9 },
-      "bis": { "monate": 12 }
+      "von": {
+        "monate": 9
+      },
+      "bis": {
+        "monate": 12
+      }
     },
     {
       "id": "trennungsangst",
       "bereich": "alltag",
       "titel": "Anhänglich, wenn ihr geht",
       "text": "Euer Kind protestiert, wenn ihr den Raum verlasst. Es lernt gerade, dass ihr wiederkommt.",
-      "zusatz": { "label": "Das hilft oft:", "text": "Kurz und klar verabschieden, statt sich heimlich wegzuschleichen." },
-      "von": { "monate": 9 },
-      "bis": { "monate": 18 }
+      "zusatz": {
+        "label": "Das hilft oft:",
+        "text": "Kurz und klar verabschieden, statt sich heimlich wegzuschleichen."
+      },
+      "von": {
+        "monate": 9
+      },
+      "bis": {
+        "monate": 18
+      }
     },
     {
       "id": "winken-zeigen",
@@ -177,41 +445,188 @@
       "text": "Euer Kind winkt zum Abschied und zeigt mit dem Finger, was es interessiert.",
       "tipp": "Benennt, worauf euer Kind zeigt: „Ja, ein Hund!“",
       "tippArt": "spiel",
-      "von": { "monate": 9 },
-      "bis": { "monate": 14 }
-    },
-    {
-      "id": "erste-woerter",
-      "bereich": "sprache",
-      "titel": "Erste Wörter",
-      "text": "„Mama“, „Papa“, „Ball“ – die ersten Wörter mit Bedeutung. Der Zeitpunkt ist sehr unterschiedlich.",
-      "von": { "monate": 10 },
-      "bis": { "monate": 18 }
+      "von": {
+        "monate": 9
+      },
+      "bis": {
+        "monate": 14
+      }
     },
     {
       "id": "laufen",
       "bereich": "bewegung",
       "titel": "Läuft frei",
       "text": "Die ersten freien Schritte! Bei vielen um den 1. Geburtstag – aber auch mit 18 Monaten ist das noch ganz normal.",
-      "von": { "monate": 9 },
-      "bis": { "monate": 18 }
+      "von": {
+        "monate": 9
+      },
+      "bis": {
+        "monate": 18
+      },
+      "quelle": {
+        "name": "kindergesundheit-info.de – Bewegungsentwicklung",
+        "url": "https://www.kindergesundheit-info.de/themen/entwicklung/0-12-monate/bewegungsentwicklung/"
+      }
+    },
+    {
+      "id": "erste-woerter",
+      "bereich": "sprache",
+      "titel": "Erste Wörter",
+      "text": "„Mama“, „Papa“, „Ball“ – die ersten Wörter mit Bedeutung. Der Zeitpunkt ist sehr unterschiedlich.",
+      "von": {
+        "monate": 10
+      },
+      "bis": {
+        "monate": 24
+      },
+      "quelle": {
+        "name": "kindergesundheit-info.de – Sprachentwicklung",
+        "url": "https://www.kindergesundheit-info.de/themen/entwicklung/entwicklungsschritte/sprachentwicklung/"
+      }
+    },
+    {
+      "id": "versteht-mehr",
+      "bereich": "sprache",
+      "titel": "Versteht mehr, als es sagt",
+      "text": "Um den 1. Geburtstag verstehen viele Kinder schon 50 bis 100 Wörter und einfache Bitten wie „Gib mir den Ball!“ – oft lange bevor sie selbst sprechen.",
+      "tipp": "Bittet euer Kind um kleine Hilfen: „Holst du deine Schuhe?“",
+      "tippArt": "spiel",
+      "von": {
+        "monate": 10
+      },
+      "bis": {
+        "monate": 18
+      },
+      "quelle": {
+        "name": "kindergesundheit-info.de – Sprechen und Verstehen",
+        "url": "https://www.kindergesundheit-info.de/themen/entwicklung/0-12-monate/sprechen-verstehen/"
+      }
+    },
+    {
+      "id": "selbst-essen",
+      "bereich": "alltag",
+      "titel": "Will selbst essen",
+      "text": "Euer Kind möchte am Familientisch mitessen – mit Fingern und Löffel. Manche führen den Löffel schon mit 11 Monaten zum Mund, andere erst mit 2 Jahren.",
+      "zusatz": {
+        "label": "Ganz normal dabei:",
+        "text": "Kleckern gehört zum Lernen. Kleine Löffel und Schalen statt flacher Teller machen es leichter."
+      },
+      "von": {
+        "monate": 10
+      },
+      "bis": {
+        "monate": 24
+      },
+      "quelle": {
+        "name": "Netzwerk Gesund ins Leben – Gemeinsames Essen mit Kleinkindern",
+        "url": "https://www.gesund-ins-leben.de/fuer-fachkreise/ernaehrung-und-bewegung-fuer-kleinkinder/nachgefragt/wie-gelingt-das-gemeinsame-essen-mit-kleinkindern-am-familientisch/"
+      }
+    },
+    {
+      "id": "ein-mittagsschlaf",
+      "bereich": "alltag",
+      "titel": "Aus zwei Schläfchen wird eins",
+      "text": "Mit einem Jahr schlafen die meisten Kinder tagsüber noch zweimal. Mit etwa 18 Monaten schlafen fast alle nur noch einmal am Tag, meist nach dem Mittagessen.",
+      "zusatz": {
+        "label": "Das hilft oft:",
+        "text": "Regelmäßige Zeiten und ein kleines Ritual – wie vor der Nacht."
+      },
+      "von": {
+        "monate": 12
+      },
+      "bis": {
+        "monate": 19
+      },
+      "quelle": {
+        "name": "kindergesundheit-info.de – Schlafbedarf und Schlafdauer",
+        "url": "https://www.kindergesundheit-info.de/themen/schlafen/1-6-jahre/schlafbedarf/"
+      }
+    },
+    {
+      "id": "nebeneinander-spielen",
+      "bereich": "miteinander",
+      "titel": "Spielt neben anderen Kindern",
+      "text": "Andere Kinder sind spannend. Richtig zusammen spielen klappt noch selten – aber euer Kind spielt nebeneinander und schaut genau zu, was die anderen machen.",
+      "tipp": "Spielplatz oder Spielgruppe: Kinder brauchen andere Kinder, auch wenn jedes noch für sich spielt.",
+      "tippArt": "spiel",
+      "von": {
+        "monate": 12
+      },
+      "bis": {
+        "monate": 24
+      },
+      "quelle": {
+        "name": "kindergesundheit-info.de – Soziale Entwicklung",
+        "url": "https://www.kindergesundheit-info.de/themen/entwicklung/entwicklungsschritte/soziale-entwicklung/"
+      }
     },
     {
       "id": "eigener-wille",
       "bereich": "alltag",
       "titel": "Der eigene Wille",
       "text": "„Nein!“ und „Selber!“ – euer Kind will mitbestimmen, und nicht alles klappt schon so, wie es will.",
-      "zusatz": { "label": "Das hilft oft:", "text": "Kleine Wahlmöglichkeiten: „Die rote oder die blaue Jacke?“ Wutanfälle gehören in dieser Zeit oft dazu." },
-      "von": { "monate": 15 },
-      "bis": { "monate": 24 }
+      "zusatz": {
+        "label": "Das hilft oft:",
+        "text": "Kleine Wahlmöglichkeiten: „Die rote oder die blaue Jacke?“ Wutanfälle gehören in dieser Zeit oft dazu."
+      },
+      "von": {
+        "monate": 15
+      },
+      "bis": {
+        "monate": 24
+      }
+    },
+    {
+      "id": "nachahmen",
+      "bereich": "miteinander",
+      "titel": "Macht nach, was ihr tut",
+      "text": "Euer Kind macht immer öfter nach, was es bei euch sieht: den Tisch decken, die Puppe „füttern“, dem Teddy etwas erklären.",
+      "tipp": "Lasst es mithelfen – zum Beispiel Löffel auf den Tisch legen.",
+      "tippArt": "spiel",
+      "von": {
+        "monate": 15
+      },
+      "bis": {
+        "monate": 24
+      },
+      "quelle": {
+        "name": "kindergesundheit-info.de – Erforschen und Entdecken",
+        "url": "https://www.kindergesundheit-info.de/themen/spielen/1-3-jahre/erforschen-entdecken/"
+      }
     },
     {
       "id": "wortschatz",
       "bereich": "sprache",
       "titel": "Der Wortschatz wächst schnell",
-      "text": "Neue Wörter kommen fast täglich dazu, erste Zwei-Wort-Sätze wie „Ball haben“ entstehen.",
-      "von": { "monate": 18 },
-      "bis": { "monate": 24 }
+      "text": "Neue Wörter kommen fast täglich dazu – bei manchen entstehen auch schon erste Zwei-Wort-Sätze wie „Ball haben“.",
+      "von": {
+        "monate": 18
+      },
+      "bis": {
+        "monate": 24
+      },
+      "quelle": {
+        "name": "kindergesundheit-info.de – Sprachentwicklung",
+        "url": "https://www.kindergesundheit-info.de/themen/entwicklung/entwicklungsschritte/sprachentwicklung/"
+      }
+    },
+    {
+      "id": "als-ob-spiel",
+      "bereich": "miteinander",
+      "titel": "Das erste Als-ob-Spiel",
+      "text": "Ein Stöckchen wird zum Löffel, der Schuhkarton zum Schiff: Euer Kind kann sich jetzt vorstellen, dass etwas eine andere Bedeutung hat.",
+      "tipp": "Spielt mit: Trinkt aus der leeren Tasse, die euer Kind euch reicht.",
+      "tippArt": "spiel",
+      "von": {
+        "monate": 18
+      },
+      "bis": {
+        "monate": 24
+      },
+      "quelle": {
+        "name": "kindergesundheit-info.de – Geistige Entwicklung",
+        "url": "https://www.kindergesundheit-info.de/themen/entwicklung/entwicklungsschritte/geistige-entwicklung/"
+      }
     }
   ]
 }
