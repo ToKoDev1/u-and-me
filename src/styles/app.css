@@ -296,13 +296,21 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 .zr-schiene { position: relative; height: 32px; margin: 4px 10px 0; }
 .zr-spur { position: absolute; left: 0; right: 0; top: 13px; height: 6px; border-radius: 3px; background: var(--farbe-linie); }
 .zr-fenster { position: absolute; top: -2px; height: 10px; min-width: 4px; border-radius: 5px; background: var(--farbe-akzent); opacity: .45; }
+.zr-fenster.vorbei { opacity: .22; }
+.zr-fenster.naechste { opacity: 1; }
+.zr-heute { position: absolute; top: 5px; width: 22px; height: 22px; margin-left: -11px; border-radius: 50%; background: var(--farbe-akzent); border: 3px solid var(--farbe-hintergrund); box-shadow: 0 0 0 1.5px var(--farbe-akzent); }
+.u-zeitleiste { width: 100%; }
 .zr-regler { position: absolute; inset: 0; width: 100%; height: 32px; margin: 0; background: transparent; appearance: none; -webkit-appearance: none; cursor: pointer; }
 .zr-regler::-webkit-slider-runnable-track { height: 32px; background: transparent; }
 .zr-regler::-moz-range-track { height: 32px; background: transparent; }
 .zr-regler::-webkit-slider-thumb { -webkit-appearance: none; width: 24px; height: 24px; margin-top: 4px; border-radius: 50%; background: var(--farbe-akzent); border: 3px solid var(--farbe-flaeche); box-shadow: var(--schatten-weich); }
 .zr-regler::-moz-range-thumb { width: 18px; height: 18px; border-radius: 50%; background: var(--farbe-akzent); border: 3px solid var(--farbe-flaeche); }
 .zr-marken { position: relative; height: 18px; margin: 0 10px; font-size: 12.5px; font-weight: 800; color: var(--farbe-text-gedaempft); }
-.zr-marken span { position: absolute; top: 0; transform: translateX(-50%); }
+.zr-marken a { position: absolute; top: 0; transform: translateX(-50%); text-decoration: none; padding: 0 2px; }
+.zr-marken a.vorbei { opacity: .6; }
+.zr-marken a.naechste { color: var(--farbe-akzent-text); }
+.zr-marken a:hover { text-decoration: underline; }
+.u-zeitleiste .zr-marken { height: 20px; }
 /* ---------- Desktop ab 900 px ---------- */
 @media (min-width: 900px) {
   .kopfzeile { max-width: var(--inhalt-max); margin: 0 auto; padding: 22px 40px 0; }

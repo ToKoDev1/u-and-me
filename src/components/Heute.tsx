@@ -8,6 +8,7 @@ import {
   type Etappe,
 } from '../lib/inhalte';
 import type { Kind } from '../lib/kind';
+import { UZeitleiste } from './UZeitleiste';
 import { Zeitring } from './Zeitring';
 
 /** Startseite im reduzierten Stil: ein Zentrum, drei Kacheln, eine wichtige Sache */
@@ -29,6 +30,7 @@ export function Heute({ kind }: { kind: Kind }) {
   return (
     <div className="heute">
       <p className="heute-datum">{datumFormat.format(kind.jetzt)}</p>
+      <UZeitleiste kind={kind} />
       <Zeitring kind={kind} />
 
       <nav className="kacheln" aria-label="Bereiche">
