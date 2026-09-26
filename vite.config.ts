@@ -29,7 +29,7 @@ export default defineConfig(({ mode }) => ({
     // Neue Versionen werden im Hintergrund geladen und beim nächsten Öffnen genutzt.
     VitePWA({
       registerType: 'autoUpdate',
-      injectRegister: 'script',
+      injectRegister: false, // registriert wird in src/main.tsx (mit automatischem Neuladen)
       manifest: false, // eigenes Manifest in public/manifest.webmanifest
       workbox: {
         globPatterns: ['**/*.{js,css,html,png,svg,woff2,webmanifest}'],

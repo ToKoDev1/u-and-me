@@ -11,6 +11,7 @@ import App from './App';
 import { Fehlerseite } from './components/Fehlerseite';
 import { darstellungAnwenden, systemBeobachten } from './lib/darstellung';
 import { allesLoeschen } from './lib/speicher';
+import { registerSW } from 'virtual:pwa-register';
 
 // Nur in der Entwicklung: ?neu löscht alle gespeicherten Angaben und startet mit dem Onboarding
 if (import.meta.env.DEV && new URLSearchParams(window.location.search).has('neu')) {
@@ -32,6 +33,15 @@ createRoot(document.getElementById('root')!).render(
     </Fehlerseite>
   </StrictMode>,
 );
+
+// Service Worker (offline nutzbar): Ist eine neue Version geladen, lädt die Seite einmal neu –
+// so sehen alle Updates schon beim nächsten Öffnen. Außerdem stündlich nach Updates schauen.
+registerSW({
+  immediate: true,
+  onRegisteredSW(_url, registrierung) {
+    if (registrierung) window.setInterval(() => void registrierung.update(), 60 * 60 * 1000);
+  },
+});
 
 // Startbildschirm aus index.html kurz zeigen (die Erklärung übernimmt beim ersten Öffnen die Welcome-Tour)
 const ANZEIGE_MS = 1500;
