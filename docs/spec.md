@@ -39,9 +39,10 @@ Nebenziel: Das Projekt dient dazu, **das Bauen von Software mit Claude Code zu l
 1. **Onboarding** – Geburtsdatum eingeben (optional Name des Kindes) und ein **Maskottchen wählen**: Löwenbaby, Hundebaby, Pinguinbaby oder Elefantenbaby. Wird lokal im Browser gespeichert.
 2. **„Du bist hier“** – aktuelle Phase mit:
    - Alter des Kindes (Wochen/Monate)
+   - **„Was euch gerade begegnen kann“** – beantwortet „Warum ist mein Kind gerade so – und ist das normal?“ (z. B. unruhiger Schlaf, Fremdeln). Der emotionale Kern der App, steht ganz oben.
    - Was in dieser Phase typisch ist (Bewegung, Sprache, Sozialverhalten, Schlaf/Essen)
    - Worauf achten / wann ärztlich abklären
-3. **Nächste U vorbereiten** – Zeitfenster der nächsten U, was dort passiert, Beobachtungs-Checkliste, mögliche Fragen an die Kinderärztin.
+3. **Nächste U vorbereiten** – Zeitfenster der nächsten U, was dort passiert, Beobachtungs-Checkliste, mögliche Fragen an die Kinderärztin. Dazu **„In meinen Kalender eintragen“**: lädt eine .ics-Datei mit dem Zeitfenster herunter (lokal erzeugt, kein Server).
 4. **Hinweis für Frühgeborene** – gut sichtbarer Hinweis, dass bei Frühchen für die Entwicklung das *korrigierte Alter* zählt (Alter ab errechnetem Geburtstermin), die U-Termine aber nach dem tatsächlichen Geburtsdatum laufen. Die App rechnet in v1 selbst noch nicht mit korrigiertem Alter.
 5. **Allgemeiner Hinweis** – die App ersetzt keine ärztliche Beratung; bei Sorgen immer die Kinderarztpraxis fragen.
 
@@ -59,6 +60,13 @@ Nebenziel: Das Projekt dient dazu, **das Bauen von Software mit Claude Code zu l
 
 *(Zeiträume vor Verwendung in der App gegen die G-BA Kinder-Richtlinie prüfen.)*
 
+### Inspiration & Abgrenzung: „Oje, ich wachse!“
+
+Die bekannteste App im Bereich (4,6★, ~39.500 Bewertungen). Ihr Erfolg liegt weniger in der (umstrittenen) Sprung-Theorie als im emotionalen Job: *„Warum ist mein Baby gerade so anstrengend – und ist das normal?“*
+
+- **Übernommen (als Prinzip, nicht als Inhalt):** „Was euch gerade begegnen kann“, persönlicher Zeitstrahl, Erinnerungen (bei uns: Kalender-Export statt Push), Spielideen pro Phase
+- **Bewusst nicht:** Sprung-Modell mit exakten Vorhersagen, Abo/Paywall, Community-Forum, Texte oder Bilder der App
+
 ## Bewusst NICHT in v1
 
 - Keine Accounts, kein Login, kein Backend
@@ -69,6 +77,12 @@ Nebenziel: Das Projekt dient dazu, **das Bauen von Software mit Claude Code zu l
 - Keine native App (App Store)
 
 ## Später (Parkplatz)
+
+**v1.1 (Design wird schon mitgestaltet):**
+- **Zeitstrahl „Euer Weg“** – alle Us und Phasen mit echten Daten, aktuelle Phase hervorgehoben, Maskottchen als „Wanderer“
+- **„Das könnt ihr zusammen ausprobieren“** – 2–3 Spiel-/Beschäftigungsideen pro Phase
+
+**Irgendwann:**
 
 - Notizen / Beobachtungen, die vor der U gesammelt angezeigt werden
 - Impf-Erinnerungen nach STIKO

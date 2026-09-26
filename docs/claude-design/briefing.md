@@ -8,7 +8,16 @@ Eine mobile Web-App, die Eltern in den ersten zwei Lebensjahren ihres Kindes zwi
 1. „Du bist hier“: welche Entwicklung in der aktuellen Phase typisch ist, immer als Spannbreite („zwischen 4 und 7 Monaten“), nie als Stichtag.
 2. „Nächste U“: wann die nächste Untersuchung ansteht, was dort passiert und wie man sich vorbereiten kann.
 
+Das Wichtigste dabei: Eltern greifen oft in anstrengenden Momenten zum Handy, zum Beispiel nachts, wenn das Baby schlecht schläft. Die App soll dann beruhigen: „Das ist in dieser Phase häufig, und darauf könnt ihr achten.“
+
 Name: „U & Me“, „U“ wie U-Untersuchung, gelesen wie „you and me“, also Eltern und Kind.
+
+## Plattform: Web-App, keine native App
+U & Me läuft **im Browser** und wird über einen Link geteilt, ohne App Store. Später lässt sie sich als PWA („Zum Homescreen hinzufügen“) wie eine App installieren.
+- **Mobile first**, aber **responsive**: Auf Tablet und Laptop soll die App ebenfalls gut aussehen, etwa mit einer zentrierten, angenehm breiten Inhaltsspalte oder einem zweispaltigen Layout, nicht als gestrecktes Handylayout.
+- Keine plattformspezifischen Muster, die im Browser nicht funktionieren (z. B. iOS-typische Navigationsleisten oder Gesten als einziger Weg).
+- Die Adressleiste des Browsers kann sichtbar sein, also nicht mit festen Bildschirmhöhen planen.
+- Für die Installation: ein **App-Icon** (idealerweise mit einem der Maskottchen oder einem neutralen „U & Me“-Zeichen) und eine Hintergrundfarbe für den Startbildschirm.
 
 ## Für wen?
 Eltern von Babys und Kleinkindern (0–2 Jahre), oft übermüdet und manchmal verunsichert. Die App wird im Freundeskreis geteilt und ist kein kommerzielles Produkt.
@@ -75,11 +84,19 @@ Warm, verspielt, rund, wie ein gutes modernes Kinderbuch, aber für Erwachsene l
 ## Aufgabe
 Bitte gestalte mit den beigelegten Maskottchen:
 1. **Onboarding:** kurze Begrüßung, Auswahl des Maskottchens (vier Karten mit den Tieren), Eingabe des Geburtsdatums (optional der Name des Kindes), Hinweis, dass alle Daten nur auf dem Gerät bleiben
-2. **Startseite „Du bist hier“:** Maskottchen, Alter des Kindes, aktuelle Phase, typische Entwicklung in 3–4 Bereichen, „Wann ärztlich abklären“, Vorschau auf die nächste U
-3. **Detailseite „Nächste U“:** Zeitfenster, was untersucht wird, Beobachtungs-Checkliste zum Abhaken, Fragen an die Kinderarztpraxis
-4. **Hinweis-Komponenten:** Hinweis für Frühgeborene (korrigiertes Alter), allgemeiner Hinweis „ersetzt keine ärztliche Beratung“, Quellenangabe pro Inhalt
+2. **Startseite „Du bist hier“:** Maskottchen, Alter des Kindes, aktuelle Phase und darin, in dieser Reihenfolge:
+   - **„Was euch gerade begegnen kann“**: Das ist der emotionale Kern der App. Er beantwortet die Frage „Warum ist mein Kind gerade so, und ist das normal?“ (etwa unruhiger Schlaf, Fremdeln, mehr Hunger). Dieser Bereich soll zuerst ins Auge fallen, beruhigend und nicht alarmierend.
+   - **Typische Entwicklung** in 3–4 Bereichen (Bewegung, Sprache, Miteinander, Schlafen/Essen), immer als Spannbreite
+   - **„Das könnt ihr zusammen ausprobieren“**: 2–3 kleine Spiel- und Beschäftigungsideen als positiver, leichter Teil
+   - **„Nicht bis zur nächsten U warten, wenn …“**: Warnzeichen, ruhig gestaltet
+   - **Vorschau auf die nächste U**
+3. **Detailseite „Nächste U“:** Zeitfenster mit echten Daten, Button **„In meinen Kalender eintragen“** (lädt eine Kalenderdatei herunter), was untersucht wird, Beobachtungs-Checkliste zum Abhaken, Fragen an die Kinderarztpraxis
+4. **Zeitstrahl „Euer Weg“** (kommt nach v1, soll aber schon mitgestaltet werden): alle U-Untersuchungen und Phasen von der Geburt bis 2 Jahre auf einer vertikalen Zeitleiste mit echten Daten. Vergangenes ist dezent, die aktuelle Phase hervorgehoben („Du bist hier“, mit dem Maskottchen als „Wanderer“ auf dem Weg), Kommendes ist sichtbar, aber zurückhaltend. Man soll auf einen Blick sehen, was war und was kommt, aber ohne Fortschrittsbalken oder Bewertung.
+5. **Hinweis-Komponenten:** Hinweis für Frühgeborene (korrigiertes Alter), allgemeiner Hinweis „ersetzt keine ärztliche Beratung“, Quellenangabe pro Inhalt, Kennzeichnung „Entwurf, noch nicht fachlich geprüft“
+6. **App-Icon** für die Installation auf dem Homescreen
+7. **Navigation** zwischen „Du bist hier“, „Nächste U“ und „Euer Weg“, browsertauglich (siehe Plattform)
 
-Alle Screens in Hell und Dunkel.
+Alle Screens in Hell und Dunkel, als Handyansicht (375 px). Für die Startseite zusätzlich eine Desktop-Ansicht (ca. 1280 px), die zeigt, wie das Layout auf großen Bildschirmen aussieht.
 
 Zusätzlich bitte eine Übersicht der Design-Grundlagen (Design Tokens):
 - Farbpalette hell und dunkel, mit Rollen (Hintergrund, Fläche, Text, Text gedämpft, Akzent, Hinweis, Warnung)
@@ -93,14 +110,19 @@ Zusätzlich bitte eine Übersicht der Design-Grundlagen (Design Tokens):
 Kind: Mila, 5 Monate und 1 Woche, Maskottchen: Elefantenbaby
 
 Phase: „Zwischen U4 und U5“ (ca. 4.–6. Monat)
+- Was euch gerade begegnen kann: Viele Babys schlafen in dieser Zeit wieder unruhiger und wachen nachts öfter auf. Manche sind plötzlich schneller abgelenkt beim Trinken, weil die Welt so spannend wird. Das ist häufig und meist vorübergehend.
 - Bewegung: dreht sich vom Rücken auf den Bauch (meist zwischen 4 und 7 Monaten); greift gezielt nach Spielzeug
 - Sprache und Laute: lacht laut, brabbelt Silbenketten
 - Miteinander: erkennt vertraute Gesichter, fremdelt manchmal erstmals
 - Schlafen und Essen: Schlafrhythmus wird oft regelmäßiger; Beikost kann ab dem 5.–7. Monat Thema werden
+- Das könnt ihr zusammen ausprobieren: Spielzeug knapp außer Reichweite legen und zum Greifen ermuntern; Spiegel-Spiel (Mila entdeckt ihr Gesicht); Geräusche nachmachen und abwechselnd „antworten“
 - Ärztlich abklären, wenn: das Kind nicht auf Geräusche reagiert, nicht versucht zu greifen oder Fähigkeiten wieder verliert
 
-Nächste U: U5, 6.–7. Lebensmonat (in ca. 4 Wochen)
+Nächste U: U5, 6.–7. Lebensmonat (in ca. 4 Wochen), Zeitfenster 19. September bis 18. November 2026
 - Beobachtungs-Checkliste: Dreht sich Mila? Greift sie mit beiden Händen? Wie reagiert sie auf Stimmen?
 - Mögliche Fragen: „Wann und wie mit Beikost starten?“, „Ist unser Schlafrhythmus normal?“
+
+Zeitstrahl „Euer Weg“ (Geburt am 19.04.2026):
+U1 Geburt · U2 21.–28. April · U3 10.–23. Mai · U4 19. Juni–18. August · **heute: zwischen U4 und U5** · U5 19. September–18. November · U6 19. Januar–18. April 2027 · U7 19. Dezember 2027–18. April 2028
 
 Quelle: kindergesundheit-info.de, Stand 09/2026
