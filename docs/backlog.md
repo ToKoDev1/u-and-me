@@ -56,7 +56,7 @@ Farben, Schrift, Ton und die Grundidee (Zeitring, drei Kacheln, „Heute wichtig
 - [x] 🔴 M · Quelle + Abrufdatum **pro Eintrag** (statt nur Startseite)
 - [x] 🟡 M · Etappen für die ersten 10 Tage (Gewicht, Nabel, Gelbsucht, Milcheinschuss, Heultage)
 - [x] 🟡 M · 2. Lebensjahr ergänzen (Nachahmen, Symbolspiel, Löffel/Becher, Mittagsschlaf) + Phase U6→U7 teilen
-- [ ] 🟡 S · Zahnarzt Z1–Z3 als eigene Termine in die Zeitleiste (G-BA: Z1 6.–9., Z2 10.–20., Z3 21.–33. Lebensmonat)
+- [x] 🟡 S · Zahnarzt Z1–Z3 als eigene Termine in die Zeitleiste + Seite `/zahnarzt` (G-BA: Z1 6.–9., Z2 10.–20., Z3 21.–33. Lebensmonat)
 - [ ] 🟡 S · Beobachtungs-Checkliste klingt wie Meilenstein-Test → „Was ist euch aufgefallen?“
 - [ ] 🟡 S · Spielideen ohne Prüf-Charakter formulieren; Altersangaben nachschärfen (Lächeln, Malen, Sortieren)
 - [x] 🟡 S · Entscheidung: Phasen/Warnzeichen bei Frühchen nach korrigiertem Alter

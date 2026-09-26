@@ -8,6 +8,7 @@ import {
   phasen,
   untersuchungen,
   vorherigeUntersuchung,
+  zahnarzt,
 } from './inhalte';
 import { kindAus } from './kind';
 
@@ -61,7 +62,7 @@ describe('Inhalte (JSON) sind plausibel', () => {
   });
 
   it('jedes Zeitfenster beginnt vor seinem Ende', () => {
-    for (const x of [...phasen, ...etappen, ...untersuchungen]) {
+    for (const x of [...phasen, ...etappen, ...untersuchungen, ...zahnarzt.termine]) {
       expect(tage(x.von), x.id).toBeLessThan(tage(x.bis));
     }
   });

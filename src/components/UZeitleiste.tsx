@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { datumBeiAlter, datumFormat, tageZwischen } from '../lib/alter';
-import { naechsteUntersuchung, uTermine } from '../lib/inhalte';
+import { naechsteUntersuchung, uTermine, zahnTermine } from '../lib/inhalte';
 import type { Kind } from '../lib/kind';
 
 type Props = {
@@ -31,6 +31,18 @@ export function UZeitleiste({ kind, onDatum }: Props) {
     bis: tageBis(t.ende),
     zustand: t.ende <= kind.jetzt ? 'vorbei' : t.untersuchung.id === naechste ? 'naechste' : 'kommend',
   }));
+
+  const zahn = zahnTermine(kind).map((z) => {
+    const von = tageBis(z.beginn);
+    const bis = tageBis(z.ende);
+    return {
+      ...z,
+      von,
+      bis,
+      mitte: (position(von) + position(bis)) / 2,
+      zustand: z.ende <= kind.jetzt ? 'vorbei' : z.beginn <= kind.jetzt ? 'naechste' : 'kommend',
+    };
+  });
 
   // Beschriftungen, die zu dicht liegen (U1/U2 in den ersten Tagen), zu „U1·2“ zusammenfassen
   const ABSTAND = 0.07;
@@ -85,6 +97,22 @@ export function UZeitleiste({ kind, onDatum }: Props) {
           >
             {m.zusammen ? `${m.zusammen}·${m.id.slice(1)}` : m.id}
           </Link>
+        ))}
+      </nav>
+
+      {/* Zweite, leisere Zeile: Zahnarzt-Termine Z1–Z3 (Z3 reicht über 24 Monate hinaus) */}
+      <nav className="zr-zahn" aria-label="Zahnarzt-Termine">
+        {zahn.map((z) => (
+          <span key={z.termin.id}>
+            <span
+              className={`zr-zahnfenster ${z.zustand}`}
+              style={{ left: prozent(z.von), width: `calc(${prozent(z.bis)} - ${prozent(z.von)})` }}
+              aria-hidden="true"
+            />
+            <Link to="/zahnarzt" className={z.zustand} style={{ left: `${z.mitte * 100}%` }} aria-label={`Zahnarzt ${z.termin.id}`}>
+              {z.termin.id}
+            </Link>
+          </span>
         ))}
       </nav>
     </div>

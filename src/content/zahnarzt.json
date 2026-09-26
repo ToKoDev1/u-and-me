@@ -1,0 +1,35 @@
+{
+  "abgerufen": "2026-09-26",
+  "quelle": {
+    "name": "kindergesundheit-info.de – Zahnmedizinische Früherkennung",
+    "url": "https://www.kindergesundheit-info.de/themen/risiken-vorbeugen/zahngesundheit/zahnmedizinische-frueherkennung/"
+  },
+  "zeitraumQuelle": {
+    "name": "G-BA Kinder-Richtlinie (Stand 1.1.2026)",
+    "url": "https://www.g-ba.de/downloads/62-492-3998/Kinder-RL_2025-05-15_iK-2026-01-01.pdf"
+  },
+  "passiert": [
+    {
+      "titel": "Blick in den Mund",
+      "text": "Die Zahnärztin oder der Zahnarzt schaut sich Zähne, Schleimhaut und das Wachstum des Kiefers an und achtet auf erste Anzeichen von Karies."
+    },
+    {
+      "titel": "Beratung für euch",
+      "text": "Ihr bekommt Tipps zum Zähneputzen, zu zahnfreundlichem Essen und Trinken und zu Fluorid."
+    },
+    {
+      "titel": "Fluoridlack",
+      "text": "Vom 6. bis zum 33. Lebensmonat kann zweimal im Halbjahr Fluoridlack auf die Zähne aufgetragen werden. Er härtet den Zahnschmelz. Bei gesetzlich Versicherten zahlt das die Krankenkasse."
+    }
+  ],
+  "hinweise": [
+    "Die Ergebnisse werden im gelben Kinderuntersuchungsheft eingetragen – bringt es mit.",
+    "Zwischen zwei Terminen sollten mindestens vier Monate liegen. Den Termin vereinbart ihr selbst in einer Zahnarztpraxis.",
+    "Nehmt euer Kind gern schon vorher zu euren eigenen Kontrollterminen mit – so wird die Praxis vertraut."
+  ],
+  "termine": [
+    { "id": "Z1", "zeitraum": "6. bis 9. Lebensmonat", "von": { "monate": 5 }, "bis": { "monate": 9 } },
+    { "id": "Z2", "zeitraum": "10. bis 20. Lebensmonat", "von": { "monate": 9 }, "bis": { "monate": 20 } },
+    { "id": "Z3", "zeitraum": "21. bis 33. Lebensmonat", "von": { "monate": 20 }, "bis": { "monate": 33 } }
+  ]
+}

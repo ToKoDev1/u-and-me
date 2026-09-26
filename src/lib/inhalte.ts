@@ -3,6 +3,7 @@ import phasenDaten from '../content/phasen.json';
 import etappenDaten from '../content/etappen.json';
 import untersuchungenDaten from '../content/untersuchungen.json';
 import maskottchenDaten from '../content/maskottchen.json';
+import zahnarztDaten from '../content/zahnarzt.json';
 import { datumBeiAlter, imZeitfenster, type Alter } from './alter';
 import type { Kind } from './kind';
 
@@ -141,4 +142,18 @@ export function vorherigeUntersuchung(kind: Kind): UTermin | undefined {
   const naechste = naechsteUntersuchung(kind);
   const index = naechste ? termine.findIndex((t) => t.untersuchung.id === naechste.untersuchung.id) : termine.length;
   return index > 0 ? termine[index - 1] : undefined;
+}
+
+// ---- Zahnarzt Z1–Z3 ----------------------------------------------------------
+
+export type ZahnTermin = { id: string; zeitraum: string; von: Alter; bis: Alter };
+export const zahnarzt = zahnarztDaten as Omit<typeof zahnarztDaten, 'termine'> & { termine: ZahnTermin[] };
+
+/** Zahnarzt-Termine mit Datum – wie die U-Termine nach tatsächlichem Geburtsdatum */
+export function zahnTermine(kind: Kind) {
+  return zahnarzt.termine.map((z) => ({
+    termin: z,
+    beginn: datumBeiAlter(kind.geburt, z.von),
+    ende: datumBeiAlter(kind.geburt, z.bis),
+  }));
 }

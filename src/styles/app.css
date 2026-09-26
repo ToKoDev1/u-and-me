@@ -293,6 +293,14 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 .zr-marken a.naechste { color: var(--farbe-akzent-text); }
 .zr-marken a:hover { text-decoration: underline; }
 .u-zeitleiste .zr-marken { height: 20px; }
+.zr-zahn { position: relative; height: 22px; margin: 12px 10px 0; font-size: 11.5px; font-weight: 700; color: var(--farbe-text-gedaempft); }
+.zr-zahnfenster { position: absolute; top: 0; height: 3px; border-radius: 2px; background: var(--farbe-linie-kraeftig); opacity: .6; }
+.zr-zahnfenster.naechste { background: var(--farbe-akzent); opacity: .7; }
+.zr-zahn a { position: absolute; top: -6px; transform: translateX(-50%); min-width: 32px; min-height: 32px; padding: 10px 4px 0; text-align: center; color: inherit; text-decoration: none; }
+.zr-zahn a.naechste { color: var(--farbe-akzent-text); }
+.zr-zahn a:hover { text-decoration: underline; }
+.zahn-kopf { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.unterabschnitt .quelle-link { display: block; margin-top: 8px; }
 /* ---------- Desktop ab 900 px ---------- */
 @media (min-width: 900px) {
   .kopfzeile { max-width: var(--inhalt-max); margin: 0 auto; padding: 22px 40px 0; }

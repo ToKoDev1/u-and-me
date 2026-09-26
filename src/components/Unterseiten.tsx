@@ -1,11 +1,13 @@
 import type { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
-import { spanneAlsText } from '../lib/alter';
+import { abstandAlsText, datumFormat, letzterTag, spanneAlsText, tageZwischen } from '../lib/alter';
 import {
   aktuelleEtappen,
   aktuellePhase,
   bereichsName,
   kommendeEtappen,
+  zahnarzt,
+  zahnTermine,
   type Bereich,
   type Etappe,
   type Quelle,
@@ -167,6 +169,66 @@ export function Spielen({ kind }: { kind: Kind }) {
           ))}
         </ul>
       )}
+    </Unterseite>
+  );
+}
+
+export function Zahnarzt({ kind }: { kind: Kind }) {
+  const termine = zahnTermine(kind);
+  return (
+    <Unterseite
+      titel="Beim Zahnarzt"
+      kurztitel="Zahnarzt"
+      intro="Neben den U-Untersuchungen gibt es bis zum 3. Geburtstag drei Termine in der Zahnarztpraxis. Bei gesetzlich Versicherten übernimmt die Krankenkasse sie."
+    >
+      <ul className="ruhige-liste kompakt">
+        {termine.map(({ termin, beginn, ende }) => (
+          <li key={termin.id}>
+            <span className="zahn-kopf">
+              <h2>{termin.id}</h2>
+              <span className="pille">
+                {ende <= kind.jetzt
+                  ? 'vorbei'
+                  : beginn <= kind.jetzt
+                    ? 'jetzt dran'
+                    : abstandAlsText(tageZwischen(kind.jetzt, beginn))}
+              </span>
+            </span>
+            <p>
+              {termin.zeitraum}
+              <span className="gedaempft">
+                {' '}
+                · {datumFormat.format(beginn)} bis {datumFormat.format(letzterTag(ende))}
+              </span>
+            </p>
+          </li>
+        ))}
+      </ul>
+
+      <section className="unterabschnitt">
+        <h2 className="unterabschnitt-titel">Was dort passiert</h2>
+        <ul className="ruhige-liste">
+          {zahnarzt.passiert.map((p) => (
+            <li key={p.titel}>
+              <h2>{p.titel}</h2>
+              <p>{p.text}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="unterabschnitt">
+        <h2 className="unterabschnitt-titel">Gut zu wissen</h2>
+        <ul className="ruhige-liste kompakt">
+          {zahnarzt.hinweise.map((h) => (
+            <li key={h}>
+              <p>{h}</p>
+            </li>
+          ))}
+        </ul>
+        <QuelleLink quelle={zahnarzt.quelle} />
+        <QuelleLink quelle={zahnarzt.zeitraumQuelle} />
+      </section>
     </Unterseite>
   );
 }
