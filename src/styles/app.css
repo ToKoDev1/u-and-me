@@ -206,9 +206,10 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 .tier-bild { height: 104px; display: flex; justify-content: center; align-items: flex-end; }
 .tier-bild img { height: 100px; width: 100%; object-fit: contain; object-position: center bottom; }
 .tier-name { font-weight: 800; font-size: 16.5px; margin-top: 8px; }
-.tier-geschichte { font-size: 13.5px; color: var(--farbe-text-gedaempft); line-height: 1.35; }
+.tier-geschichte { font-size: 13.5px; color: var(--farbe-text-gedaempft); line-height: 1.35; margin-top: 8px; text-align: center; }
+.onboarding-auswahl-text { clear: both; margin-bottom: 14px; }
 .onboarding-cta { padding-top: 28px; }
-.onboarding-frage { padding-top: 14px; }
+.onboarding-frage { padding-top: 26px; }
 .onboarding-frage .sprechblase p { font-size: 19px; line-height: 1.35; font-weight: 700; }
 .felder { padding-top: 28px; display: flex; flex-direction: column; gap: 18px; }
 .feld { display: flex; flex-direction: column; gap: 6px; }

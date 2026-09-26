@@ -25,7 +25,7 @@ export type Etappe = {
 };
 export type Untersuchung = { id: string; zeitraum: string; von: Alter; bis: Alter };
 export type MaskottchenId = 'loewe' | 'hund' | 'pinguin' | 'elefant';
-export type Maskottchen = { id: MaskottchenId; name: string; artikel: string; geschichte: string };
+export type Maskottchen = { id: MaskottchenId; name: string; geschichte: string };
 
 export const phasen = phasenDaten.phasen as Phase[];
 export const phasenInfo = { status: phasenDaten.status as Status, quelle: phasenDaten.quelle };
@@ -45,8 +45,6 @@ export const bereichsName: Record<Bereich, string> = {
 /** Pfad zum Maskottchen-Bild – BASE_URL, damit es auch unter einem Unterordner (GitHub Pages) funktioniert */
 export const maskottchenBild = (id: MaskottchenId, avatar = false) =>
   `${import.meta.env.BASE_URL}maskottchen/${id}${avatar ? '-avatar' : ''}.svg`;
-
-export const maskottchenInfo = (id: MaskottchenId) => maskottchen.find((m) => m.id === id)!;
 
 // ---- Phasen und Etappen ----------------------------------------------------
 

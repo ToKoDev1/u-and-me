@@ -1,6 +1,6 @@
 [
-  { "id": "elefant", "name": "Elefantenbaby", "artikel": "dem Elefantenbaby", "geschichte": "Die ganze Herde zieht die Kleinen groß." },
-  { "id": "loewe", "name": "Löwenbaby", "artikel": "dem Löwenbaby", "geschichte": "Im Rudel packen alle mit an." },
-  { "id": "pinguin", "name": "Pinguinbaby", "artikel": "dem Pinguinbaby", "geschichte": "Der Papa brütet das Ei aus." },
-  { "id": "hund", "name": "Hundebaby", "artikel": "dem Hundebaby", "geschichte": "Der treue Begleiter." }
+  {"id": "elefant", "name": "Elefantenbaby", "geschichte": "Die ganze Herde zieht die Kleinen groß."},
+  {"id": "loewe", "name": "Löwenbaby", "geschichte": "Im Rudel packen alle mit an."},
+  {"id": "pinguin", "name": "Pinguinbaby", "geschichte": "Der Papa brütet das Ei aus."},
+  {"id": "hund", "name": "Hundebaby", "geschichte": "Der treue Begleiter."}
 ]
