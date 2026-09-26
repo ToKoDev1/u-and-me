@@ -1,4 +1,4 @@
-// Zerlegt das Gruppenbild der Maskottchen (alle-tiere.svg) in einzelne SVGs.
+// Zerlegt das Gruppenbild der Maskottchen (assets/maskottchen-original.svg) in einzelne SVGs.
 //
 // Idee: Jede Form (<path>) gehört zu genau einem Tier. Wir berechnen für jede
 // Form ihren horizontalen Mittelpunkt, sortieren und trennen an den drei
@@ -14,7 +14,7 @@ const RAND = 12; // Abstand um das Tier herum
 const KOPF_ANTEIL = 0.45; // Formen mit Mitte in den oberen 45 % der Figur zählen zum Kopf
 const AVATAR_LUFT = 1.06; // Kreis-Avatar: 6 % Luft um den Kopf-Kreis
 
-const svg = readFileSync(`${DIR}/alle-tiere.svg`, 'utf8');
+const svg = readFileSync('assets/maskottchen-original.svg', 'utf8');
 const [, , canvasW, canvasH] = svg.match(/viewBox="([^"]+)"/)[1].split(' ').map(Number);
 
 // Alle Formen einlesen und ihre Bounding Box aus den Koordinaten bestimmen.
@@ -42,7 +42,7 @@ const luecken = sortiert
   .map((l) => l.i)
   .sort((a, b) => a - b);
 
-const gruppen = [0, ...luecken, sortiert.length].slice(0, -1).map((start, n, arr) =>
+const gruppen = [0, ...luecken, sortiert.length].slice(0, -1).map((start, n) =>
   sortiert.slice(start, [...luecken, sortiert.length][n])
 );
 
