@@ -20,6 +20,9 @@
   --farbe-akzent-text: #3F5A78;
   --farbe-auf-akzent: #FFFDF8;
   --farbe-akzent-flaeche: #DDE5EF;
+  /* Hauptknopf – hell: voll in der Akzentfarbe */
+  --farbe-knopf: var(--farbe-akzent);
+  --farbe-auf-knopf: var(--farbe-auf-akzent);
   /* „Was euch gerade begegnen kann“ – beruhigend */
   --farbe-beruhigend: #F8E4C0;
   --farbe-beruhigend-text: #7A5724;
@@ -97,6 +100,10 @@
   --farbe-akzent-text: #C3D2E3;
   --farbe-auf-akzent: #141D2B;
   --farbe-akzent-flaeche: #283A54;
+  /* Hauptknopf – dunkel: gedämpft statt hell leuchtend (nachts die hellste Fläche wäre sonst der Knopf).
+     Mischt sich aus der Maskottchen-Farbe, Kontrast zum Text bleibt über 4,5:1 */
+  --farbe-knopf: color-mix(in srgb, var(--farbe-akzent) 35%, var(--farbe-flaeche));
+  --farbe-auf-knopf: var(--farbe-text);
   --farbe-beruhigend: #3A3224;
   --farbe-beruhigend-text: #E8C68E;
   --farbe-beruhigend-linie: #665536;

@@ -70,7 +70,7 @@ img { display: block; }
 
 .knopf {
   display: block; width: 100%; border: 0; cursor: pointer; text-align: center; text-decoration: none;
-  background: var(--farbe-akzent); color: var(--farbe-auf-akzent);
+  background: var(--farbe-knopf); color: var(--farbe-auf-knopf);
   border-radius: var(--radius-rund); padding: 15px; font-size: 17px; font-weight: 800;
   min-height: var(--beruehrflaeche-min);
 }
@@ -113,6 +113,12 @@ img { display: block; }
 .zeitring { display: flex; flex-direction: column; align-items: center; text-align: center; }
 .zeitring-grafik { position: relative; width: 196px; height: 196px; }
 .zeitring-grafik svg { width: 100%; height: 100%; }
+.zeitring-grafik svg { position: relative; } /* über dem Lichtschein */
+/* Nachtlicht: im Dunkelmodus ein warmer Schein hinter dem Maskottchen, wie eine Nachttischlampe */
+:root[data-theme="dunkel"] .zeitring-grafik::before {
+  content: ""; position: absolute; inset: -22%; border-radius: 50%; pointer-events: none;
+  background: radial-gradient(circle, color-mix(in srgb, var(--farbe-beruhigend-text) 30%, transparent) 0%, transparent 70%);
+}
 .ring-spur, .ring-fenster, .ring-zeit { fill: none; stroke-width: 11; }
 .ring-spur { stroke: var(--farbe-linie); }
 .ring-fenster { stroke: var(--farbe-akzent); opacity: .22; }
@@ -243,7 +249,7 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 }
 .u-schritte-knopf:hover { background: var(--farbe-akzent-flaeche); }
 @media (max-width: 599px) { .u-schritte-knopf { width: 100%; margin-left: 0; } }
-.u-kreis-gross { width: 64px; height: 64px; flex: none; border-radius: 50%; background: var(--farbe-akzent); color: var(--farbe-auf-akzent); display: grid; place-items: center; font-weight: 800; font-size: 22px; }
+.u-kreis-gross { width: 64px; height: 64px; flex: none; border-radius: 50%; background: var(--farbe-knopf); color: var(--farbe-auf-knopf); display: grid; place-items: center; font-weight: 800; font-size: 22px; }
 .u-kopf-meta { font-size: 14px; color: var(--farbe-text-gedaempft); font-weight: 700; }
 .u-kopf h1 { font-size: 24px; line-height: 1.2; }
 .u-zeitfenster { display: flex; flex-direction: column; gap: 14px; padding: 18px; margin-top: 18px; }
