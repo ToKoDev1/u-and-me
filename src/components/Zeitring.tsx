@@ -24,7 +24,7 @@ export function Zeitring({ kind }: { kind: Kind }) {
     vorher && naechste
       ? `Zwischen ${vorher.untersuchung.id} und ${naechste.untersuchung.id}`
       : naechste
-        ? `Kurz vor der ${naechste.untersuchung.id}`
+        ? `${naechste.laeuftSchon ? 'Zeit für die' : 'Kurz vor der'} ${naechste.untersuchung.id}`
         : 'Bis zum 2. Geburtstag begleitet';
   const unterzeile = !naechste
     ? ''

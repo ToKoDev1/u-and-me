@@ -4,59 +4,79 @@ import type { Kind } from '../lib/kind';
 
 type Props = {
   kind: Kind;
-  /** das echte Heute – für den „Heute“-Knopf */
-  heute: Date;
   onDatum: (datum: Date) => void;
   onBeenden: () => void;
 };
 
+const SCHRITTE = 1000;
 const plusTage = (d: Date, n: number) => new Date(d.getFullYear(), d.getMonth(), d.getDate() + n);
-const plusMonate = (d: Date, n: number) => new Date(d.getFullYear(), d.getMonth() + n, d.getDate());
 
 /**
- * Test-Werkzeug: Datum simulieren und so die ganze Reise von der Geburt bis zur U7 durchgehen.
- * Nichts wird gespeichert – beim Neuladen ist wieder „heute“.
+ * Test-Werkzeug: Datum per Schieberegler simulieren – mit den U-Terminen als Marken auf der Schiene.
+ * Die Schiene ist am Anfang gedehnt (Wurzel-Skala): Die ersten Wochen, in denen U1–U3 liegen
+ * und sich viel tut, bekommen mehr Platz. Nichts wird gespeichert.
  */
-export function Zeitreise({ kind, heute, onDatum, onBeenden }: Props) {
-  const ende = plusTage(datumBeiAlter(kind.geburt, { monate: 24 }), -1);
-  const maxTage = tageZwischen(kind.geburt, ende);
-  const tage = tageZwischen(kind.geburt, kind.jetzt);
+export function Zeitreise({ kind, onDatum, onBeenden }: Props) {
+  const maxTage = tageZwischen(kind.geburt, datumBeiAlter(kind.geburt, { monate: 24 })) - 1;
+  const position = (tage: number) => Math.sqrt(Math.min(Math.max(tage, 0), maxTage) / maxTage); // 0 … 1
+  const tageAus = (wert: number) => Math.round((wert / SCHRITTE) ** 2 * maxTage);
+  const prozent = (tage: number) => `${position(tage) * 100}%`;
 
-  const setzen = (d: Date) => onDatum(d < kind.geburt ? kind.geburt : d > ende ? ende : d);
+  const tage = tageZwischen(kind.geburt, kind.jetzt);
+  const termine = uTermine(kind);
 
   return (
     <section className="zeitreise" aria-label="Zeitreise">
       <div className="zeitreise-kopf">
         <b>Zeitreise</b>
         <span>
-          {datumFormat.format(kind.jetzt)} · {kind.name ?? 'Euer Kind'} ist {alterAlsText(alterAm(kind.geburt, kind.jetzt))}
+          {datumFormat.format(kind.jetzt)} · {kind.name ?? 'Euer Kind'}{' '}
+          {tage === 0 ? 'kommt heute auf die Welt' : `ist ${alterAlsText(alterAm(kind.geburt, kind.jetzt))}`}
         </span>
         <button type="button" className="zeitreise-schliessen" onClick={onBeenden} aria-label="Zeitreise beenden">
           ×
         </button>
       </div>
-      <input
-        type="range"
-        min={0}
-        max={maxTage}
-        step={1}
-        value={Math.min(Math.max(tage, 0), maxTage)}
-        onChange={(e) => setzen(plusTage(kind.geburt, Number(e.target.value)))}
-        aria-label="Alter in Tagen"
-      />
-      <div className="zeitreise-knoepfe">
-        <button type="button" onClick={() => setzen(plusMonate(kind.jetzt, -1))}>−1 Monat</button>
-        <button type="button" onClick={() => setzen(plusTage(kind.jetzt, -7))}>−1 Woche</button>
-        <button type="button" onClick={() => setzen(heute)}>Heute</button>
-        <button type="button" onClick={() => setzen(plusTage(kind.jetzt, 7))}>+1 Woche</button>
-        <button type="button" onClick={() => setzen(plusMonate(kind.jetzt, 1))}>+1 Monat</button>
+
+      <div className="zr-schiene">
+        {/* U-Zeitfenster als Abschnitte auf der Schiene */}
+        <div className="zr-spur" aria-hidden="true">
+          {termine.map((t) => {
+            const von = tageZwischen(kind.geburt, t.beginn);
+            const bis = tageZwischen(kind.geburt, t.ende);
+            return (
+              <span
+                key={t.untersuchung.id}
+                className="zr-fenster"
+                style={{ left: prozent(von), width: `calc(${prozent(bis)} - ${prozent(von)})` }}
+              />
+            );
+          })}
+        </div>
+        <input
+          type="range"
+          className="zr-regler"
+          min={0}
+          max={SCHRITTE}
+          step={1}
+          value={Math.round(position(tage) * SCHRITTE)}
+          onChange={(e) => onDatum(plusTage(kind.geburt, tageAus(Number(e.target.value))))}
+          aria-label="Datum wählen"
+          aria-valuetext={datumFormat.format(kind.jetzt)}
+        />
       </div>
-      <div className="zeitreise-knoepfe">
-        <span>Springen zu:</span>
-        {uTermine(kind).map((t) => (
-          <button key={t.untersuchung.id} type="button" onClick={() => setzen(t.beginn)}>
+
+      <div className="zr-marken" aria-hidden="true">
+        {termine.map((t) => (
+          <span
+            key={t.untersuchung.id}
+            style={{
+              // mittig unter dem Zeitfenster
+              left: `${((position(tageZwischen(kind.geburt, t.beginn)) + position(tageZwischen(kind.geburt, t.ende))) / 2) * 100}%`,
+            }}
+          >
             {t.untersuchung.id}
-          </button>
+          </span>
         ))}
       </div>
     </section>

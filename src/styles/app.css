@@ -280,13 +280,17 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 .zeitreise-kopf { display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; }
 .zeitreise-kopf > span { flex: 1; color: var(--farbe-text-gedaempft); }
 .zeitreise-schliessen { background: none; border: 0; font-size: 22px; line-height: 1; cursor: pointer; padding: 0 4px; }
-.zeitreise input[type='range'] { width: 100%; accent-color: var(--farbe-akzent); min-height: 28px; }
-.zeitreise-knoepfe { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
-.zeitreise-knoepfe span { color: var(--farbe-text-gedaempft); }
-.zeitreise-knoepfe button {
-  background: var(--farbe-flaeche); border: 1.5px solid var(--farbe-linie); border-radius: var(--radius-rund);
-  padding: 4px 10px; font-size: 13.5px; font-weight: 700; cursor: pointer; min-height: 32px;
-}
+/* Schiene mit U-Fenstern, darüber der (unsichtbare) Regler mit eigenem Knopf */
+.zr-schiene { position: relative; height: 32px; margin: 4px 10px 0; }
+.zr-spur { position: absolute; left: 0; right: 0; top: 13px; height: 6px; border-radius: 3px; background: var(--farbe-linie); }
+.zr-fenster { position: absolute; top: -2px; height: 10px; min-width: 4px; border-radius: 5px; background: var(--farbe-akzent); opacity: .45; }
+.zr-regler { position: absolute; inset: 0; width: 100%; height: 32px; margin: 0; background: transparent; appearance: none; -webkit-appearance: none; cursor: pointer; }
+.zr-regler::-webkit-slider-runnable-track { height: 32px; background: transparent; }
+.zr-regler::-moz-range-track { height: 32px; background: transparent; }
+.zr-regler::-webkit-slider-thumb { -webkit-appearance: none; width: 24px; height: 24px; margin-top: 4px; border-radius: 50%; background: var(--farbe-akzent); border: 3px solid var(--farbe-flaeche); box-shadow: var(--schatten-weich); }
+.zr-regler::-moz-range-thumb { width: 18px; height: 18px; border-radius: 50%; background: var(--farbe-akzent); border: 3px solid var(--farbe-flaeche); }
+.zr-marken { position: relative; height: 18px; margin: 0 10px; font-size: 12.5px; font-weight: 800; color: var(--farbe-text-gedaempft); }
+.zr-marken span { position: absolute; top: 0; transform: translateX(-50%); }
 .zeitreise-start { padding-top: 24px; text-align: center; }
 .zeitreise-start button { background: none; border: 1.5px dashed var(--farbe-linie-kraeftig); border-radius: var(--radius-rund); padding: 6px 14px; font-size: 13.5px; color: var(--farbe-text-gedaempft); cursor: pointer; }
 

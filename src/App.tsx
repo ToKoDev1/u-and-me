@@ -47,7 +47,6 @@ export default function App() {
   const zeitreise = zeitreiseAn ? (
     <Zeitreise
       kind={kind}
-      heute={echtesHeute}
       onDatum={setSimuliert}
       onBeenden={() => {
         setZeitreiseAn(false);
