@@ -10,6 +10,18 @@ import './styles/app.css';
 import App from './App';
 import { darstellungAnwenden, systemBeobachten } from './lib/darstellung';
 
+// Nur in der Entwicklung: ?neu löscht alle gespeicherten Angaben und startet mit dem Onboarding
+if (import.meta.env.DEV && new URLSearchParams(window.location.search).has('neu')) {
+  try {
+    Object.keys(localStorage)
+      .filter((k) => k.startsWith('u-and-me:'))
+      .forEach((k) => localStorage.removeItem(k));
+  } catch {
+    // Speicher nicht verfügbar – dann ist ohnehin nichts gespeichert
+  }
+  window.history.replaceState(null, '', window.location.pathname); // ?neu aus der Adresse entfernen
+}
+
 // Nur in der Entwicklung: ?darstellung=dunkel erzwingt eine Darstellung (für Screenshots), ohne sie zu speichern
 const erzwungen = import.meta.env.DEV ? new URLSearchParams(window.location.search).get('darstellung') : null;
 darstellungAnwenden(erzwungen === 'hell' || erzwungen === 'dunkel' ? erzwungen : undefined);
