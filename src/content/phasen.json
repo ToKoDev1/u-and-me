@@ -1,5 +1,5 @@
 {
-  "_hinweis": "Phasen = Abschnitte zwischen zwei Us (lückenlos 0–24 Monate). Was in der Phase passiert, steht in etappen.json. Hier nur Titel und Warnzeichen ('abklaeren' = Satzende nach 'Nicht bis zur nächsten U warten, wenn …'). ALLE Inhalte sind Entwurf und noch NICHT gegen Quellen geprüft (Schritt 3). 'spielideen' = eigene Anregungen pro Phase (Entwurf), optional mit Sicherheits-'hinweis'.",
+  "_hinweis": "Phasen = Abschnitte zwischen zwei Us (lückenlos 0–24 Monate). Was in der Phase passiert, steht in etappen.json. Hier nur Titel und Warnzeichen ('abklaeren' = Satzende nach 'Nicht bis zur nächsten U warten, wenn …'). 'abklaeren'/'notfall' wurden am 26.09.2026 gegen die unter 'quellen' genannten Seiten recherchiert (noch keine fachliche Durchsicht). Spielideen sind eigene Anregungen (Entwurf). 'spielideen' = eigene Anregungen pro Phase (Entwurf), optional mit Sicherheits-'hinweis'.",
   "status": "entwurf",
   "quelle": {
     "name": "kindergesundheit-info.de",
@@ -15,7 +15,7 @@
       "bis": {
         "tage": 10
       },
-      "abklaeren": null,
+      "abklaeren": "euer Kind 38 °C oder mehr hat oder auffällig kühl ist, schlapp wirkt oder kaum trinken mag, schon am ersten Lebenstag gelb wird oder die Gelbfärbung deutlich zunimmt oder kaum noch nasse Windeln hat. Eure Hebamme ist dafür ebenfalls eine gute Ansprechpartnerin.",
       "spielideen": [
         {
           "bereich": "miteinander",
@@ -32,6 +32,21 @@
           "titel": "Gesicht zeigen",
           "text": "Neugeborene sehen am besten auf etwa 20–30 cm – genau die Entfernung beim Stillen oder Füttern. Schaut euch in Ruhe an."
         }
+      ],
+      "notfall": "Bei Atemnot, bläulichen Lippen, einem Krampfanfall oder wenn euer Kind kaum ansprechbar ist: sofort 112.",
+      "quellen": [
+        {
+          "name": "kindergesundheit-info.de – Fieber",
+          "url": "https://www.kindergesundheit-info.de/themen/krankes-kind/krankheitszeichen/fieber/"
+        },
+        {
+          "name": "kinderaerzte-im-netz.de – Fieber",
+          "url": "https://www.kinderaerzte-im-netz.de/erste-hilfe/sofortmassnahmen/fieber/"
+        },
+        {
+          "name": "kindergesundheit-info.de – Wann ein Arztbesuch zwingend ist",
+          "url": "https://www.kindergesundheit-info.de/themen/krankes-kind/krankheitszeichen/arztbesuch-zwingend/"
+        }
       ]
     },
     {
@@ -43,7 +58,7 @@
       "bis": {
         "tage": 35
       },
-      "abklaeren": null,
+      "abklaeren": "euer Kind 38 °C oder mehr hat, schlapp wirkt oder nicht trinken mag, der Stuhl mehrmals sehr hell, grauweiß oder fast farblos ist (vergleicht ihn mit der Stuhlfarbkarte im Gelben Heft) oder es immer wieder erbricht.",
       "spielideen": [
         {
           "bereich": "bewegung",
@@ -66,6 +81,25 @@
           "titel": "Lieder und Reime",
           "text": "Immer wieder dieselben Lieder: Wiederholung gibt Sicherheit und bereitet die Sprache vor."
         }
+      ],
+      "notfall": "Bei Atemnot, bläulichen Lippen, einem Krampfanfall oder wenn euer Kind kaum ansprechbar ist: sofort 112.",
+      "quellen": [
+        {
+          "name": "kindergesundheit-info.de – Fieber",
+          "url": "https://www.kindergesundheit-info.de/themen/krankes-kind/krankheitszeichen/fieber/"
+        },
+        {
+          "name": "kinderaerzte-im-netz.de – Entfärbter Stuhl als Warnzeichen",
+          "url": "https://www.kinderaerzte-im-netz.de/news-archiv/meldung/verfaerbter-oder-entfaerbter-stuhl-kann-warnzeichen-fuer-krankheit-sein/"
+        },
+        {
+          "name": "kindergesundheit-info.de – Erbrechen",
+          "url": "https://www.kindergesundheit-info.de/themen/krankes-kind/krankheitszeichen/erbrechen-von-babys-und-kleinkindern/"
+        },
+        {
+          "name": "kindergesundheit-info.de – Wann ein Arztbesuch zwingend ist",
+          "url": "https://www.kindergesundheit-info.de/themen/krankes-kind/krankheitszeichen/arztbesuch-zwingend/"
+        }
       ]
     },
     {
@@ -77,7 +111,7 @@
       "bis": {
         "monate": 3
       },
-      "abklaeren": "euer Kind nicht auf laute Geräusche reagiert, Gesichtern nicht mit den Augen folgt oder auffällig schlecht trinkt und ungewöhnlich schlapp wirkt.",
+      "abklaeren": "euer Kind 38 °C oder mehr hat, schlapp wirkt oder kaum trinkt, nicht auf Geräusche oder eure Stimme reagiert oder auffällig wenig Arme und Beine bewegt.",
       "spielideen": [
         {
           "bereich": "bewegung",
@@ -100,6 +134,25 @@
           "titel": "Strampel-Zeit",
           "text": "Ohne Decke und Strampler auf einer warmen Unterlage frei strampeln lassen."
         }
+      ],
+      "notfall": "Bei Atemnot, bläulichen Lippen, einem Krampfanfall oder wenn euer Kind kaum ansprechbar ist: sofort 112.",
+      "quellen": [
+        {
+          "name": "kindergesundheit-info.de – Fieber",
+          "url": "https://www.kindergesundheit-info.de/themen/krankes-kind/krankheitszeichen/fieber/"
+        },
+        {
+          "name": "kinderaerzte-im-netz.de – Fieber",
+          "url": "https://www.kinderaerzte-im-netz.de/erste-hilfe/sofortmassnahmen/fieber/"
+        },
+        {
+          "name": "kindergesundheit-info.de – Hörüberprüfung",
+          "url": "https://www.kindergesundheit-info.de/themen/entwicklung/alltagstipps/entwicklungsschritte/hoerueberpruefung/"
+        },
+        {
+          "name": "kinderaerzte-im-netz.de – Verzögerte Entwicklung: wann zum Arzt",
+          "url": "https://www.kinderaerzte-im-netz.de/news-archiv/meldung/verzoegerte-entwicklung-wann-den-arzt-konsultieren/"
+        }
       ]
     },
     {
@@ -111,7 +164,7 @@
       "bis": {
         "monate": 6
       },
-      "abklaeren": "euer Kind nicht auf Geräusche reagiert, nicht versucht zu greifen oder Fähigkeiten wieder verliert.",
+      "abklaeren": "euer Kind nicht auf Geräusche reagiert und den Kopf nicht zur Geräuschquelle dreht, eine Hand oder Körperseite auffällig bevorzugt oder Fähigkeiten, die es schon konnte, wieder verliert. Fieber, das länger als einen Tag anhält, gehört ebenfalls in die Praxis.",
       "spielideen": [
         {
           "bereich": "bewegung",
@@ -135,6 +188,25 @@
           "text": "In Rückenlage ein Spielzeug seitlich hinlegen – das lädt zum Drehen ein.",
           "hinweis": "Auf dem Boden spielen, nicht auf dem Wickeltisch oder Sofa."
         }
+      ],
+      "notfall": "Bei Atemnot, einem Krampfanfall oder wenn euer Kind kaum ansprechbar ist: sofort 112. Bei einer vorgewölbten oder eingesunkenen Fontanelle bitte umgehend in die Praxis oder Kinderklinik.",
+      "quellen": [
+        {
+          "name": "kinderaerzte-im-netz.de – Verzögerte Entwicklung: wann zum Arzt",
+          "url": "https://www.kinderaerzte-im-netz.de/news-archiv/meldung/verzoegerte-entwicklung-wann-den-arzt-konsultieren/"
+        },
+        {
+          "name": "kindergesundheit-info.de – Hörüberprüfung",
+          "url": "https://www.kindergesundheit-info.de/themen/entwicklung/alltagstipps/entwicklungsschritte/hoerueberpruefung/"
+        },
+        {
+          "name": "kinderaerzte-im-netz.de – Vorgewölbte Fontanelle",
+          "url": "https://www.kinderaerzte-im-netz.de/news-archiv/meldung/warnzeichen-vorgewoelbte-fontanelle/"
+        },
+        {
+          "name": "kindergesundheit-info.de – Fieber",
+          "url": "https://www.kindergesundheit-info.de/themen/krankes-kind/krankheitszeichen/fieber/"
+        }
       ]
     },
     {
@@ -146,7 +218,7 @@
       "bis": {
         "monate": 11
       },
-      "abklaeren": "euer Kind gar nicht brabbelt, eine Körperseite deutlich weniger bewegt oder Fähigkeiten wieder verliert.",
+      "abklaeren": "euer Kind nicht auf Geräusche oder Ansprechen reagiert, mit etwa sechs Monaten noch oft schielt, nur eine Hand oder Körperseite benutzt oder Fähigkeiten, die es schon konnte, wieder verliert.",
       "spielideen": [
         {
           "bereich": "miteinander",
@@ -175,18 +247,52 @@
           "titel": "Silben-Echo",
           "text": "Plappert euer Kind „ba-ba“, antwortet mit „ba-ba“ – und bringt ab und zu eine neue Silbe ins Spiel."
         }
+      ],
+      "notfall": "Bei Atemnot, einem Krampfanfall (auch einem Fieberkrampf) oder wenn euer Kind kaum ansprechbar ist: sofort 112.",
+      "quellen": [
+        {
+          "name": "kindergesundheit-info.de – Sehstörungen",
+          "url": "https://www.kindergesundheit-info.de/themen/entwicklung/entwicklungsschritte/sehvermoegen/sehstoerungen/"
+        },
+        {
+          "name": "kinderaerzte-im-netz.de – Verzögerte Entwicklung: wann zum Arzt",
+          "url": "https://www.kinderaerzte-im-netz.de/news-archiv/meldung/verzoegerte-entwicklung-wann-den-arzt-konsultieren/"
+        },
+        {
+          "name": "kindergesundheit-info.de – Hörüberprüfung",
+          "url": "https://www.kindergesundheit-info.de/themen/entwicklung/alltagstipps/entwicklungsschritte/hoerueberpruefung/"
+        },
+        {
+          "name": "kindergesundheit-info.de – Fieber",
+          "url": "https://www.kindergesundheit-info.de/themen/krankes-kind/krankheitszeichen/fieber/"
+        }
       ]
     },
     {
-      "id": "u6-u7",
+      "id": "u6-u7-frueh",
       "titel": "Zwischen U6 und U7",
       "von": {
         "monate": 11
       },
       "bis": {
-        "monate": 20
+        "monate": 15
       },
-      "abklaeren": null,
+      "abklaeren": "euer Kind nicht reagiert, wenn ihr es leise ansprecht, nicht auf Dinge zeigt oder euren Blick nicht sucht oder Fähigkeiten, die es schon konnte, wieder verliert.",
+      "notfall": "Bei Atemnot (etwa nach dem Verschlucken eines kleinen Teils), einem Krampfanfall oder wenn euer Kind kaum ansprechbar ist: sofort 112.",
+      "quellen": [
+        {
+          "name": "Grenzsteine der Entwicklung, 12 Monate (Michaelis)",
+          "url": "https://www.sana.de/media/Kliniken/leipzig/1-medizin-pflege/mvz_neuropaediatrie/LL_20220701_Grenzsteine_12_Monat.pdf"
+        },
+        {
+          "name": "kindergesundheit-info.de – Hörüberprüfung",
+          "url": "https://www.kindergesundheit-info.de/themen/entwicklung/alltagstipps/entwicklungsschritte/hoerueberpruefung/"
+        },
+        {
+          "name": "kindergesundheit-info.de – Wann ein Arztbesuch zwingend ist",
+          "url": "https://www.kindergesundheit-info.de/themen/krankes-kind/krankheitszeichen/arztbesuch-zwingend/"
+        }
+      ],
       "spielideen": [
         {
           "bereich": "miteinander",
@@ -198,6 +304,44 @@
           "titel": "Stapeln und umwerfen",
           "text": "Becher oder Bausteine stapeln – und mit Begeisterung umwerfen lassen."
         },
+        {
+          "bereich": "bewegung",
+          "titel": "Etwas zum Schieben",
+          "text": "Ein stabiler Karton oder ein standfester Schiebewagen zum Spielen gibt Halt bei den ersten Schritten.",
+          "hinweis": "Keine Lauflernhilfe zum Hineinsetzen („Gehfrei“) – Kinderärzt:innen raten wegen Unfallgefahr davon ab."
+        }
+      ]
+    },
+    {
+      "id": "u6-u7-spaet",
+      "titel": "Zwischen U6 und U7",
+      "von": {
+        "monate": 15
+      },
+      "bis": {
+        "monate": 20
+      },
+      "abklaeren": "euer Kind mit etwa 18 Monaten noch nicht frei läuft, noch keine ersten Wörter oder Babywörter wie „wau-wau“ benutzt, nicht auf leises Ansprechen reagiert oder Fähigkeiten, die es schon konnte, wieder verliert.",
+      "notfall": "Bei Atemnot (etwa nach dem Verschlucken eines kleinen Teils), einem Krampfanfall oder wenn euer Kind kaum ansprechbar ist: sofort 112.",
+      "quellen": [
+        {
+          "name": "Grenzsteine der Entwicklung, 18 Monate (Michaelis)",
+          "url": "https://www.sana.de/media/Kliniken/leipzig/1-medizin-pflege/mvz_neuropaediatrie/LL_20220701_Grenzsteine_18_Monat.pdf"
+        },
+        {
+          "name": "kindergesundheit-info.de – Motorische Entwicklung",
+          "url": "https://www.kindergesundheit-info.de/themen/entwicklung/entwicklungsschritte/motorische-entwicklung/"
+        },
+        {
+          "name": "kindergesundheit-info.de – Hörüberprüfung",
+          "url": "https://www.kindergesundheit-info.de/themen/entwicklung/alltagstipps/entwicklungsschritte/hoerueberpruefung/"
+        },
+        {
+          "name": "kindergesundheit-info.de – Wann ein Arztbesuch zwingend ist",
+          "url": "https://www.kindergesundheit-info.de/themen/krankes-kind/krankheitszeichen/arztbesuch-zwingend/"
+        }
+      ],
+      "spielideen": [
         {
           "bereich": "miteinander",
           "titel": "Mithelfen im Alltag",
@@ -211,9 +355,8 @@
         },
         {
           "bereich": "bewegung",
-          "titel": "Etwas zum Schieben",
-          "text": "Ein stabiler Karton oder ein standfester Schiebewagen zum Spielen gibt Halt bei den ersten Schritten.",
-          "hinweis": "Keine Lauflernhilfe zum Hineinsetzen („Gehfrei“) – Kinderärzt:innen raten wegen Unfallgefahr davon ab."
+          "titel": "Draußen entdecken",
+          "text": "Barfuß über Wiese und Sand laufen, Treppenstufen an der Hand, Steine sammeln – draußen gibt es unendlich viel zu üben."
         }
       ]
     },
@@ -226,7 +369,7 @@
       "bis": {
         "monate": 24
       },
-      "abklaeren": null,
+      "abklaeren": "euer Kind mit etwa 20 Monaten noch nicht frei läuft, kaum auf leises Ansprechen reagiert oder Fähigkeiten wie Wörter, Blickkontakt oder Spiel wieder verliert. Fragen zur Sprache könnt ihr gut bei der U7 ansprechen.",
       "spielideen": [
         {
           "bereich": "miteinander",
@@ -252,6 +395,21 @@
           "bereich": "alltag",
           "titel": "Sortieren",
           "text": "Socken nach Farben, Löffel und Gabeln, große und kleine Dinge – Ordnung macht Spaß und übt das Denken."
+        }
+      ],
+      "notfall": "Bei Atemnot, einem Krampfanfall oder wenn euer Kind kaum ansprechbar ist: sofort 112.",
+      "quellen": [
+        {
+          "name": "kindergesundheit-info.de – Motorische Entwicklung",
+          "url": "https://www.kindergesundheit-info.de/themen/entwicklung/entwicklungsschritte/motorische-entwicklung/"
+        },
+        {
+          "name": "kindergesundheit-info.de – Hörüberprüfung",
+          "url": "https://www.kindergesundheit-info.de/themen/entwicklung/alltagstipps/entwicklungsschritte/hoerueberpruefung/"
+        },
+        {
+          "name": "kindergesundheit-info.de – Früherkennung von Sprachstörungen",
+          "url": "https://www.kindergesundheit-info.de/themen/entwicklung/entwicklungsschritte/sprachentwicklung/frueherkennung-sprachstoerung/"
         }
       ]
     }

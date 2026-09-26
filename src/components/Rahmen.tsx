@@ -19,7 +19,7 @@ type Props = {
  * von dem aus alles erreichbar ist; Unterseiten führen mit „← Heute“ zurück.
  */
 export function Rahmen({ profil, oben, onZeitreise }: Props) {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
   const ersterAufruf = useRef(true);
 
   // Beim Seitenwechsel: nach oben und Fokus auf die Überschrift (für Screenreader/Tastatur)
@@ -28,9 +28,12 @@ export function Rahmen({ profil, oben, onZeitreise }: Props) {
       ersterAufruf.current = false;
       return;
     }
-    window.scrollTo(0, 0);
+    // Sprungmarke (z. B. #warnzeichen) anspringen, sonst nach oben
+    const ziel = hash ? document.getElementById(hash.slice(1)) : null;
+    if (ziel) ziel.scrollIntoView();
+    else window.scrollTo(0, 0);
     document.querySelector<HTMLElement>('main h1')?.focus({ preventScroll: true });
-  }, [pathname]);
+  }, [pathname, hash]);
 
   return (
     <div className="app">

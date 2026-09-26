@@ -126,7 +126,7 @@ export function Entwicklung({ kind }: { kind: Kind }) {
       )}
 
       {phase?.abklaeren && (
-        <section className="warnhinweis" aria-labelledby="warnung-titel">
+        <section id="warnzeichen" className="warnhinweis" aria-labelledby="warnung-titel">
           <div className="warnhinweis-kopf">
             <span className="i-kreis" aria-hidden="true">i</span>
             <h2 id="warnung-titel">Nicht bis zur nächsten U warten, wenn …</h2>

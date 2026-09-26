@@ -9,6 +9,7 @@ import {
 } from '../lib/inhalte';
 import type { Kind } from '../lib/kind';
 import { useSeitentitel } from '../lib/seite';
+import { Symbol } from './Symbol';
 import { UZeitleiste } from './UZeitleiste';
 import { Zeitring } from './Zeitring';
 
@@ -71,6 +72,17 @@ export function Heute({ kind }: { kind: Kind }) {
           <span className="wichtig-titel">{wichtig.titel}</span>
           <span className="wichtig-text">{wichtig.zusatz?.text ?? wichtig.text}</span>
           <span className="wichtig-meta">meist mit {spanneAlsText(wichtig.von, wichtig.bis)} · Mehr dazu ›</span>
+        </Link>
+      )}
+
+      {phase?.abklaeren && (
+        // Warnzeichen immer erreichbar – auch wenn „Gerade dran“ gerade leer ist
+        <Link to="/entwicklung#warnzeichen" className="zeile-link zeile-warnung">
+          <span className="zeile-warnung-text">
+            <Symbol name="info" />
+            Wann ihr nicht bis zur nächsten U warten solltet
+          </span>
+          <span aria-hidden="true">›</span>
         </Link>
       )}
 

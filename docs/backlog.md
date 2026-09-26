@@ -50,16 +50,16 @@ Farben, Schrift, Ton und die Grundidee (Zeitring, drei Kacheln, „Heute wichtig
 
 ## Sprint 2 – Inhalte absichern
 
-- [ ] 🔴 M · **Impfungen auf STIKO-Impfkalender 2026** (RSV-Prophylaxe, Rotavirus ab 6. Woche, MenB prüfen) – mit Verweis + Stand statt fester Aufzählung
-- [ ] 🔴 M · **Warnzeichen für alle Phasen** (erste Tage, U2–U3, U6–U7, U7) – wörtlich aus Quellen
-- [ ] 🔴 S · „Lauflernwagen“ → „Schiebewagen/Karton – kein Gehfrei“
-- [ ] 🔴 M · Quelle + Abrufdatum **pro Eintrag** (statt nur Startseite)
-- [ ] 🟡 M · Etappen für die ersten 10 Tage (Gewicht, Nabel, Gelbsucht, Milcheinschuss, Heultage)
-- [ ] 🟡 M · 2. Lebensjahr ergänzen (Nachahmen, Symbolspiel, Löffel/Becher, Mittagsschlaf) + Phase U6→U7 teilen
+- [x] 🔴 M · **Impfungen auf STIKO-Impfkalender 2026** (RSV-Prophylaxe, Rotavirus ab 6. Woche, MenB prüfen) – mit Verweis + Stand statt fester Aufzählung
+- [x] 🔴 M · **Warnzeichen für alle Phasen** (erste Tage, U2–U3, U6–U7, U7) – wörtlich aus Quellen
+- [x] 🔴 S · „Lauflernwagen“ → „Schiebewagen/Karton – kein Gehfrei“
+- [x] 🔴 M · Quelle + Abrufdatum **pro Eintrag** (statt nur Startseite)
+- [x] 🟡 M · Etappen für die ersten 10 Tage (Gewicht, Nabel, Gelbsucht, Milcheinschuss, Heultage)
+- [x] 🟡 M · 2. Lebensjahr ergänzen (Nachahmen, Symbolspiel, Löffel/Becher, Mittagsschlaf) + Phase U6→U7 teilen
 - [ ] 🟡 S · Zahnarzt Z1–Z3 als eigene Termine in die Zeitleiste
 - [ ] 🟡 S · Beobachtungs-Checkliste klingt wie Meilenstein-Test → „Was ist euch aufgefallen?“
 - [ ] 🟡 S · Spielideen ohne Prüf-Charakter formulieren; Altersangaben nachschärfen (Lächeln, Malen, Sortieren)
-- [ ] 🟡 S · Entscheidung: Phasen/Warnzeichen bei Frühchen nach korrigiertem Alter
+- [x] 🟡 S · Entscheidung: Phasen/Warnzeichen bei Frühchen nach korrigiertem Alter
 - [ ] 🟡 S · U7-Beginn prüfen (Quellen: „21.–24. Lebensmonat“ vs. „1 J 9 M“)
 - [ ] 🔴 – · **Fachliche Durchsicht** (Hebamme/Kinderärztin) vor dem Teilen mit mehr Familien
 
