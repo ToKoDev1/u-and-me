@@ -43,7 +43,8 @@ export function Heute({ kind, notizen }: { kind: Kind; notizen: Notizen }) {
       <UZeitleiste kind={kind} />
       <Zeitring kind={kind} />
 
-      {/* In den ersten 12 Wochen die wichtigste Orientierung – deshalb gleich unter dem Ring */}
+      {/* Das Wichtigste gleich unter dem Ring – als Sprechblase des Maskottchens.
+          In den ersten 12 Wochen ist das die Lebenswoche, danach „Heute wichtig“. */}
       {woche && (
         <Link to="/woche" className="wichtig">
           <span className="wichtig-label">{woche.woche}. Lebenswoche{kind.name ? ` mit ${kind.name}` : ''}</span>
@@ -53,6 +54,15 @@ export function Heute({ kind, notizen }: { kind: Kind; notizen: Notizen }) {
         </Link>
       )}
 
+      {!woche && wichtig && (
+        <Link to={wichtig.bereich === 'alltag' ? '/begegnen' : '/entwicklung'} className="wichtig">
+          <span className="wichtig-label">Heute wichtig</span>
+          <span className="wichtig-titel">{wichtig.titel}</span>
+          {/* Ein Tipp („Das hilft oft“) ist hier hilfreicher als die Beschreibung – andere Zusätze (z. B. Hinweise für ältere Kinder) nicht */}
+          <span className="wichtig-text">{wichtig.zusatz?.label === 'Das hilft oft:' ? wichtig.zusatz.text : wichtig.text}</span>
+          <span className="wichtig-meta">meist mit {spanneAlsText(wichtig.von, wichtig.bis)} · Mehr dazu ›</span>
+        </Link>
+      )}
 
       {naechsteU && (
         <Link to="/naechste-u" className="zeile-link">
@@ -114,16 +124,6 @@ export function Heute({ kind, notizen }: { kind: Kind; notizen: Notizen }) {
             <span className="gedaempft"> · {offen[0].titel}</span>
           </span>
           <span className="pille">{offen.length} offen</span>
-        </Link>
-      )}
-
-      {!woche && wichtig && (
-        <Link to={wichtig.bereich === 'alltag' ? '/begegnen' : '/entwicklung'} className="wichtig">
-          <span className="wichtig-label">Heute wichtig</span>
-          <span className="wichtig-titel">{wichtig.titel}</span>
-          {/* Ein Tipp („Das hilft oft“) ist hier hilfreicher als die Beschreibung – andere Zusätze (z. B. Hinweise für ältere Kinder) nicht */}
-          <span className="wichtig-text">{wichtig.zusatz?.label === 'Das hilft oft:' ? wichtig.zusatz.text : wichtig.text}</span>
-          <span className="wichtig-meta">meist mit {spanneAlsText(wichtig.von, wichtig.bis)} · Mehr dazu ›</span>
         </Link>
       )}
 
