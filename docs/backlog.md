@@ -48,6 +48,12 @@ Farben, Schrift, Ton und die Grundidee (Zeitring, drei Kacheln, „Heute wichtig
 - [x] 🟡 S · Onboarding: Häkchen auf gewähltem Tier, Platzhalter nicht fett, Fehler am Feld markieren
 - [ ] ⚪ S · Schrift-Skala auf 6 Stufen vereinheitlichen
 
+## Außer der Reihe erledigt (26.09.)
+
+- [x] Logo Elefantenkopf in der Kopfzeile (bleibt Logo, egal welches Tier gewählt ist)
+- [x] Startbildschirm (1,5 s, wippender Elefant, Leitsatz)
+- [x] Welcome-Tour beim ersten Öffnen (5 Seiten, `src/content/tour.json`), erneut über die Fußzeile
+
 ## Sprint 2 – Inhalte absichern
 
 - [x] 🔴 M · **Impfungen auf STIKO-Impfkalender 2026** (RSV-Prophylaxe, Rotavirus ab 6. Woche, MenB prüfen) – mit Verweis + Stand statt fester Aufzählung
@@ -72,7 +78,8 @@ Farben, Schrift, Ton und die Grundidee (Zeitring, drei Kacheln, „Heute wichtig
 
 ## Sprint 4 – PWA: fühlt sich an wie eine App
 
-- [ ] 🔴 M · Manifest, App-Icons (192/512/maskable, Apple), Vollbild, offline nutzbar
+- [x] 🔴 S · Manifest, App-Icons (192/512/maskable, Apple), Favicon – Elefantenkopf
+- [ ] 🔴 M · Offline nutzbar (Service Worker, `vite-plugin-pwa` ist schon installiert)
 - [ ] ⚪ S · Sanfte Übergänge (Ring zeichnet sich ein, Tipp-Feedback) – mit „reduzierte Bewegung“
 
 ## Sprint 5 – Gemeinsame Momente (Tracking ohne Druck)
