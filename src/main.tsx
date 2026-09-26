@@ -10,7 +10,9 @@ import './styles/app.css';
 import App from './App';
 import { darstellungAnwenden, systemBeobachten } from './lib/darstellung';
 
-darstellungAnwenden();
+// Nur in der Entwicklung: ?darstellung=dunkel erzwingt eine Darstellung (für Screenshots), ohne sie zu speichern
+const erzwungen = import.meta.env.DEV ? new URLSearchParams(window.location.search).get('darstellung') : null;
+darstellungAnwenden(erzwungen === 'hell' || erzwungen === 'dunkel' ? erzwungen : undefined);
 systemBeobachten();
 
 createRoot(document.getElementById('root')!).render(

@@ -230,6 +230,26 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 .datenschutz { padding-top: 22px; }
 .fehler { color: var(--farbe-warnung-text); background: var(--farbe-warnung-flaeche); border-radius: 18px; padding: 12px 16px; font-weight: 700; font-size: var(--groesse-s); margin-top: 18px; }
 
+/* ---------- Zeitreise (Test-Werkzeug) ---------- */
+.zeitreise {
+  position: sticky; top: 0; z-index: 20;
+  margin: 12px 12px 0; padding: 12px 14px; display: flex; flex-direction: column; gap: 8px;
+  background: var(--farbe-hinweis); border: 2px dashed var(--farbe-akzent); border-radius: var(--radius-s);
+  box-shadow: var(--schatten-weich); font-size: 14px;
+}
+.zeitreise-kopf { display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; }
+.zeitreise-kopf > span { flex: 1; color: var(--farbe-text-gedaempft); }
+.zeitreise-schliessen { background: none; border: 0; font-size: 22px; line-height: 1; cursor: pointer; padding: 0 4px; }
+.zeitreise input[type='range'] { width: 100%; accent-color: var(--farbe-akzent); min-height: 28px; }
+.zeitreise-knoepfe { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.zeitreise-knoepfe span { color: var(--farbe-text-gedaempft); }
+.zeitreise-knoepfe button {
+  background: var(--farbe-flaeche); border: 1.5px solid var(--farbe-linie); border-radius: var(--radius-rund);
+  padding: 4px 10px; font-size: 13.5px; font-weight: 700; cursor: pointer; min-height: 32px;
+}
+.zeitreise-start { padding-top: 24px; text-align: center; }
+.zeitreise-start button { background: none; border: 1.5px dashed var(--farbe-linie-kraeftig); border-radius: var(--radius-rund); padding: 6px 14px; font-size: 13.5px; color: var(--farbe-text-gedaempft); cursor: pointer; }
+
 /* ---------- Desktop ab 900 px ---------- */
 @media (min-width: 900px) {
   .kopfzeile { max-width: var(--inhalt-max); margin: 0 auto; padding: 22px 40px 0; }
@@ -276,4 +296,5 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
   .fussnoten { padding: 0 4px; gap: 4px; }
 
   .onboarding { padding-top: 24px; }
+  .zeitreise { max-width: calc(var(--inhalt-max) - 80px); margin: 16px auto 0; }
 }

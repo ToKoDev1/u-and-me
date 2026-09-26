@@ -4,9 +4,9 @@ import { darstellungLaden, darstellungSpeichern, type Darstellung } from '../lib
 import type { Quelle } from '../lib/inhalte';
 
 const optionen: { wert: Darstellung; text: string }[] = [
-  { wert: 'auto', text: 'Automatisch' },
   { wert: 'hell', text: 'Hell' },
   { wert: 'dunkel', text: 'Dunkel' },
+  { wert: 'auto', text: 'Wie das Gerät' },
 ];
 
 type Props = { quelle: Quelle; fruehgeboren?: boolean };

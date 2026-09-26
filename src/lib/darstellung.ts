@@ -5,22 +5,24 @@ import type { MaskottchenId } from './inhalte';
 
 export type Darstellung = 'auto' | 'hell' | 'dunkel';
 
+/** Standard ist Hell – „Automatisch“ (Systemeinstellung) kann man wählen */
+const STANDARD: Darstellung = 'hell';
+
 const SCHLUESSEL = 'u-and-me:darstellung';
 const systemDunkel = window.matchMedia('(prefers-color-scheme: dark)');
 
 export function darstellungLaden(): Darstellung {
   try {
     const wert = localStorage.getItem(SCHLUESSEL);
-    return wert === 'hell' || wert === 'dunkel' ? wert : 'auto';
+    return wert === 'hell' || wert === 'dunkel' || wert === 'auto' ? wert : STANDARD;
   } catch {
-    return 'auto';
+    return STANDARD;
   }
 }
 
 export function darstellungSpeichern(wert: Darstellung): void {
   try {
-    if (wert === 'auto') localStorage.removeItem(SCHLUESSEL);
-    else localStorage.setItem(SCHLUESSEL, wert);
+    localStorage.setItem(SCHLUESSEL, wert);
   } catch {
     // ignorieren – gilt dann nur bis zum Neuladen
   }

@@ -117,7 +117,11 @@ function Begruessung({ kind }: { kind: Kind }) {
       <div className="sprechblase">
         <p className="hallo">Hallo!</p>
         <p className="satz">
-          {kind.name ?? 'Euer Kind'} ist heute <b>{alterAlsText(alter)}</b> alt.
+          {alter.tage === 0 ? (
+            <>{kind.name ?? 'Euer Kind'} ist heute <b>auf die Welt gekommen</b>. Willkommen!</>
+          ) : (
+            <>{kind.name ?? 'Euer Kind'} ist heute <b>{alterAlsText(alter)}</b> alt.</>
+          )}
         </p>
         {korrigiert && korrigiert.tage >= 0 && (
           <p className="gedaempft" style={{ fontSize: 'var(--groesse-s)', marginTop: 4 }}>

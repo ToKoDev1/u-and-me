@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import type { Profil } from '../lib/speicher';
 import { Avatar } from './Avatar';
@@ -21,7 +22,15 @@ function Navigation({ className }: { className: string }) {
 }
 
 /** Kopfzeile + Inhalt + Navigation (mobil schwebend unten, Desktop oben) */
-export function Rahmen({ profil }: { profil: Profil }) {
+type Props = {
+  profil: Profil;
+  /** z. B. die Zeitreise-Leiste */
+  oben?: ReactNode;
+  /** zeigt unten einen Link „Zeitreise starten“ */
+  onZeitreise?: () => void;
+};
+
+export function Rahmen({ profil, oben, onZeitreise }: Props) {
   return (
     <>
       <header className="kopfzeile">
@@ -32,8 +41,14 @@ export function Rahmen({ profil }: { profil: Profil }) {
           <Avatar tier={profil.maskottchen} groesse={40} />
         </div>
       </header>
+      {oben}
       <main className="seite">
         <Outlet />
+        {onZeitreise && (
+          <p className="zeitreise-start">
+            <button type="button" onClick={onZeitreise}>Zeitreise starten (Test)</button>
+          </p>
+        )}
       </main>
       <Navigation className="nav-unten" />
     </>
