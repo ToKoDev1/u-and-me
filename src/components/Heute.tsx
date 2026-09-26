@@ -43,6 +43,17 @@ export function Heute({ kind, notizen }: { kind: Kind; notizen: Notizen }) {
       <UZeitleiste kind={kind} />
       <Zeitring kind={kind} />
 
+      {/* In den ersten 12 Wochen die wichtigste Orientierung – deshalb gleich unter dem Ring */}
+      {woche && (
+        <Link to="/woche" className="wichtig">
+          <span className="wichtig-label">{woche.woche}. Lebenswoche{kind.name ? ` mit ${kind.name}` : ''}</span>
+          <span className="wichtig-titel">{woche.titel}</span>
+          <span className="wichtig-text">{woche.typisch}</span>
+          <span className="wichtig-meta">Was hilft · Für euch · Mehr dazu ›</span>
+        </Link>
+      )}
+
+
       {naechsteU && (
         <Link to="/naechste-u" className="zeile-link">
           <span>
@@ -94,15 +105,6 @@ export function Heute({ kind, notizen }: { kind: Kind; notizen: Notizen }) {
             Quelle: {danach.quelle.name}
           </a>
         </section>
-      )}
-
-      {woche && (
-        <Link to="/woche" className="wichtig">
-          <span className="wichtig-label">{woche.woche}. Lebenswoche{kind.name ? ` mit ${kind.name}` : ''}</span>
-          <span className="wichtig-titel">{woche.titel}</span>
-          <span className="wichtig-text">{woche.typisch}</span>
-          <span className="wichtig-meta">Was hilft · Für euch · Mehr dazu ›</span>
-        </Link>
       )}
 
       {offen.length > 0 && (
