@@ -71,7 +71,8 @@ export function Heute({ kind }: { kind: Kind }) {
         <Link to={wichtig.bereich === 'alltag' ? '/begegnen' : '/entwicklung'} className="wichtig">
           <span className="wichtig-label">Heute wichtig</span>
           <span className="wichtig-titel">{wichtig.titel}</span>
-          <span className="wichtig-text">{wichtig.zusatz?.text ?? wichtig.text}</span>
+          {/* Ein Tipp („Das hilft oft“) ist hier hilfreicher als die Beschreibung – andere Zusätze (z. B. Hinweise für ältere Kinder) nicht */}
+          <span className="wichtig-text">{wichtig.zusatz?.label === 'Das hilft oft:' ? wichtig.zusatz.text : wichtig.text}</span>
           <span className="wichtig-meta">meist mit {spanneAlsText(wichtig.von, wichtig.bis)} · Mehr dazu ›</span>
         </Link>
       )}

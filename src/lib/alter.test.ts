@@ -49,4 +49,11 @@ describe('spanneAlsText', () => {
     expect(spanneAlsText({ tage: 35 }, { tage: 70 })).toBe('5–10 Wochen');
     expect(spanneAlsText({ tage: 14 }, { monate: 3 })).toBe('2 Wochen – 3 Monaten');
   });
+
+  it('nennt Spannen über den 2. Geburtstag hinaus in Jahren', () => {
+    expect(spanneAlsText({ monate: 24 }, { monate: 72 })).toBe('2–6 Jahren');
+    expect(spanneAlsText({ monate: 30 }, { monate: 48 })).toBe('2½–4 Jahren');
+    expect(spanneAlsText({ monate: 15 }, { monate: 42 })).toBe('15 Monaten – 3½ Jahren');
+    expect(spanneAlsText({ monate: 18 }, { monate: 24 })).toBe('18–24 Monaten'); // bis genau 2 Jahre: wie bisher
+  });
 });

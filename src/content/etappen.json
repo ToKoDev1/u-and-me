@@ -564,16 +564,20 @@
       "id": "eigener-wille",
       "bereich": "alltag",
       "titel": "Der eigene Wille",
-      "text": "„Nein!“ und „Selber!“ – euer Kind will mitbestimmen, und nicht alles klappt schon so, wie es will.",
+      "text": "„Nein!“ und „Selber!“ – euer Kind will mitbestimmen, und nicht alles klappt schon so, wie es will. Mit der Sprache werden die Wutanfälle meist seltener, nach dem dritten Geburtstag oft deutlich.",
       "zusatz": {
         "label": "Das hilft oft:",
-        "text": "Kleine Wahlmöglichkeiten: „Die rote oder die blaue Jacke?“ Wutanfälle gehören in dieser Zeit oft dazu."
+        "text": "Ruhig bleiben und in der Nähe bleiben, bis euer Kind wieder ansprechbar ist. Danach kurz über die Wut reden – das Verhalten war nicht gut, euer Kind ist es trotzdem."
       },
       "von": {
         "monate": 15
       },
       "bis": {
-        "monate": 24
+        "monate": 42
+      },
+      "quelle": {
+        "name": "kindergesundheit-info.de – Kindliche Trotzphase",
+        "url": "https://www.kindergesundheit-info.de/themen/entwicklung/alltagstipps/entwicklungsschritte/trotzverhalten/"
       }
     },
     {
@@ -626,6 +630,306 @@
       "quelle": {
         "name": "kindergesundheit-info.de – Geistige Entwicklung",
         "url": "https://www.kindergesundheit-info.de/themen/entwicklung/entwicklungsschritte/geistige-entwicklung/"
+      }
+    },
+    {
+      "id": "kurze-saetze",
+      "bereich": "sprache",
+      "titel": "Erste kleine Sätze",
+      "text": "Aus einzelnen Wörtern werden kurze Sätze wie „Ich Ball haben“. Bald verbindet euer Kind sie mit „und dann“, und einfache Sätze werden richtig.",
+      "tipp": "Greift auf, was euer Kind sagt, und sagt es einfach richtig nach: „Ja, du hast den Ball!“ – ohne zu verbessern.",
+      "tippArt": "spiel",
+      "von": {
+        "monate": 24
+      },
+      "bis": {
+        "monate": 36
+      },
+      "quelle": {
+        "name": "kindergesundheit-info.de – Sprachentwicklung",
+        "url": "https://www.kindergesundheit-info.de/themen/entwicklung/entwicklungsschritte/sprachentwicklung/"
+      }
+    },
+    {
+      "id": "warum-fragen",
+      "bereich": "sprache",
+      "titel": "Warum? Wieso? Weshalb?",
+      "text": "Euer Kind fragt nicht mehr nur „Was ist das?“, sondern auch „Wie?“ und „Warum?“ – oft viele Male am Tag.",
+      "tipp": "Nicht jede Frage braucht die perfekte Antwort. Fragt zurück: „Was glaubst du denn?“",
+      "tippArt": "spiel",
+      "von": {
+        "monate": 24
+      },
+      "bis": {
+        "monate": 48
+      },
+      "quelle": {
+        "name": "kindergesundheit-info.de – Sprachentwicklung",
+        "url": "https://www.kindergesundheit-info.de/themen/entwicklung/entwicklungsschritte/sprachentwicklung/"
+      }
+    },
+    {
+      "id": "erzaehlen",
+      "bereich": "sprache",
+      "titel": "Erzählt drauflos",
+      "text": "Der Wortschatz wächst, und mit „wenn“, „weil“ oder „als“ werden die Sätze länger. Vor lauter Erzählfreude kommt manches Kind ins Stocken – das ist in diesem Alter häufig.",
+      "tipp": "Lasst euer Kind in Ruhe ausreden und erzählt euch abends gegenseitig, was heute schön war.",
+      "tippArt": "spiel",
+      "von": {
+        "monate": 36
+      },
+      "bis": {
+        "monate": 48
+      },
+      "quelle": {
+        "name": "kindergesundheit-info.de – Sprachentwicklung",
+        "url": "https://www.kindergesundheit-info.de/themen/entwicklung/entwicklungsschritte/sprachentwicklung/"
+      }
+    },
+    {
+      "id": "letzte-laute",
+      "bereich": "sprache",
+      "titel": "Die letzten schwierigen Laute",
+      "text": "Fast alle Laute sitzen jetzt. Zischlaute wie s, z oder x brauchen oft noch Zeit, ebenso manche Grammatik wie Mehrzahl oder Vergangenheit. Bis zur Schule wird das meist sicherer.",
+      "tipp": "Zungenbrecher und Quatschreime – wer sich verhaspelt, darf lachen.",
+      "tippArt": "spiel",
+      "von": {
+        "monate": 48
+      },
+      "bis": {
+        "monate": 72
+      },
+      "quelle": {
+        "name": "kindergesundheit-info.de – Sprachentwicklung",
+        "url": "https://www.kindergesundheit-info.de/themen/entwicklung/entwicklungsschritte/sprachentwicklung/"
+      }
+    },
+    {
+      "id": "trocken-werden",
+      "bereich": "alltag",
+      "titel": "Die Windel wird langweilig",
+      "text": "Viele Kinder interessieren sich jetzt für die Toilette oder sagen Bescheid, wenn die Windel voll ist. Trocken werden ist vor allem eine Frage der Reifung: Manche sind mit drei Jahren tags und nachts trocken, andere brauchen länger.",
+      "zusatz": {
+        "label": "Das hilft oft:",
+        "text": "Wartet, bis euer Kind Interesse zeigt, und bietet Töpfchen oder Toilette ohne Druck an. Früher üben macht es nicht schneller."
+      },
+      "von": {
+        "monate": 24
+      },
+      "bis": {
+        "monate": 48
+      },
+      "quelle": {
+        "name": "kindergesundheit-info.de – Trocken- und Sauberwerden",
+        "url": "https://www.kindergesundheit-info.de/themen/entwicklung/entwicklungsschritte/trocken-und-sauberwerden/"
+      }
+    },
+    {
+      "id": "nachts-trocken",
+      "bereich": "alltag",
+      "titel": "Nachts trocken – oder noch nicht",
+      "text": "Nachts dauert es meist länger als tagsüber. Bis zum Alter von fünf Jahren ist es normal, wenn ab und zu noch etwas ins Bett geht – manche Kinder brauchen noch länger.",
+      "zusatz": {
+        "label": "Darauf könnt ihr achten:",
+        "text": "Ist euer Kind fünf oder älter, nässt regelmäßig ein und leidet darunter – oder macht ihr euch Sorgen –, sprecht mit eurer Kinderarztpraxis."
+      },
+      "von": {
+        "monate": 36
+      },
+      "bis": {
+        "monate": 72
+      },
+      "quelle": {
+        "name": "kindergesundheit-info.de – Bettnässen bei Kindern",
+        "url": "https://www.kindergesundheit-info.de/themen/schlafen/schlafprobleme/bettnaessen/"
+      }
+    },
+    {
+      "id": "mittagsschlaf-weg",
+      "bereich": "alltag",
+      "titel": "Der Mittagsschlaf wird seltener",
+      "text": "Mit drei Jahren schläft etwa die Hälfte der Kinder noch mittags, mit vier ungefähr jedes dritte. Mit fünf bis sechs Jahren hört der Mittagsschlaf meist ganz auf – wann, ist sehr verschieden.",
+      "zusatz": {
+        "label": "Ganz normal dabei:",
+        "text": "Insgesamt schlafen Kinder in diesem Alter etwa 11 bis 13 Stunden am Tag – zwei Stunden mehr oder weniger sind völlig normal."
+      },
+      "von": {
+        "monate": 30
+      },
+      "bis": {
+        "monate": 72
+      },
+      "quelle": {
+        "name": "kindergesundheit-info.de – Schlafbedarf und Schlafdauer",
+        "url": "https://www.kindergesundheit-info.de/themen/schlafen/1-6-jahre/schlafbedarf/"
+      }
+    },
+    {
+      "id": "erste-freundschaften",
+      "bereich": "miteinander",
+      "titel": "Erste Freundschaften",
+      "text": "Mit etwa drei Jahren können Kinder selbst Kontakt zu anderen aufnehmen und erste Freundschaften schließen. Teilen, abwarten und Regeln werden jetzt geübt – und klappen noch nicht immer.",
+      "tipp": "Verabredet euch ab und zu mit einem Kind, das eures mag – zu zweit ist es oft leichter als in der großen Gruppe.",
+      "tippArt": "spiel",
+      "von": {
+        "monate": 30
+      },
+      "bis": {
+        "monate": 48
+      },
+      "quelle": {
+        "name": "kindergesundheit-info.de – Soziale Entwicklung",
+        "url": "https://www.kindergesundheit-info.de/themen/entwicklung/entwicklungsschritte/soziale-entwicklung/"
+      }
+    },
+    {
+      "id": "andere-sicht",
+      "bereich": "miteinander",
+      "titel": "Sich in andere hineinversetzen",
+      "text": "Gegen Ende des vierten Lebensjahres versteht euer Kind zum ersten Mal, dass andere anders fühlen und denken können als es selbst.",
+      "tipp": "Sprecht beim Vorlesen über Gefühle: „Was meinst du, wie geht es dem Bären jetzt?“",
+      "tippArt": "spiel",
+      "von": {
+        "monate": 42
+      },
+      "bis": {
+        "monate": 60
+      },
+      "quelle": {
+        "name": "kindergesundheit-info.de – Soziale Entwicklung",
+        "url": "https://www.kindergesundheit-info.de/themen/entwicklung/entwicklungsschritte/soziale-entwicklung/"
+      }
+    },
+    {
+      "id": "rollenspiele",
+      "bereich": "miteinander",
+      "titel": "Prinzessin, Tiger, Räuber",
+      "text": "Rollenspiele werden jetzt beliebt. Als Hexe, Tiger oder Räuber probiert euer Kind aus, wie andere die Welt sehen.",
+      "tipp": "Spielt mit – und lasst euer Kind die Regie führen.",
+      "tippArt": "spiel",
+      "von": {
+        "monate": 48
+      },
+      "bis": {
+        "monate": 72
+      },
+      "quelle": {
+        "name": "kindergesundheit-info.de – Soziale Entwicklung",
+        "url": "https://www.kindergesundheit-info.de/themen/entwicklung/entwicklungsschritte/soziale-entwicklung/"
+      }
+    },
+    {
+      "id": "magische-phase",
+      "bereich": "alltag",
+      "titel": "Monster unter dem Bett",
+      "text": "Zwischen drei und fünf Jahren ist für viele Kinder alles möglich: Monster, Hexen und Gespenster gibt es wirklich, und sie könnten im Schrank sitzen. Fantasie und Wirklichkeit verschwimmen noch.",
+      "zusatz": {
+        "label": "Das hilft oft:",
+        "text": "Die Angst ernst nehmen und gemeinsam eine Lösung erfinden – zum Beispiel ein „Monster-Spray“ fürs Kinderzimmer."
+      },
+      "von": {
+        "monate": 36
+      },
+      "bis": {
+        "monate": 60
+      },
+      "quelle": {
+        "name": "kindergesundheit-info.de – Die magische Phase",
+        "url": "https://www.kindergesundheit-info.de/themen/entwicklung/entwicklungsschritte/geistige-entwicklung/magische-phase/"
+      }
+    },
+    {
+      "id": "erstes-maennchen",
+      "bereich": "bewegung",
+      "titel": "Das erste Männchen",
+      "text": "Euer Kind hält den Stift jetzt zwischen drei Fingerspitzen und malt Figuren mit Kopf und Füßen, dazu Haus, Baum oder Sonne – manchmal noch etwas unbeholfen.",
+      "tipp": "Fragt „Erzählst du mir, was du gemalt hast?“ statt zu raten.",
+      "tippArt": "spiel",
+      "von": {
+        "monate": 36
+      },
+      "bis": {
+        "monate": 48
+      },
+      "quelle": {
+        "name": "kindergesundheit-info.de – Hand- und Fingermotorik",
+        "url": "https://www.kindergesundheit-info.de/themen/entwicklung/entwicklungsschritte/motorische-entwicklung/hand-und-fingermotorik/"
+      }
+    },
+    {
+      "id": "schneiden-basteln",
+      "bereich": "bewegung",
+      "titel": "Schneiden, kleben, basteln",
+      "text": "Mit der Kinderschere an einer geraden Linie entlangschneiden, mit Messer und Gabel essen – und bald geschickt mit Schere, Leim und Stift basteln.",
+      "tipp": "Eine Bastelkiste mit Papierresten, Kleber und Kinderschere – was dabei entsteht, ist egal.",
+      "tippArt": "spiel",
+      "von": {
+        "monate": 48
+      },
+      "bis": {
+        "monate": 72
+      },
+      "quelle": {
+        "name": "kindergesundheit-info.de – Hand- und Fingermotorik",
+        "url": "https://www.kindergesundheit-info.de/themen/entwicklung/entwicklungsschritte/motorische-entwicklung/hand-und-fingermotorik/"
+      }
+    },
+    {
+      "id": "auf-raedern",
+      "bereich": "bewegung",
+      "titel": "Auf Rädern unterwegs",
+      "text": "Laufrad, Dreirad, Roller: Zwischen zwei und sechs Jahren lernen viele Kinder, sich auf Rädern fortzubewegen – dazu rennen, klettern, hüpfen und balancieren. Jedes Kind in seinem Tempo.",
+      "tipp": "Mit Helm fahren – und dort üben, wo keine Autos sind.",
+      "tippArt": "hinweis",
+      "von": {
+        "monate": 24
+      },
+      "bis": {
+        "monate": 72
+      },
+      "quelle": {
+        "name": "kindergesundheit-info.de – Bewegungsentwicklung",
+        "url": "https://www.kindergesundheit-info.de/themen/entwicklung/entwicklungsschritte/motorische-entwicklung/"
+      }
+    },
+    {
+      "id": "milchgebiss",
+      "bereich": "alltag",
+      "titel": "Alle Milchzähne sind da",
+      "text": "Mit etwa zweieinhalb Jahren sind meist alle 20 Milchzähne durchgebrochen.",
+      "zusatz": {
+        "label": "Darauf könnt ihr achten:",
+        "text": "Milchzähne sind wichtig für die bleibenden Zähne. Beim Putzen helft ihr noch mit – und die Zahnarzt-Termine Z3 und Z4 stehen an."
+      },
+      "von": {
+        "monate": 24
+      },
+      "bis": {
+        "monate": 36
+      },
+      "quelle": {
+        "name": "kindergesundheit-info.de – Zahnentwicklung",
+        "url": "https://www.kindergesundheit-info.de/themen/risiken-vorbeugen/zahngesundheit/zahnentwicklung/"
+      }
+    },
+    {
+      "id": "wackelzahn",
+      "bereich": "alltag",
+      "titel": "Der erste Wackelzahn",
+      "text": "Um den Schulstart herum fallen die ersten Milchzähne vorn aus. Die ersten bleibenden Backenzähne kommen oft unbemerkt ganz hinten dazu.",
+      "zusatz": {
+        "label": "Darauf könnt ihr achten:",
+        "text": "Die neuen Backenzähne sitzen ganz hinten – beim Putzen gründlich mit erwischen."
+      },
+      "von": {
+        "monate": 60
+      },
+      "bis": {
+        "monate": 84
+      },
+      "quelle": {
+        "name": "kindergesundheit-info.de – Zahnentwicklung",
+        "url": "https://www.kindergesundheit-info.de/themen/risiken-vorbeugen/zahngesundheit/zahnentwicklung/"
       }
     }
   ]

@@ -84,17 +84,28 @@ type Einheit = { einzahl: string; mehrzahl: string };
 const TAG: Einheit = { einzahl: 'Tag', mehrzahl: 'Tagen' };
 const WOCHE: Einheit = { einzahl: 'Woche', mehrzahl: 'Wochen' };
 const MONAT: Einheit = { einzahl: 'Monat', mehrzahl: 'Monaten' };
+const JAHR: Einheit = { einzahl: 'Jahr', mehrzahl: 'Jahren' };
 
-function alsZahlUndEinheit(alter: Alter): { n: number; einheit: Einheit } {
-  if (alter.monate && !alter.tage) return { n: alter.monate, einheit: MONAT };
+/** 30 Monate → „2½“, 36 → „3“ */
+const jahreText = (monate: number) => `${Math.floor(monate / 12)}${monate % 12 === 6 ? '½' : ''}`;
+
+function alsZahlUndEinheit(alter: Alter, inJahren = false): { n: number | string; einheit: Einheit } {
+  if (alter.monate && !alter.tage) {
+    if (inJahren && alter.monate >= 24 && alter.monate % 6 === 0) return { n: jahreText(alter.monate), einheit: JAHR };
+    return { n: alter.monate, einheit: MONAT };
+  }
   const tage = alter.tage ?? 0;
   return tage >= 14 ? { n: Math.round(tage / 7), einheit: WOCHE } : { n: tage, einheit: TAG };
 }
 
-/** Spannbreite als Text für „meist mit …“: „4–7 Monaten“, „5–10 Wochen“, „2 Wochen – 3 Monaten“ */
+/**
+ * Spannbreite als Text für „meist mit …“: „4–7 Monaten“, „5–10 Wochen“, „2 Wochen – 3 Monaten“.
+ * Reicht die Spanne über den 2. Geburtstag hinaus, in Jahren: „2–6 Jahren“, „15 Monaten – 3½ Jahren“.
+ */
 export function spanneAlsText(von: Alter, bis: Alter): string {
-  const a = alsZahlUndEinheit(von);
-  const b = alsZahlUndEinheit(bis);
+  const inJahren = (bis.monate ?? 0) > 24;
+  const a = alsZahlUndEinheit(von, inJahren);
+  const b = alsZahlUndEinheit(bis, inJahren);
   const wort = (x: typeof a) => (x.n === 1 ? x.einheit.einzahl : x.einheit.mehrzahl);
   return a.einheit === b.einheit ? `${a.n}–${b.n} ${wort(b)}` : `${a.n} ${wort(a)} – ${b.n} ${wort(b)}`;
 }
