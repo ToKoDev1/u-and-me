@@ -9,7 +9,16 @@ import type { Kind } from './kind';
 export type Quelle = { name: string; url: string };
 export type Status = 'entwurf' | 'geprueft';
 
-export type Phase = { id: string; titel: string; von: Alter; bis: Alter; abklaeren: string | null };
+export type Spielidee = { bereich: Bereich; titel: string; text: string; hinweis?: string };
+export type Phase = {
+  id: string;
+  titel: string;
+  von: Alter;
+  bis: Alter;
+  abklaeren: string | null;
+  /** eigene Anregungen (Entwurf) */
+  spielideen: Spielidee[];
+};
 export type Bereich = 'alltag' | 'bewegung' | 'sprache' | 'miteinander';
 export type Etappe = {
   id: string;

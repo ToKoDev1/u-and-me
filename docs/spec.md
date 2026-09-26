@@ -42,6 +42,7 @@ Nebenziel: Das Projekt dient dazu, **das Bauen von Software mit Claude Code zu l
    - **„Was euch gerade begegnen kann“** – Alltags-Etappen, die gerade laufen (z. B. unruhiger Schlaf, Fremdeln, Zähne). Beantwortet „Warum ist mein Kind gerade so – und ist das normal?“. Der emotionale Kern der App, steht ganz oben.
    - **„Gerade dran“** – Entwicklungs-Etappen, deren typisches Zeitfenster gerade läuft (Bewegung, Sprache, Miteinander), mit Tipps
    - **„Als Nächstes“** – die nächsten 3 Etappen
+   - **„Spielideen für diese Zeit“** – 3–5 alltagsnahe Spiele pro Phase, die die Entwicklung fördern (ohne Kaufzwang, mit Sicherheitshinweisen). Motto: „Keine Pflicht – was euch beiden Spaß macht, ist richtig.“
    - Worauf achten / wann ärztlich abklären
 3. **„Euer Weg“ (Zeitstrahl)** – alle Us und Etappen chronologisch mit echten Daten; Vergangenes gedimmt, Laufendes hervorgehoben, „Du bist hier“ mit Maskottchen.
 4. **Nächste U vorbereiten** – Zeitfenster der nächsten U, was dort passiert, Beobachtungs-Checkliste, mögliche Fragen an die Kinderärztin. Dazu **„In meinen Kalender eintragen“**: lädt eine .ics-Datei mit dem Zeitfenster herunter (lokal erzeugt, kein Server).
@@ -87,7 +88,6 @@ Die bekannteste App im Bereich (4,6★, ~39.500 Bewertungen). Ihr Erfolg liegt w
 ## Später (Parkplatz)
 
 **v1.1 (Design wird schon mitgestaltet):**
-- **Mehr Spielideen** – über die Tipps an den Etappen hinaus, z. B. eigene Rubrik
 
 **Irgendwann:**
 

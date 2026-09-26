@@ -19,6 +19,7 @@ import {
   naechsteUntersuchung,
   vorherigeUntersuchung,
   type Etappe,
+  type Spielidee,
   type NaechsteU,
 } from '../lib/inhalte';
 import type { Kind } from '../lib/kind';
@@ -59,6 +60,18 @@ export function Heute({ kind }: { kind: Kind }) {
             <h2>Gerade dran</h2>
             <div className="zwei-spalten-liste">
               {geradeDran.map((e) => <EtappenKarte key={e.id} etappe={e} />)}
+            </div>
+          </section>
+        )}
+
+        {phase && phase.spielideen.length > 0 && (
+          <section className="abschnitt reihe-spiel">
+            <div>
+              <h2>Spielideen für diese Zeit</h2>
+              <p className="gedaempft klein">Keine Pflicht – was euch beiden Spaß macht, ist richtig.</p>
+            </div>
+            <div className="zwei-spalten-liste">
+              {phase.spielideen.map((s) => <SpielideeKarte key={s.titel} idee={s} />)}
             </div>
           </section>
         )}
@@ -203,6 +216,26 @@ export function EtappenKarte({ etappe }: { etappe: Etappe }) {
           <span className={`tipp-punkt ${hinweis ? 'hinweis' : ''}`} aria-hidden="true" />
           <span>
             <b>{hinweis ? 'Hinweis:' : 'Spielidee:'}</b> {etappe.tipp}
+          </span>
+        </div>
+      )}
+    </article>
+  );
+}
+
+function SpielideeKarte({ idee }: { idee: Spielidee }) {
+  return (
+    <article className="karte spiel-karte">
+      <div className="etappe-kopf">
+        <span className={`bereich-pille ${idee.bereich}`}>{bereichsName[idee.bereich]}</span>
+      </div>
+      <h3>{idee.titel}</h3>
+      <p>{idee.text}</p>
+      {idee.hinweis && (
+        <div className="tipp">
+          <span className="tipp-punkt hinweis" aria-hidden="true" />
+          <span>
+            <b>Hinweis:</b> {idee.hinweis}
           </span>
         </div>
       )}

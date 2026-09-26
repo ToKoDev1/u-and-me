@@ -1,5 +1,5 @@
 {
-  "_hinweis": "Phasen = Abschnitte zwischen zwei Us (lückenlos 0–24 Monate). Was in der Phase passiert, steht in etappen.json. Hier nur Titel und Warnzeichen ('abklaeren' = Satzende nach 'Nicht bis zur nächsten U warten, wenn …'). ALLE Inhalte sind Entwurf und noch NICHT gegen Quellen geprüft (Schritt 3).",
+  "_hinweis": "Phasen = Abschnitte zwischen zwei Us (lückenlos 0–24 Monate). Was in der Phase passiert, steht in etappen.json. Hier nur Titel und Warnzeichen ('abklaeren' = Satzende nach 'Nicht bis zur nächsten U warten, wenn …'). ALLE Inhalte sind Entwurf und noch NICHT gegen Quellen geprüft (Schritt 3). 'spielideen' = eigene Anregungen pro Phase (Entwurf), optional mit Sicherheits-'hinweis'.",
   "status": "entwurf",
   "quelle": {
     "name": "kindergesundheit-info.de",
@@ -15,7 +15,24 @@
       "bis": {
         "tage": 10
       },
-      "abklaeren": null
+      "abklaeren": null,
+      "spielideen": [
+        {
+          "bereich": "miteinander",
+          "titel": "Haut an Haut",
+          "text": "Legt euer Baby nackt (mit Windel) auf eure Brust. Wärme, Herzschlag und euer Geruch geben Sicherheit."
+        },
+        {
+          "bereich": "sprache",
+          "titel": "Erzählen und summen",
+          "text": "Sprecht beim Wickeln und Tragen einfach aus, was ihr tut. Eure Stimme kennt euer Baby schon aus dem Bauch."
+        },
+        {
+          "bereich": "miteinander",
+          "titel": "Gesicht zeigen",
+          "text": "Neugeborene sehen am besten auf etwa 20–30 cm – genau die Entfernung beim Stillen oder Füttern. Schaut euch in Ruhe an."
+        }
+      ]
     },
     {
       "id": "u2-u3",
@@ -26,7 +43,30 @@
       "bis": {
         "tage": 35
       },
-      "abklaeren": null
+      "abklaeren": null,
+      "spielideen": [
+        {
+          "bereich": "bewegung",
+          "titel": "Bauchlage auf eurer Brust",
+          "text": "Halb liegend auf dem Sofa: euer Baby auf eurem Oberkörper. So übt es, den Kopf kurz anzuheben.",
+          "hinweis": "Nur wach und immer mit euch – zum Schlafen kommt euer Baby auf den Rücken."
+        },
+        {
+          "bereich": "miteinander",
+          "titel": "Langsames Gesichter-Spiel",
+          "text": "Nah vors Gesicht, dann langsam den Kopf zur Seite bewegen – folgt euer Baby mit den Augen?"
+        },
+        {
+          "bereich": "miteinander",
+          "titel": "Sanfte Babymassage",
+          "text": "Warme Hände, etwas Öl, sanft über Arme, Beine und Bauch streichen – ein ruhiges Ritual nach dem Baden."
+        },
+        {
+          "bereich": "sprache",
+          "titel": "Lieder und Reime",
+          "text": "Immer wieder dieselben Lieder: Wiederholung gibt Sicherheit und bereitet die Sprache vor."
+        }
+      ]
     },
     {
       "id": "u3-u4",
@@ -37,7 +77,30 @@
       "bis": {
         "monate": 3
       },
-      "abklaeren": "euer Kind nicht auf laute Geräusche reagiert, Gesichtern nicht mit den Augen folgt oder auffällig schlecht trinkt und ungewöhnlich schlapp wirkt."
+      "abklaeren": "euer Kind nicht auf laute Geräusche reagiert, Gesichtern nicht mit den Augen folgt oder auffällig schlecht trinkt und ungewöhnlich schlapp wirkt.",
+      "spielideen": [
+        {
+          "bereich": "bewegung",
+          "titel": "Bauchzeit, kurz und oft",
+          "text": "Mehrmals am Tag ein paar Minuten auf dem Bauch – mit euch auf Augenhöhe davor.",
+          "hinweis": "Nur wach und beaufsichtigt."
+        },
+        {
+          "bereich": "sprache",
+          "titel": "Laute-Gespräch",
+          "text": "Macht die Laute eures Babys nach und wartet kurz. So entsteht ein kleines Hin und Her."
+        },
+        {
+          "bereich": "miteinander",
+          "titel": "Schau mal!",
+          "text": "Kontrastreiche Dinge langsam vor den Augen bewegen: ein schwarz-weißes Tuch, ein Kochlöffel mit Gesicht, euer Lächeln."
+        },
+        {
+          "bereich": "bewegung",
+          "titel": "Strampel-Zeit",
+          "text": "Ohne Decke und Strampler auf einer warmen Unterlage frei strampeln lassen."
+        }
+      ]
     },
     {
       "id": "u4-u5",
@@ -48,7 +111,31 @@
       "bis": {
         "monate": 6
       },
-      "abklaeren": "euer Kind nicht auf Geräusche reagiert, nicht versucht zu greifen oder Fähigkeiten wieder verliert."
+      "abklaeren": "euer Kind nicht auf Geräusche reagiert, nicht versucht zu greifen oder Fähigkeiten wieder verliert.",
+      "spielideen": [
+        {
+          "bereich": "bewegung",
+          "titel": "Fühl-Spiel",
+          "text": "Verschiedene Dinge zum Anfassen reichen: Waschlappen, Holzring, raschelndes Papier, ein kühler Löffel – alles wird ertastet und in den Mund gesteckt.",
+          "hinweis": "Nur Dinge, die nicht verschluckt werden können."
+        },
+        {
+          "bereich": "miteinander",
+          "titel": "Spiegel-Spiel",
+          "text": "Gemeinsam in einen Spiegel schauen, winken, Grimassen ziehen – euer Baby entdeckt Gesichter."
+        },
+        {
+          "bereich": "sprache",
+          "titel": "Fingerspiele und Kitzelreime",
+          "text": "„Das ist der Daumen …“ oder „Kommt ein Mäuschen“: Reim, Berührung und Lachen in einem."
+        },
+        {
+          "bereich": "bewegung",
+          "titel": "Dreh-Anreiz",
+          "text": "In Rückenlage ein Spielzeug seitlich hinlegen – das lädt zum Drehen ein.",
+          "hinweis": "Auf dem Boden spielen, nicht auf dem Wickeltisch oder Sofa."
+        }
+      ]
     },
     {
       "id": "u5-u6",
@@ -59,7 +146,36 @@
       "bis": {
         "monate": 11
       },
-      "abklaeren": "euer Kind gar nicht brabbelt, eine Körperseite deutlich weniger bewegt oder Fähigkeiten wieder verliert."
+      "abklaeren": "euer Kind gar nicht brabbelt, eine Körperseite deutlich weniger bewegt oder Fähigkeiten wieder verliert.",
+      "spielideen": [
+        {
+          "bereich": "miteinander",
+          "titel": "Kuckuck!",
+          "text": "Gesicht oder Spielzeug unter einem Tuch verstecken und wieder auftauchen lassen. Euer Kind lernt: Was weg ist, ist nicht verschwunden."
+        },
+        {
+          "bereich": "bewegung",
+          "titel": "Ausräumen und einräumen",
+          "text": "Becher, Dosen und Holzlöffel in einer Kiste – rausholen, klopfen, wieder reinlegen.",
+          "hinweis": "Nichts, was kleiner als eine Streichholzschachtel ist – Verschluckungsgefahr."
+        },
+        {
+          "bereich": "sprache",
+          "titel": "Bilderbuch zeigen",
+          "text": "Dicke Pappbilderbücher anschauen und benennen: „Da ist ein Hund! Wau-wau!“"
+        },
+        {
+          "bereich": "bewegung",
+          "titel": "Kissen-Parcours",
+          "text": "Ein paar Kissen und Decken auf dem Boden – zum Robben, Krabbeln und Klettern.",
+          "hinweis": "Immer dabeibleiben."
+        },
+        {
+          "bereich": "sprache",
+          "titel": "Silben-Echo",
+          "text": "Plappert euer Kind „ba-ba“, antwortet mit „ba-ba“ – und bringt ab und zu eine neue Silbe ins Spiel."
+        }
+      ]
     },
     {
       "id": "u6-u7",
@@ -70,7 +186,34 @@
       "bis": {
         "monate": 20
       },
-      "abklaeren": null
+      "abklaeren": null,
+      "spielideen": [
+        {
+          "bereich": "miteinander",
+          "titel": "Ball hin und her",
+          "text": "Im Sitzen einen weichen Ball zueinander rollen – später werfen und holen."
+        },
+        {
+          "bereich": "bewegung",
+          "titel": "Stapeln und umwerfen",
+          "text": "Becher oder Bausteine stapeln – und mit Begeisterung umwerfen lassen."
+        },
+        {
+          "bereich": "miteinander",
+          "titel": "Mithelfen im Alltag",
+          "text": "Lappen zum Wischen, Wäsche in die Trommel, Löffel in die Schublade: Kinder lieben es, nachzumachen."
+        },
+        {
+          "bereich": "sprache",
+          "titel": "Tiergeräusche und Bewegungslieder",
+          "text": "„Wie macht die Kuh?“ und Lieder mit Gesten – Wörter werden mit Bewegung leichter."
+        },
+        {
+          "bereich": "bewegung",
+          "titel": "Etwas zum Schieben",
+          "text": "Ein stabiler Karton oder ein Lauflernwagen gibt Halt bei den ersten Schritten."
+        }
+      ]
     },
     {
       "id": "rund-um-u7",
@@ -81,7 +224,34 @@
       "bis": {
         "monate": 24
       },
-      "abklaeren": null
+      "abklaeren": null,
+      "spielideen": [
+        {
+          "bereich": "miteinander",
+          "titel": "Einfaches Rollenspiel",
+          "text": "Puppe oder Kuscheltier füttern, ins Bett bringen, trösten – so übt euer Kind Alltag und Gefühle."
+        },
+        {
+          "bereich": "bewegung",
+          "titel": "Malen mit dicken Stiften",
+          "text": "Große Blätter, dicke Wachsmaler – kritzeln, Kreise, erste Formen."
+        },
+        {
+          "bereich": "sprache",
+          "titel": "„Wo ist …?“",
+          "text": "Im Bilderbuch oder in der Wohnung suchen lassen: „Wo ist der Ball?“ Und selbst benennen lassen."
+        },
+        {
+          "bereich": "bewegung",
+          "titel": "Draußen toben",
+          "text": "Klettern, rutschen, hüpfen, balancieren – der Spielplatz ist das beste Bewegungstraining."
+        },
+        {
+          "bereich": "alltag",
+          "titel": "Sortieren",
+          "text": "Socken nach Farben, Löffel und Gabeln, große und kleine Dinge – Ordnung macht Spaß und übt das Denken."
+        }
+      ]
     }
   ]
 }

@@ -128,7 +128,8 @@ img { display: block; }
 
 /* Etappen-Karte „Gerade dran“ */
 .etappe-karte { display: flex; flex-direction: column; gap: 8px; }
-.etappe-karte h3 { font-size: 18px; }
+.etappe-karte h3, .spiel-karte h3 { font-size: 18px; }
+.spiel-karte { display: flex; flex-direction: column; gap: 8px; }
 .etappe-kopf { display: flex; gap: 8px; flex-wrap: wrap; }
 .bereich-pille { border-radius: var(--radius-rund); padding: 2px 10px; font-size: 13px; font-weight: 800; }
 .bereich-pille.alltag { background: var(--farbe-alltag-flaeche); }
@@ -178,10 +179,11 @@ img { display: block; }
 .heute .reihe-wegstueck { order: 2; }
 .heute .reihe-begegnen { order: 3; }
 .heute .reihe-dran { order: 4; }
-.heute .reihe-naechstes { order: 5; }
-.heute .reihe-warnung { order: 6; }
-.heute .reihe-naechste-u { order: 7; }
-.heute .reihe-fussnoten { order: 8; }
+.heute .reihe-spiel { order: 5; }
+.heute .reihe-naechstes { order: 6; }
+.heute .reihe-warnung { order: 7; }
+.heute .reihe-naechste-u { order: 8; }
+.heute .reihe-fussnoten { order: 9; }
 .heute .reihe-naechste-u .knopf { display: none; }
 
 /* ---------- Onboarding ---------- */
@@ -324,7 +326,7 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
   .wegstueck-fuss { grid-column: 1 / -1; }
 
   .abschnitt-begegnen > h2 { font-size: 24px; }
-  .reihe-dran > h2 { font-size: var(--groesse-xl); }
+  .reihe-dran > h2, .reihe-spiel h2 { font-size: var(--groesse-xl); }
   .zwei-spalten-liste { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
   .begegnen-karte { padding: 20px 22px; }
   .etappe-karte { padding: 20px; }
