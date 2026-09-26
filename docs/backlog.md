@@ -79,7 +79,7 @@ Farben, Schrift, Ton und die Grundidee (Zeitring, drei Kacheln, „Heute wichtig
 ## Sprint 4 – PWA: fühlt sich an wie eine App
 
 - [x] 🔴 S · Manifest, App-Icons (192/512/maskable, Apple), Favicon – Elefantenkopf
-- [ ] 🔴 M · Offline nutzbar (Service Worker, `vite-plugin-pwa` ist schon installiert)
+- [x] 🔴 M · Offline nutzbar (Service Worker über `vite-plugin-pwa`, getestet mit gestopptem Server)
 - [ ] ⚪ S · Sanfte Übergänge (Ring zeichnet sich ein, Tipp-Feedback) – mit „reduzierte Bewegung“
 
 ## Sprint 5 – Gemeinsame Momente (Tracking ohne Druck)
