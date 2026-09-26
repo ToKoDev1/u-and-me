@@ -43,24 +43,6 @@ img { display: block; }
   white-space: nowrap;
 }
 .kopfzeile-rechts { display: flex; align-items: center; gap: 10px; }
-.kopfzeile-rechts .avatar { display: none; }
-.nav-oben { display: none; }
-
-.nav-unten {
-  position: fixed; z-index: 10;
-  left: 24px; right: 24px; bottom: calc(20px + env(safe-area-inset-bottom));
-  max-width: 440px; margin: 0 auto;
-  background: var(--farbe-nav); border-radius: var(--radius-rund);
-  padding: 6px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px;
-  box-shadow: var(--schatten-nav);
-}
-.nav-unten a, .nav-oben a {
-  color: var(--farbe-nav-text); text-decoration: none; text-align: center;
-  font-size: 15px; font-weight: 700; border-radius: var(--radius-rund);
-}
-.nav-unten a { padding: 12px 0; min-height: var(--beruehrflaeche-min); display: grid; place-items: center; }
-.nav-unten a.active, .nav-oben a.active { background: var(--farbe-nav-aktiv); color: var(--farbe-nav-aktiv-text); font-weight: 800; }
-
 .seite { padding: 0 20px; }
 
 /* ---------- Avatar ---------- */
@@ -110,7 +92,7 @@ img { display: block; }
 .app > .seite { flex: 1; width: 100%; }
 .app > .kopfzeile { width: 100%; }
 .fusszeile {
-  width: 100%; max-width: 640px; margin: 0 auto; padding: 40px 20px calc(110px + env(safe-area-inset-bottom));
+  width: 100%; max-width: 640px; margin: 0 auto; padding: 40px 20px calc(24px + env(safe-area-inset-bottom));
   display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center;
   font-size: 12.5px; line-height: 1.5; color: var(--farbe-text-gedaempft);
 }
@@ -307,10 +289,6 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 @media (min-width: 900px) {
   .kopfzeile { max-width: var(--inhalt-max); margin: 0 auto; padding: 22px 40px 0; }
   .wortmarke { font-size: 20px; }
-  .nav-oben { display: flex; gap: 4px; background: var(--farbe-nav); border-radius: var(--radius-rund); padding: 5px; }
-  .nav-oben a { padding: 9px 22px; }
-  .nav-unten { display: none; }
-  .kopfzeile-rechts .avatar { display: block; }
   .chip-entwurf { font-size: 13px; }
   .seite { max-width: var(--inhalt-max); margin: 0 auto; padding: 36px 40px 0; }
   .fusszeile { padding-bottom: 32px; }

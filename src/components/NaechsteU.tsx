@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { abstandAlsText, letzterTag, tageZwischen } from '../lib/alter';
 import {
   mitName,
@@ -23,6 +23,7 @@ export function NaechsteU({ kind }: { kind: Kind }) {
 
   return (
     <div className="u-seite">
+      <Link to="/" className="zurueck-link">← Heute</Link>
       <div className="u-kopf">
         <span className="u-kreis-gross">{termin.untersuchung.id}</span>
         <div>

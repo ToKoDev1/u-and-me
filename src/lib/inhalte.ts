@@ -135,30 +135,3 @@ export function vorherigeUntersuchung(kind: Kind): UTermin | undefined {
   const index = naechste ? termine.findIndex((t) => t.untersuchung.id === naechste.untersuchung.id) : termine.length;
   return index > 0 ? termine[index - 1] : undefined;
 }
-
-// ---- Zeitstrahl ------------------------------------------------------------
-
-export type WegEintrag =
-  | { art: 'u'; datum: Date; termin: UTermin; status: 'vergangen' | 'laeuft' | 'kommend' }
-  | { art: 'etappe'; datum: Date; etappe: Etappe; status: EtappenStatus }
-  | { art: 'heute'; datum: Date };
-
-/** Alle Us und Etappen chronologisch, mit einer „heute“-Markierung */
-export function wegEintraege(kind: Kind): WegEintrag[] {
-  const eintraege: WegEintrag[] = [
-    ...uTermine(kind).map((t) => ({
-      art: 'u' as const,
-      datum: t.beginn,
-      termin: t,
-      status: (t.ende <= kind.jetzt ? 'vergangen' : t.beginn <= kind.jetzt ? 'laeuft' : 'kommend') as
-        | 'vergangen'
-        | 'laeuft'
-        | 'kommend',
-    })),
-    ...etappen.map((e) => ({ art: 'etappe' as const, datum: beginn(kind, e), etappe: e, status: etappenStatus(kind, e) })),
-    { art: 'heute' as const, datum: kind.jetzt },
-  ];
-  // Bei gleichem Datum: U vor Etappe, „heute“ nach allem, was heute beginnt
-  const rang = { u: 0, etappe: 1, heute: 2 };
-  return eintraege.sort((a, b) => a.datum.getTime() - b.datum.getTime() || rang[a.art] - rang[b.art]);
-}

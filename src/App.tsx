@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { Navigate, Route, Routes, useNavigate } from 'react-router-dom';
-import { EuerWeg } from './components/EuerWeg';
 import { Heute } from './components/Heute';
 import { Begegnen, Entwicklung, Spielen } from './components/Unterseiten';
 import { NaechsteU } from './components/NaechsteU';
@@ -72,7 +71,6 @@ export default function App() {
         <Route path="spielen" element={<Spielen kind={kind} />} />
         <Route path="naechste-u" element={<NaechsteU kind={kind} />} />
         <Route path="u/:id" element={<NaechsteU kind={kind} />} />
-        <Route path="weg" element={<EuerWeg kind={kind} />} />
       </Route>
       <Route
         path="angaben"

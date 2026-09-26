@@ -44,7 +44,7 @@ Nebenziel: Das Projekt dient dazu, **das Bauen von Software mit Claude Code zu l
    - **„Als Nächstes“** – die nächsten 3 Etappen
    - **„Spielideen für diese Zeit“** – 3–5 alltagsnahe Spiele pro Phase, die die Entwicklung fördern (ohne Kaufzwang, mit Sicherheitshinweisen). Motto: „Keine Pflicht – was euch beiden Spaß macht, ist richtig.“
    - Worauf achten / wann ärztlich abklären
-3. **„Euer Weg“ (Zeitstrahl)** – alle Us und Etappen chronologisch mit echten Daten; Vergangenes gedimmt, Laufendes hervorgehoben, „Du bist hier“ mit Maskottchen.
+3. **Aufbau als Dashboard** – keine Navigationsleiste. Die Startseite zeigt U-Zeitleiste (U1–U7 anklickbar), Zeitring mit Maskottchen, drei Kacheln (Begegnet euch, Gerade dran, Spielideen), „Heute wichtig“ und die nächste U. Unterseiten führen mit „← Heute“ zurück. Ein eigener Zeitstrahl „Euer Weg“ wurde bewusst verworfen.
 4. **Nächste U vorbereiten** – Zeitfenster der nächsten U, was dort passiert, Beobachtungs-Checkliste, mögliche Fragen an die Kinderärztin. Dazu **„In meinen Kalender eintragen“**: lädt eine .ics-Datei mit dem Zeitfenster herunter (lokal erzeugt, kein Server).
 5. **Hinweis für Frühgeborene** – gut sichtbarer Hinweis, dass bei Frühchen für die Entwicklung das *korrigierte Alter* zählt (Alter ab errechnetem Geburtstermin), die U-Termine aber nach dem tatsächlichen Geburtsdatum laufen. Die App rechnet in v1 selbst noch nicht mit korrigiertem Alter.
 6. **Allgemeiner Hinweis** – die App ersetzt keine ärztliche Beratung; bei Sorgen immer die Kinderarztpraxis fragen.
