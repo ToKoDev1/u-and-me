@@ -283,7 +283,7 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 
 /* ---------- Zeitreise (Test-Werkzeug) ---------- */
 .zeitreise {
-  position: sticky; top: 0; z-index: 20;
+  position: relative;
   margin: 12px 12px 0; padding: 12px 14px; display: flex; flex-direction: column; gap: 8px;
   background: var(--farbe-hinweis); border: 2px dashed var(--farbe-akzent); border-radius: var(--radius-s);
   box-shadow: var(--schatten-weich); font-size: 14px;
