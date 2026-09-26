@@ -1,94 +1,44 @@
 {
-  "_hinweis": "Phasen decken 0–24 Monate lückenlos ab. 'von'/'bis' = Alter ab Geburt (bis = exklusiv). Inhalte mit status 'entwurf' sind Platzhalter und noch NICHT gegen Quellen geprüft (kommt in Schritt 3).",
+  "_hinweis": "Phasen = Abschnitte zwischen zwei Us (lückenlos 0–24 Monate). Was in der Phase passiert, steht in etappen.json. Hier nur Titel und Warnzeichen ('abklaeren'). ALLE Inhalte sind Entwurf und noch NICHT gegen Quellen geprüft (Schritt 3).",
+  "status": "entwurf",
+  "quelle": { "name": "kindergesundheit-info.de", "url": "https://www.kindergesundheit-info.de/" },
   "phasen": [
-    {
-      "id": "erste-tage",
-      "titel": "Die ersten Tage",
-      "von": { "tage": 0 },
-      "bis": { "tage": 10 },
-      "inhalt": null
-    },
-    {
-      "id": "u2-u3",
-      "titel": "Zwischen U2 und U3",
-      "von": { "tage": 10 },
-      "bis": { "tage": 35 },
-      "inhalt": null
-    },
+    { "id": "erste-tage", "titel": "Die ersten Tage", "von": { "tage": 0 }, "bis": { "tage": 10 }, "abklaeren": null },
+    { "id": "u2-u3", "titel": "Zwischen U2 und U3", "von": { "tage": 10 }, "bis": { "tage": 35 }, "abklaeren": null },
     {
       "id": "u3-u4",
       "titel": "Zwischen U3 und U4",
       "von": { "tage": 35 },
       "bis": { "monate": 3 },
-      "inhalt": {
-        "status": "entwurf",
-        "bereiche": [
-          { "titel": "Bewegung", "punkte": ["Hebt in Bauchlage kurz den Kopf", "Bewegt Arme und Beine lebhaft"] },
-          { "titel": "Sprache & Laute", "punkte": ["Gurrt und macht erste Laute", "Beruhigt sich oft bei vertrauten Stimmen"] },
-          { "titel": "Miteinander", "punkte": ["Erstes „soziales Lächeln“, meist zwischen der 6. und 8. Woche", "Folgt Gesichtern mit den Augen"] }
-        ],
-        "abklaeren": [
-          "Reagiert nicht auf laute Geräusche",
-          "Folgt Gesichtern oder Gegenständen nicht mit den Augen",
-          "Trinkt auffällig schlecht oder wirkt ungewöhnlich schlapp"
-        ],
-        "quelle": { "name": "kindergesundheit-info.de", "url": "https://www.kindergesundheit-info.de/" }
-      }
+      "abklaeren": [
+        "Reagiert nicht auf laute Geräusche",
+        "Folgt Gesichtern oder Gegenständen nicht mit den Augen",
+        "Trinkt auffällig schlecht oder wirkt ungewöhnlich schlapp"
+      ]
     },
     {
       "id": "u4-u5",
       "titel": "Zwischen U4 und U5",
       "von": { "monate": 3 },
       "bis": { "monate": 6 },
-      "inhalt": {
-        "status": "entwurf",
-        "bereiche": [
-          { "titel": "Bewegung", "punkte": ["Dreht sich vom Rücken auf den Bauch – meist zwischen 4 und 7 Monaten", "Greift gezielt nach Spielzeug"] },
-          { "titel": "Sprache & Laute", "punkte": ["Lacht laut", "Brabbelt erste Silbenketten"] },
-          { "titel": "Miteinander", "punkte": ["Erkennt vertraute Gesichter", "Fremdelt manchmal zum ersten Mal"] },
-          { "titel": "Schlafen & Essen", "punkte": ["Schlafrhythmus wird oft regelmäßiger", "Beikost kann ab dem 5. bis 7. Monat Thema werden"] }
-        ],
-        "abklaeren": [
-          "Reagiert nicht auf Geräusche",
-          "Versucht nicht, nach Dingen zu greifen",
-          "Verliert Fähigkeiten, die es schon konnte"
-        ],
-        "quelle": { "name": "kindergesundheit-info.de", "url": "https://www.kindergesundheit-info.de/" }
-      }
+      "abklaeren": [
+        "Reagiert nicht auf Geräusche",
+        "Versucht nicht, nach Dingen zu greifen",
+        "Verliert Fähigkeiten, die es schon konnte"
+      ]
     },
     {
       "id": "u5-u6",
       "titel": "Zwischen U5 und U6",
       "von": { "monate": 6 },
       "bis": { "monate": 11 },
-      "inhalt": {
-        "status": "entwurf",
-        "bereiche": [
-          { "titel": "Bewegung", "punkte": ["Sitzt allein – bei vielen Kindern zwischen 6 und 10 Monaten", "Robbt oder krabbelt – manche Kinder lassen das Krabbeln auch ganz aus"] },
-          { "titel": "Sprache & Laute", "punkte": ["Silbenketten wie „ba-ba“ oder „da-da“", "Reagiert zunehmend auf den eigenen Namen"] },
-          { "titel": "Miteinander", "punkte": ["Fremdeln ist in dieser Zeit häufig und normal", "Spielt gern „Kuckuck“"] }
-        ],
-        "abklaeren": [
-          "Brabbelt oder plappert gar nicht",
-          "Bewegt eine Körperseite deutlich weniger als die andere",
-          "Verliert Fähigkeiten, die es schon konnte"
-        ],
-        "quelle": { "name": "kindergesundheit-info.de", "url": "https://www.kindergesundheit-info.de/" }
-      }
+      "abklaeren": [
+        "Brabbelt oder plappert gar nicht",
+        "Bewegt eine Körperseite deutlich weniger als die andere",
+        "Verliert Fähigkeiten, die es schon konnte"
+      ]
     },
-    {
-      "id": "u6-u7",
-      "titel": "Zwischen U6 und U7",
-      "von": { "monate": 11 },
-      "bis": { "monate": 20 },
-      "inhalt": null
-    },
-    {
-      "id": "rund-um-u7",
-      "titel": "Rund um die U7",
-      "von": { "monate": 20 },
-      "bis": { "monate": 24 },
-      "inhalt": null
-    }
+    { "id": "u6-u7", "titel": "Zwischen U6 und U7", "von": { "monate": 11 }, "bis": { "monate": 20 }, "abklaeren": null },
+    { "id": "rund-um-u7", "titel": "Rund um die U7", "von": { "monate": 20 }, "bis": { "monate": 24 }, "abklaeren": null }
   ]
 }

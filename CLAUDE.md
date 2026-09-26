@@ -11,10 +11,10 @@ Web-App, die Eltern zwischen den U-Untersuchungen (U1–U7, 0–2 Jahre) begleit
 ## Regeln
 
 - **Local-first:** Keine Daten an Server senden. Kein Backend, keine Accounts, kein Tracking, keine externen Analytics- oder Font-Dienste.
-- **Inhalte als Daten:** Texte zu Phasen und U-Untersuchungen gehören in JSON-Dateien unter `src/content/`, nicht in Komponenten.
+- **Inhalte als Daten:** Texte zu Phasen, Etappen und U-Untersuchungen gehören in JSON-Dateien unter `src/content/`, nicht in Komponenten.
 - **Quellen:** Jeder fachliche Inhalt nennt seine Quelle. Keine erfundenen Fakten; bei Unsicherheit markieren statt raten.
 - **Tonalität:** Deutsch, freundlich-sachlich, beruhigend. Entwicklung immer als Spannbreite, nie als Stichtag. Keine Diagnosen, keine Bewertung des Kindes.
-- **Kein „Sprünge“-Modell** (Wonder Weeks o. ä.).
+- **Kein „Sprünge“-Modell** (Wonder Weeks o. ä.) – stattdessen eigene **Etappen** (`src/content/etappen.json`) mit Spannbreiten, keine festen Wochen, keine übernommenen Namen oder Texte.
 
 ## Design
 

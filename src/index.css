@@ -140,5 +140,58 @@ button.leise {
   text-decoration: underline;
 }
 
+/* Navigation */
+.navigation { display: flex; align-items: center; gap: 8px; }
+.navigation .avatar { width: 48px; height: 48px; margin-right: 4px; }
+.navigation button {
+  min-height: 40px;
+  padding: 0 16px;
+  background: transparent;
+  color: var(--farbe-text);
+  border: 1px solid var(--farbe-rand);
+}
+.navigation button[aria-current='true'] { background: var(--farbe-akzent); color: var(--farbe-akzent-text); border-color: transparent; }
+.inhalt { display: flex; flex-direction: column; gap: var(--abstand); }
+.inhalt h2 { font-size: 1.2rem; margin-top: 8px; }
+
+/* Etappen */
+h3 { font-size: 1.05rem; margin: 2px 0 6px; }
+.etappe-meta { color: var(--farbe-text-gedaempft); font-size: 0.85rem; }
+.etappe.bereich-alltag { border-left: 6px solid #f2a9a0; }
+.tipp {
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--farbe-hinweis);
+  font-size: 0.95rem;
+}
+.vorschau-liste { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+
+/* Zeitstrahl „Euer Weg“ */
+.zeitstrahl { list-style: none; margin: 0; padding: 0 0 0 20px; border-left: 3px solid var(--farbe-rand); display: flex; flex-direction: column; gap: 14px; }
+.zeitstrahl li { position: relative; display: flex; gap: 12px; align-items: flex-start; }
+.zeitstrahl .punkt {
+  position: absolute; left: -29px; top: 6px;
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--farbe-flaeche); border: 3px solid var(--farbe-akzent);
+}
+.zeitstrahl .u-marke {
+  position: absolute; left: -41px; top: -2px;
+  width: 38px; height: 38px; border-radius: 50%;
+  display: grid; place-items: center;
+  font-weight: 700; font-size: 0.85rem;
+  background: var(--farbe-akzent); color: var(--farbe-akzent-text);
+}
+.weg-u > div { padding-left: 4px; }
+.weg-u { padding: 4px 0; }
+.zeitstrahl .vorbei { opacity: 0.5; }
+.zeitstrahl .laeuft .punkt { background: var(--farbe-akzent); }
+.weg-heute {
+  flex-direction: column; align-items: flex-start !important; gap: 2px !important;
+  margin-left: -20px; padding: 12px 16px;
+  background: var(--farbe-flaeche); border: 2px solid var(--farbe-akzent); border-radius: var(--radius);
+}
+.weg-heute img { width: 48px; height: 48px; border-radius: 50%; }
+
 .fehler { color: #b3402a; font-weight: 600; }
 @media (prefers-color-scheme: dark) { .fehler { color: #f0a08c; } }

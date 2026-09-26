@@ -75,4 +75,23 @@ export function abstandAlsText(tage: number): string {
   return `in ${Math.round(tage / 7)} Wochen`;
 }
 
+type Einheit = { einzahl: string; mehrzahl: string };
+const TAG: Einheit = { einzahl: 'Tag', mehrzahl: 'Tagen' };
+const WOCHE: Einheit = { einzahl: 'Woche', mehrzahl: 'Wochen' };
+const MONAT: Einheit = { einzahl: 'Monat', mehrzahl: 'Monaten' };
+
+function alsZahlUndEinheit(alter: Alter): { n: number; einheit: Einheit } {
+  if (alter.monate && !alter.tage) return { n: alter.monate, einheit: MONAT };
+  const tage = alter.tage ?? 0;
+  return tage >= 14 ? { n: Math.round(tage / 7), einheit: WOCHE } : { n: tage, einheit: TAG };
+}
+
+/** Spannbreite als Text für „meist mit …“: „4–7 Monaten“, „5–10 Wochen“, „2 Wochen – 3 Monaten“ */
+export function spanneAlsText(von: Alter, bis: Alter): string {
+  const a = alsZahlUndEinheit(von);
+  const b = alsZahlUndEinheit(bis);
+  const wort = (x: typeof a) => (x.n === 1 ? x.einheit.einzahl : x.einheit.mehrzahl);
+  return a.einheit === b.einheit ? `${a.n}–${b.n} ${wort(b)}` : `${a.n} ${wort(a)} – ${b.n} ${wort(b)}`;
+}
+
 export const datumFormat = new Intl.DateTimeFormat('de-DE', { day: 'numeric', month: 'long', year: 'numeric' });

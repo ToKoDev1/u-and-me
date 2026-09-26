@@ -1,0 +1,204 @@
+{
+  "_hinweis": "Etappen = kleine Entwicklungsschritte zwischen den Us, immer als Spannbreite. 'von'/'bis' = Alter ab Geburt, in dem die Etappe typischerweise beginnt (bis = exklusiv). Bereich 'alltag' erscheint unter 'Was euch gerade begegnen kann'. ALLE Inhalte sind Entwurf und noch NICHT gegen Quellen geprüft (Schritt 3).",
+  "status": "entwurf",
+  "quelle": { "name": "kindergesundheit-info.de", "url": "https://www.kindergesundheit-info.de/" },
+  "etappen": [
+    {
+      "id": "haeufiges-trinken",
+      "bereich": "alltag",
+      "titel": "Phasen mit sehr häufigem Trinken",
+      "text": "Es gibt Tage, an denen euer Baby fast ständig trinken möchte. Das ist in den ersten Wochen häufig und kein Zeichen, dass es nicht satt wird.",
+      "von": { "tage": 7 },
+      "bis": { "monate": 3 }
+    },
+    {
+      "id": "abendliche-unruhe",
+      "bereich": "alltag",
+      "titel": "Unruhige Abende, viel Weinen",
+      "text": "Viele Babys weinen in den ersten Wochen besonders abends viel – oft am meisten um die 6. Woche. Danach wird es meist nach und nach ruhiger.",
+      "tipp": "Tragen, leises Summen und ein abgedunkelter Raum helfen vielen Babys. Und: Ihr dürft euch abwechseln und Pausen machen.",
+      "von": { "tage": 14 },
+      "bis": { "monate": 3 }
+    },
+    {
+      "id": "kopf-heben",
+      "bereich": "bewegung",
+      "titel": "Hebt in Bauchlage den Kopf",
+      "text": "In Bauchlage hebt euer Baby kurz den Kopf – erst für Sekunden, dann immer länger.",
+      "tipp": "Legt euch auf Augenhöhe vor euer Baby, wenn es auf dem Bauch liegt – euer Gesicht ist die beste Motivation.",
+      "von": { "tage": 28 },
+      "bis": { "monate": 3 }
+    },
+    {
+      "id": "soziales-laecheln",
+      "bereich": "miteinander",
+      "titel": "Das erste „echte“ Lächeln",
+      "text": "Euer Baby lächelt euch gezielt an, wenn es euer Gesicht sieht.",
+      "tipp": "Lächelt zurück und sprecht mit ihm – so entsteht euer erstes kleines „Gespräch“.",
+      "von": { "tage": 35 },
+      "bis": { "tage": 70 }
+    },
+    {
+      "id": "gurren",
+      "bereich": "sprache",
+      "titel": "Gurrt und macht erste Laute",
+      "text": "Aus Weinen werden erste weiche Laute wie „ah“ und „gu“.",
+      "tipp": "Macht die Laute nach und wartet kurz – viele Babys „antworten“.",
+      "von": { "tage": 42 },
+      "bis": { "monate": 4 }
+    },
+    {
+      "id": "lachen",
+      "bereich": "miteinander",
+      "titel": "Lacht laut",
+      "text": "Kitzeln, Grimassen, Geräusche – euer Baby kann richtig laut lachen.",
+      "von": { "monate": 3 },
+      "bis": { "monate": 5 }
+    },
+    {
+      "id": "greifen",
+      "bereich": "bewegung",
+      "titel": "Greift gezielt nach Dingen",
+      "text": "Euer Baby streckt die Hände nach Spielzeug aus und bekommt es immer öfter zu fassen – und alles wandert in den Mund.",
+      "tipp": "Legt ein Spielzeug knapp außer Reichweite und ermuntert euer Baby, danach zu greifen.",
+      "von": { "monate": 3 },
+      "bis": { "monate": 6 }
+    },
+    {
+      "id": "schlafunruhe-4-monate",
+      "bereich": "alltag",
+      "titel": "Der Schlaf wird wieder unruhiger",
+      "text": "Um den 4. Monat herum schlafen viele Babys plötzlich schlechter und wachen nachts öfter auf. Das hängt mit der Reifung des Schlafs zusammen und geht meist vorbei.",
+      "von": { "monate": 3 },
+      "bis": { "monate": 5 }
+    },
+    {
+      "id": "drehen",
+      "bereich": "bewegung",
+      "titel": "Dreht sich vom Rücken auf den Bauch",
+      "text": "Erst zur Seite, dann ganz herum – manche Babys drehen sich zuerst vom Bauch auf den Rücken.",
+      "tipp": "Ab jetzt nie mehr unbeaufsichtigt auf dem Wickeltisch lassen.",
+      "von": { "monate": 4 },
+      "bis": { "monate": 7 }
+    },
+    {
+      "id": "beikost",
+      "bereich": "alltag",
+      "titel": "Beikost wird ein Thema",
+      "text": "Frühestens mit Beginn des 5. und spätestens mit Beginn des 7. Monats kann Brei oder Fingerfood dazukommen. Zeichen der Bereitschaft: Euer Kind kann mit Hilfe aufrecht sitzen und interessiert sich für euer Essen.",
+      "von": { "monate": 4 },
+      "bis": { "monate": 7 }
+    },
+    {
+      "id": "zaehne",
+      "bereich": "alltag",
+      "titel": "Die ersten Zähne",
+      "text": "Viele Kinder bekommen zwischen dem 6. und 10. Monat ihren ersten Zahn – manche früher, manche deutlich später. Sabbern, Kauen und etwas Unruhe sind dabei häufig.",
+      "von": { "monate": 5 },
+      "bis": { "monate": 12 }
+    },
+    {
+      "id": "sitzen",
+      "bereich": "bewegung",
+      "titel": "Sitzt allein",
+      "text": "Euer Kind sitzt ohne Stütze und hat die Hände frei zum Spielen.",
+      "von": { "monate": 6 },
+      "bis": { "monate": 10 }
+    },
+    {
+      "id": "silbenketten",
+      "bereich": "sprache",
+      "titel": "Plappert Silbenketten",
+      "text": "„Ba-ba-ba“, „da-da-da“ – euer Kind übt die Laute seiner Sprache.",
+      "tipp": "Sprecht viel mit eurem Kind und benennt, was ihr tut und seht.",
+      "von": { "monate": 6 },
+      "bis": { "monate": 10 }
+    },
+    {
+      "id": "fremdeln",
+      "bereich": "alltag",
+      "titel": "Fremdeln",
+      "text": "Euer Kind reagiert auf fremde Menschen plötzlich zurückhaltend oder weint. Das ist ein gutes Zeichen: Es unterscheidet jetzt klar zwischen vertraut und fremd.",
+      "tipp": "Gebt eurem Kind Zeit und drängt es nicht auf fremde Arme.",
+      "von": { "monate": 6 },
+      "bis": { "monate": 10 }
+    },
+    {
+      "id": "krabbeln",
+      "bereich": "bewegung",
+      "titel": "Robbt oder krabbelt",
+      "text": "Euer Kind kommt vom Fleck – robbend, krabbelnd oder rutschend. Manche Kinder lassen das Krabbeln auch ganz aus.",
+      "tipp": "Zeit für einen Rundgang auf Knien: Steckdosen, Kabel und Treppen sichern.",
+      "von": { "monate": 7 },
+      "bis": { "monate": 11 }
+    },
+    {
+      "id": "hochziehen",
+      "bereich": "bewegung",
+      "titel": "Zieht sich hoch zum Stehen",
+      "text": "An Sofa oder Couchtisch zieht sich euer Kind in den Stand und hangelt sich seitlich entlang.",
+      "von": { "monate": 8 },
+      "bis": { "monate": 12 }
+    },
+    {
+      "id": "pinzettengriff",
+      "bereich": "bewegung",
+      "titel": "Pinzettengriff",
+      "text": "Kleine Dinge werden mit Daumen und Zeigefinger aufgehoben – auch Krümel vom Boden.",
+      "tipp": "Kleine, weiche Fingerfood-Stücke sind perfektes Training.",
+      "von": { "monate": 9 },
+      "bis": { "monate": 12 }
+    },
+    {
+      "id": "trennungsangst",
+      "bereich": "alltag",
+      "titel": "Anhänglich, wenn ihr geht",
+      "text": "Euer Kind protestiert, wenn ihr den Raum verlasst. Das zeigt, wie eng eure Bindung ist – und es lernt gerade, dass ihr wiederkommt.",
+      "tipp": "Verabschiedet euch kurz und klar, statt euch heimlich wegzuschleichen.",
+      "von": { "monate": 9 },
+      "bis": { "monate": 18 }
+    },
+    {
+      "id": "winken-zeigen",
+      "bereich": "miteinander",
+      "titel": "Winkt und zeigt auf Dinge",
+      "text": "Euer Kind winkt zum Abschied und zeigt mit dem Finger, was es interessiert.",
+      "tipp": "Benennt, worauf euer Kind zeigt: „Ja, ein Hund!“",
+      "von": { "monate": 9 },
+      "bis": { "monate": 14 }
+    },
+    {
+      "id": "erste-woerter",
+      "bereich": "sprache",
+      "titel": "Erste Wörter",
+      "text": "„Mama“, „Papa“, „Ball“ – die ersten Wörter mit Bedeutung. Der Zeitpunkt ist sehr unterschiedlich.",
+      "von": { "monate": 10 },
+      "bis": { "monate": 18 }
+    },
+    {
+      "id": "laufen",
+      "bereich": "bewegung",
+      "titel": "Läuft frei",
+      "text": "Die ersten freien Schritte! Bei vielen um den 1. Geburtstag – aber auch mit 18 Monaten ist das noch ganz normal.",
+      "von": { "monate": 9 },
+      "bis": { "monate": 18 }
+    },
+    {
+      "id": "eigener-wille",
+      "bereich": "alltag",
+      "titel": "Der eigene Wille",
+      "text": "„Nein!“ und „Selber!“ – euer Kind will mitbestimmen, und nicht alles klappt schon so, wie es will. Wutanfälle gehören in dieser Zeit oft dazu.",
+      "tipp": "Kleine Wahlmöglichkeiten helfen: „Die rote oder die blaue Jacke?“",
+      "von": { "monate": 15 },
+      "bis": { "monate": 24 }
+    },
+    {
+      "id": "wortschatz",
+      "bereich": "sprache",
+      "titel": "Der Wortschatz wächst schnell",
+      "text": "Neue Wörter kommen fast täglich dazu, erste Zwei-Wort-Sätze wie „Ball haben“ entstehen.",
+      "von": { "monate": 18 },
+      "bis": { "monate": 24 }
+    }
+  ]
+}

@@ -37,14 +37,22 @@ Nebenziel: Das Projekt dient dazu, **das Bauen von Software mit Claude Code zu l
 ### Features v1
 
 1. **Onboarding** – Geburtsdatum eingeben (optional Name des Kindes) und ein **Maskottchen wählen**: Löwenbaby, Hundebaby, Pinguinbaby oder Elefantenbaby. Wird lokal im Browser gespeichert.
-2. **„Du bist hier“** – aktuelle Phase mit:
+2. **„Heute“ / Du bist hier** – aktuelle Phase (zwischen welchen Us) mit:
    - Alter des Kindes (Wochen/Monate)
-   - **„Was euch gerade begegnen kann“** – beantwortet „Warum ist mein Kind gerade so – und ist das normal?“ (z. B. unruhiger Schlaf, Fremdeln). Der emotionale Kern der App, steht ganz oben.
-   - Was in dieser Phase typisch ist (Bewegung, Sprache, Sozialverhalten, Schlaf/Essen)
+   - **„Was euch gerade begegnen kann“** – Alltags-Etappen, die gerade laufen (z. B. unruhiger Schlaf, Fremdeln, Zähne). Beantwortet „Warum ist mein Kind gerade so – und ist das normal?“. Der emotionale Kern der App, steht ganz oben.
+   - **„Gerade dran“** – Entwicklungs-Etappen, deren typisches Zeitfenster gerade läuft (Bewegung, Sprache, Miteinander), mit Tipps
+   - **„Als Nächstes“** – die nächsten 3 Etappen
    - Worauf achten / wann ärztlich abklären
-3. **Nächste U vorbereiten** – Zeitfenster der nächsten U, was dort passiert, Beobachtungs-Checkliste, mögliche Fragen an die Kinderärztin. Dazu **„In meinen Kalender eintragen“**: lädt eine .ics-Datei mit dem Zeitfenster herunter (lokal erzeugt, kein Server).
-4. **Hinweis für Frühgeborene** – gut sichtbarer Hinweis, dass bei Frühchen für die Entwicklung das *korrigierte Alter* zählt (Alter ab errechnetem Geburtstermin), die U-Termine aber nach dem tatsächlichen Geburtsdatum laufen. Die App rechnet in v1 selbst noch nicht mit korrigiertem Alter.
-5. **Allgemeiner Hinweis** – die App ersetzt keine ärztliche Beratung; bei Sorgen immer die Kinderarztpraxis fragen.
+3. **„Euer Weg“ (Zeitstrahl)** – alle Us und Etappen chronologisch mit echten Daten; Vergangenes gedimmt, Laufendes hervorgehoben, „Du bist hier“ mit Maskottchen.
+4. **Nächste U vorbereiten** – Zeitfenster der nächsten U, was dort passiert, Beobachtungs-Checkliste, mögliche Fragen an die Kinderärztin. Dazu **„In meinen Kalender eintragen“**: lädt eine .ics-Datei mit dem Zeitfenster herunter (lokal erzeugt, kein Server).
+5. **Hinweis für Frühgeborene** – gut sichtbarer Hinweis, dass bei Frühchen für die Entwicklung das *korrigierte Alter* zählt (Alter ab errechnetem Geburtstermin), die U-Termine aber nach dem tatsächlichen Geburtsdatum laufen. Die App rechnet in v1 selbst noch nicht mit korrigiertem Alter.
+6. **Allgemeiner Hinweis** – die App ersetzt keine ärztliche Beratung; bei Sorgen immer die Kinderarztpraxis fragen.
+
+### Etappen statt „Sprünge“
+
+Zwischen zwei Us liegen oft Monate. Damit sichtbar wird, was in dieser Zeit passiert, gibt es **Etappen**: kleine Entwicklungsschritte und typische Alltagsphasen, jeweils mit **Spannbreite** („meist mit 6–10 Monaten“), nie mit festem Termin. Bewusst *kein* Sprünge-Modell à la „Oje, ich wachse!“ – das ist wissenschaftlich nicht belegt, erzeugt mit festen Wochen Druck, und Namen/Inhalte sind geschützt.
+
+Bereiche: Alltag (→ „Was euch begegnen kann“), Bewegung, Sprache & Laute, Miteinander. Spielideen hängen als Tipp an der passenden Etappe. Inhalte: `src/content/etappen.json`.
 
 ### Die U-Untersuchungen im Zeitraum
 
@@ -79,8 +87,7 @@ Die bekannteste App im Bereich (4,6★, ~39.500 Bewertungen). Ihr Erfolg liegt w
 ## Später (Parkplatz)
 
 **v1.1 (Design wird schon mitgestaltet):**
-- **Zeitstrahl „Euer Weg“** – alle Us und Phasen mit echten Daten, aktuelle Phase hervorgehoben, Maskottchen als „Wanderer“
-- **„Das könnt ihr zusammen ausprobieren“** – 2–3 Spiel-/Beschäftigungsideen pro Phase
+- **Mehr Spielideen** – über die Tipps an den Etappen hinaus, z. B. eigene Rubrik
 
 **Irgendwann:**
 

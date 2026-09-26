@@ -1,7 +1,7 @@
 # Design-Briefing: „U & Me“
 
 > Für Claude Design · Stand: 26.09.2026
-> Beigelegt: Ordner `maskottchen/` mit den fertigen Maskottchen (SVG + PNG)
+> Beigelegt: Ordner `maskottchen/` mit den fertigen Maskottchen (SVG + PNG) sowie zwei Screenshots des aktuellen, noch ungestalteten Funktionsstands
 
 ## Was ist das?
 Eine mobile Web-App, die Eltern in den ersten zwei Lebensjahren ihres Kindes zwischen den U-Untersuchungen (Vorsorgeuntersuchungen U1–U7 in Deutschland) begleitet. Man gibt einmal das Geburtsdatum ein, wählt ein Maskottchen und sieht dann:
@@ -85,13 +85,15 @@ Warm, verspielt, rund, wie ein gutes modernes Kinderbuch, aber für Erwachsene l
 Bitte gestalte mit den beigelegten Maskottchen:
 1. **Onboarding:** kurze Begrüßung, Auswahl des Maskottchens (vier Karten mit den Tieren), Eingabe des Geburtsdatums (optional der Name des Kindes), Hinweis, dass alle Daten nur auf dem Gerät bleiben
 2. **Startseite „Du bist hier“:** Maskottchen, Alter des Kindes, aktuelle Phase und darin, in dieser Reihenfolge:
-   - **„Was euch gerade begegnen kann“**: Das ist der emotionale Kern der App. Er beantwortet die Frage „Warum ist mein Kind gerade so, und ist das normal?“ (etwa unruhiger Schlaf, Fremdeln, mehr Hunger). Dieser Bereich soll zuerst ins Auge fallen, beruhigend und nicht alarmierend.
-   - **Typische Entwicklung** in 3–4 Bereichen (Bewegung, Sprache, Miteinander, Schlafen/Essen), immer als Spannbreite
-   - **„Das könnt ihr zusammen ausprobieren“**: 2–3 kleine Spiel- und Beschäftigungsideen als positiver, leichter Teil
+   - **„Was euch gerade begegnen kann“**: Das ist der emotionale Kern der App. Er beantwortet die Frage „Warum ist mein Kind gerade so, und ist das normal?“ (etwa unruhiger Schlaf, Fremdeln, Zähne). Dieser Bereich soll zuerst ins Auge fallen, beruhigend und nicht alarmierend.
+   - **„Gerade dran“**: Etappen, deren typisches Zeitfenster gerade läuft, als Karten mit Bereich (Bewegung, Sprache & Laute, Miteinander), Spannbreite („meist mit 4–7 Monaten“), kurzem Text und optionalem **Tipp** (Spielidee oder Hinweis)
+   - **„Als Nächstes“**: kompakte Vorschau auf die nächsten 3 Etappen
    - **„Nicht bis zur nächsten U warten, wenn …“**: Warnzeichen, ruhig gestaltet
    - **Vorschau auf die nächste U**
+
+   **Zum Konzept „Etappen“:** Zwischen zwei Us liegen oft Monate. Etappen zeigen, was in dieser Zeit nacheinander passiert, ähnlich wie die bekannten „Sprünge“, aber immer als Spannbreite und nie als fester Termin. Kinder sind unterschiedlich schnell, und das Design darf nie wie ein Soll wirken (keine Häkchen, kein „geschafft“, kein „verspätet“).
 3. **Detailseite „Nächste U“:** Zeitfenster mit echten Daten, Button **„In meinen Kalender eintragen“** (lädt eine Kalenderdatei herunter), was untersucht wird, Beobachtungs-Checkliste zum Abhaken, Fragen an die Kinderarztpraxis
-4. **Zeitstrahl „Euer Weg“** (kommt nach v1, soll aber schon mitgestaltet werden): alle U-Untersuchungen und Phasen von der Geburt bis 2 Jahre auf einer vertikalen Zeitleiste mit echten Daten. Vergangenes ist dezent, die aktuelle Phase hervorgehoben („Du bist hier“, mit dem Maskottchen als „Wanderer“ auf dem Weg), Kommendes ist sichtbar, aber zurückhaltend. Man soll auf einen Blick sehen, was war und was kommt, aber ohne Fortschrittsbalken oder Bewertung.
+4. **Zeitstrahl „Euer Weg“** (Teil von v1): alle U-Untersuchungen **und die Etappen dazwischen** von der Geburt bis 2 Jahre auf einer vertikalen Zeitleiste mit echten Daten. Die Us sind die großen Stationen, die Etappen die kleinen dazwischen. Vergangenes ist dezent, laufende Etappen hervorgehoben, „Du bist hier“ mit dem Maskottchen als „Wanderer“ auf dem Weg, Kommendes sichtbar, aber zurückhaltend. Die Bereiche (Alltag, Bewegung, Sprache, Miteinander) dürfen farblich leicht unterscheidbar sein. Man soll auf einen Blick sehen, was war und was kommt, aber ohne Fortschrittsbalken oder Bewertung.
 5. **Hinweis-Komponenten:** Hinweis für Frühgeborene (korrigiertes Alter), allgemeiner Hinweis „ersetzt keine ärztliche Beratung“, Quellenangabe pro Inhalt, Kennzeichnung „Entwurf, noch nicht fachlich geprüft“
 6. **App-Icon** für die Installation auf dem Homescreen
 7. **Navigation** zwischen „Du bist hier“, „Nächste U“ und „Euer Weg“, browsertauglich (siehe Plattform)
@@ -109,20 +111,27 @@ Zusätzlich bitte eine Übersicht der Design-Grundlagen (Design Tokens):
 ## Beispielinhalte (Platzhalter, fachlich noch nicht geprüft)
 Kind: Mila, 5 Monate und 1 Woche, Maskottchen: Elefantenbaby
 
-Phase: „Zwischen U4 und U5“ (ca. 4.–6. Monat)
-- Was euch gerade begegnen kann: Viele Babys schlafen in dieser Zeit wieder unruhiger und wachen nachts öfter auf. Manche sind plötzlich schneller abgelenkt beim Trinken, weil die Welt so spannend wird. Das ist häufig und meist vorübergehend.
-- Bewegung: dreht sich vom Rücken auf den Bauch (meist zwischen 4 und 7 Monaten); greift gezielt nach Spielzeug
-- Sprache und Laute: lacht laut, brabbelt Silbenketten
-- Miteinander: erkennt vertraute Gesichter, fremdelt manchmal erstmals
-- Schlafen und Essen: Schlafrhythmus wird oft regelmäßiger; Beikost kann ab dem 5.–7. Monat Thema werden
-- Das könnt ihr zusammen ausprobieren: Spielzeug knapp außer Reichweite legen und zum Greifen ermuntern; Spiegel-Spiel (Mila entdeckt ihr Gesicht); Geräusche nachmachen und abwechselnd „antworten“
-- Ärztlich abklären, wenn: das Kind nicht auf Geräusche reagiert, nicht versucht zu greifen oder Fähigkeiten wieder verliert
+Phase: „Zwischen U4 und U5“
+
+Was euch gerade begegnen kann (Alltag):
+- **Beikost wird ein Thema** · meist mit 4–7 Monaten: Frühestens mit Beginn des 5. und spätestens mit Beginn des 7. Monats kann Brei oder Fingerfood dazukommen.
+- **Die ersten Zähne** · meist mit 5–12 Monaten: Viele Kinder bekommen zwischen dem 6. und 10. Monat ihren ersten Zahn. Sabbern, Kauen und etwas Unruhe sind häufig.
+
+Gerade dran:
+- **Greift gezielt nach Dingen** · Bewegung · meist mit 3–6 Monaten. Tipp: Spielzeug knapp außer Reichweite legen und zum Greifen ermuntern.
+- **Dreht sich vom Rücken auf den Bauch** · Bewegung · meist mit 4–7 Monaten. Tipp: Ab jetzt nie mehr unbeaufsichtigt auf dem Wickeltisch lassen.
+
+Als Nächstes: Sitzt allein (6–10 Monate) · Plappert Silbenketten (6–10 Monate) · Fremdeln (6–10 Monate)
+
+Nicht bis zur nächsten U warten, wenn: das Kind nicht auf Geräusche reagiert, nicht versucht zu greifen oder Fähigkeiten wieder verliert
 
 Nächste U: U5, 6.–7. Lebensmonat (in ca. 4 Wochen), Zeitfenster 19. September bis 18. November 2026
 - Beobachtungs-Checkliste: Dreht sich Mila? Greift sie mit beiden Händen? Wie reagiert sie auf Stimmen?
 - Mögliche Fragen: „Wann und wie mit Beikost starten?“, „Ist unser Schlafrhythmus normal?“
 
 Zeitstrahl „Euer Weg“ (Geburt am 19.04.2026):
-U1 Geburt · U2 21.–28. April · U3 10.–23. Mai · U4 19. Juni–18. August · **heute: zwischen U4 und U5** · U5 19. September–18. November · U6 19. Januar–18. April 2027 · U7 19. Dezember 2027–18. April 2028
+U1 Geburt → U2 → (Etappen: häufiges Trinken, unruhige Abende) → U3 → (Kopf heben, erstes Lächeln, Gurren) → U4 → (Lachen, Greifen, Schlafunruhe, Drehen, Beikost) → U5 → (Zähne · **Du bist hier** · Sitzen, Silbenketten, Fremdeln, Krabbeln, Hochziehen) → U6 → (Pinzettengriff, Anhänglichkeit, Winken, Laufen, erste Wörter, eigener Wille, Wortschatz) → U7
+
+Die Screenshots `aktueller-stand-heute.png` und `aktueller-stand-euer-weg.png` zeigen den **funktionalen** Stand der App mit allen Inhalten, bewusst ungestaltet. Sie dienen als Referenz für Inhalt und Struktur, nicht für das Aussehen.
 
 Quelle: kindergesundheit-info.de, Stand 09/2026
