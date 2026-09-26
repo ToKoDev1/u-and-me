@@ -104,7 +104,7 @@ export default function App() {
   if (!profil || !eintrag) return <Onboarding onFertig={speichern} />;
 
   const echtesHeute = heute();
-  const kind = kindAus(profil, zeitreiseAn && simuliert ? simuliert : echtesHeute);
+  const kind = kindAus(profil, zeitreiseAn && simuliert ? simuliert : echtesHeute, eintrag.id);
 
   const zeitreise = zeitreiseAn ? (
     <Zeitreise

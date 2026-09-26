@@ -76,7 +76,7 @@ function Zeitfenster({ termin, kind }: { termin: UTermin; kind: Kind }) {
             <p className="gedaempft klein">
               Am besten jetzt einen Termin in der Praxis ausmachen – ein Tag irgendwo in diesem Fenster ist gut.
             </p>
-            <button type="button" className="knopf" onClick={() => uKalenderHerunterladen(termin, kind.name)}>
+            <button type="button" className="knopf" onClick={() => uKalenderHerunterladen(termin, kind.name, kind.id)}>
               In euren Kalender eintragen
             </button>
             <p className="knopf-hinweis">Lädt eine Kalenderdatei (.ics) herunter</p>

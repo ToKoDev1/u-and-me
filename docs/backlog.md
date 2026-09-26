@@ -73,7 +73,7 @@ Farben, Schrift, Ton und die Grundidee (Zeitring, drei Kacheln, „Heute wichtig
 
 - [x] 🔴 M · Speicher v2: alle Daten unter einem Schlüssel, Versionsnummer, Migration ohne Datenverlust (getestet, auch Sicherungen v1)
 - [x] 🔴 M · Avatar oben rechts wird Menü: Kinder wechseln, Kind hinzufügen, Angaben, Darstellung, Daten sichern/löschen, Datenschutz (Fußzeile nur noch Haftungshinweis + Quelle)
-- [ ] 🟡 S · Notizen & Kalender-Einträge pro Kind (Kalender-ID mit Kind)
+- [x] 🟡 S · Notizen & Kalender-Einträge pro Kind (Kalender-ID mit Kind)
 - [x] 🟡 S · Zwillinge: Name Pflicht ab dem 2. Kind, kein Vergleich nebeneinander
 
 ## Sprint 4 – PWA: fühlt sich an wie eine App
