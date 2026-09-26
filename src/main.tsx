@@ -32,3 +32,14 @@ createRoot(document.getElementById('root')!).render(
     </Fehlerseite>
   </StrictMode>,
 );
+
+// Startbildschirm aus index.html ausblenden – mindestens ~1 Sekunde sichtbar, damit er nicht nur aufblitzt
+const MINDESTENS_MS = 1100;
+const start = document.getElementById('start');
+if (start) {
+  window.setTimeout(() => {
+    start.classList.add('weg');
+    start.addEventListener('transitionend', () => start.remove(), { once: true });
+    window.setTimeout(() => start.remove(), 600); // falls kein transitionend kommt
+  }, Math.max(0, MINDESTENS_MS - performance.now()));
+}

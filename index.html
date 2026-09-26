@@ -10,8 +10,40 @@
     <meta name="theme-color" content="#FCF6EC" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#141D2B" media="(prefers-color-scheme: dark)" />
     <title>U &amp; Me</title>
+    <script>
+      // Hell/Dunkel sofort setzen, damit der Startbildschirm nicht in der falschen Farbe aufblitzt
+      try {
+        var d = localStorage.getItem('u-and-me:darstellung');
+        if (d === 'dunkel' || (d === 'auto' && matchMedia('(prefers-color-scheme: dark)').matches))
+          document.documentElement.dataset.theme = 'dunkel';
+      } catch (e) {}
+    </script>
+    <style>
+      /* Startbildschirm: steht direkt hier, damit er erscheint, bevor JavaScript und CSS geladen sind */
+      #start { position: fixed; inset: 0; z-index: 100; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 24px; text-align: center; background: #FCF6EC; color: #4A3428; font-family: Nunito, system-ui, sans-serif; transition: opacity .35s ease; }
+      [data-theme="dunkel"] #start { background: #141D2B; color: #F5EEE3; }
+      #start.weg { opacity: 0; pointer-events: none; }
+      .start-logo { width: 132px; height: auto; animation: start-wippen 1.4s ease-in-out infinite; transform-origin: 50% 90%; }
+      .start-pfad { display: flex; gap: 10px; margin-top: 4px; }
+      .start-pfad span { width: 8px; height: 8px; border-radius: 50%; background: currentColor; opacity: .18; animation: start-schritt 1.4s ease-in-out infinite; }
+      .start-pfad span:nth-child(2) { animation-delay: .2s; }
+      .start-pfad span:nth-child(3) { animation-delay: .4s; }
+      .start-pfad span:nth-child(4) { animation-delay: .6s; }
+      .start-pfad span:nth-child(5) { animation-delay: .8s; }
+      .start-name { margin: 10px 0 0; font-size: 28px; font-weight: 800; }
+      .start-info { margin: 0; max-width: 280px; font-size: 16px; line-height: 1.4; opacity: .75; }
+      @keyframes start-wippen { 0%, 100% { transform: translateY(0) rotate(-3deg); } 50% { transform: translateY(-6px) rotate(3deg); } }
+      @keyframes start-schritt { 0%, 100% { opacity: .18; transform: scale(1); } 30% { opacity: .8; transform: scale(1.35); } }
+      @media (prefers-reduced-motion: reduce) { .start-logo, .start-pfad span { animation: none; } }
+    </style>
   </head>
   <body>
+    <div id="start" role="status" aria-label="U &amp; Me wird geladen">
+      <img class="start-logo" src="/icons/elefant-logo.png" alt="" />
+      <div class="start-pfad" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+      <p class="start-name">U &amp; Me</p>
+      <p class="start-info">Begleitet euch auf dem Weg von U&nbsp;zu&nbsp;U – durch die ersten Jahre eures Kindes.</p>
+    </div>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
