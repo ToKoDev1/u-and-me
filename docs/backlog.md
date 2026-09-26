@@ -52,7 +52,8 @@ Farben, Schrift, Ton und die Grundidee (Zeitring, drei Kacheln, „Heute wichtig
 
 - [x] Logo Elefantenkopf in der Kopfzeile (bleibt Logo, egal welches Tier gewählt ist)
 - [x] Startbildschirm (1,5 s, wippender Elefant, Leitsatz)
-- [x] Welcome-Tour beim ersten Öffnen (5 Seiten, `src/content/tour.json`), erneut über die Fußzeile
+- [x] Welcome-Tour beim ersten Öffnen (5 Seiten, `src/content/tour.json`), erneut über das Menü
+- [x] „Ux Schritt für Schritt“ für alle 10 U (Ablauf des Praxisbesuchs, mit Quellen, eigene Fragen im Gespräch)
 
 ## Sprint 2 – Inhalte absichern
 
