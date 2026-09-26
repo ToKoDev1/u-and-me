@@ -133,12 +133,12 @@ export function UZeitleiste({ kind, onDatum }: Props) {
               style={{ left: `${m.mitte * 100}%` }}
               aria-label={(m.zusammen ? `${m.zusammen} und ${m.id}` : m.id) + (m.erledigt ? ', erledigt' : '')}
             >
+              {text}
               {m.erledigt && (
                 <span className="zr-haken" aria-hidden="true">
                   <Symbol name="haken" />
                 </span>
               )}
-              {text}
             </Link>
           );
         })}
