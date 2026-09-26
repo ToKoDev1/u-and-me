@@ -4,12 +4,10 @@ import {
   aktuelleEtappen,
   aktuellePhase,
   etappenBeginn,
-  etappenInfo,
   naechsteUntersuchung,
   type Etappe,
 } from '../lib/inhalte';
 import type { Kind } from '../lib/kind';
-import { Fussnoten } from './Fussnoten';
 import { Zeitring } from './Zeitring';
 
 /** Startseite im reduzierten Stil: ein Zentrum, drei Kacheln, eine wichtige Sache */
@@ -68,8 +66,6 @@ export function Heute({ kind }: { kind: Kind }) {
           U &amp; Me begleitet euch aktuell bis zum 2. Geburtstag. Für ältere Kinder folgen die Inhalte später.
         </p>
       )}
-
-      <Fussnoten quelle={etappenInfo.quelle} fruehgeboren={kind.fruehgeboren} />
     </div>
   );
 }

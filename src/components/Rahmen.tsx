@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import type { Profil } from '../lib/speicher';
 import { Avatar } from './Avatar';
+import { Fusszeile } from './Fusszeile';
 
 const ziele = [
   { pfad: '/', text: 'Heute' },
@@ -41,7 +42,7 @@ type Props = {
 
 export function Rahmen({ profil, oben, onZeitreise }: Props) {
   return (
-    <>
+    <div className="app">
       <header className="kopfzeile">
         <NavLink to="/" className="wortmarke">U &amp; Me</NavLink>
         <Navigation className="nav-oben" />
@@ -53,13 +54,9 @@ export function Rahmen({ profil, oben, onZeitreise }: Props) {
       {oben}
       <main className="seite">
         <Outlet />
-        {onZeitreise && (
-          <p className="zeitreise-start">
-            <button type="button" onClick={onZeitreise}>Zeitreise starten (Test)</button>
-          </p>
-        )}
       </main>
+      <Fusszeile fruehgeboren={!!profil.errechneterTermin} onZeitreise={onZeitreise} />
       <Navigation className="nav-unten" />
-    </>
+    </div>
   );
 }

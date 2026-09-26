@@ -5,24 +5,20 @@ import {
   aktuelleEtappen,
   aktuellePhase,
   bereichsName,
-  etappenInfo,
   kommendeEtappen,
   type Bereich,
   type Etappe,
 } from '../lib/inhalte';
 import type { Kind } from '../lib/kind';
-import { Fussnoten } from './Fussnoten';
 
 /** Gemeinsamer Aufbau: Zurück, Titel, Einleitung, Inhalt, Fußnoten */
-function Unterseite({ titel, intro, kind, children }: { titel: string; intro: string; kind: Kind; children: ReactNode }) {
+function Unterseite({ titel, intro, children }: { titel: string; intro: string; kind: Kind; children: ReactNode }) {
   return (
     <div className="unterseite">
       <Link to="/" className="zurueck-link">← Heute</Link>
       <h1>{titel}</h1>
       <p className="gedaempft">{intro}</p>
-      {etappenInfo.status === 'entwurf' && <p className="entwurf-hinweis">Entwurf – noch nicht fachlich geprüft</p>}
       {children}
-      <Fussnoten quelle={etappenInfo.quelle} fruehgeboren={kind.fruehgeboren} />
     </div>
   );
 }

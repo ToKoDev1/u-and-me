@@ -12,7 +12,6 @@ import {
 import type { Kind } from '../lib/kind';
 import { uKalenderHerunterladen } from '../lib/kalender';
 import { notizenLaden, notizenSpeichern, type Notizen } from '../lib/speicher';
-import { Fussnoten } from './Fussnoten';
 import { Datumskacheln } from './Datumskacheln';
 
 /** Detailseite einer U – ohne Parameter die nächste U, unter /u/U3 eine bestimmte */
@@ -36,13 +35,6 @@ export function NaechsteU({ kind }: { kind: Kind }) {
       <WasPassiert termin={termin} />
       {/* key: Zustand beim Wechsel der U neu laden */}
       <Notizbereich key={termin.untersuchung.id} termin={termin} kind={kind} />
-      <Fussnoten
-        quelle={{
-          name: `kindergesundheit-info.de – ${termin.untersuchung.id}-Untersuchung (abgerufen am ${untersuchungenAbgerufen})`,
-          url: termin.untersuchung.url,
-        }}
-        fruehgeboren={kind.fruehgeboren}
-      />
     </div>
   );
 }
@@ -107,7 +99,12 @@ function WasPassiert({ termin }: { termin: UTermin }) {
   const u = termin.untersuchung;
   return (
     <section className="abschnitt">
-      <h2>Was bei der {u.id} passiert</h2>
+      <div className="titel-mit-quelle">
+        <h2>Was bei der {u.id} passiert</h2>
+        <a href={u.url} target="_blank" rel="noreferrer">
+          Quelle, Stand {untersuchungenAbgerufen}
+        </a>
+      </div>
       <div className="liste-karte">
         {u.passiert.map((p) => (
           <div key={p.titel} className="liste-eintrag">

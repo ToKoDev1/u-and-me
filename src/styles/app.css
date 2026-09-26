@@ -61,7 +61,7 @@ img { display: block; }
 .nav-unten a { padding: 12px 0; min-height: var(--beruehrflaeche-min); display: grid; place-items: center; }
 .nav-unten a.active, .nav-oben a.active { background: var(--farbe-nav-aktiv); color: var(--farbe-nav-aktiv-text); font-weight: 800; }
 
-.seite { padding: 0 20px 110px; }
+.seite { padding: 0 20px; }
 
 /* ---------- Avatar ---------- */
 .avatar {
@@ -105,12 +105,24 @@ img { display: block; }
 .datumskachel .tag { font-size: 26px; font-weight: 800; line-height: 1; }
 .datumskachel .monat { font-size: 14px; color: var(--farbe-text-gedaempft); }
 
-/* Fußnoten */
-.fussnoten { padding: 24px 4px 0; display: flex; flex-direction: column; gap: 6px; font-size: 13.5px; color: var(--farbe-text-gedaempft); }
-.fussnoten a, .fussnoten button.link { color: inherit; text-decoration: underline; background: none; border: 0; padding: 0; cursor: pointer; font-size: inherit; }
-.darstellung { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
-.darstellung button { background: none; border: 1.5px solid var(--farbe-linie); border-radius: var(--radius-rund); padding: 2px 10px; cursor: pointer; font-size: 13px; color: var(--farbe-text-gedaempft); min-height: 32px; }
+/* Fußzeile – auf jeder Seite gleich, immer am Seitenende */
+.app { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; }
+.app > .seite { flex: 1; width: 100%; }
+.app > .kopfzeile { width: 100%; }
+.fusszeile {
+  width: 100%; max-width: 640px; margin: 0 auto; padding: 40px 20px calc(110px + env(safe-area-inset-bottom));
+  display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center;
+  font-size: 12.5px; line-height: 1.5; color: var(--farbe-text-gedaempft);
+}
+.fusszeile a, .fusszeile button.link { color: inherit; text-decoration: underline; background: none; border: 0; padding: 0; cursor: pointer; font-size: inherit; }
+.fusszeile-info { max-width: 440px; background: var(--farbe-hinweis); border-radius: 14px; padding: 10px 12px; }
+.fusszeile-einstellungen { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px 14px; margin-top: 6px; }
+.darstellung { display: inline-flex; gap: 4px; }
+.darstellung button { background: none; border: 1px solid var(--farbe-linie); border-radius: var(--radius-rund); padding: 2px 10px; cursor: pointer; font-size: 12.5px; color: var(--farbe-text-gedaempft); min-height: 30px; }
 .darstellung button[aria-pressed='true'] { border-color: var(--farbe-akzent); color: var(--farbe-akzent-text); font-weight: 800; }
+.titel-mit-quelle { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.titel-mit-quelle a { font-size: 12.5px; color: var(--farbe-text-gedaempft); white-space: nowrap; }
+
 .hinweisbox { background: var(--farbe-hinweis); border-radius: 20px; padding: 14px 16px; display: flex; gap: 12px; align-items: flex-start; font-size: var(--groesse-s); }
 .hinweisbox-punkt { width: 28px; height: 28px; flex: none; border-radius: 50%; }
 .hinweisbox-punkt.bewegung { background: var(--farbe-bewegung-flaeche); border: 2px solid var(--farbe-bewegung); }
@@ -161,7 +173,6 @@ img { display: block; }
 .unterseite { max-width: 640px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; padding-top: 8px; }
 .zurueck-link { align-self: flex-start; min-height: 44px; display: inline-flex; align-items: center; color: var(--farbe-akzent-text); font-weight: 700; font-size: var(--groesse-s); text-decoration: none; }
 .unterseite h1 { font-size: 26px; }
-.entwurf-hinweis { align-self: flex-start; font-size: 12.5px; color: var(--farbe-text-gedaempft); border: 1.5px dashed var(--farbe-linie-kraeftig); border-radius: var(--radius-rund); padding: 2px 10px; }
 .ruhige-liste { list-style: none; margin: 8px 0 0; padding: 4px 18px; background: var(--farbe-flaeche); border: 1.5px solid var(--farbe-linie); border-radius: var(--radius-m); }
 .ruhige-liste li { display: flex; flex-direction: column; gap: 4px; padding: 16px 0; border-bottom: 1.5px solid var(--farbe-linie); }
 .ruhige-liste li:last-child { border-bottom: 0; }
@@ -230,7 +241,7 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 
 /* ---------- Nächste U / Detailseite ---------- */
 .klein { font-size: var(--groesse-s); }
-.u-seite { display: flex; flex-direction: column; max-width: 640px; }
+.u-seite { display: flex; flex-direction: column; max-width: 640px; margin: 0 auto; }
 .u-auswahl { display: flex; flex-wrap: wrap; gap: 6px; padding-top: 16px; }
 .u-auswahl-chip {
   min-width: 44px; min-height: 36px; display: grid; place-items: center; padding: 0 10px;
@@ -291,10 +302,6 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 .zr-regler::-moz-range-thumb { width: 18px; height: 18px; border-radius: 50%; background: var(--farbe-akzent); border: 3px solid var(--farbe-flaeche); }
 .zr-marken { position: relative; height: 18px; margin: 0 10px; font-size: 12.5px; font-weight: 800; color: var(--farbe-text-gedaempft); }
 .zr-marken span { position: absolute; top: 0; transform: translateX(-50%); }
-.zeitreise-start { padding-top: 24px; text-align: center; }
-.zeitreise-start button { background: none; border: 1.5px dashed var(--farbe-linie-kraeftig); border-radius: var(--radius-rund); padding: 6px 14px; font-size: 13.5px; color: var(--farbe-text-gedaempft); cursor: pointer; }
-
-
 /* ---------- Desktop ab 900 px ---------- */
 @media (min-width: 900px) {
   .kopfzeile { max-width: var(--inhalt-max); margin: 0 auto; padding: 22px 40px 0; }
@@ -304,7 +311,8 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
   .nav-unten { display: none; }
   .kopfzeile-rechts .avatar { display: block; }
   .chip-entwurf { font-size: 13px; }
-  .seite { max-width: var(--inhalt-max); margin: 0 auto; padding: 36px 40px 56px; }
+  .seite { max-width: var(--inhalt-max); margin: 0 auto; padding: 36px 40px 0; }
+  .fusszeile { padding-bottom: 32px; }
   .zeitring-grafik { width: 280px; height: 280px; }
   .zeitring-tier { height: 180px; width: 180px; }
   .onboarding { padding-top: 24px; }

@@ -1,8 +1,7 @@
 import { datumFormat } from '../lib/alter';
-import { bereichsName, etappenInfo, wegEintraege } from '../lib/inhalte';
+import { bereichsName, wegEintraege } from '../lib/inhalte';
 import type { Kind } from '../lib/kind';
 import { Avatar } from './Avatar';
-import { Fussnoten } from './Fussnoten';
 
 /** Vorläufig – wird in Schritt 5 nach Vorlage ausgebaut */
 export function EuerWeg({ kind }: { kind: Kind }) {
@@ -24,7 +23,6 @@ export function EuerWeg({ kind }: { kind: Kind }) {
           ),
         )}
       </ol>
-      <Fussnoten quelle={etappenInfo.quelle} fruehgeboren={kind.fruehgeboren} />
     </div>
   );
 }
