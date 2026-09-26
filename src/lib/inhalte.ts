@@ -5,7 +5,10 @@ import untersuchungenDaten from '../content/untersuchungen.json';
 import maskottchenDaten from '../content/maskottchen.json';
 import zahnarztDaten from '../content/zahnarzt.json';
 import uSchritteDaten from '../content/u-schritte.json';
-import { datumBeiAlter, imZeitfenster, type Alter } from './alter';
+import wochenDaten from '../content/wochen.json';
+import orgaDaten from '../content/orga.json';
+import fuerEuchDaten from '../content/fuer-euch.json';
+import { datumBeiAlter, imZeitfenster, tageZwischen, type Alter } from './alter';
 import type { Kind } from './kind';
 
 export type Quelle = { name: string; url: string };
@@ -173,3 +176,38 @@ export function zahnTermine(kind: Kind) {
     ende: datumBeiAlter(kind.geburt, z.bis),
   }));
 }
+
+// ---- Die ersten 12 Wochen, Zu erledigen, Für euch ------------------------------
+
+export const wochen = wochenDaten.wochen as Woche[];
+export type Woche = {
+  woche: number;
+  titel: string;
+  typisch: string;
+  hilft: string;
+  fuerEuch: string;
+  quellen: Quelle[];
+  /** passende U (Link) */
+  u?: string;
+};
+
+/** Lebenswoche (1 = Tag 0–6) – bei Frühchen nach tatsächlichem Geburtsdatum, denn es geht um den Alltag nach der Geburt */
+export function lebenswoche(kind: Kind): number {
+  return Math.floor(tageZwischen(kind.geburt, kind.jetzt) / 7) + 1;
+}
+
+/** Die Woche, die gerade läuft – nur in den ersten 12 Wochen */
+export const aktuelleWoche = (kind: Kind): Woche | undefined => wochen.find((w) => w.woche === lebenswoche(kind));
+
+export type Aufgabe = { id: string; titel: string; text: string; von: Alter; bis: Alter; frist?: boolean; quelle: Quelle };
+export const aufgaben = orgaDaten.aufgaben as Aufgabe[];
+
+export type AufgabeMitDatum = Aufgabe & { beginn: Date; ende: Date };
+/** Aufgaben mit echtem Datum, sortiert nach Frist */
+export function aufgabenFuer(kind: Kind): AufgabeMitDatum[] {
+  return aufgaben
+    .map((a) => ({ ...a, beginn: datumBeiAlter(kind.geburt, a.von), ende: datumBeiAlter(kind.geburt, a.bis) }))
+    .sort((a, b) => a.ende.getTime() - b.ende.getTime());
+}
+
+export const fuerEuch = fuerEuchDaten;

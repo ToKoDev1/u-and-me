@@ -1,0 +1,228 @@
+{
+  "_hinweis": "Die ersten 12 Wochen, Woche für Woche. „woche“ 1 = Tag 0–6. typisch/hilft/fuerEuch aus den genannten Quellen zusammengefasst, abgerufen am 26.09.2026. „u“ verlinkt die passende U. Wann ihr anrufen solltet, steht in den Warnzeichen der Phasen (phasen.json).",
+  "wochen": [
+    {
+      "woche": 1,
+      "titel": "Ankommen",
+      "typisch": "Euer Baby schläft viel, verteilt über Tag und Nacht. Es nimmt erst etwas ab – das ist normal. Wenn ihr stillt, kommt zwischen dem 2. und 5. Tag deutlich mehr Milch. In diesen Tagen stehen auch die Neugeborenen-Tests und die U2 an.",
+      "hilft": "Eure Hebamme darf in den ersten zehn Tagen bis zu 20-mal kommen. Nutzt das – jede Frage ist erlaubt.",
+      "fuerEuch": "Um den dritten Tag schwankt die Stimmung oft ohne Grund zwischen Glück und Tränen. Dieser Baby-Blues geht meist nach Stunden oder wenigen Tagen vorbei.",
+      "quellen": [
+        {
+          "name": "familienplanung.de – Gewichtsentwicklung nach der Geburt",
+          "url": "https://www.familienplanung.de/schwangerschaft/nach-der-geburt/das-wochenbett-von-a-bis-z/das-kind-im-wochenbett/gewichtsentwicklung-nach-der-geburt/"
+        },
+        {
+          "name": "familienplanung.de – Milcheinschuss",
+          "url": "https://www.familienplanung.de/schwangerschaft/nach-der-geburt/das-wochenbett-von-a-bis-z/stillen-im-wochenbett/initiale-brustdruesenschwellung-milcheinschuss/"
+        },
+        {
+          "name": "familienplanung.de – Die Nachsorge-Hebamme",
+          "url": "https://www.familienplanung.de/schwangerschaft/nach-der-geburt/das-wochenbett/hebammen-nachsorge/"
+        },
+        {
+          "name": "familienplanung.de – Baby-Blues",
+          "url": "https://www.familienplanung.de/schwangerschaft/nach-der-geburt/das-wochenbett-von-a-bis-z/die-mutter-im-wochenbett/baby-blues/"
+        }
+      ],
+      "u": "U2"
+    },
+    {
+      "woche": 2,
+      "titel": "Zurück zum Geburtsgewicht",
+      "typisch": "Bis etwa zwei Wochen ist das Geburtsgewicht meist wieder erreicht. Der Nabelrest fällt ab, und eine leichte Gelbfärbung der Haut ist nach 10 bis 14 Tagen meist vorbei.",
+      "hilft": "Sicher schlafen: auf dem Rücken, im eigenen Bettchen in eurem Schlafzimmer, im Schlafsack statt unter einer Decke, bei etwa 18 °C und in rauchfreier Luft.",
+      "fuerEuch": "Hält die Traurigkeit länger als ein bis zwei Wochen an, sprecht mit eurer Hebamme oder Ärztin – das ist kein Versagen, sondern ein Grund, Hilfe zu holen.",
+      "quellen": [
+        {
+          "name": "familienplanung.de – Gewichtsentwicklung nach der Geburt",
+          "url": "https://www.familienplanung.de/schwangerschaft/nach-der-geburt/das-wochenbett-von-a-bis-z/das-kind-im-wochenbett/gewichtsentwicklung-nach-der-geburt/"
+        },
+        {
+          "name": "kindergesundheit-info.de – Nabelpflege",
+          "url": "https://www.kindergesundheit-info.de/themen/entwicklung/0-12-monate/babys-pflege/nabelpflege/"
+        },
+        {
+          "name": "familienplanung.de – Neugeborenen-Gelbsucht",
+          "url": "https://www.familienplanung.de/schwangerschaft/nach-der-geburt/das-wochenbett-von-a-bis-z/das-kind-im-wochenbett/neugeborenen-gelbsucht/"
+        },
+        {
+          "name": "kindergesundheit-info.de – Sicher schlafen",
+          "url": "https://www.kindergesundheit-info.de/themen/schlafen/0-12-monate/schlafumgebung/sicher-schlafen/"
+        },
+        {
+          "name": "familienplanung.de – Baby-Blues",
+          "url": "https://www.familienplanung.de/schwangerschaft/nach-der-geburt/das-wochenbett-von-a-bis-z/die-mutter-im-wochenbett/baby-blues/"
+        }
+      ]
+    },
+    {
+      "woche": 3,
+      "titel": "Mehr wach – und mehr Weinen",
+      "typisch": "Ab etwa zwei Wochen weinen viele Babys mehr, oft am späten Nachmittag und Abend. Das nimmt meist bis zur sechsten Woche zu – und ist in dieser Zeit ganz normal.",
+      "hilft": "Streicheln, sanft schaukeln, singen, tragen oder eine Runde spazieren gehen. Je ruhiger ihr bleibt, desto leichter kann sich euer Baby entspannen.",
+      "fuerEuch": "Wenn es zu viel wird: Legt euer Baby sicher ins Bettchen und atmet kurz durch. Niemals schütteln – schon kurzes Schütteln kann schwer schaden.",
+      "quellen": [
+        {
+          "name": "kindergesundheit-info.de – Das Schreien des Babys",
+          "url": "https://www.kindergesundheit-info.de/themen/entwicklung/0-12-monate/schreien/"
+        }
+      ]
+    },
+    {
+      "woche": 4,
+      "titel": "Zeit für die U3",
+      "typisch": "Zwischen der 4. und 5. Woche ist die U3 dran – meist schon in eurer Kinderarztpraxis. Dabei werden auch die Hüften mit Ultraschall angeschaut.",
+      "hilft": "Macht den Termin aus und schreibt euch vorher auf, was euch beschäftigt – auf der Seite der U3 geht das direkt in der App.",
+      "fuerEuch": "Auch eure Erschöpfung darf bei der U3 Thema sein. Sagt, wenn ihr euch überfordert fühlt – die Praxis kennt Angebote, die entlasten.",
+      "quellen": [
+        {
+          "name": "kindergesundheit-info.de – U3-Untersuchung",
+          "url": "https://www.kindergesundheit-info.de/themen/frueherkennung-u1-u9-und-j1/untersuchungen-u1-bis-u9/u3-untersuchung/"
+        }
+      ],
+      "u": "U3"
+    },
+    {
+      "woche": 5,
+      "titel": "Unruhige Abende",
+      "typisch": "Die Schreiphasen beginnen oft am Nachmittag oder frühen Abend und können sich bis in die Nacht ziehen. Gleichzeitig wird der Schlaf langsam etwas regelmäßiger.",
+      "hilft": "Wiederkehrende kleine Abläufe am Abend geben Halt – etwa Baden, Babymassage, Lied. Das Tragen im Tuch beruhigt viele Babys.",
+      "fuerEuch": "Nehmt Hilfe an: Wer euch etwas kocht, einkauft oder das Baby eine Stunde spazieren fährt, hilft mehr als jedes Geschenk.",
+      "quellen": [
+        {
+          "name": "kindergesundheit-info.de – Das Schreien des Babys",
+          "url": "https://www.kindergesundheit-info.de/themen/entwicklung/0-12-monate/schreien/"
+        },
+        {
+          "name": "kindergesundheit-info.de – Babyschlaf",
+          "url": "https://www.kindergesundheit-info.de/themen/schlafen/0-12-monate/babyschlaf/"
+        },
+        {
+          "name": "familienplanung.de – Was passiert im Wochenbett?",
+          "url": "https://www.familienplanung.de/schwangerschaft/nach-der-geburt/das-wochenbett/was-passiert-im-wochenbett/"
+        }
+      ]
+    },
+    {
+      "woche": 6,
+      "titel": "Der Höhepunkt – und das erste Lächeln",
+      "typisch": "Um die sechste Woche erreicht das Weinen meist seinen Höhepunkt, danach wird es weniger. Und irgendwann in diesen Wochen lächelt euch euer Baby zum ersten Mal ganz gezielt an.",
+      "hilft": "Lächelt zurück und sprecht mit ihm – so entsteht euer erstes kleines Gespräch.",
+      "fuerEuch": "Nach etwa sechs Wochen ist der Körper nach der Geburt meist verheilt. Um diese Zeit gibt es eine Nachuntersuchung bei der Frauenärztin.",
+      "quellen": [
+        {
+          "name": "kindergesundheit-info.de – Das Schreien des Babys",
+          "url": "https://www.kindergesundheit-info.de/themen/entwicklung/0-12-monate/schreien/"
+        },
+        {
+          "name": "kinderaerzte-im-netz.de – Babys beginnen richtig zu lächeln",
+          "url": "https://www.kinderaerzte-im-netz.de/news-archiv/meldung/etwa-mit-zwei-monaten-beginnen-babys-richtig-zu-laecheln/"
+        },
+        {
+          "name": "familienplanung.de – Was passiert im Wochenbett?",
+          "url": "https://www.familienplanung.de/schwangerschaft/nach-der-geburt/das-wochenbett/was-passiert-im-wochenbett/"
+        }
+      ]
+    },
+    {
+      "woche": 7,
+      "titel": "Es wird ruhiger",
+      "typisch": "Die Schreiphasen werden nach der sechsten Woche meist kürzer. Euer Baby ist länger wach und schaut sich Gesichter und Dinge in der Nähe aufmerksam an.",
+      "hilft": "Nutzt ruhige Wachzeiten zum Anschauen, Erzählen und Nachmachen von Lauten.",
+      "fuerEuch": "Das Wochenbett dauert rechtlich acht Wochen. Gönnt euch weiter Pausen – der Alltag darf warten.",
+      "quellen": [
+        {
+          "name": "kindergesundheit-info.de – Das Schreien des Babys",
+          "url": "https://www.kindergesundheit-info.de/themen/entwicklung/0-12-monate/schreien/"
+        },
+        {
+          "name": "familienplanung.de – Was passiert im Wochenbett?",
+          "url": "https://www.familienplanung.de/schwangerschaft/nach-der-geburt/das-wochenbett/was-passiert-im-wochenbett/"
+        }
+      ]
+    },
+    {
+      "woche": 8,
+      "titel": "Die ersten Impfungen",
+      "typisch": "Ab sechs Wochen kann die Schluckimpfung gegen Rotaviren beginnen, mit zwei Monaten folgen die ersten Spritzen. Diese Termine plant eure Praxis meist zwischen U3 und U4.",
+      "hilft": "Haltet euer Baby beim Impfen aufrecht auf dem Arm. Stillen oder ein Schnuller kurz vor oder direkt nach dem Piks lindert den Schmerz – bei der Rotavirus-Schluckimpfung aber eine Stunde vorher bis nachher möglichst nicht stillen.",
+      "fuerEuch": "Ein bisschen Mitleiden ist normal. Eure Nähe und Stimme sind für euer Baby jetzt der beste Trost.",
+      "quellen": [
+        {
+          "name": "kindergesundheit-info.de – U3-Untersuchung",
+          "url": "https://www.kindergesundheit-info.de/themen/frueherkennung-u1-u9-und-j1/untersuchungen-u1-bis-u9/u3-untersuchung/"
+        },
+        {
+          "name": "impfen-info.de – Stress- und schmerzarmes Impfen",
+          "url": "https://www.impfen-info.de/wissenswertes/stress-und-schmerzarmes-impfen/"
+        }
+      ]
+    },
+    {
+      "woche": 9,
+      "titel": "Kopf hoch",
+      "typisch": "In Bauchlage hebt euer Baby den Kopf jetzt immer öfter kurz an – manche früher, manche später.",
+      "hilft": "Mehrmals am Tag ein paar Minuten Bauchzeit, mit euch auf Augenhöhe davor. Nur wach und beaufsichtigt – zum Schlafen kommt euer Baby auf den Rücken.",
+      "fuerEuch": "Vergleicht euch nicht mit anderen Babys aus dem Kurs oder der Nachbarschaft. Jedes Kind hat sein eigenes Tempo.",
+      "quellen": [
+        {
+          "name": "kindergesundheit-info.de – Bewegungsentwicklung",
+          "url": "https://www.kindergesundheit-info.de/themen/entwicklung/0-12-monate/bewegungsentwicklung/"
+        },
+        {
+          "name": "kindergesundheit-info.de – Sicher schlafen",
+          "url": "https://www.kindergesundheit-info.de/themen/schlafen/0-12-monate/schlafumgebung/sicher-schlafen/"
+        }
+      ]
+    },
+    {
+      "woche": 10,
+      "titel": "Erste Laute",
+      "typisch": "Euer Baby gurrt und macht erste Laute – oft, wenn es euch anschaut.",
+      "hilft": "Macht die Laute nach und wartet kurz: So entsteht ein kleines Hin und Her.",
+      "fuerEuch": "Sprechen hilft auch euch: mit anderen Eltern, der Hebamme oder dem Elterntelefon (0800 111 0 550, kostenlos und anonym).",
+      "quellen": [
+        {
+          "name": "kindergesundheit-info.de – Sprechen und Verstehen",
+          "url": "https://www.kindergesundheit-info.de/themen/entwicklung/0-12-monate/sprechen-verstehen/"
+        }
+      ]
+    },
+    {
+      "woche": 11,
+      "titel": "Ein kleiner Rhythmus",
+      "typisch": "Tag und Nacht unterscheiden sich langsam deutlicher. Viele Babys schlafen nachts längere Abschnitte – aber nachts aufzuwachen ist in diesem Alter weiterhin normal.",
+      "hilft": "Tagsüber hell und lebendig, nachts ruhig und dunkel – das hilft eurem Baby, Tag und Nacht zu unterscheiden.",
+      "fuerEuch": "Schlaft, wann immer es geht, und teilt euch die Nächte, wenn ihr könnt.",
+      "quellen": [
+        {
+          "name": "kindergesundheit-info.de – Babyschlaf",
+          "url": "https://www.kindergesundheit-info.de/themen/schlafen/0-12-monate/babyschlaf/"
+        }
+      ]
+    },
+    {
+      "woche": 12,
+      "titel": "Die ersten drei Monate sind geschafft",
+      "typisch": "Bei den meisten Babys lässt das viele Weinen jetzt deutlich nach. Die Hebammenbetreuung läuft bis zur 12. Woche – und bald steht die U4 an.",
+      "hilft": "Macht den Termin für die U4 und schaut, ob die ersten Impfungen erledigt sind.",
+      "fuerEuch": "Schaut auf die letzten Wochen zurück: Ihr habt euer Kind durch die anstrengendste Zeit begleitet.",
+      "quellen": [
+        {
+          "name": "kindergesundheit-info.de – Das Schreien des Babys",
+          "url": "https://www.kindergesundheit-info.de/themen/entwicklung/0-12-monate/schreien/"
+        },
+        {
+          "name": "familienplanung.de – Die Nachsorge-Hebamme",
+          "url": "https://www.familienplanung.de/schwangerschaft/nach-der-geburt/das-wochenbett/hebammen-nachsorge/"
+        },
+        {
+          "name": "kindergesundheit-info.de – U4-Untersuchung",
+          "url": "https://www.kindergesundheit-info.de/themen/frueherkennung-u1-u9-und-j1/untersuchungen-u1-bis-u9/u4-untersuchung/"
+        }
+      ],
+      "u": "U4"
+    }
+  ]
+}

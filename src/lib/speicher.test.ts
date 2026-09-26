@@ -83,7 +83,7 @@ describe('Laden aus dem Speicher', () => {
   });
 
   it('liefert immer vollständige Notizen', () => {
-    expect(alsNotizen({ beobachtet: { U5: ['a', 3] }, eigeneFragen: 'x' })).toEqual({ beobachtet: { U5: ['a'] }, eigeneFragen: {} });
+    expect(alsNotizen({ beobachtet: { U5: ['a', 3] }, eigeneFragen: 'x' })).toEqual({ beobachtet: { U5: ['a'] }, eigeneFragen: {}, erledigt: [] });
   });
 
   it('allesLoeschen entfernt nur Schlüssel von U & Me', () => {
@@ -123,7 +123,7 @@ describe('mehrere Kinder', () => {
     expect(d.kinder).toHaveLength(2);
     expect(aktivesKind(d)?.profil.maskottchen).toBe('loewe'); // neues Kind wird gleich gezeigt
 
-    d = notizenSetzen(d, zweites, { beobachtet: {}, eigeneFragen: { U7: ['nur Ben'] } });
+    d = notizenSetzen(d, zweites, { beobachtet: {}, eigeneFragen: { U7: ['nur Ben'] }, erledigt: ['kindergeld'] });
     d = kindWaehlen(d, erstes);
     expect(aktivesKind(d)?.notizen.eigeneFragen).toEqual({}); // Notizen gehören zum Kind
 

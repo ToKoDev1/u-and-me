@@ -1,0 +1,44 @@
+{
+  "_hinweis": "Für euch – Hilfe für Eltern. Nummern und Zeiten am 26.09.2026 geprüft.",
+  "intro": "Ein Baby verändert alles – auch euch. Müdigkeit, Zweifel und schwere Tage gehören dazu. Und es ist gut, sich Hilfe zu holen.",
+  "abschnitte": [
+    {
+      "titel": "Baby-Blues oder mehr?",
+      "text": "Um den dritten Tag nach der Geburt schwankt die Stimmung bei vielen. Das geht meist nach Stunden oder wenigen Tagen vorbei. Bleibt ihr über Wochen niedergeschlagen und antriebslos, schlaft schlecht, habt Ängste oder Schuldgefühle, kann das eine Wochenbett-Depression sein – etwa 10 bis 15 von 100 Müttern sind im ersten Jahr betroffen. Sie ist gut behandelbar.",
+      "quelle": {
+        "name": "familienplanung.de – Wochenbett-Depression",
+        "url": "https://www.familienplanung.de/schwangerschaft/nach-der-geburt/herausforderungen-im-wochenbett/wochenbett-depression/"
+      }
+    },
+    {
+      "titel": "Wer euch hilft",
+      "text": "Eure Hebamme (bis zur 12. Woche, bei Bedarf länger), eure Frauenärztin, eure Hausarztpraxis oder eine Schwangerschaftsberatungsstelle. Auch Partner, Familie und Freunde – sagt ihnen, was ihr braucht.",
+      "quelle": {
+        "name": "familienplanung.de – Wochenbett-Depression",
+        "url": "https://www.familienplanung.de/schwangerschaft/nach-der-geburt/herausforderungen-im-wochenbett/wochenbett-depression/"
+      }
+    }
+  ],
+  "kontakte": [
+    {
+      "name": "Elterntelefon (Nummer gegen Kummer)",
+      "nummer": "0800 111 0 550",
+      "zeiten": "Mo–Fr 9–17 Uhr, Di und Do bis 19 Uhr",
+      "text": "Kostenlos und anonym, für alle Sorgen rund ums Elternsein.",
+      "url": "https://www.nummergegenkummer.de/elternberatung/"
+    },
+    {
+      "name": "Telefonseelsorge",
+      "nummer": "0800 111 0 111",
+      "zeiten": "rund um die Uhr",
+      "text": "Wenn es gerade zu viel ist – auch nachts.",
+      "url": "https://www.familienplanung.de/schwangerschaft/nach-der-geburt/herausforderungen-im-wochenbett/wochenbett-depression/"
+    },
+    {
+      "name": "Frühe Hilfen",
+      "text": "Beratung und Unterstützung vor Ort für Familien mit kleinen Kindern – anonym und kostenlos.",
+      "url": "https://www.elternsein.info/beratung-anonym/beratung-fuer-eltern-anonym-und-kostenlos/"
+    }
+  ],
+  "notfall": "Wenn ihr euch oder euer Kind in Gefahr seht: sofort 112."
+}

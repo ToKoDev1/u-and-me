@@ -1,4 +1,4 @@
-import { useRef, useState, type FormEvent, type TouchEvent } from 'react';
+import { useState, type FormEvent } from 'react';
 import { Link, Navigate, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { abstandAlsText, letzterTag, tageZwischen } from '../lib/alter';
 import {
@@ -15,6 +15,7 @@ import type { Notizen } from '../lib/speicher';
 import { Datumskacheln } from './Datumskacheln';
 import { Symbol } from './Symbol';
 import { useSeitentitel } from '../lib/seite';
+import { useWischen } from '../lib/wischen';
 
 /** Detailseite einer U – ohne Parameter die nächste U, unter /u/U3 eine bestimmte */
 type NotizProps = { notizen: Notizen; onNotizen: (neu: Notizen) => void };
@@ -28,7 +29,6 @@ export function NaechsteU({ kind, notizen, onNotizen }: { kind: Kind } & NotizPr
   useSeitentitel(termin.untersuchung.id);
   const navigate = useNavigate();
   const { state } = useLocation();
-  const wischStart = useRef<{ x: number; y: number } | null>(null);
 
   // Nachbar-U zum Wischen und für die Leiste unten
   const alle = uTermine(kind);
@@ -38,21 +38,8 @@ export function NaechsteU({ kind, notizen, onNotizen }: { kind: Kind } & NotizPr
   const wechseln = (ziel: string | undefined, richtung: 'vor' | 'zurueck') =>
     ziel && navigate(`/u/${ziel}`, { replace: true, state: { richtung } });
 
-  // Deutlich waagerecht wischen wechselt die U – senkrechtes Scrollen bleibt unberührt
-  function beiStart(e: TouchEvent) {
-    const ziel = e.target as HTMLElement;
-    wischStart.current = ziel.closest('input, textarea') ? null : { x: e.touches[0].clientX, y: e.touches[0].clientY };
-  }
-  function beiEnde(e: TouchEvent) {
-    const start = wischStart.current;
-    wischStart.current = null;
-    if (!start) return;
-    const dx = e.changedTouches[0].clientX - start.x;
-    const dy = e.changedTouches[0].clientY - start.y;
-    if (Math.abs(dx) < 60 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
-    if (dx < 0) wechseln(folgende, 'vor');
-    else wechseln(vorige, 'zurueck');
-  }
+  // Nach links wischen → nächste U, nach rechts → vorige
+  const wischen = useWischen(() => wechseln(folgende, 'vor'), () => wechseln(vorige, 'zurueck'));
   const richtung = (state as { richtung?: string } | null)?.richtung;
 
   // Unbekannte Adresse wie /u/U9 oder /u/xyz → zur nächsten U
@@ -62,8 +49,7 @@ export function NaechsteU({ kind, notizen, onNotizen }: { kind: Kind } & NotizPr
     <div
       className={`u-seite ${richtung === 'vor' ? 'rein-von-rechts' : richtung === 'zurueck' ? 'rein-von-links' : ''}`}
       key={termin.untersuchung.id}
-      onTouchStart={beiStart}
-      onTouchEnd={beiEnde}
+      {...wischen}
     >
       <Link to="/" className="zurueck-link">← Heute</Link>
       <div className="u-kopf">

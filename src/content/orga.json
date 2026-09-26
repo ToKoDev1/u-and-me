@@ -1,0 +1,128 @@
+{
+  "_hinweis": "Zu erledigen nach der Geburt. von/bis = Zeitraum ab Geburt (bis = Frist oder Orientierung). frist: true = echte Frist. Quellen: Familienportal des Bundes u. a., abgerufen am 26.09.2026. Regionale Unterschiede möglich.",
+  "aufgaben": [
+    {
+      "id": "standesamt",
+      "titel": "Geburt beim Standesamt anmelden",
+      "text": "Innerhalb von sieben Werktagen beim Standesamt des Geburtsorts. Nach einer Klinikgeburt übernimmt das oft die Klinik – fragt dort nach. Ihr bekommt die Geburtsurkunden, die ihr für die nächsten Schritte braucht.",
+      "von": {
+        "tage": 0
+      },
+      "bis": {
+        "tage": 9
+      },
+      "frist": true,
+      "quelle": {
+        "name": "Familienportal – Anmeldung beim Standesamt",
+        "url": "https://familienportal.de/familienportal/lebenslagen/schwangerschaft-geburt/anmeldung-standesamt"
+      }
+    },
+    {
+      "id": "krankenkasse",
+      "titel": "Krankenkasse Bescheid geben",
+      "text": "Meldet euer Kind zeitnah bei der Krankenkasse an, damit es versichert ist. Wer Mutterschaftsgeld bekommt, reicht dort auch die Geburtsurkunde ein.",
+      "von": {
+        "tage": 0
+      },
+      "bis": {
+        "tage": 28
+      },
+      "quelle": {
+        "name": "Familienportal – Checkliste nach der Geburt",
+        "url": "https://familienportal.de/familienportal/lebenslagen/schwangerschaft-geburt/checklisten/checkliste-nach-der-geburt-197882"
+      }
+    },
+    {
+      "id": "kinderarzt",
+      "titel": "Kinderarztpraxis festmachen",
+      "text": "Die U3 in der 4. bis 5. Woche findet meist schon in der Kinderarztpraxis statt. Sucht euch rechtzeitig eine Praxis und macht den Termin aus.",
+      "von": {
+        "tage": 0
+      },
+      "bis": {
+        "tage": 28
+      },
+      "quelle": {
+        "name": "Familienportal – Checkliste nach der Geburt",
+        "url": "https://familienportal.de/familienportal/lebenslagen/schwangerschaft-geburt/checklisten/checkliste-nach-der-geburt-197882"
+      }
+    },
+    {
+      "id": "steuer-id",
+      "titel": "Auf die Steuer-ID warten",
+      "text": "Die Steuer-Identifikationsnummer eures Kindes kommt nach der Anmeldung automatisch per Post, meist nach drei bis vier Wochen. Ihr braucht sie für den Kindergeld-Antrag. Ist sie nach drei Monaten nicht da, könnt ihr beim Bundeszentralamt für Steuern nachfragen.",
+      "von": {
+        "tage": 14
+      },
+      "bis": {
+        "monate": 3
+      },
+      "quelle": {
+        "name": "Bundeszentralamt für Steuern – Identifikationsnummer",
+        "url": "https://www.bzst.de/DE/Privatpersonen/SteuerlicheIdentifikationsnummer/steuerlicheidentifikationsnummer_node.html"
+      }
+    },
+    {
+      "id": "elterngeld",
+      "titel": "Elterngeld beantragen",
+      "text": "Bei der Elterngeldstelle, am besten gleich nach der Geburt. Elterngeld wird rückwirkend nur für die letzten drei Monate gezahlt – deshalb in den ersten drei Lebensmonaten beantragen.",
+      "von": {
+        "tage": 0
+      },
+      "bis": {
+        "monate": 3
+      },
+      "frist": true,
+      "quelle": {
+        "name": "Familienportal – Wie kann ich Elterngeld beantragen?",
+        "url": "https://familienportal.de/familienportal/familienleistungen/elterngeld/faq/wie-kann-ich-elterngeld-beantragen--124762"
+      }
+    },
+    {
+      "id": "kindergeld",
+      "titel": "Kindergeld beantragen",
+      "text": "Bei der Familienkasse, mit eurer Steuer-ID und der eures Kindes. Kindergeld wird bis zu sechs Monate rückwirkend gezahlt.",
+      "von": {
+        "tage": 14
+      },
+      "bis": {
+        "monate": 6
+      },
+      "frist": true,
+      "quelle": {
+        "name": "Familienportal – Wie wird Kindergeld beantragt?",
+        "url": "https://familienportal.de/familienportal/familienleistungen/kindergeld/faq/wie-wird-kindergeld-beantragt-und-ausgezahlt--124954"
+      }
+    },
+    {
+      "id": "elternzeit",
+      "titel": "Elternzeit anmelden",
+      "text": "Elternzeit meldet ihr schriftlich beim Arbeitgeber an – spätestens sieben Wochen vor Beginn. Plant ihr später (noch) Elternzeit, denkt rechtzeitig daran.",
+      "von": {
+        "tage": 0
+      },
+      "bis": {
+        "monate": 12
+      },
+      "quelle": {
+        "name": "Familienportal – Wann und wie muss ich Elternzeit beantragen?",
+        "url": "https://familienportal.de/familienportal/familienleistungen/elternzeit/faq/wann-und-wie-muss-ich-elternzeit-beantragen--124810"
+      }
+    },
+    {
+      "id": "kita",
+      "titel": "Nach einem Betreuungsplatz schauen",
+      "text": "Ab dem ersten Geburtstag habt ihr Anspruch auf einen Platz in Kita oder Tagespflege. Anmeldung und Fristen sind je nach Ort sehr verschieden – informiert euch früh bei eurer Gemeinde oder dem Jugendamt.",
+      "von": {
+        "monate": 2
+      },
+      "bis": {
+        "monate": 10
+      },
+      "quelle": {
+        "name": "Familienportal – Betreuung für Kleinkinder",
+        "url": "https://familienportal.de/familienportal/lebenslagen/ausbildung-beruf/kinderbetreuung/betreuung-fuer-kleinkinder-125514"
+      }
+    }
+  ]
+}

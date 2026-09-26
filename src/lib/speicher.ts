@@ -10,10 +10,11 @@ export type Profil = {
   name?: string;
 };
 
-/** Notizen pro U: abgehakte Beobachtungen und eigene Fragen */
+/** Notizen pro U (abgehakte Beobachtungen, eigene Fragen) und erledigte Aufgaben („Zu erledigen“) */
 export type Notizen = {
   beobachtet: Record<string, string[]>;
   eigeneFragen: Record<string, string[]>;
+  erledigt: string[];
 };
 
 /** Ein Kind mit seinen Angaben und Notizen */
@@ -92,12 +93,13 @@ function alsTextListen(wert: unknown): Record<string, string[]> {
 
 export function alsNotizen(wert: unknown): Notizen {
   const o = istObjekt(wert) ? wert : {};
-  return { beobachtet: alsTextListen(o.beobachtet), eigeneFragen: alsTextListen(o.eigeneFragen) };
+  const erledigt = Array.isArray(o.erledigt) ? o.erledigt.filter((t): t is string => typeof t === 'string') : [];
+  return { beobachtet: alsTextListen(o.beobachtet), eigeneFragen: alsTextListen(o.eigeneFragen), erledigt };
 }
 
 // ---- Öffentliche Funktionen ------------------------------------------------------
 
-export const leereNotizen = (): Notizen => ({ beobachtet: {}, eigeneFragen: {} });
+export const leereNotizen = (): Notizen => ({ beobachtet: {}, eigeneFragen: {}, erledigt: [] });
 export const leereDaten = (): Daten => ({ version: 2, kinder: [], aktiv: null });
 
 const neueId = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
