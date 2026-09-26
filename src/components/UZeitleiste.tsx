@@ -21,6 +21,7 @@ const BIS_ZUR_EINSCHULUNG: Abschnitt = { vonMonate: 18, bisMonate: null, wurzel:
 const GESAMT: Abschnitt = { vonMonate: 0, bisMonate: null, wurzel: true }; // für den Schieberegler
 
 const SCHRITTE = 1000;
+const PLATZ_FUER_BESCHRIFTUNG = 0.3; // Anteil der Leiste, den „Zahnarzt“ links braucht
 const plusTage = (d: Date, n: number) => new Date(d.getFullYear(), d.getMonth(), d.getDate() + n);
 
 /** Zeitleiste mit den U-Zeitfenstern als Abschnitten, „heute“ als Punkt und den Zahnarzt-Terminen darunter */
@@ -146,6 +147,12 @@ export function UZeitleiste({ kind, onDatum }: Props) {
 
       {/* Zweite, leisere Zeile: Zahnarzt-Termine */}
       <nav className="zr-zahn" aria-label="Zahnarzt-Termine">
+        {/* Beschriftung, damit „Z1“ verständlich ist – nur wenn links vor dem ersten Termin Platz ist */}
+        {zahn.length > 0 && position(zahn[0].von) >= PLATZ_FUER_BESCHRIFTUNG && (
+          <Link to="/zahnarzt" className="zr-zahn-titel" aria-hidden="true" tabIndex={-1}>
+            Zahnarzt
+          </Link>
+        )}
         {zahn.map((z) => (
           <span key={z.termin.id}>
             <span

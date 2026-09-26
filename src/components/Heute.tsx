@@ -65,14 +65,21 @@ export function Heute({ kind, notizen }: { kind: Kind; notizen: Notizen }) {
       )}
 
       {naechsteU && (
+        // Wann die U dran ist, sagt schon der Ring – die Karte sagt, was zu tun ist
         <Link to="/naechste-u" className="zeile-link">
-          <span>
-            <b>Nächste U: {naechsteU.untersuchung.id}</b>
-            <span className="gedaempft"> · {naechsteU.untersuchung.zeitraum}</span>
+          <span className="zeile-stapel">
+            <b>
+              {naechsteU.laeuftSchon
+                ? `${naechsteU.untersuchung.id}-Termin machen`
+                : `${naechsteU.untersuchung.id} vorbereiten`}
+            </b>
+            <span className="gedaempft klein">Zeitfenster, Kalender, Ablauf</span>
           </span>
-          <span className="pille">
-            {naechsteU.laeuftSchon ? 'Fenster läuft' : abstandAlsText(tageZwischen(kind.jetzt, naechsteU.beginn))}
-          </span>
+          {naechsteU.laeuftSchon ? (
+            <span aria-hidden="true">›</span>
+          ) : (
+            <span className="pille">{abstandAlsText(tageZwischen(kind.jetzt, naechsteU.beginn))}</span>
+          )}
         </Link>
       )}
 
