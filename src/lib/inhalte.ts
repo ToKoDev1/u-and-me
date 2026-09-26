@@ -16,6 +16,10 @@ export type Phase = {
   von: Alter;
   bis: Alter;
   abklaeren: string | null;
+  /** echte Notfälle („sofort 112“), optional */
+  notfall?: string | null;
+  /** Quellen für die Warnzeichen */
+  quellen?: Quelle[];
   /** eigene Anregungen (Entwurf) */
   spielideen: Spielidee[];
 };
@@ -31,6 +35,8 @@ export type Etappe = {
   tippArt?: 'spiel' | 'hinweis';
   von: Alter;
   bis: Alter;
+  /** konkrete Quelle für diesen Eintrag (sonst gilt die allgemeine Quelle der Datei) */
+  quelle?: Quelle;
 };
 export type Untersuchung = {
   id: string;
@@ -70,8 +76,9 @@ export const maskottchenBild = (id: MaskottchenId, avatar = false) =>
 
 // ---- Phasen und Etappen ----------------------------------------------------
 
+/** Phase nach Entwicklungsalter – bei Frühchen korrigiert, wie die Etappen */
 export function aktuellePhase(kind: Kind): Phase | undefined {
-  return phasen.find((p) => imZeitfenster(kind.geburt, kind.jetzt, p.von, p.bis));
+  return phasen.find((p) => imZeitfenster(kind.entwicklungsStart, kind.jetzt, p.von, p.bis));
 }
 
 const beginn = (kind: Kind, e: Etappe) => datumBeiAlter(kind.entwicklungsStart, e.von);

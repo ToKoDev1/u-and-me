@@ -8,6 +8,7 @@ import {
   kommendeEtappen,
   type Bereich,
   type Etappe,
+  type Quelle,
 } from '../lib/inhalte';
 import type { Kind } from '../lib/kind';
 import { useSeitentitel } from '../lib/seite';
@@ -35,6 +36,16 @@ function BereichMarke({ bereich, zusatz }: { bereich: Bereich; zusatz?: string }
   );
 }
 
+/** Kleiner Quellen-Link unter einem Eintrag */
+function QuelleLink({ quelle }: { quelle?: Quelle }) {
+  if (!quelle) return null;
+  return (
+    <a className="quelle-link" href={quelle.url} target="_blank" rel="noreferrer">
+      Quelle: {quelle.name}
+    </a>
+  );
+}
+
 const Leer = ({ children }: { children: ReactNode }) => <p className="liste-leer">{children}</p>;
 
 export function Begegnen({ kind }: { kind: Kind }) {
@@ -59,6 +70,7 @@ export function Begegnen({ kind }: { kind: Kind }) {
                   <b>{e.zusatz.label}</b> {e.zusatz.text}
                 </p>
               )}
+              <QuelleLink quelle={e.quelle} />
             </li>
           ))}
         </ul>
@@ -78,6 +90,7 @@ function EtappenEintrag({ e }: { e: Etappe }) {
           <b>{e.tippArt === 'hinweis' ? 'Hinweis:' : 'Spielidee:'}</b> {e.tipp}
         </p>
       )}
+      <QuelleLink quelle={e.quelle} />
     </li>
   );
 }
@@ -120,6 +133,8 @@ export function Entwicklung({ kind }: { kind: Kind }) {
           </div>
           <p>{phase.abklaeren}</p>
           <p className="gedaempft klein">Sprecht dann lieber zeitnah mit eurer Kinderarztpraxis.</p>
+          {phase.notfall && <p className="notfall">{phase.notfall}</p>}
+          {phase.quellen?.map((q) => <QuelleLink key={q.url} quelle={q} />)}
         </section>
       )}
     </Unterseite>

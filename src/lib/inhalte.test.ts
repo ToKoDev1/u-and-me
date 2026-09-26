@@ -41,6 +41,12 @@ describe('Frühgeborene', () => {
     expect(etappenStatus(frueh, greifen)).toBe('kommend');
     expect(etappenStatus(kind('2026-07-01', '2026-10-05'), greifen)).toBe('gerade-dran');
   });
+
+  it('bekommen Warnzeichen und Spielideen passend zum korrigierten Alter', () => {
+    // tatsächlich knapp 3 Monate (U3–U4), korrigiert gut 4 Wochen → Phase U2–U3
+    expect(aktuellePhase(kind('2026-07-01', '2026-09-26', '2026-08-26'))?.id).toBe('u2-u3');
+    expect(aktuellePhase(kind('2026-07-01', '2026-09-26'))?.id).toBe('u3-u4');
+  });
 });
 
 describe('Inhalte (JSON) sind plausibel', () => {
