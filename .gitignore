@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.DS_Store
+*.log
+
+# Weitergabe-Pakete lassen sich jederzeit aus docs/claude-design/ neu erzeugen
+docs/*.zip
