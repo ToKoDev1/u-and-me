@@ -1,16 +1,141 @@
 {
-  "_hinweis": "Zeitfenster nach G-BA Kinder-Richtlinie. 'von'/'bis' = Alter ab Geburt (bis = exklusiv). Vor dem Teilen mit Familien gegen die aktuelle Richtlinie prüfen.",
+  "_hinweis": "Zeitfenster nach G-BA Kinder-Richtlinie. 'von'/'bis' = Alter ab Geburt (bis = exklusiv). 'passiert', 'impfungen' und 'mitbringen' sind aus der jeweiligen Quellseite (kindergesundheit-info.de, abgerufen am 26.09.2026) zusammengefasst. 'beobachten' und 'fragen' sind eigene Anregungen (Entwurf). {kind} wird durch den Namen bzw. 'euer Kind' ersetzt.",
+  "abgerufen": "26.09.2026",
   "quelle": {
     "name": "kindergesundheit-info.de – Die Untersuchungen U1 bis U9",
     "url": "https://www.kindergesundheit-info.de/themen/frueherkennung-u1-u9-und-j1/untersuchungen-u1-bis-u9/die-untersuchungen-u1-bis-u9/"
   },
   "untersuchungen": [
-    { "id": "U1", "zeitraum": "direkt nach der Geburt", "von": { "tage": 0 }, "bis": { "tage": 1 } },
-    { "id": "U2", "zeitraum": "3. bis 10. Lebenstag", "von": { "tage": 2 }, "bis": { "tage": 10 } },
-    { "id": "U3", "zeitraum": "4. bis 5. Lebenswoche", "von": { "tage": 21 }, "bis": { "tage": 35 } },
-    { "id": "U4", "zeitraum": "3. bis 4. Lebensmonat", "von": { "monate": 2 }, "bis": { "monate": 4 } },
-    { "id": "U5", "zeitraum": "6. bis 7. Lebensmonat", "von": { "monate": 5 }, "bis": { "monate": 7 } },
-    { "id": "U6", "zeitraum": "10. bis 12. Lebensmonat", "von": { "monate": 9 }, "bis": { "monate": 12 } },
-    { "id": "U7", "zeitraum": "21. bis 24. Lebensmonat", "von": { "monate": 20 }, "bis": { "monate": 24 } }
+    {
+      "id": "U1",
+      "zeitraum": "direkt nach der Geburt",
+      "von": { "tage": 0 },
+      "bis": { "tage": 1 },
+      "url": "https://www.kindergesundheit-info.de/themen/frueherkennung-u1-u9-und-j1/untersuchungen-u1-bis-u9/u1-untersuchung/",
+      "passiert": [
+        { "titel": "Erster Check", "text": "Apgar-Test nach der Geburt: Hautfarbe, Herzschlag, Reflexe, Muskelspannung und Atmung" },
+        { "titel": "Nabelschnurblut", "text": "Der pH-Wert zeigt, wie gut euer Baby während der Geburt mit Sauerstoff versorgt war" },
+        { "titel": "Messen & Wiegen", "text": "Gewicht, Körperlänge und ein Blick auf äußere Fehlbildungen" },
+        { "titel": "Vitamin K", "text": "Die ersten Tropfen zum Schutz vor Blutungen" },
+        { "titel": "Gespräch", "text": "Stillen oder andere Ernährung, und welche Tests in den nächsten Tagen folgen" }
+      ],
+      "impfungen": null,
+      "mitbringen": ["Ihr bekommt hier das Gelbe Kinderuntersuchungsheft"],
+      "beobachten": [],
+      "fragen": ["Welche Tests stehen in den nächsten Tagen an?", "Wann sollten wir die U2 ausmachen?"]
+    },
+    {
+      "id": "U2",
+      "zeitraum": "3. bis 10. Lebenstag",
+      "von": { "tage": 2 },
+      "bis": { "tage": 10 },
+      "url": "https://www.kindergesundheit-info.de/themen/frueherkennung-u1-u9-und-j1/untersuchungen-u1-bis-u9/u2-untersuchung/",
+      "passiert": [
+        { "titel": "Körper von Kopf bis Fuß", "text": "Haut, Sinnesorgane, Herz, Lunge und Bauch, Geschlechtsorgane, Knochen, Muskeln und Nerven" },
+        { "titel": "Messen & Wiegen", "text": "Gewicht und Körperlänge" },
+        { "titel": "Neugeborenen-Tests", "text": "Blut-Screening auf Stoffwechselstörungen und Mukoviszidose, Hörtest, Pulsoxymetrie auf Herzfehler – falls noch nicht in der Klinik gemacht" },
+        { "titel": "Gelbsucht", "text": "Blick auf die Hautfarbe" },
+        { "titel": "Vorsorge", "text": "Zweite Gabe Vitamin K; Start mit Vitamin D (und Fluorid) ab der zweiten Lebenswoche" },
+        { "titel": "Gespräch", "text": "Stillen und Ernährung, sicherer Schlaf, Unterstützungsangebote in eurer Nähe (Frühe Hilfen)" }
+      ],
+      "impfungen": null,
+      "mitbringen": ["Gesundheitskarte", "Gelbes Kinderuntersuchungsheft"],
+      "beobachten": ["Wie oft trinkt {kind} am Tag?", "Wie viele nasse Windeln gibt es?", "Wirkt die Haut gelblich?"],
+      "fragen": ["Wie lange sollen wir Vitamin D geben?", "Sind alle Neugeborenen-Tests gemacht?"]
+    },
+    {
+      "id": "U3",
+      "zeitraum": "4. bis 5. Lebenswoche",
+      "von": { "tage": 21 },
+      "bis": { "tage": 35 },
+      "url": "https://www.kindergesundheit-info.de/themen/frueherkennung-u1-u9-und-j1/untersuchungen-u1-bis-u9/u3-untersuchung/",
+      "passiert": [
+        { "titel": "Körper", "text": "Gründliche körperliche Untersuchung, Messen und Wiegen" },
+        { "titel": "Hüft-Ultraschall", "text": "Früherkennung von Fehlstellungen der Hüftgelenke" },
+        { "titel": "Entwicklung", "text": "Kopfhaltung in Bauchlage, Bewegungen der Hände, Aufmerksamkeit für Gesichter" },
+        { "titel": "Nachholen", "text": "Fehlende Neugeborenen-Tests (Stoffwechsel, Mukoviszidose, Hörtest) werden jetzt gemacht" },
+        { "titel": "Vorsorge", "text": "Dritte Gabe Vitamin K; Vitamin D und Fluorid" },
+        { "titel": "Gespräch", "text": "Trinken, Schlafen, Verdauung, viel Weinen, sicherer Schlaf, Unfallverhütung, erste Impfungen" }
+      ],
+      "impfungen": "Die ersten Impfungen sind ab der 9. Lebenswoche möglich – der Impfpass wird ausgestellt.",
+      "mitbringen": ["Gesundheitskarte", "Gelbes Kinderuntersuchungsheft"],
+      "beobachten": ["Hebt {kind} in Bauchlage kurz den Kopf?", "Schaut {kind} euch ins Gesicht?", "Wie klappt das Trinken, wie die Verdauung?"],
+      "fragen": ["Welche Impfungen stehen bald an?", "Ist das viele Weinen am Abend normal?"]
+    },
+    {
+      "id": "U4",
+      "zeitraum": "3. bis 4. Lebensmonat",
+      "von": { "monate": 2 },
+      "bis": { "monate": 4 },
+      "url": "https://www.kindergesundheit-info.de/themen/frueherkennung-u1-u9-und-j1/untersuchungen-u1-bis-u9/u4-untersuchung/",
+      "passiert": [
+        { "titel": "Körper", "text": "Körperliche Untersuchung, Messen und Wiegen, Größe der Fontanelle" },
+        { "titel": "Bewegung & Entwicklung", "text": "Wie bewegt sich euer Baby, wie entwickelt es sich?" },
+        { "titel": "Sehen & Hören", "text": "Reagiert euer Baby auf Licht, Gesichter und Geräusche?" },
+        { "titel": "Miteinander", "text": "Wie ist der Kontakt zwischen euch und eurem Baby?" },
+        { "titel": "Gespräch", "text": "Ernährung, Verdauung, Schlaf, sicherer Schlaf, Unfallverhütung, Sprachförderung, Vitamin D und Fluorid" }
+      ],
+      "impfungen": "Erste oder weitere Impfungen gegen Diphtherie, Tetanus, Keuchhusten, Hib, Hepatitis B, Kinderlähmung und Pneumokokken.",
+      "mitbringen": ["Gesundheitskarte", "Impfausweis", "Gelbes Kinderuntersuchungsheft"],
+      "beobachten": ["Lächelt {kind} euch an?", "Folgt {kind} Gegenständen mit den Augen?", "Reagiert {kind} auf Stimmen und Geräusche?"],
+      "fragen": ["Wie geht es mit den Impfungen weiter?", "Wann können wir mit Beikost beginnen?"]
+    },
+    {
+      "id": "U5",
+      "zeitraum": "6. bis 7. Lebensmonat",
+      "von": { "monate": 5 },
+      "bis": { "monate": 7 },
+      "url": "https://www.kindergesundheit-info.de/themen/frueherkennung-u1-u9-und-j1/untersuchungen-u1-bis-u9/u5-untersuchung/",
+      "passiert": [
+        { "titel": "Wachstum & Körper", "text": "Körperliche Untersuchung, Messen und Wiegen" },
+        { "titel": "Bewegung", "text": "Beweglichkeit und Körperbeherrschung – z. B. Drehen und Greifen" },
+        { "titel": "Sehen", "text": "Tests zur Früherkennung von Sehstörungen" },
+        { "titel": "Miteinander", "text": "Wie ist der Kontakt zwischen euch und eurem Kind?" },
+        { "titel": "Gespräch", "text": "Ernährung, Schlaf und Schreien, Unfallverhütung, Sprachförderung, Vitamin D und Fluorid, Zähneputzen" },
+        { "titel": "Zahnarzt", "text": "Hinweis auf die erste Zahnarzt-Untersuchung Z1 (6. bis 9. Monat)" }
+      ],
+      "impfungen": "Der Impfstatus wird geprüft, fehlende Impfungen werden nachgeholt.",
+      "mitbringen": ["Gesundheitskarte", "Impfausweis", "Gelbes Kinderuntersuchungsheft"],
+      "beobachten": ["Dreht sich {kind} vom Rücken auf den Bauch?", "Greift {kind} mit beiden Händen?", "Wie reagiert {kind} auf Stimmen?"],
+      "fragen": ["Wann und wie mit Beikost starten?", "Ist unser Schlafrhythmus normal?", "Wann gehen wir das erste Mal zum Zahnarzt?"]
+    },
+    {
+      "id": "U6",
+      "zeitraum": "10. bis 12. Lebensmonat",
+      "von": { "monate": 9 },
+      "bis": { "monate": 12 },
+      "url": "https://www.kindergesundheit-info.de/themen/frueherkennung-u1-u9-und-j1/untersuchungen-u1-bis-u9/u6-untersuchung/",
+      "passiert": [
+        { "titel": "Körper", "text": "Körperliche Untersuchung, Messen und Wiegen" },
+        { "titel": "Bewegung", "text": "Beweglichkeit und Körperbeherrschung – Sitzen, Krabbeln, Hochziehen" },
+        { "titel": "Sehen", "text": "Augentests zur Früherkennung von Sehstörungen" },
+        { "titel": "Entwicklung", "text": "Screening auf Entwicklungsverzögerungen" },
+        { "titel": "Miteinander", "text": "Wie ist die Beziehung zwischen euch und eurem Kind?" },
+        { "titel": "Gespräch", "text": "Ernährung, Unfallverhütung, Sprachförderung, Vitamin D und Fluorid, Zähneputzen, Zahnarzt-Untersuchung Z2" }
+      ],
+      "impfungen": "Laut Impfkalender: Abschluss der Grundimmunisierung (u. a. Diphtherie, Tetanus, Keuchhusten, Pneumokokken), erste Impfung gegen Masern, Mumps, Röteln und Windpocken sowie gegen Meningokokken C.",
+      "mitbringen": ["Gesundheitskarte", "Impfausweis", "Gelbes Kinderuntersuchungsheft mit Teilnahmekarte"],
+      "beobachten": ["Sitzt {kind} ohne Hilfe?", "Wie kommt {kind} vom Fleck – robben, krabbeln, rutschen?", "Plappert {kind} Silben wie „ba-ba“?", "Hebt {kind} kleine Dinge mit zwei Fingern auf?"],
+      "fragen": ["Welche Impfungen stehen jetzt an?", "Wie sichern wir die Wohnung am besten?", "Was ist beim Zähneputzen wichtig?"]
+    },
+    {
+      "id": "U7",
+      "zeitraum": "21. bis 24. Lebensmonat",
+      "von": { "monate": 20 },
+      "bis": { "monate": 24 },
+      "url": "https://www.kindergesundheit-info.de/themen/frueherkennung-u1-u9-und-j1/untersuchungen-u1-bis-u9/u7-untersuchung/",
+      "passiert": [
+        { "titel": "Körper", "text": "Körperliche Untersuchung, Messen und Wiegen" },
+        { "titel": "Sehen", "text": "Untersuchung der Augen zur Früherkennung von Sehstörungen" },
+        { "titel": "Sprache", "text": "Versteht euer Kind einfache Wörter und Sätze?" },
+        { "titel": "Spielen & Verhalten", "text": "Wie spielt euer Kind – allein, in der Familie, mit anderen Kindern?" },
+        { "titel": "Miteinander", "text": "Wie ist die Beziehung zwischen euch und eurem Kind?" },
+        { "titel": "Gespräch", "text": "Ernährung, Unfallverhütung, Sprachförderung, Fluorid, Zähneputzen, Zahnarzt-Untersuchung Z3" }
+      ],
+      "impfungen": "Alle bisherigen Impfungen werden geprüft. Die zweite Impfung gegen Masern, Mumps, Röteln und Windpocken sollte spätestens jetzt erfolgen; Fehlendes wird nachgeholt.",
+      "mitbringen": ["Gesundheitskarte", "Impfausweis", "Gelbes Kinderuntersuchungsheft"],
+      "beobachten": ["Welche Wörter sagt {kind} schon?", "Versteht {kind} einfache Bitten wie „Hol mal den Ball“?", "Läuft {kind} sicher?", "Wie spielt {kind} mit anderen Kindern?"],
+      "fragen": ["Ist die Sprachentwicklung im Rahmen?", "Sind alle Impfungen vollständig?", "Wie gehen wir gut mit Wutanfällen um?"]
+    }
   ]
 }

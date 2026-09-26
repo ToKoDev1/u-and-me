@@ -23,7 +23,21 @@ export type Etappe = {
   von: Alter;
   bis: Alter;
 };
-export type Untersuchung = { id: string; zeitraum: string; von: Alter; bis: Alter };
+export type Untersuchung = {
+  id: string;
+  zeitraum: string;
+  von: Alter;
+  bis: Alter;
+  /** Quellseite zu dieser U */
+  url: string;
+  /** Was untersucht/besprochen wird – aus der Quelle */
+  passiert: { titel: string; text: string }[];
+  impfungen: string | null;
+  mitbringen: string[];
+  /** eigene Anregungen (Entwurf); {kind} = Name bzw. „euer Kind“ */
+  beobachten: string[];
+  fragen: string[];
+};
 export type MaskottchenId = 'loewe' | 'hund' | 'pinguin' | 'elefant';
 export type Maskottchen = { id: MaskottchenId; name: string; geschichte: string };
 
@@ -33,6 +47,7 @@ export const etappen = etappenDaten.etappen as Etappe[];
 export const etappenInfo = { status: etappenDaten.status as Status, quelle: etappenDaten.quelle };
 export const untersuchungen = untersuchungenDaten.untersuchungen as Untersuchung[];
 export const untersuchungenQuelle: Quelle = untersuchungenDaten.quelle;
+export const untersuchungenAbgerufen: string = untersuchungenDaten.abgerufen;
 export const maskottchen = maskottchenDaten as Maskottchen[];
 
 export const bereichsName: Record<Bereich, string> = {
@@ -87,6 +102,13 @@ export function uTermine(kind: Kind): UTermin[] {
 }
 
 export type NaechsteU = UTermin & { laeuftSchon: boolean };
+
+export function uTermin(kind: Kind, id: string): UTermin | undefined {
+  return uTermine(kind).find((t) => t.untersuchung.id === id);
+}
+
+/** {kind} im Text durch den Namen ersetzen */
+export const mitName = (text: string, kind: Kind) => text.replaceAll('{kind}', kind.name ?? 'euer Kind');
 
 /** Die nächste U, deren Zeitfenster noch nicht vorbei ist */
 export function naechsteUntersuchung(kind: Kind): NaechsteU | undefined {

@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import type { Profil } from '../lib/speicher';
 import { Avatar } from './Avatar';
 
@@ -10,10 +10,18 @@ const ziele = [
 ];
 
 function Navigation({ className }: { className: string }) {
+  const { pathname } = useLocation();
+  // Detailseiten einzelner Us (/u/U3) gehören zum Bereich „Nächste U“
+  const uDetail = pathname.startsWith('/u/');
   return (
     <nav className={className} aria-label="Hauptnavigation">
       {ziele.map((z) => (
-        <NavLink key={z.pfad} to={z.pfad} end>
+        <NavLink
+          key={z.pfad}
+          to={z.pfad}
+          end
+          className={({ isActive }) => (isActive || (uDetail && z.pfad === '/naechste-u') ? 'active' : undefined)}
+        >
           {z.text}
         </NavLink>
       ))}

@@ -1,24 +1,221 @@
-import { letzterTag } from '../lib/alter';
-import { naechsteUntersuchung, untersuchungenQuelle } from '../lib/inhalte';
+import { useState, type FormEvent } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { abstandAlsText, letzterTag, tageZwischen } from '../lib/alter';
+import {
+  mitName,
+  naechsteUntersuchung,
+  uTermin,
+  uTermine,
+  untersuchungenAbgerufen,
+  type UTermin,
+} from '../lib/inhalte';
 import type { Kind } from '../lib/kind';
 import { uKalenderHerunterladen } from '../lib/kalender';
+import { notizenLaden, notizenSpeichern, type Notizen } from '../lib/speicher';
 import { Fussnoten } from './Fussnoten';
 import { Datumskacheln } from './Heute';
 
-/** Vorläufig – wird in Schritt 4 nach Vorlage ausgebaut */
+/** Detailseite einer U – ohne Parameter die nächste U, unter /u/U3 eine bestimmte */
 export function NaechsteU({ kind }: { kind: Kind }) {
-  const termin = naechsteUntersuchung(kind);
-  if (!termin) return <p className="karte" style={{ marginTop: 22 }}>Alle Us bis zur U7 liegen hinter euch.</p>;
+  const { id } = useParams();
+  const naechste = naechsteUntersuchung(kind);
+  const termin = (id && uTermin(kind, id)) || naechste || uTermine(kind).at(-1)!;
+  const istNaechste = termin.untersuchung.id === naechste?.untersuchung.id;
+
   return (
-    <div style={{ paddingTop: 22, display: 'flex', flexDirection: 'column', gap: 16 }}>
-      <h1>{termin.untersuchung.id} · {termin.untersuchung.zeitraum}</h1>
-      <div className="karte-schatten naechste-u-karte">
-        <Datumskacheln von={termin.beginn} bis={letzterTag(termin.ende)} />
-        <button type="button" className="knopf" onClick={() => uKalenderHerunterladen(termin, kind.name)}>
-          In meinen Kalender eintragen
-        </button>
+    <div className="u-seite">
+      <UAuswahl kind={kind} aktiv={termin.untersuchung.id} />
+      <div className="u-kopf">
+        <span className="u-kreis-gross">{termin.untersuchung.id}</span>
+        <div>
+          <div className="u-kopf-meta">{istNaechste ? 'Nächste Untersuchung' : 'Untersuchung'}</div>
+          <h1>{termin.untersuchung.zeitraum}</h1>
+        </div>
       </div>
-      <Fussnoten quelle={untersuchungenQuelle} fruehgeboren={kind.fruehgeboren} />
+      <Zeitfenster termin={termin} kind={kind} />
+      <WasPassiert termin={termin} />
+      {/* key: Zustand beim Wechsel der U neu laden */}
+      <Notizbereich key={termin.untersuchung.id} termin={termin} kind={kind} />
+      <Fussnoten
+        quelle={{
+          name: `kindergesundheit-info.de – ${termin.untersuchung.id}-Untersuchung (abgerufen am ${untersuchungenAbgerufen})`,
+          url: termin.untersuchung.url,
+        }}
+        fruehgeboren={kind.fruehgeboren}
+      />
     </div>
+  );
+}
+
+function UAuswahl({ kind, aktiv }: { kind: Kind; aktiv: string }) {
+  return (
+    <nav className="u-auswahl" aria-label="Untersuchung wählen">
+      {uTermine(kind).map((t) => {
+        const vorbei = t.ende <= kind.jetzt;
+        return (
+          <Link
+            key={t.untersuchung.id}
+            to={`/u/${t.untersuchung.id}`}
+            className={`u-auswahl-chip ${vorbei ? 'vorbei' : ''}`}
+            aria-current={t.untersuchung.id === aktiv ? 'page' : undefined}
+          >
+            {t.untersuchung.id}
+          </Link>
+        );
+      })}
+    </nav>
+  );
+}
+
+function Zeitfenster({ termin, kind }: { termin: UTermin; kind: Kind }) {
+  const vorbei = termin.ende <= kind.jetzt;
+  const laeuft = !vorbei && termin.beginn <= kind.jetzt;
+  const status = vorbei ? 'vorbei' : laeuft ? 'läuft' : abstandAlsText(tageZwischen(kind.jetzt, termin.beginn));
+  const einTag = termin.untersuchung.id === 'U1';
+
+  return (
+    <section className="karte-schatten u-zeitfenster" aria-label="Zeitfenster">
+      <div className="naechste-u-kopf">
+        <span className="titel-klein">Zeitfenster</span>
+        <span className="pille">{status}</span>
+      </div>
+      {einTag ? (
+        <p>Direkt nach der Geburt – meist noch im Kreißsaal.</p>
+      ) : (
+        <Datumskacheln von={termin.beginn} bis={letzterTag(termin.ende)} />
+      )}
+      {vorbei ? (
+        <p className="gedaempft klein">Dieses Zeitfenster liegt hinter euch. Die Inhalte bleiben zum Nachlesen hier.</p>
+      ) : (
+        !einTag && (
+          <>
+            <p className="gedaempft klein">
+              Am besten jetzt einen Termin in der Praxis ausmachen – ein Tag irgendwo in diesem Fenster ist gut.
+            </p>
+            <button type="button" className="knopf" onClick={() => uKalenderHerunterladen(termin, kind.name)}>
+              In meinen Kalender eintragen
+            </button>
+            <p className="knopf-hinweis">Lädt eine Kalenderdatei (.ics) herunter</p>
+          </>
+        )
+      )}
+    </section>
+  );
+}
+
+function WasPassiert({ termin }: { termin: UTermin }) {
+  const u = termin.untersuchung;
+  return (
+    <section className="abschnitt">
+      <h2>Was bei der {u.id} passiert</h2>
+      <div className="liste-karte">
+        {u.passiert.map((p) => (
+          <div key={p.titel} className="liste-eintrag">
+            <b>{p.titel}</b>
+            <div className="gedaempft">{p.text}</div>
+          </div>
+        ))}
+        {u.impfungen && (
+          <div className="liste-eintrag">
+            <b>Impfungen</b>
+            <div className="gedaempft">{u.impfungen}</div>
+          </div>
+        )}
+      </div>
+      {u.mitbringen.length > 0 && (
+        <div className="hinweisbox">
+          <span className="hinweisbox-punkt sprache" aria-hidden="true" />
+          <p>
+            <b>{u.id === 'U1' ? 'Gut zu wissen:' : 'Mitbringen:'}</b> {u.mitbringen.join(', ')}
+          </p>
+        </div>
+      )}
+    </section>
+  );
+}
+
+/** Checkliste und Fragen – beides nur lokal gespeichert */
+function Notizbereich({ termin, kind }: { termin: UTermin; kind: Kind }) {
+  const u = termin.untersuchung;
+  const [notizen, setNotizen] = useState<Notizen>(notizenLaden);
+  const [neueFrage, setNeueFrage] = useState('');
+  const [eingabeOffen, setEingabeOffen] = useState(false);
+
+  const beobachtet = notizen.beobachtet[u.id] ?? [];
+  const eigene = notizen.eigeneFragen[u.id] ?? [];
+
+  function aendern(neu: Notizen) {
+    setNotizen(neu);
+    notizenSpeichern(neu);
+  }
+
+  function umschalten(text: string) {
+    const liste = beobachtet.includes(text) ? beobachtet.filter((t) => t !== text) : [...beobachtet, text];
+    aendern({ ...notizen, beobachtet: { ...notizen.beobachtet, [u.id]: liste } });
+  }
+
+  function frageHinzufuegen(e: FormEvent) {
+    e.preventDefault();
+    const frage = neueFrage.trim();
+    if (!frage) return;
+    aendern({ ...notizen, eigeneFragen: { ...notizen.eigeneFragen, [u.id]: [...eigene, frage] } });
+    setNeueFrage('');
+    setEingabeOffen(false);
+  }
+
+  function frageLoeschen(frage: string) {
+    aendern({ ...notizen, eigeneFragen: { ...notizen.eigeneFragen, [u.id]: eigene.filter((f) => f !== frage) } });
+  }
+
+  return (
+    <>
+      {u.beobachten.length > 0 && (
+        <section className="abschnitt">
+          <div>
+            <h2>Das könnt ihr vorher beobachten</h2>
+            <p className="gedaempft klein">Nur als Gedächtnisstütze für euch – es gibt kein Richtig oder Falsch.</p>
+          </div>
+          {u.beobachten.map((vorlage) => {
+            const an = beobachtet.includes(vorlage);
+            return (
+              <label key={vorlage} className="check-eintrag">
+                <input type="checkbox" checked={an} onChange={() => umschalten(vorlage)} />
+                <span className="kaestchen check-kaestchen" aria-hidden="true">{an ? '✓' : ''}</span>
+                <span>{mitName(vorlage, kind)}</span>
+              </label>
+            );
+          })}
+        </section>
+      )}
+
+      <section className="abschnitt">
+        <h2>Fragen an die Praxis</h2>
+        {u.fragen.map((f) => (
+          <div key={f} className="frage-blase">„{f}“</div>
+        ))}
+        {eigene.map((f) => (
+          <div key={f} className="frage-blase eigene">
+            <span>„{f}“</span>
+            <button type="button" onClick={() => frageLoeschen(f)} aria-label={`Frage „${f}“ löschen`}>×</button>
+          </div>
+        ))}
+        {eingabeOffen ? (
+          <form className="frage-eingabe" onSubmit={frageHinzufuegen}>
+            <input
+              type="text"
+              value={neueFrage}
+              onChange={(e) => setNeueFrage(e.target.value)}
+              placeholder="Eure Frage …"
+              aria-label="Eigene Frage"
+              autoFocus
+            />
+            <button type="submit" className="knopf">Merken</button>
+          </form>
+        ) : (
+          <button type="button" className="frage-neu" onClick={() => setEingabeOffen(true)}>+ Eigene Frage notieren</button>
+        )}
+        <p className="gedaempft klein">Die Fragen und Beobachtungen sind Anregungen und bleiben nur auf diesem Gerät.</p>
+      </section>
+    </>
   );
 }

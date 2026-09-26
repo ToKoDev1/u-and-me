@@ -68,6 +68,7 @@ export default function App() {
       >
         <Route index element={<Heute kind={kind} />} />
         <Route path="naechste-u" element={<NaechsteU kind={kind} />} />
+        <Route path="u/:id" element={<NaechsteU kind={kind} />} />
         <Route path="weg" element={<EuerWeg kind={kind} />} />
       </Route>
       <Route
