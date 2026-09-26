@@ -1,8 +1,9 @@
-import { useState, type FormEvent } from 'react';
-import { datumBeiAlter, heute, parseDatum } from '../lib/alter';
+import { useEffect, useState, type FormEvent } from 'react';
+import { datumBeiAlter, heute, parseDatum, tageZwischen } from '../lib/alter';
 import { akzentSetzen } from '../lib/darstellung';
 import { maskottchen, maskottchenBild, type MaskottchenId } from '../lib/inhalte';
 import type { Profil } from '../lib/speicher';
+import { Symbol } from './Symbol';
 
 type Props = {
   /** Vorbefüllen bei „Angaben ändern“ */
@@ -21,17 +22,30 @@ export function Onboarding({ vorher, onFertig, onAbbrechen }: Props) {
   const [zuFrueh, setZuFrueh] = useState(!!vorher?.errechneterTermin);
   const [termin, setTermin] = useState(vorher?.errechneterTermin ?? '');
   const [tier, setTier] = useState<MaskottchenId>(vorher?.maskottchen ?? 'elefant');
-  const [fehler, setFehler] = useState('');
+  const [fehler, setFehler] = useState<{ feld: 'geburt' | 'termin'; text: string } | null>(null);
 
-  function pruefen(): string {
-    if (!geburtsdatum) return 'Bitte tragt das Geburtsdatum ein.';
+  // Beim Verlassen (Abbrechen, Zurück, Speichern) die Vorschau-Farbe zurücksetzen;
+  // nach dem Speichern setzt die App danach die neue.
+  useEffect(() => () => akzentSetzen(vorher?.maskottchen), [vorher]);
+
+  function pruefen(): typeof fehler {
+    if (!geburtsdatum) return { feld: 'geburt', text: 'Bitte tragt das Geburtsdatum ein.' };
     const geburt = parseDatum(geburtsdatum);
-    if (geburt > heute()) return 'Das Geburtsdatum liegt in der Zukunft – bitte prüft es noch einmal.';
-    if (datumBeiAlter(geburt, { monate: 24 }) <= heute()) {
-      return 'Euer Kind ist schon älter als 2 Jahre. U & Me begleitet euch im Moment nur bis zur U7 – für ältere Kinder folgen die Inhalte später.';
+    if (geburt > heute()) return { feld: 'geburt', text: 'Das Geburtsdatum liegt in der Zukunft – bitte prüft es noch einmal.' };
+    // Nur beim ersten Anlegen: Bestehende Familien sollen ihre Angaben immer ändern können
+    if (!vorher && datumBeiAlter(geburt, { monate: 24 }) <= heute()) {
+      return {
+        feld: 'geburt',
+        text: 'Euer Kind ist schon älter als 2 Jahre. U & Me begleitet euch im Moment nur bis zur U7 – für ältere Kinder folgen die Inhalte später.',
+      };
     }
-    if (zuFrueh && termin && parseDatum(termin) <= geburt) return 'Der errechnete Termin sollte nach dem Geburtsdatum liegen.';
-    return '';
+    if (zuFrueh) {
+      if (!termin) return { feld: 'termin', text: 'Bitte tragt den errechneten Termin ein – oder nehmt den Haken bei „Zu früh geboren?“ heraus.' };
+      const abstand = tageZwischen(geburt, parseDatum(termin));
+      if (abstand <= 0) return { feld: 'termin', text: 'Der errechnete Termin sollte nach dem Geburtsdatum liegen.' };
+      if (abstand > 18 * 7) return { feld: 'termin', text: 'Der errechnete Termin liegt ungewöhnlich weit nach der Geburt – bitte prüft ihn noch einmal.' };
+    }
+    return null;
   }
 
   function weiter(e: FormEvent) {
@@ -87,31 +101,39 @@ export function Onboarding({ vorher, onFertig, onAbbrechen }: Props) {
               value={geburtsdatum}
               max={isoHeute()}
               required
-              onChange={(e) => { setGeburtsdatum(e.target.value); setFehler(''); }}
+              aria-invalid={fehler?.feld === 'geburt'}
+              aria-describedby={fehler?.feld === 'geburt' ? 'fehler-meldung' : undefined}
+              onChange={(e) => { setGeburtsdatum(e.target.value); setFehler(null); }}
             />
           </label>
+          {fehler?.feld === 'geburt' && <p id="fehler-meldung" className="fehler" role="alert">{fehler.text}</p>}
           <label className="feld">
             <span className="feld-label">Name <span className="gedaempft">(optional)</span></span>
-            <input type="text" value={name} placeholder="Mila" autoComplete="off" onChange={(e) => setName(e.target.value)} />
+            <input type="text" value={name} placeholder="z. B. Mila" autoComplete="off" onChange={(e) => setName(e.target.value)} />
           </label>
           <label className="ankreuzen">
-            <input type="checkbox" checked={zuFrueh} onChange={(e) => setZuFrueh(e.target.checked)} />
+            <input type="checkbox" checked={zuFrueh} onChange={(e) => { setZuFrueh(e.target.checked); setFehler(null); }} />
             <span className="kaestchen" aria-hidden="true">{zuFrueh ? '✓' : ''}</span>
             <span><b>Zu früh geboren?</b> Dann tragt zusätzlich den errechneten Termin ein.</span>
           </label>
           {zuFrueh && (
             <label className="feld">
               <span className="feld-label">Errechneter Termin</span>
-              <input type="date" value={termin} onChange={(e) => { setTermin(e.target.value); setFehler(''); }} />
+              <input
+                type="date"
+                value={termin}
+                aria-invalid={fehler?.feld === 'termin'}
+                aria-describedby={fehler?.feld === 'termin' ? 'fehler-meldung' : undefined}
+                onChange={(e) => { setTermin(e.target.value); setFehler(null); }}
+              />
             </label>
           )}
+          {fehler?.feld === 'termin' && <p id="fehler-meldung" className="fehler" role="alert">{fehler.text}</p>}
         </div>
-
-        {fehler && <p className="fehler" role="alert">{fehler}</p>}
 
         <div className="datenschutz">
           <div className="hinweisbox">
-            <span className="hinweisbox-punkt bewegung" aria-hidden="true" />
+            <Symbol name="schloss" className="hinweisbox-symbol" />
             <p><b>Alles bleibt auf diesem Gerät.</b> Kein Konto, keine Anmeldung – nichts wird verschickt.</p>
           </div>
         </div>
@@ -137,6 +159,7 @@ export function Onboarding({ vorher, onFertig, onAbbrechen }: Props) {
             <label key={m.id} className="tier-karte">
               <input type="radio" name="maskottchen" value={m.id} checked={tier === m.id} onChange={() => tierWaehlen(m.id)} />
               <span className="nur-screenreader">{m.name}</span>
+              <span className="tier-haken" aria-hidden="true"><Symbol name="haken" /></span>
               <span className="tier-bild"><img src={maskottchenBild(m.id)} alt="" /></span>
               <span className="tier-geschichte">{m.geschichte}</span>
             </label>

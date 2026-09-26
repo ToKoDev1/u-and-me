@@ -97,7 +97,7 @@
       "impfungen": "Der Impfstatus wird geprüft, fehlende Impfungen werden nachgeholt.",
       "mitbringen": ["Gesundheitskarte", "Impfausweis", "Gelbes Kinderuntersuchungsheft"],
       "beobachten": ["Dreht sich {kind} vom Rücken auf den Bauch?", "Greift {kind} mit beiden Händen?", "Wie reagiert {kind} auf Stimmen?"],
-      "fragen": ["Wann und wie mit Beikost starten?", "Ist unser Schlafrhythmus normal?", "Wann gehen wir das erste Mal zum Zahnarzt?"]
+      "fragen": ["Wann und wie mit Beikost starten?", "Passt unser Schlafrhythmus so?", "Wann gehen wir das erste Mal zum Zahnarzt?"]
     },
     {
       "id": "U6",

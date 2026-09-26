@@ -117,8 +117,8 @@
 
 /* Persönlicher Akzent je Maskottchen (hell) */
 [data-maskottchen="pinguin"] { --farbe-akzent: #3E6B66; --farbe-akzent-text: #3E6B66; --farbe-akzent-flaeche: #D4E5E2; }
-[data-maskottchen="loewe"]   { --farbe-akzent: #8A5F14; --farbe-akzent-text: #8A5F14; --farbe-akzent-flaeche: #F5DDAE; }
-[data-maskottchen="hund"]    { --farbe-akzent: #8A5A3C; --farbe-akzent-text: #8A5A3C; --farbe-akzent-flaeche: #EFDDCC; }
+[data-maskottchen="loewe"]   { --farbe-akzent: #9A5418; --farbe-akzent-text: #8E4D15; --farbe-akzent-flaeche: #F6D9C4; }
+[data-maskottchen="hund"]    { --farbe-akzent: #6B5A4E; --farbe-akzent-text: #6B5A4E; --farbe-akzent-flaeche: #E7DFD8; }
 /* … und dunkel */
 [data-theme="dunkel"] [data-maskottchen="pinguin"], [data-theme="dunkel"][data-maskottchen="pinguin"] { --farbe-akzent: #8FBDB7; --farbe-akzent-text: #A5CCC7; --farbe-akzent-flaeche: #22403F; }
 [data-theme="dunkel"] [data-maskottchen="loewe"],   [data-theme="dunkel"][data-maskottchen="loewe"]   { --farbe-akzent: #F2C98A; --farbe-akzent-text: #F2C98A; --farbe-akzent-flaeche: #4A3F28; }

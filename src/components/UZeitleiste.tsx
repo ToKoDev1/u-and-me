@@ -32,6 +32,19 @@ export function UZeitleiste({ kind, onDatum }: Props) {
     zustand: t.ende <= kind.jetzt ? 'vorbei' : t.untersuchung.id === naechste ? 'naechste' : 'kommend',
   }));
 
+  // Beschriftungen, die zu dicht liegen (U1/U2 in den ersten Tagen), zu „U1·2“ zusammenfassen
+  const ABSTAND = 0.07;
+  const marken: { id: string; zustand: string; mitte: number; zusammen?: string }[] = [];
+  for (const t of termine) {
+    const mitte = (position(t.von) + position(t.bis)) / 2;
+    const vorige = marken.at(-1);
+    if (vorige && !vorige.zusammen && mitte - vorige.mitte < ABSTAND) {
+      marken[marken.length - 1] = { id: t.untersuchung.id, zustand: t.zustand, mitte: (vorige.mitte + mitte) / 2, zusammen: vorige.id };
+    } else {
+      marken.push({ id: t.untersuchung.id, zustand: t.zustand, mitte });
+    }
+  }
+
   return (
     <div className={`u-zeitleiste ${onDatum ? 'interaktiv' : ''}`}>
       <div className="zr-schiene">
@@ -62,14 +75,15 @@ export function UZeitleiste({ kind, onDatum }: Props) {
       </div>
 
       <nav className="zr-marken" aria-label="U-Untersuchungen">
-        {termine.map((t) => (
+        {marken.map((m) => (
           <Link
-            key={t.untersuchung.id}
-            to={`/u/${t.untersuchung.id}`}
-            className={t.zustand}
-            style={{ left: `${((position(t.von) + position(t.bis)) / 2) * 100}%` }}
+            key={m.id}
+            to={`/u/${m.id}`}
+            className={m.zustand}
+            style={{ left: `${m.mitte * 100}%` }}
+            aria-label={m.zusammen ? `${m.zusammen} und ${m.id}` : m.id}
           >
-            {t.untersuchung.id}
+            {m.zusammen ? `${m.zusammen}·${m.id.slice(1)}` : m.id}
           </Link>
         ))}
       </nav>

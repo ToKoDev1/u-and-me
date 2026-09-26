@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, Navigate, useParams } from 'react-router-dom';
 import { abstandAlsText, letzterTag, tageZwischen } from '../lib/alter';
 import {
   mitName,
@@ -13,13 +13,20 @@ import type { Kind } from '../lib/kind';
 import { uKalenderHerunterladen } from '../lib/kalender';
 import { notizenLaden, notizenSpeichern, type Notizen } from '../lib/speicher';
 import { Datumskacheln } from './Datumskacheln';
+import { Symbol } from './Symbol';
+import { useSeitentitel } from '../lib/seite';
 
 /** Detailseite einer U – ohne Parameter die nächste U, unter /u/U3 eine bestimmte */
 export function NaechsteU({ kind }: { kind: Kind }) {
   const { id } = useParams();
   const naechste = naechsteUntersuchung(kind);
-  const termin = (id && uTermin(kind, id)) || naechste || uTermine(kind).at(-1)!;
+  const gewaehlt = id ? uTermin(kind, id.toUpperCase()) : undefined;
+  const termin = gewaehlt || naechste || uTermine(kind).at(-1)!;
   const istNaechste = termin.untersuchung.id === naechste?.untersuchung.id;
+  useSeitentitel(termin.untersuchung.id);
+
+  // Unbekannte Adresse wie /u/U9 oder /u/xyz → zur nächsten U
+  if (id && !gewaehlt) return <Navigate to="/naechste-u" replace />;
 
   return (
     <div className="u-seite">
@@ -28,7 +35,10 @@ export function NaechsteU({ kind }: { kind: Kind }) {
         <span className="u-kreis-gross">{termin.untersuchung.id}</span>
         <div>
           <div className="u-kopf-meta">{istNaechste ? 'Nächste Untersuchung' : 'Untersuchung'}</div>
-          <h1>{termin.untersuchung.zeitraum}</h1>
+          <h1 tabIndex={-1}>
+            <span className="nur-screenreader">{termin.untersuchung.id}: </span>
+            {termin.untersuchung.zeitraum}
+          </h1>
         </div>
       </div>
       <Zeitfenster termin={termin} kind={kind} />
@@ -42,7 +52,7 @@ export function NaechsteU({ kind }: { kind: Kind }) {
 function Zeitfenster({ termin, kind }: { termin: UTermin; kind: Kind }) {
   const vorbei = termin.ende <= kind.jetzt;
   const laeuft = !vorbei && termin.beginn <= kind.jetzt;
-  const status = vorbei ? 'vorbei' : laeuft ? 'läuft' : abstandAlsText(tageZwischen(kind.jetzt, termin.beginn));
+  const status = vorbei ? 'vorbei' : laeuft ? 'Fenster läuft' : abstandAlsText(tageZwischen(kind.jetzt, termin.beginn));
   const einTag = termin.untersuchung.id === 'U1';
 
   return (
@@ -65,7 +75,7 @@ function Zeitfenster({ termin, kind }: { termin: UTermin; kind: Kind }) {
               Am besten jetzt einen Termin in der Praxis ausmachen – ein Tag irgendwo in diesem Fenster ist gut.
             </p>
             <button type="button" className="knopf" onClick={() => uKalenderHerunterladen(termin, kind.name)}>
-              In meinen Kalender eintragen
+              In euren Kalender eintragen
             </button>
             <p className="knopf-hinweis">Lädt eine Kalenderdatei (.ics) herunter</p>
           </>
@@ -101,7 +111,7 @@ function WasPassiert({ termin }: { termin: UTermin }) {
       </div>
       {u.mitbringen.length > 0 && (
         <div className="hinweisbox">
-          <span className="hinweisbox-punkt sprache" aria-hidden="true" />
+          <Symbol name={u.id === 'U1' ? 'info' : 'tasche'} className="hinweisbox-symbol" />
           <p>
             <b>{u.id === 'U1' ? 'Gut zu wissen:' : 'Mitbringen:'}</b> {u.mitbringen.join(', ')}
           </p>
@@ -134,14 +144,19 @@ function Notizbereich({ termin, kind }: { termin: UTermin; kind: Kind }) {
   function frageHinzufuegen(e: FormEvent) {
     e.preventDefault();
     const frage = neueFrage.trim();
-    if (!frage) return;
+    // Leer oder schon notiert (Groß-/Kleinschreibung egal) → nichts doppelt speichern
+    if (!frage || eigene.some((f) => f.toLowerCase() === frage.toLowerCase())) {
+      setNeueFrage('');
+      setEingabeOffen(false);
+      return;
+    }
     aendern({ ...notizen, eigeneFragen: { ...notizen.eigeneFragen, [u.id]: [...eigene, frage] } });
     setNeueFrage('');
     setEingabeOffen(false);
   }
 
-  function frageLoeschen(frage: string) {
-    aendern({ ...notizen, eigeneFragen: { ...notizen.eigeneFragen, [u.id]: eigene.filter((f) => f !== frage) } });
+  function frageLoeschen(index: number) {
+    aendern({ ...notizen, eigeneFragen: { ...notizen.eigeneFragen, [u.id]: eigene.filter((_, i) => i !== index) } });
   }
 
   return (
@@ -170,10 +185,10 @@ function Notizbereich({ termin, kind }: { termin: UTermin; kind: Kind }) {
         {u.fragen.map((f) => (
           <div key={f} className="frage-blase">„{f}“</div>
         ))}
-        {eigene.map((f) => (
-          <div key={f} className="frage-blase eigene">
+        {eigene.map((f, i) => (
+          <div key={`${i}-${f}`} className="frage-blase eigene">
             <span>„{f}“</span>
-            <button type="button" onClick={() => frageLoeschen(f)} aria-label={`Frage „${f}“ löschen`}>×</button>
+            <button type="button" onClick={() => frageLoeschen(i)} aria-label={`Frage „${f}“ löschen`}>×</button>
           </div>
         ))}
         {eingabeOffen ? (

@@ -1,5 +1,6 @@
-import type { ReactNode } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { useEffect, useRef, type ReactNode } from 'react';
+import { Link, Outlet, useLocation } from 'react-router-dom';
+import { kindAus } from '../lib/kind';
 import type { Profil } from '../lib/speicher';
 import { Avatar } from './Avatar';
 import { Fusszeile } from './Fusszeile';
@@ -17,6 +18,19 @@ type Props = {
  * von dem aus alles erreichbar ist; Unterseiten führen mit „← Heute“ zurück.
  */
 export function Rahmen({ profil, oben, onZeitreise }: Props) {
+  const { pathname } = useLocation();
+  const ersterAufruf = useRef(true);
+
+  // Beim Seitenwechsel: nach oben und Fokus auf die Überschrift (für Screenreader/Tastatur)
+  useEffect(() => {
+    if (ersterAufruf.current) {
+      ersterAufruf.current = false;
+      return;
+    }
+    window.scrollTo(0, 0);
+    document.querySelector<HTMLElement>('main h1')?.focus({ preventScroll: true });
+  }, [pathname]);
+
   return (
     <div className="app">
       <header className="kopfzeile">
@@ -30,7 +44,7 @@ export function Rahmen({ profil, oben, onZeitreise }: Props) {
       <main className="seite">
         <Outlet />
       </main>
-      <Fusszeile fruehgeboren={!!profil.errechneterTermin} onZeitreise={onZeitreise} />
+      <Fusszeile fruehgeboren={kindAus(profil).fruehgeboren} onZeitreise={onZeitreise} />
     </div>
   );
 }

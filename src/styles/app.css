@@ -28,7 +28,7 @@ img { display: block; }
 .nur-screenreader { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
 @media (prefers-reduced-motion: no-preference) {
-  a, button, .karte, .klickbar { transition: background-color 180ms ease-out, border-color 180ms ease-out, color 180ms ease-out; }
+  a, button, .kachel, .zeile-link, .wichtig { transition: background-color 180ms ease-out, border-color 180ms ease-out, color 180ms ease-out; }
 }
 
 /* ---------- Rahmen: Kopfzeile, Navigation ---------- */
@@ -96,34 +96,36 @@ img { display: block; }
   display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center;
   font-size: 12.5px; line-height: 1.5; color: var(--farbe-text-gedaempft);
 }
-.fusszeile a, .fusszeile button.link { color: inherit; text-decoration: underline; background: none; border: 0; padding: 0; cursor: pointer; font-size: inherit; }
+.fusszeile a, .fusszeile button.link { color: inherit; text-decoration: underline; background: none; border: 0; padding: 10px 4px; margin: -10px 0; cursor: pointer; font-size: inherit; }
 .fusszeile-info { max-width: 440px; background: var(--farbe-hinweis); border-radius: 14px; padding: 10px 12px; }
 .fusszeile-einstellungen { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px 14px; margin-top: 6px; }
 .darstellung { display: inline-flex; gap: 4px; }
-.darstellung button { background: none; border: 1px solid var(--farbe-linie); border-radius: var(--radius-rund); padding: 2px 10px; cursor: pointer; font-size: 12.5px; color: var(--farbe-text-gedaempft); min-height: 30px; }
+.darstellung button { background: none; border: 1px solid var(--farbe-linie); border-radius: var(--radius-rund); padding: 2px 12px; cursor: pointer; font-size: 13px; color: var(--farbe-text-gedaempft); min-height: 44px; }
 .darstellung button[aria-pressed='true'] { border-color: var(--farbe-akzent); color: var(--farbe-akzent-text); font-weight: 800; }
 .titel-mit-quelle { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
 .titel-mit-quelle a { font-size: 12.5px; color: var(--farbe-text-gedaempft); white-space: nowrap; }
 
 .hinweisbox { background: var(--farbe-hinweis); border-radius: 20px; padding: 14px 16px; display: flex; gap: 12px; align-items: flex-start; font-size: var(--groesse-s); }
-.hinweisbox-punkt { width: 28px; height: 28px; flex: none; border-radius: 50%; }
-.hinweisbox-punkt.bewegung { background: var(--farbe-bewegung-flaeche); border: 2px solid var(--farbe-bewegung); }
-.hinweisbox-punkt.sprache { background: var(--farbe-sprache-flaeche); border: 2px solid var(--farbe-sprache); }
+.symbol { width: 24px; height: 24px; flex: none; }
+.hinweisbox-symbol { color: var(--farbe-akzent-text); margin-top: 1px; }
 
 /* ---------- Heute: ein Zentrum, drei Kacheln, eine wichtige Sache ---------- */
 .heute { max-width: 520px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; padding-top: 12px; }
-.heute-datum { text-align: center; font-size: 12.5px; letter-spacing: .08em; text-transform: uppercase; font-weight: 800; color: var(--farbe-text-gedaempft); }
 
 .zeitring { display: flex; flex-direction: column; align-items: center; text-align: center; }
-.zeitring-grafik { position: relative; width: 236px; height: 236px; }
+.zeitring-grafik { position: relative; width: 196px; height: 196px; }
 .zeitring-grafik svg { width: 100%; height: 100%; }
 .ring-spur, .ring-fenster, .ring-zeit { fill: none; stroke-width: 11; }
 .ring-spur { stroke: var(--farbe-linie); }
 .ring-fenster { stroke: var(--farbe-akzent); opacity: .22; }
 .ring-zeit { stroke: var(--farbe-akzent); stroke-linecap: round; }
 .zeitring-mitte { position: absolute; inset: 0; display: grid; place-items: center; }
-.zeitring-tier { height: 150px; width: 150px; object-fit: contain; }
-.zeitring-alter { font-size: var(--groesse-xxl); font-weight: 800; line-height: 1.15; margin-top: 14px; }
+.zeitring-tier { height: 124px; width: 124px; object-fit: contain; }
+.zeitring-alter { font-size: 28px; font-weight: 800; line-height: 1.15; margin-top: 10px; }
+.zeitring-alter:focus, main h1:focus { outline: none; }
+.zeitring-name { display: block; font-size: var(--groesse-s); font-weight: 700; color: var(--farbe-text-gedaempft); margin-bottom: 2px; }
+.kachel-ruhig { opacity: 1; background: transparent; border-style: dashed; }
+.kachel-ruhig .kachel-titel { color: var(--farbe-text-gedaempft); }
 .zeitring-titel { font-size: 17px; font-weight: 700; margin-top: 4px; }
 .zeitring-unterzeile { font-size: var(--groesse-s); color: var(--farbe-text-gedaempft); }
 
@@ -192,10 +194,13 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 }
 .tier-karte input { position: absolute; opacity: 0; pointer-events: none; }
 .tier-karte:has(input:checked) { background: var(--farbe-akzent-flaeche); border: 2.5px solid var(--farbe-akzent); padding: 9px; }
+.tier-karte:has(input:checked) .tier-geschichte { color: var(--farbe-text); }
+.tier-haken { position: absolute; top: 8px; right: 8px; width: 28px; height: 28px; border-radius: 50%; display: none; place-items: center; background: var(--farbe-akzent); color: var(--farbe-auf-akzent); }
+.tier-haken .symbol { width: 18px; height: 18px; stroke-width: 3; }
+.tier-karte:has(input:checked) .tier-haken { display: grid; }
 .tier-karte:has(input:focus-visible) { outline: 3px solid var(--farbe-akzent); outline-offset: 2px; }
 .tier-bild { height: 104px; display: flex; justify-content: center; align-items: flex-end; }
 .tier-bild img { height: 100px; width: 100%; object-fit: contain; object-position: center bottom; }
-.tier-name { font-weight: 800; font-size: 16.5px; margin-top: 8px; }
 .tier-geschichte { font-size: 13.5px; color: var(--farbe-text-gedaempft); line-height: 1.35; margin-top: 8px; text-align: center; }
 .onboarding-auswahl-text { clear: both; margin-bottom: 14px; }
 .onboarding-cta { padding-top: 28px; }
@@ -210,6 +215,8 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
   padding: 13px 16px; font-size: 18px; font-weight: 700; min-height: 54px; width: 100%;
 }
 .feld input:focus { outline: none; border: 2px solid var(--farbe-akzent); padding: 12.5px 15.5px; }
+.feld input::placeholder { font-weight: 400; color: var(--farbe-text-gedaempft); }
+.feld input[aria-invalid='true'] { border: 2px solid var(--farbe-warnung-punkt); padding: 12.5px 15.5px; }
 .ankreuzen {
   background: var(--farbe-flaeche); border: 1.5px solid var(--farbe-linie); border-radius: 18px;
   padding: 14px 16px; display: flex; gap: 12px; align-items: center; cursor: pointer; font-size: var(--groesse-s);
@@ -219,7 +226,7 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 .ankreuzen:has(input:checked) .kaestchen { background: var(--farbe-akzent); border-color: var(--farbe-akzent); }
 .ankreuzen:has(input:focus-visible) { outline: 3px solid var(--farbe-akzent); outline-offset: 2px; }
 .datenschutz { padding-top: 22px; }
-.fehler { color: var(--farbe-warnung-text); background: var(--farbe-warnung-flaeche); border-radius: 18px; padding: 12px 16px; font-weight: 700; font-size: var(--groesse-s); margin-top: 18px; }
+.fehler { color: var(--farbe-warnung-text); background: var(--farbe-warnung-flaeche); border-radius: 18px; padding: 12px 16px; font-weight: 700; font-size: var(--groesse-s); margin-top: -6px; }
 
 /* ---------- Nächste U / Detailseite ---------- */
 .klein { font-size: var(--groesse-s); }
@@ -246,7 +253,7 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 .check-eintrag:has(input:focus-visible) { outline: 3px solid var(--farbe-akzent); outline-offset: 2px; }
 .frage-blase { background: var(--farbe-akzent-flaeche); border-radius: 22px 22px 22px 8px; padding: 12px 16px; }
 .frage-blase.eigene { display: flex; justify-content: space-between; gap: 8px; align-items: flex-start; }
-.frage-blase.eigene button { background: none; border: 0; font-size: 20px; line-height: 1; cursor: pointer; color: var(--farbe-text-gedaempft); min-width: 32px; min-height: 32px; }
+.frage-blase.eigene button { background: none; border: 0; font-size: 20px; line-height: 1; cursor: pointer; color: var(--farbe-text-gedaempft); min-width: 44px; min-height: 44px; margin: -10px -10px -10px 0; }
 .frage-neu {
   border: 2px dashed var(--farbe-linie-kraeftig); border-radius: 22px; padding: 12px 16px; background: none;
   color: var(--farbe-akzent-text); font-weight: 800; text-align: center; cursor: pointer; min-height: var(--beruehrflaeche-min);
@@ -265,12 +272,12 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 }
 .zeitreise-kopf { display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; }
 .zeitreise-kopf > span { flex: 1; color: var(--farbe-text-gedaempft); }
-.zeitreise-schliessen { background: none; border: 0; font-size: 22px; line-height: 1; cursor: pointer; padding: 0 4px; }
+.zeitreise-schliessen { background: none; border: 0; font-size: 22px; line-height: 1; cursor: pointer; min-width: 44px; min-height: 44px; margin: -12px -12px -12px 0; }
 /* Schiene mit U-Fenstern, darüber der (unsichtbare) Regler mit eigenem Knopf */
 .zr-schiene { position: relative; height: 32px; margin: 4px 10px 0; }
 .zr-spur { position: absolute; left: 0; right: 0; top: 13px; height: 6px; border-radius: 3px; background: var(--farbe-linie); }
 .zr-fenster { position: absolute; top: -2px; height: 10px; min-width: 4px; border-radius: 5px; background: var(--farbe-akzent); opacity: .45; }
-.zr-fenster.vorbei { opacity: .22; }
+.zr-fenster.vorbei { opacity: 1; background: var(--farbe-linie-kraeftig); }
 .zr-fenster.naechste { opacity: 1; }
 .zr-heute { position: absolute; top: 5px; width: 22px; height: 22px; margin-left: -11px; border-radius: 50%; background: var(--farbe-akzent); border: 3px solid var(--farbe-hintergrund); box-shadow: 0 0 0 1.5px var(--farbe-akzent); }
 .u-zeitleiste { width: 100%; }
@@ -280,8 +287,9 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 .zr-regler::-webkit-slider-thumb { -webkit-appearance: none; width: 24px; height: 24px; margin-top: 4px; border-radius: 50%; background: var(--farbe-akzent); border: 3px solid var(--farbe-flaeche); box-shadow: var(--schatten-weich); }
 .zr-regler::-moz-range-thumb { width: 18px; height: 18px; border-radius: 50%; background: var(--farbe-akzent); border: 3px solid var(--farbe-flaeche); }
 .zr-marken { position: relative; height: 18px; margin: 0 10px; font-size: 12.5px; font-weight: 800; color: var(--farbe-text-gedaempft); }
-.zr-marken a { position: absolute; top: 0; transform: translateX(-50%); text-decoration: none; padding: 0 2px; }
-.zr-marken a.vorbei { opacity: .6; }
+/* Trefferfläche ≥ 44 px, sichtbar bleibt nur die Beschriftung */
+.zr-marken a { position: absolute; top: -14px; transform: translateX(-50%); text-decoration: none; min-width: 36px; min-height: 44px; padding: 14px 4px 0; text-align: center; }
+.zr-marken a.vorbei { color: var(--farbe-text-gedaempft); font-weight: 700; }
 .zr-marken a.naechste { color: var(--farbe-akzent-text); }
 .zr-marken a:hover { text-decoration: underline; }
 .u-zeitleiste .zr-marken { height: 20px; }
@@ -292,8 +300,13 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
   .chip-entwurf { font-size: 13px; }
   .seite { max-width: var(--inhalt-max); margin: 0 auto; padding: 36px 40px 0; }
   .fusszeile { padding-bottom: 32px; }
-  .zeitring-grafik { width: 280px; height: 280px; }
-  .zeitring-tier { height: 180px; width: 180px; }
+  .zeitring-grafik { width: 260px; height: 260px; }
+  .zeitring-tier { height: 164px; width: 164px; }
   .onboarding { padding-top: 24px; }
   .zeitreise { margin-top: 16px; padding-inline: max(40px, calc((100% - var(--inhalt-max)) / 2 + 40px)); }
 }
+
+/* ---------- Fehlerseite ---------- */
+.fehlerseite { max-width: 480px; margin: 0 auto; padding: 64px 20px; display: flex; flex-direction: column; gap: 16px; }
+.fehlerseite h1 { font-size: 26px; }
+.knopf-zweit { background: transparent; color: var(--farbe-akzent-text); border: 2px solid var(--farbe-akzent); }

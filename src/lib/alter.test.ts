@@ -37,6 +37,10 @@ describe('alterAlsText', () => {
     expect(text('2026-09-26')).toBe('5 Monate und 1 Woche');
     expect(text('2026-10-19')).toBe('6 Monate');
   });
+  it('nennt ab 2 Jahren Jahre und Monate', () => {
+    expect(text('2028-04-19')).toBe('2 Jahre');
+    expect(text('2028-07-25')).toBe('2 Jahre und 3 Monate');
+  });
 });
 
 describe('spanneAlsText', () => {

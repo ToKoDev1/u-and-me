@@ -8,6 +8,7 @@ import '@fontsource/nunito/latin-800.css';
 import './styles/tokens.css';
 import './styles/app.css';
 import App from './App';
+import { Fehlerseite } from './components/Fehlerseite';
 import { darstellungAnwenden, systemBeobachten } from './lib/darstellung';
 import { allesLoeschen } from './lib/speicher';
 
@@ -24,8 +25,10 @@ systemBeobachten();
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter basename={import.meta.env.BASE_URL}>
-      <App />
-    </BrowserRouter>
+    <Fehlerseite>
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
+        <App />
+      </BrowserRouter>
+    </Fehlerseite>
   </StrictMode>,
 );

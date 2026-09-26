@@ -10,13 +10,15 @@ import {
   type Etappe,
 } from '../lib/inhalte';
 import type { Kind } from '../lib/kind';
+import { useSeitentitel } from '../lib/seite';
 
 /** Gemeinsamer Aufbau: Zurück, Titel, Einleitung, Inhalt, Fußnoten */
-function Unterseite({ titel, intro, children }: { titel: string; intro: string; kind: Kind; children: ReactNode }) {
+function Unterseite({ titel, kurztitel, intro, children }: { titel: string; kurztitel: string; intro: string; children: ReactNode }) {
+  useSeitentitel(kurztitel);
   return (
     <div className="unterseite">
       <Link to="/" className="zurueck-link">← Heute</Link>
-      <h1>{titel}</h1>
+      <h1 tabIndex={-1}>{titel}</h1>
       <p className="gedaempft">{intro}</p>
       {children}
     </div>
@@ -40,11 +42,11 @@ export function Begegnen({ kind }: { kind: Kind }) {
   return (
     <Unterseite
       titel="Was euch gerade begegnen kann"
+      kurztitel="Begegnet euch"
       intro="Typische Phasen in diesem Alter – damit ihr wisst: Das ist häufig und meist ganz normal."
-      kind={kind}
     >
       {eintraege.length === 0 ? (
-        <Leer>Gerade steht nichts Besonderes an. Genießt die Zeit!</Leer>
+        <Leer>Gerade ist es eher ruhig – euer Kind festigt, was es schon kann.</Leer>
       ) : (
         <ul className="ruhige-liste">
           {eintraege.map((e) => (
@@ -87,8 +89,8 @@ export function Entwicklung({ kind }: { kind: Kind }) {
   return (
     <Unterseite
       titel="Gerade dran"
+      kurztitel="Gerade dran"
       intro="Entwicklungsschritte, deren typische Zeit gerade läuft. Jedes Kind hat sein eigenes Tempo – das sind Spannbreiten, keine Termine."
-      kind={kind}
     >
       {dran.length === 0 ? (
         <Leer>Gerade beginnt kein neuer Schritt – euer Kind festigt, was es schon kann.</Leer>
@@ -129,8 +131,8 @@ export function Spielen({ kind }: { kind: Kind }) {
   return (
     <Unterseite
       titel="Spielideen für diese Zeit"
+      kurztitel="Spielideen"
       intro="Keine Pflicht – was euch beiden Spaß macht, ist richtig."
-      kind={kind}
     >
       {ideen.length === 0 ? (
         <Leer>Für dieses Alter folgen die Spielideen noch.</Leer>

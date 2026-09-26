@@ -64,6 +64,11 @@ const mehrzahl = (n: number, eins: string, viele: string) => `${n} ${n === 1 ? e
 export function alterAlsText(alter: AlterAufgeteilt): string {
   if (alter.tage < 14) return mehrzahl(alter.tage, 'Tag', 'Tage');
   if (alter.monate < 2) return mehrzahl(Math.floor(alter.tage / 7), 'Woche', 'Wochen');
+  if (alter.monate >= 24) {
+    const jahre = mehrzahl(Math.floor(alter.monate / 12), 'Jahr', 'Jahre');
+    const rest = alter.monate % 12;
+    return rest > 0 ? `${jahre} und ${mehrzahl(rest, 'Monat', 'Monate')}` : jahre;
+  }
   const monate = mehrzahl(alter.monate, 'Monat', 'Monate');
   return alter.restWochen > 0 ? `${monate} und ${mehrzahl(alter.restWochen, 'Woche', 'Wochen')}` : monate;
 }

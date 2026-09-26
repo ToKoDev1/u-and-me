@@ -9,7 +9,7 @@ import { Zeitreise } from './components/Zeitreise';
 import { heute } from './lib/alter';
 import { akzentSetzen } from './lib/darstellung';
 import { kindAus } from './lib/kind';
-import { profilLaden, profilSpeichern, type Profil } from './lib/speicher';
+import { alsProfil, profilLaden, profilSpeichern, type Profil } from './lib/speicher';
 
 const url = new URLSearchParams(window.location.search);
 
@@ -17,7 +17,7 @@ const url = new URLSearchParams(window.location.search);
 // ?demo=elefant,2026-04-19,Mila[,errechneterTermin] – wird nicht gespeichert.
 const demo = import.meta.env.DEV ? url.get('demo')?.split(',') : undefined;
 const demoProfil: Profil | null = demo
-  ? { maskottchen: demo[0] as Profil['maskottchen'], geburtsdatum: demo[1], name: demo[2] || undefined, errechneterTermin: demo[3] }
+  ? alsProfil({ maskottchen: demo[0], geburtsdatum: demo[1], name: demo[2], errechneterTermin: demo[3] })
   : null;
 
 // Zeitreise (Datum simulieren): in der Entwicklung per Link, überall per ?zeitreise
@@ -35,7 +35,7 @@ export default function App() {
   function speichern(neu: Profil) {
     profilSpeichern(neu);
     setProfil(neu);
-    navigate('/');
+    navigate('/', { replace: true }); // Zurück-Knopf führt nicht wieder ins Formular
   }
 
   if (!profil) return <Onboarding onFertig={speichern} />;
@@ -78,10 +78,7 @@ export default function App() {
           <Onboarding
             vorher={profil}
             onFertig={speichern}
-            onAbbrechen={() => {
-              akzentSetzen(profil.maskottchen);
-              navigate(-1);
-            }}
+            onAbbrechen={() => navigate('/', { replace: true })}
           />
         }
       />

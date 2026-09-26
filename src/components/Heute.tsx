@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { abstandAlsText, datumFormat, spanneAlsText, tageZwischen } from '../lib/alter';
+import { abstandAlsText, spanneAlsText, tageZwischen } from '../lib/alter';
 import {
   aktuelleEtappen,
   aktuellePhase,
@@ -8,11 +8,13 @@ import {
   type Etappe,
 } from '../lib/inhalte';
 import type { Kind } from '../lib/kind';
+import { useSeitentitel } from '../lib/seite';
 import { UZeitleiste } from './UZeitleiste';
 import { Zeitring } from './Zeitring';
 
-/** Startseite im reduzierten Stil: ein Zentrum, drei Kacheln, eine wichtige Sache */
+/** Startseite im reduzierten Stil: ein Zentrum, die nächste U, drei Kacheln, eine wichtige Sache */
 export function Heute({ kind }: { kind: Kind }) {
+  useSeitentitel();
   const phase = aktuellePhase(kind);
   const aktuell = aktuelleEtappen(kind);
   const begegnen = aktuell.filter((e) => e.bereich === 'alltag');
@@ -22,25 +24,46 @@ export function Heute({ kind }: { kind: Kind }) {
   const wichtig = heuteWichtig(kind, begegnen, geradeDran);
 
   const kacheln = [
-    { pfad: '/begegnen', titel: 'Begegnet euch', info: anzahl(begegnen.length, 'Thema', 'Themen') },
-    { pfad: '/entwicklung', titel: 'Gerade dran', info: anzahl(geradeDran.length, 'Schritt', 'Schritte') },
-    { pfad: '/spielen', titel: 'Spielideen', info: anzahl(spielideen.length, 'Idee', 'Ideen') },
+    { pfad: '/begegnen', titel: 'Begegnet euch', n: begegnen.length, eins: 'Thema', viele: 'Themen' },
+    { pfad: '/entwicklung', titel: 'Gerade dran', n: geradeDran.length, eins: 'Schritt', viele: 'Schritte' },
+    { pfad: '/spielen', titel: 'Spielideen', n: spielideen.length, eins: 'Idee', viele: 'Ideen' },
   ];
 
   return (
     <div className="heute">
-      <p className="heute-datum">{datumFormat.format(kind.jetzt)}</p>
       <UZeitleiste kind={kind} />
       <Zeitring kind={kind} />
 
-      <nav className="kacheln" aria-label="Bereiche">
-        {kacheln.map((k) => (
-          <Link key={k.pfad} to={k.pfad} className="kachel">
-            <span className="kachel-titel">{k.titel}</span>
-            <span className="kachel-info">{k.info}</span>
-          </Link>
-        ))}
-      </nav>
+      {naechsteU && (
+        <Link to="/naechste-u" className="zeile-link">
+          <span>
+            <b>Nächste U: {naechsteU.untersuchung.id}</b>
+            <span className="gedaempft"> · {naechsteU.untersuchung.zeitraum}</span>
+          </span>
+          <span className="pille">
+            {naechsteU.laeuftSchon ? 'Fenster läuft' : abstandAlsText(tageZwischen(kind.jetzt, naechsteU.beginn))}
+          </span>
+        </Link>
+      )}
+
+      {phase && (
+        <nav className="kacheln" aria-label="Bereiche">
+          {kacheln.map((k) =>
+            k.n > 0 ? (
+              <Link key={k.pfad} to={k.pfad} className="kachel">
+                <span className="kachel-titel">{k.titel}</span>
+                <span className="kachel-info">{`${k.n} ${k.n === 1 ? k.eins : k.viele}`}</span>
+              </Link>
+            ) : (
+              // Nichts drin → keine Verlinkung auf eine leere Seite
+              <div key={k.pfad} className="kachel kachel-ruhig">
+                <span className="kachel-titel">{k.titel}</span>
+                <span className="kachel-info">ruhige Zeit</span>
+              </div>
+            ),
+          )}
+        </nav>
+      )}
 
       {wichtig && (
         <Link to={wichtig.bereich === 'alltag' ? '/begegnen' : '/entwicklung'} className="wichtig">
@@ -51,28 +74,15 @@ export function Heute({ kind }: { kind: Kind }) {
         </Link>
       )}
 
-      {naechsteU && (
-        <Link to="/naechste-u" className="zeile-link">
-          <span>
-            <b>Nächste U: {naechsteU.untersuchung.id}</b>
-            <span className="gedaempft"> · {naechsteU.untersuchung.zeitraum}</span>
-          </span>
-          <span className="pille">
-            {naechsteU.laeuftSchon ? 'Zeitfenster läuft' : abstandAlsText(tageZwischen(kind.jetzt, naechsteU.beginn))}
-          </span>
-        </Link>
-      )}
-
       {!phase && (
         <p className="gedaempft" style={{ textAlign: 'center' }}>
-          U &amp; Me begleitet euch aktuell bis zum 2. Geburtstag. Für ältere Kinder folgen die Inhalte später.
+          U &amp; Me begleitet euch im Moment bis zum 2. Geburtstag. Inhalte bis zur Einschulung (U7a bis U9) sind in
+          Arbeit.
         </p>
       )}
     </div>
   );
 }
-
-const anzahl = (n: number, eins: string, viele: string) => (n === 0 ? 'gerade nichts' : `${n} ${n === 1 ? eins : viele}`);
 
 /**
  * „Heute wichtig“: die Alltags-Etappe, die zuletzt begonnen hat (das Frischeste, was Eltern gerade erleben).
