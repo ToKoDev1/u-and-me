@@ -38,7 +38,10 @@ export function Rahmen({ profil, oben, onZeitreise }: Props) {
   return (
     <div className="app">
       <header className="kopfzeile">
-        <Link to="/" className="wortmarke">U &amp; Me</Link>
+        <Link to="/" className="wortmarke">
+          <img src={`${import.meta.env.BASE_URL}icons/elefant-logo.png`} alt="" className="wortmarke-logo" />
+          U &amp; Me
+        </Link>
         <div className="kopfzeile-rechts">
           <span className="chip-entwurf">Entwurf</span>
           <Avatar tier={profil.maskottchen} groesse={40} />
