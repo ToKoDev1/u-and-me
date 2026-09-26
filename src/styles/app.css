@@ -1,0 +1,279 @@
+/*
+  U & Me – Styling nach Design-Handoff (Richtung 1b).
+  Alle Farben/Maße kommen aus tokens.css. Maße in px wie in den Vorlagen
+  (docs/design-handoff/UundMe MVP.dc.html).
+*/
+
+/* ---------- Grundlagen ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--farbe-hintergrund);
+  color: var(--farbe-text);
+  font-family: var(--schrift);
+  font-size: var(--groesse-m);
+  line-height: var(--zeilenhoehe-text);
+  font-weight: var(--gewicht-normal);
+}
+p, h1, h2, h3, ul, ol { margin: 0; }
+h1, h2, h3 { line-height: var(--zeilenhoehe-titel); font-weight: var(--gewicht-fett); }
+b, strong { font-weight: var(--gewicht-fett); }
+a { color: inherit; }
+button, input { font: inherit; color: inherit; }
+img { display: block; }
+:focus-visible { outline: 3px solid var(--farbe-akzent); outline-offset: 2px; }
+.gedaempft { color: var(--farbe-text-gedaempft); }
+.nur-screenreader { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+@media (prefers-reduced-motion: no-preference) {
+  a, button, .karte, .klickbar { transition: background-color 180ms ease-out, border-color 180ms ease-out, color 180ms ease-out; }
+}
+
+/* ---------- Rahmen: Kopfzeile, Navigation ---------- */
+.kopfzeile {
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  padding: 16px 20px 0;
+}
+.wortmarke { font-weight: 800; font-size: 16px; text-decoration: none; }
+.chip-entwurf {
+  font-size: 12.5px; color: var(--farbe-text-gedaempft);
+  border: 1.5px dashed var(--farbe-linie); border-radius: var(--radius-rund); padding: 2px 10px;
+  white-space: nowrap;
+}
+.kopfzeile-rechts { display: flex; align-items: center; gap: 10px; }
+.kopfzeile-rechts .avatar { display: none; }
+.nav-oben { display: none; }
+
+.nav-unten {
+  position: fixed; z-index: 10;
+  left: 24px; right: 24px; bottom: calc(20px + env(safe-area-inset-bottom));
+  max-width: 440px; margin: 0 auto;
+  background: var(--farbe-nav); border-radius: var(--radius-rund);
+  padding: 6px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px;
+  box-shadow: var(--schatten-nav);
+}
+.nav-unten a, .nav-oben a {
+  color: var(--farbe-nav-text); text-decoration: none; text-align: center;
+  font-size: 15px; font-weight: 700; border-radius: var(--radius-rund);
+}
+.nav-unten a { padding: 12px 0; min-height: var(--beruehrflaeche-min); display: grid; place-items: center; }
+.nav-unten a.active, .nav-oben a.active { background: var(--farbe-nav-aktiv); color: var(--farbe-nav-aktiv-text); font-weight: 800; }
+
+.seite { padding: 0 20px 110px; }
+
+/* ---------- Avatar ---------- */
+.avatar {
+  flex: none; border-radius: 50%;
+  border: var(--umriss-avatar) solid var(--farbe-umriss);
+  background: var(--farbe-akzent-flaeche) center / cover no-repeat;
+}
+.avatar-72 { width: 72px; height: 72px; }
+.avatar-52 { width: 52px; height: 52px; }
+.avatar-48 { width: 48px; height: 48px; }
+.avatar-40 { width: 40px; height: 40px; }
+.avatar-32 { width: 32px; height: 32px; border-width: 2px; }
+.avatar-112 { width: 112px; height: 112px; border-width: 3px; }
+
+/* ---------- Bausteine ---------- */
+.sprechblase { background: var(--farbe-akzent-flaeche); border-radius: var(--radius-blase); padding: 16px 18px; }
+.begruessung { display: flex; gap: 12px; align-items: flex-end; padding-top: 22px; }
+.begruessung .sprechblase { flex: 1; }
+.begruessung .hallo { font-size: 15px; color: var(--farbe-text-gedaempft); font-weight: 700; }
+.begruessung .satz { font-size: 19px; line-height: 1.35; font-weight: 700; }
+
+.karte { background: var(--farbe-flaeche); border: 1.5px solid var(--farbe-linie); border-radius: var(--radius-m); padding: 18px; }
+.karte-schatten { background: var(--farbe-flaeche); border-radius: var(--radius-l); padding: 20px; box-shadow: var(--schatten-weich); }
+.pille { display: inline-flex; background: var(--farbe-akzent-flaeche); border-radius: var(--radius-rund); padding: 3px 12px; font-size: 13.5px; font-weight: 800; }
+
+.abschnitt { display: flex; flex-direction: column; gap: 12px; padding-top: 34px; }
+.abschnitt > h2 { font-size: var(--groesse-l); }
+.abschnitt-begegnen { gap: 14px; padding-top: 32px; }
+.abschnitt-begegnen > h2 { font-size: var(--groesse-xl); }
+
+.knopf {
+  display: block; width: 100%; border: 0; cursor: pointer; text-align: center; text-decoration: none;
+  background: var(--farbe-akzent); color: var(--farbe-auf-akzent);
+  border-radius: var(--radius-rund); padding: 15px; font-size: 17px; font-weight: 800;
+  min-height: var(--beruehrflaeche-min);
+}
+.knopf-zweit { background: transparent; color: var(--farbe-akzent-text); border: 2px solid var(--farbe-akzent); }
+.textlink {
+  background: none; border: 0; padding: 0; cursor: pointer;
+  color: var(--farbe-akzent-text); font-weight: 800; text-decoration: none;
+}
+.textlink:hover { text-decoration: underline; }
+
+/* Wegstück „Du bist hier: zwischen U4 und U5“ */
+.wegstueck-karte { background: var(--farbe-flaeche); border: 1.5px solid var(--farbe-linie); border-radius: 26px; padding: 16px 18px 14px; display: flex; flex-direction: column; gap: 12px; margin-top: 16px; }
+.wegstueck-titel { font-size: 17px; font-weight: 800; }
+.nur-desktop { display: none; }
+.wegstueck { position: relative; height: 52px; }
+.wegstueck-linie { position: absolute; left: 18px; right: 18px; top: 25px; height: 3px; border-radius: 3px; background: repeating-linear-gradient(90deg, var(--farbe-linie-kraeftig) 0 8px, transparent 8px 14px); }
+.wegstueck-fenster { position: absolute; right: 18px; top: 19px; height: 15px; border-radius: var(--radius-rund); background: var(--farbe-akzent-flaeche); }
+.u-kreis { position: absolute; top: 8px; width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; font-size: 13px; }
+.u-kreis-vorher { left: 0; background: var(--farbe-flaeche-2); color: var(--farbe-text-gedaempft); }
+.u-kreis-naechste { right: 0; background: var(--farbe-akzent); color: var(--farbe-auf-akzent); }
+.wegstueck .avatar { position: absolute; top: 0; transform: translateX(-50%); }
+.wegstueck-fuss { display: flex; justify-content: space-between; gap: 8px; font-size: 13.5px; color: var(--farbe-text-gedaempft); font-weight: 600; }
+
+/* Kartenlisten: mobil untereinander, Desktop zweispaltig */
+.zwei-spalten-liste { display: flex; flex-direction: column; gap: inherit; }
+
+/* „Was euch gerade begegnen kann“ */
+.begegnen-karte { background: var(--farbe-beruhigend); border-radius: 28px 28px 28px 8px; padding: 18px 20px; display: flex; flex-direction: column; gap: 8px; }
+.begegnen-karte .meta { font-size: 13.5px; font-weight: 700; color: var(--farbe-beruhigend-text); }
+.begegnen-karte h3 { font-size: var(--groesse-l); line-height: 1.3; }
+.begegnen-karte .zusatz { border-top: 1.5px dashed var(--farbe-beruhigend-linie); padding-top: 10px; font-size: var(--groesse-s); }
+
+/* Etappen-Karte „Gerade dran“ */
+.etappe-karte { display: flex; flex-direction: column; gap: 8px; }
+.etappe-karte h3 { font-size: 18px; }
+.etappe-kopf { display: flex; gap: 8px; flex-wrap: wrap; }
+.bereich-pille { border-radius: var(--radius-rund); padding: 2px 10px; font-size: 13px; font-weight: 800; }
+.bereich-pille.alltag { background: var(--farbe-alltag-flaeche); }
+.bereich-pille.bewegung { background: var(--farbe-bewegung-flaeche); }
+.bereich-pille.sprache { background: var(--farbe-sprache-flaeche); }
+.bereich-pille.miteinander { background: var(--farbe-miteinander-flaeche); }
+.spanne { font-size: 13.5px; color: var(--farbe-text-gedaempft); padding: 2px 0; }
+.tipp { display: flex; gap: 10px; align-items: flex-start; background: var(--farbe-hinweis); border-radius: 18px; padding: 12px 14px; font-size: var(--groesse-s); }
+.tipp-punkt { width: 22px; height: 22px; flex: none; border-radius: 50%; margin-top: 1px; background: var(--farbe-alltag); }
+.tipp-punkt.hinweis { background: var(--farbe-warnung-punkt); }
+
+/* „Als Nächstes, irgendwann“ */
+.chips { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; }
+.chip { background: var(--farbe-flaeche); border: 1.5px solid var(--farbe-linie); border-radius: var(--radius-rund); padding: 8px 14px; font-size: var(--groesse-s); }
+
+/* Warnhinweis – ruhig, kein Rot */
+.warnhinweis { background: var(--farbe-flaeche); border: 1.5px solid var(--farbe-warnung-linie); border-radius: var(--radius-m); padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+.warnhinweis-kopf { display: flex; gap: 12px; align-items: center; }
+.warnhinweis-kopf h2 { font-size: 17.5px; line-height: 1.3; }
+.i-kreis { width: 34px; height: 34px; flex: none; border-radius: 50%; background: var(--farbe-warnung-flaeche); color: var(--farbe-warnung-text); display: grid; place-items: center; font-weight: 800; }
+
+/* Nächste-U-Karte */
+.naechste-u-karte { display: flex; flex-direction: column; gap: 14px; margin-top: 16px; }
+.naechste-u-kopf { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.naechste-u-kopf .titel { font-weight: 800; font-size: 19px; }
+.datumskacheln { display: grid; grid-template-columns: 1fr auto 1fr; gap: 10px; align-items: center; }
+.datumskachel { background: var(--farbe-flaeche-2); border-radius: 18px; padding: 10px; text-align: center; }
+.datumskachel .tag { font-size: 26px; font-weight: 800; line-height: 1; }
+.datumskachel .monat { font-size: 14px; color: var(--farbe-text-gedaempft); }
+.naechste-u-karte .textlink { text-align: center; }
+
+/* Fußnoten */
+.fussnoten { padding: 24px 4px 0; display: flex; flex-direction: column; gap: 6px; font-size: 13.5px; color: var(--farbe-text-gedaempft); }
+.fussnoten a, .fussnoten button.link { color: inherit; text-decoration: underline; background: none; border: 0; padding: 0; cursor: pointer; font-size: inherit; }
+.darstellung { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.darstellung button { background: none; border: 1.5px solid var(--farbe-linie); border-radius: var(--radius-rund); padding: 2px 10px; cursor: pointer; font-size: 13px; color: var(--farbe-text-gedaempft); min-height: 32px; }
+.darstellung button[aria-pressed='true'] { border-color: var(--farbe-akzent); color: var(--farbe-akzent-text); font-weight: 800; }
+.hinweisbox { background: var(--farbe-hinweis); border-radius: 20px; padding: 14px 16px; display: flex; gap: 12px; align-items: flex-start; font-size: var(--groesse-s); }
+.hinweisbox-punkt { width: 28px; height: 28px; flex: none; border-radius: 50%; }
+.hinweisbox-punkt.bewegung { background: var(--farbe-bewegung-flaeche); border: 2px solid var(--farbe-bewegung); }
+.hinweisbox-punkt.sprache { background: var(--farbe-sprache-flaeche); border: 2px solid var(--farbe-sprache); }
+
+/* ---------- Heute: Spalten (mobil untereinander, Desktop zweispaltig) ---------- */
+.heute-spalte { display: contents; }
+.heute { display: flex; flex-direction: column; }
+.heute .reihe-begruessung { order: 1; }
+.heute .reihe-wegstueck { order: 2; }
+.heute .reihe-begegnen { order: 3; }
+.heute .reihe-dran { order: 4; }
+.heute .reihe-naechstes { order: 5; }
+.heute .reihe-warnung { order: 6; }
+.heute .reihe-naechste-u { order: 7; }
+.heute .reihe-fussnoten { order: 8; }
+.heute .reihe-naechste-u .knopf { display: none; }
+
+/* ---------- Onboarding ---------- */
+.onboarding { padding: 0 20px 22px; max-width: 520px; margin: 0 auto; }
+.onboarding-kopf { display: flex; justify-content: space-between; align-items: center; padding-top: 16px; min-height: 60px; }
+.schritt { font-size: 13.5px; color: var(--farbe-text-gedaempft); font-weight: 700; white-space: nowrap; }
+.zurueck { background: none; border: 0; padding: 0; cursor: pointer; font-weight: 700; font-size: var(--groesse-s); color: var(--farbe-akzent-text); min-height: 44px; }
+.onboarding h1 { font-size: 28px; line-height: 1.15; }
+.onboarding-intro { padding-top: 26px; display: flex; flex-direction: column; gap: 8px; }
+.onboarding-auswahl { margin-top: 26px; }
+.onboarding-auswahl legend { font-size: 19px; font-weight: 800; padding: 0; margin-bottom: 12px; float: left; width: 100%; }
+.onboarding-auswahl .tier-raster { clear: both; }
+fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+.tier-raster { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.tier-karte {
+  position: relative; display: flex; flex-direction: column; gap: 2px; cursor: pointer;
+  background: var(--farbe-flaeche); border: 1.5px solid var(--farbe-linie); border-radius: var(--radius-m); padding: 10px;
+}
+.tier-karte input { position: absolute; opacity: 0; pointer-events: none; }
+.tier-karte:has(input:checked) { background: var(--farbe-akzent-flaeche); border: 2.5px solid var(--farbe-akzent); padding: 9px; }
+.tier-karte:has(input:focus-visible) { outline: 3px solid var(--farbe-akzent); outline-offset: 2px; }
+.tier-bild { height: 104px; display: flex; justify-content: center; align-items: flex-end; }
+.tier-bild img { height: 100px; width: 100%; object-fit: contain; object-position: center bottom; }
+.tier-name { font-weight: 800; font-size: 16.5px; margin-top: 8px; }
+.tier-geschichte { font-size: 13.5px; color: var(--farbe-text-gedaempft); line-height: 1.35; }
+.onboarding-cta { padding-top: 28px; }
+.onboarding-frage { padding-top: 14px; }
+.onboarding-frage .sprechblase p { font-size: 19px; line-height: 1.35; font-weight: 700; }
+.felder { padding-top: 28px; display: flex; flex-direction: column; gap: 18px; }
+.feld { display: flex; flex-direction: column; gap: 6px; }
+.feld-label { font-weight: 800; font-size: var(--groesse-s); }
+.feld-label .gedaempft { font-weight: 600; }
+.feld input[type='date'], .feld input[type='text'] {
+  background: var(--farbe-flaeche); border: 1.5px solid var(--farbe-linie-kraeftig); border-radius: 18px;
+  padding: 13px 16px; font-size: 18px; font-weight: 700; min-height: 54px; width: 100%;
+}
+.feld input:focus { outline: none; border: 2px solid var(--farbe-akzent); padding: 12.5px 15.5px; }
+.ankreuzen {
+  background: var(--farbe-flaeche); border: 1.5px solid var(--farbe-linie); border-radius: 18px;
+  padding: 14px 16px; display: flex; gap: 12px; align-items: center; cursor: pointer; font-size: var(--groesse-s);
+}
+.ankreuzen input { position: absolute; opacity: 0; pointer-events: none; }
+.kaestchen { width: 26px; height: 26px; flex: none; border-radius: 9px; border: 2px solid var(--farbe-linie-kraeftig); display: grid; place-items: center; font-weight: 800; font-size: 15px; color: var(--farbe-auf-akzent); }
+.ankreuzen:has(input:checked) .kaestchen { background: var(--farbe-akzent); border-color: var(--farbe-akzent); }
+.ankreuzen:has(input:focus-visible) { outline: 3px solid var(--farbe-akzent); outline-offset: 2px; }
+.datenschutz { padding-top: 22px; }
+.fehler { color: var(--farbe-warnung-text); background: var(--farbe-warnung-flaeche); border-radius: 18px; padding: 12px 16px; font-weight: 700; font-size: var(--groesse-s); margin-top: 18px; }
+
+/* ---------- Desktop ab 900 px ---------- */
+@media (min-width: 900px) {
+  .kopfzeile { max-width: var(--inhalt-max); margin: 0 auto; padding: 22px 40px 0; }
+  .wortmarke { font-size: 20px; }
+  .nav-oben { display: flex; gap: 4px; background: var(--farbe-nav); border-radius: var(--radius-rund); padding: 5px; }
+  .nav-oben a { padding: 9px 22px; }
+  .nav-unten { display: none; }
+  .kopfzeile-rechts .avatar { display: block; }
+  .chip-entwurf { font-size: 13px; }
+  .seite { max-width: var(--inhalt-max); margin: 0 auto; padding: 36px 40px 56px; }
+
+  .heute { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 40px; align-items: start; }
+  .heute-spalte { display: flex; flex-direction: column; }
+  .heute-spalte.links { gap: 32px; }
+  .heute-spalte.rechts { gap: 16px; }
+  .heute .heute-spalte > * { margin-top: 0; order: 0; }
+  .heute .heute-spalte > .abschnitt, .heute .heute-spalte > .begruessung { padding-top: 0; }
+  .heute .reihe-naechste-u .knopf { display: block; padding: 13px; font-size: 17px; }
+
+  .begruessung { gap: 18px; }
+  .begruessung .avatar { width: 112px; height: 112px; border-width: 3px; }
+  .begruessung .sprechblase { border-radius: 30px 30px 30px 8px; padding: 20px 24px; }
+  .begruessung .hallo { font-size: 15.5px; }
+  .begruessung .satz { font-size: 26px; line-height: 1.3; }
+
+  .wegstueck-karte { display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: center; padding: 18px 24px; }
+  .wegstueck-titel { font-size: 18px; }
+  .nur-desktop { display: inline; }
+  .wegstueck-fuss { grid-column: 1 / -1; }
+
+  .abschnitt-begegnen > h2 { font-size: 24px; }
+  .reihe-dran > h2 { font-size: var(--groesse-xl); }
+  .zwei-spalten-liste { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
+  .begegnen-karte { padding: 20px 22px; }
+  .etappe-karte { padding: 20px; }
+
+  .reihe-naechstes { padding: 4px 4px 0; gap: 10px; }
+  .reihe-naechstes > h2 { font-size: 18px; }
+  .reihe-naechstes .chip { padding: 7px 14px; font-size: 15px; }
+  .reihe-warnung .warnhinweis { padding: 18px; gap: 8px; }
+  .reihe-warnung .warnhinweis-kopf h2 { font-size: 16.5px; }
+  .reihe-warnung .i-kreis { width: 32px; height: 32px; }
+  .reihe-warnung p { font-size: var(--groesse-s); }
+  .fussnoten { padding: 0 4px; gap: 4px; }
+
+  .onboarding { padding-top: 24px; }
+}

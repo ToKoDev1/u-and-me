@@ -1,6 +1,6 @@
 [
-  { "id": "loewe", "name": "Löwenbaby", "geschichte": "Im Rudel packen alle mit an – sogar beim Stillen der Kleinen." },
-  { "id": "hund", "name": "Hundebaby", "geschichte": "Der treue Begleiter – immer an eurer Seite." },
-  { "id": "pinguin", "name": "Pinguinbaby", "geschichte": "Beim Kaiserpinguin brütet der Papa das Ei aus." },
-  { "id": "elefant", "name": "Elefantenbaby", "geschichte": "Die ganze Herde hilft, die Kleinen großzuziehen." }
+  { "id": "elefant", "name": "Elefantenbaby", "artikel": "dem Elefantenbaby", "geschichte": "Die ganze Herde zieht die Kleinen groß." },
+  { "id": "loewe", "name": "Löwenbaby", "artikel": "dem Löwenbaby", "geschichte": "Im Rudel packen alle mit an." },
+  { "id": "pinguin", "name": "Pinguinbaby", "artikel": "dem Pinguinbaby", "geschichte": "Der Papa brütet das Ei aus." },
+  { "id": "hund", "name": "Hundebaby", "artikel": "dem Hundebaby", "geschichte": "Der treue Begleiter." }
 ]

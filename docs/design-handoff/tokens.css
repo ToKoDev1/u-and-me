@@ -1,0 +1,125 @@
+/* U & Me – Design-Tokens · Richtung 1b „Gute-Nacht-Gespräch“
+   Hell = Standard, Dunkel = Nachtblau. Umschalten über [data-theme] oder Systemeinstellung.
+   Persönlicher Akzent über [data-maskottchen="elefant|pinguin|loewe|hund"]. */
+
+:root {
+  /* Flächen */
+  --farbe-hintergrund: #FCF6EC;
+  --farbe-flaeche: #FFFDF8;
+  --farbe-flaeche-2: #F5EBDC;
+  --farbe-linie: #EBDCC6;
+  --farbe-linie-kraeftig: #C9B39C;
+  --farbe-umriss: #4A3428;
+  --farbe-schatten: rgba(74, 52, 40, .08);
+  /* Text */
+  --farbe-text: #4A3428;
+  --farbe-text-gedaempft: #76604F;
+  /* Akzent (Standard: Elefant) */
+  --farbe-akzent: #3F5A78;
+  --farbe-akzent-text: #3F5A78;
+  --farbe-auf-akzent: #FFFDF8;
+  --farbe-akzent-flaeche: #DDE5EF;
+  /* „Was euch gerade begegnen kann“ – beruhigend */
+  --farbe-beruhigend: #F8E4C0;
+  --farbe-beruhigend-text: #7A5724;
+  --farbe-beruhigend-linie: #DDBF8C;
+  /* Hinweis / Tipp */
+  --farbe-hinweis: #F6EDDF;
+  /* Warnung – ruhig */
+  --farbe-warnung-flaeche: #FAE2DC;
+  --farbe-warnung-text: #8A3F35;
+  --farbe-warnung-punkt: #D98378;
+  --farbe-warnung-linie: #EDB9B0;
+  /* Bereiche */
+  --farbe-alltag: #D9A441;          --farbe-alltag-flaeche: #F5DDAE;
+  --farbe-bewegung: #5E8F8A;        --farbe-bewegung-flaeche: #D4E5E2;
+  --farbe-sprache: #7F97B5;         --farbe-sprache-flaeche: #DDE5EF;
+  --farbe-miteinander: #E08E84;     --farbe-miteinander-flaeche: #F8DCD7;
+  /* Navigation */
+  --farbe-nav: #4A3428;
+  --farbe-nav-text: #F4E8D8;
+  --farbe-nav-aktiv: #FBF3E6;
+  --farbe-nav-aktiv-text: #4A3428;
+
+  /* Schrift – Nunito selbst gehostet, Fallback System */
+  --schrift: "Nunito", ui-rounded, "SF Pro Rounded", system-ui, sans-serif;
+  --schrift-mono: ui-monospace, Menlo, monospace;
+  --groesse-xs: 13px;   /* Meta, Quellen */
+  --groesse-s: 15.5px;  /* Tipps, Nebentext */
+  --groesse-m: 17px;    /* Grundschrift */
+  --groesse-l: 20px;    /* Abschnitt, Kartentitel */
+  --groesse-xl: 22px;   /* Seitentitel */
+  --groesse-xxl: 30px;  /* Alter, Hero */
+  --zeilenhoehe-text: 1.5;
+  --zeilenhoehe-titel: 1.25;
+  --gewicht-normal: 400;
+  --gewicht-halbfett: 700;
+  --gewicht-fett: 800;
+
+  /* Abstände (4er-Raster) */
+  --abstand-1: 4px;  --abstand-2: 8px;  --abstand-3: 12px; --abstand-4: 16px;
+  --abstand-5: 20px; --abstand-6: 24px; --abstand-8: 32px; --abstand-10: 40px;
+  --seitenrand-mobil: 20px;
+  --inhalt-max: 1120px;
+
+  /* Radien */
+  --radius-s: 16px;      /* Tipp-Box, Datumskachel */
+  --radius-m: 24px;      /* Karte */
+  --radius-l: 28px;      /* große Karte */
+  --radius-blase: 26px 26px 26px 8px; /* Sprechblase */
+  --radius-rund: 999px;  /* Button, Pille, Nav */
+  --beruehrflaeche-min: 48px;
+  --umriss-avatar: 2.5px;
+  --schatten-weich: 0 2px 12px var(--farbe-schatten);
+  --schatten-nav: 0 6px 20px var(--farbe-schatten);
+
+  /* PWA */
+  --pwa-theme-color: #FCF6EC;
+  --pwa-background-color: #DDE5EF;
+}
+
+@media (prefers-color-scheme: dark) { :root:not([data-theme="hell"]) { color-scheme: dark; } }
+
+:root[data-theme="dunkel"] {
+  color-scheme: dark;
+  --farbe-hintergrund: #141D2B;
+  --farbe-flaeche: #1D2839;
+  --farbe-flaeche-2: #263346;
+  --farbe-linie: #2C3A4E;
+  --farbe-linie-kraeftig: #56687F;
+  --farbe-umriss: #8FA3BC;
+  --farbe-schatten: rgba(0, 0, 0, .4);
+  --farbe-text: #F5EEE3;
+  --farbe-text-gedaempft: #B8C2CF;
+  --farbe-akzent: #AFC0D4;
+  --farbe-akzent-text: #C3D2E3;
+  --farbe-auf-akzent: #141D2B;
+  --farbe-akzent-flaeche: #283A54;
+  --farbe-beruhigend: #3A3224;
+  --farbe-beruhigend-text: #E8C68E;
+  --farbe-beruhigend-linie: #665536;
+  --farbe-hinweis: #263346;
+  --farbe-warnung-flaeche: #3B2830;
+  --farbe-warnung-text: #F4C3BA;
+  --farbe-warnung-punkt: #E89A8F;
+  --farbe-warnung-linie: #6B4049;
+  --farbe-alltag: #E6B65A;          --farbe-alltag-flaeche: #4A3F28;
+  --farbe-bewegung: #7FB0AA;        --farbe-bewegung-flaeche: #22403F;
+  --farbe-sprache: #A6BAD2;         --farbe-sprache-flaeche: #2C3D56;
+  --farbe-miteinander: #F2A9A0;     --farbe-miteinander-flaeche: #43303A;
+  --farbe-nav: #F2E4D0;
+  --farbe-nav-text: #4A3428;
+  --farbe-nav-aktiv: #1D2839;
+  --farbe-nav-aktiv-text: #F5EEE3;
+  --pwa-theme-color: #141D2B;
+  --pwa-background-color: #141D2B;
+}
+
+/* Persönlicher Akzent je Maskottchen (hell) */
+[data-maskottchen="pinguin"] { --farbe-akzent: #3E6B66; --farbe-akzent-text: #3E6B66; --farbe-akzent-flaeche: #D4E5E2; }
+[data-maskottchen="loewe"]   { --farbe-akzent: #8A5F14; --farbe-akzent-text: #8A5F14; --farbe-akzent-flaeche: #F5DDAE; }
+[data-maskottchen="hund"]    { --farbe-akzent: #8A5A3C; --farbe-akzent-text: #8A5A3C; --farbe-akzent-flaeche: #EFDDCC; }
+/* … und dunkel */
+[data-theme="dunkel"] [data-maskottchen="pinguin"], [data-theme="dunkel"][data-maskottchen="pinguin"] { --farbe-akzent: #8FBDB7; --farbe-akzent-text: #A5CCC7; --farbe-akzent-flaeche: #22403F; }
+[data-theme="dunkel"] [data-maskottchen="loewe"],   [data-theme="dunkel"][data-maskottchen="loewe"]   { --farbe-akzent: #F2C98A; --farbe-akzent-text: #F2C98A; --farbe-akzent-flaeche: #4A3F28; }
+[data-theme="dunkel"] [data-maskottchen="hund"],    [data-theme="dunkel"][data-maskottchen="hund"]    { --farbe-akzent: #D9B08F; --farbe-akzent-text: #E0BEA2; --farbe-akzent-flaeche: #3E3230; }

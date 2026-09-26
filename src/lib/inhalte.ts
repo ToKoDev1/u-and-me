@@ -4,16 +4,28 @@ import etappenDaten from '../content/etappen.json';
 import untersuchungenDaten from '../content/untersuchungen.json';
 import maskottchenDaten from '../content/maskottchen.json';
 import { datumBeiAlter, imZeitfenster, type Alter } from './alter';
+import type { Kind } from './kind';
 
 export type Quelle = { name: string; url: string };
 export type Status = 'entwurf' | 'geprueft';
 
-export type Phase = { id: string; titel: string; von: Alter; bis: Alter; abklaeren: string[] | null };
+export type Phase = { id: string; titel: string; von: Alter; bis: Alter; abklaeren: string | null };
 export type Bereich = 'alltag' | 'bewegung' | 'sprache' | 'miteinander';
-export type Etappe = { id: string; bereich: Bereich; titel: string; text: string; tipp?: string; von: Alter; bis: Alter };
+export type Etappe = {
+  id: string;
+  bereich: Bereich;
+  titel: string;
+  text: string;
+  /** nur Alltag: „Darauf könnt ihr achten: …“ */
+  zusatz?: { label: string; text: string };
+  tipp?: string;
+  tippArt?: 'spiel' | 'hinweis';
+  von: Alter;
+  bis: Alter;
+};
 export type Untersuchung = { id: string; zeitraum: string; von: Alter; bis: Alter };
 export type MaskottchenId = 'loewe' | 'hund' | 'pinguin' | 'elefant';
-export type Maskottchen = { id: MaskottchenId; name: string; geschichte: string };
+export type Maskottchen = { id: MaskottchenId; name: string; artikel: string; geschichte: string };
 
 export const phasen = phasenDaten.phasen as Phase[];
 export const phasenInfo = { status: phasenDaten.status as Status, quelle: phasenDaten.quelle };
@@ -34,61 +46,87 @@ export const bereichsName: Record<Bereich, string> = {
 export const maskottchenBild = (id: MaskottchenId, avatar = false) =>
   `${import.meta.env.BASE_URL}maskottchen/${id}${avatar ? '-avatar' : ''}.svg`;
 
-export function aktuellePhase(geburt: Date, datum: Date): Phase | undefined {
-  return phasen.find((p) => imZeitfenster(geburt, datum, p.von, p.bis));
+export const maskottchenInfo = (id: MaskottchenId) => maskottchen.find((m) => m.id === id)!;
+
+// ---- Phasen und Etappen ----------------------------------------------------
+
+export function aktuellePhase(kind: Kind): Phase | undefined {
+  return phasen.find((p) => imZeitfenster(kind.geburt, kind.jetzt, p.von, p.bis));
 }
 
-const nachBeginn = (geburt: Date) => (a: { von: Alter }, b: { von: Alter }) =>
-  datumBeiAlter(geburt, a.von).getTime() - datumBeiAlter(geburt, b.von).getTime();
+const beginn = (kind: Kind, e: Etappe) => datumBeiAlter(kind.entwicklungsStart, e.von);
+const ende = (kind: Kind, e: Etappe) => datumBeiAlter(kind.entwicklungsStart, e.bis);
+
+export type EtappenStatus = 'vergangen' | 'gerade-dran' | 'kommend';
+
+export function etappenStatus(kind: Kind, e: Etappe): EtappenStatus {
+  if (ende(kind, e) <= kind.jetzt) return 'vergangen';
+  return beginn(kind, e) <= kind.jetzt ? 'gerade-dran' : 'kommend';
+}
+
+const nachBeginn = (kind: Kind) => (a: Etappe, b: Etappe) => beginn(kind, a).getTime() - beginn(kind, b).getTime();
 
 /** Etappen, deren typisches Zeitfenster heute läuft */
-export function aktuelleEtappen(geburt: Date, datum: Date): Etappe[] {
-  return etappen.filter((e) => imZeitfenster(geburt, datum, e.von, e.bis)).sort(nachBeginn(geburt));
+export function aktuelleEtappen(kind: Kind): Etappe[] {
+  return etappen.filter((e) => etappenStatus(kind, e) === 'gerade-dran').sort(nachBeginn(kind));
 }
 
 /** Die nächsten Etappen, deren Zeitfenster noch nicht begonnen hat */
-export function kommendeEtappen(geburt: Date, datum: Date, anzahl = 3): Etappe[] {
-  return etappen
-    .filter((e) => datumBeiAlter(geburt, e.von) > datum)
-    .sort(nachBeginn(geburt))
-    .slice(0, anzahl);
+export function kommendeEtappen(kind: Kind, anzahl = 3): Etappe[] {
+  return etappen.filter((e) => etappenStatus(kind, e) === 'kommend').sort(nachBeginn(kind)).slice(0, anzahl);
 }
 
-export type NaechsteU = { untersuchung: Untersuchung; beginn: Date; ende: Date; laeuftSchon: boolean };
+// ---- U-Untersuchungen --------------------------------------------------------
+
+export type UTermin = { untersuchung: Untersuchung; beginn: Date; ende: Date };
+
+export function uTermine(kind: Kind): UTermin[] {
+  return untersuchungen.map((u) => ({
+    untersuchung: u,
+    beginn: datumBeiAlter(kind.geburt, u.von),
+    ende: datumBeiAlter(kind.geburt, u.bis),
+  }));
+}
+
+export type NaechsteU = UTermin & { laeuftSchon: boolean };
 
 /** Die nächste U, deren Zeitfenster noch nicht vorbei ist */
-export function naechsteUntersuchung(geburt: Date, datum: Date): NaechsteU | undefined {
-  for (const untersuchung of untersuchungen) {
-    const beginn = datumBeiAlter(geburt, untersuchung.von);
-    const ende = datumBeiAlter(geburt, untersuchung.bis);
-    if (datum < ende) return { untersuchung, beginn, ende, laeuftSchon: datum >= beginn };
-  }
-  return undefined;
+export function naechsteUntersuchung(kind: Kind): NaechsteU | undefined {
+  const termin = uTermine(kind).find((t) => kind.jetzt < t.ende);
+  return termin && { ...termin, laeuftSchon: kind.jetzt >= termin.beginn };
 }
 
+/** Die U direkt vor der nächsten – für das Wegstück „U4 → U5“ */
+export function vorherigeUntersuchung(kind: Kind): UTermin | undefined {
+  const termine = uTermine(kind);
+  const naechste = naechsteUntersuchung(kind);
+  const index = naechste ? termine.findIndex((t) => t.untersuchung.id === naechste.untersuchung.id) : termine.length;
+  return index > 0 ? termine[index - 1] : undefined;
+}
+
+// ---- Zeitstrahl ------------------------------------------------------------
+
 export type WegEintrag =
-  | { art: 'u'; datum: Date; untersuchung: Untersuchung; ende: Date }
-  | { art: 'etappe'; datum: Date; etappe: Etappe; ende: Date }
+  | { art: 'u'; datum: Date; termin: UTermin; status: 'vergangen' | 'laeuft' | 'kommend' }
+  | { art: 'etappe'; datum: Date; etappe: Etappe; status: EtappenStatus }
   | { art: 'heute'; datum: Date };
 
-/** Alle Us und Etappen chronologisch, mit einer „heute“-Markierung – für den Zeitstrahl */
-export function wegEintraege(geburt: Date, datum: Date): WegEintrag[] {
+/** Alle Us und Etappen chronologisch, mit einer „heute“-Markierung */
+export function wegEintraege(kind: Kind): WegEintrag[] {
   const eintraege: WegEintrag[] = [
-    ...untersuchungen.map((u) => ({
+    ...uTermine(kind).map((t) => ({
       art: 'u' as const,
-      datum: datumBeiAlter(geburt, u.von),
-      untersuchung: u,
-      ende: datumBeiAlter(geburt, u.bis),
+      datum: t.beginn,
+      termin: t,
+      status: (t.ende <= kind.jetzt ? 'vergangen' : t.beginn <= kind.jetzt ? 'laeuft' : 'kommend') as
+        | 'vergangen'
+        | 'laeuft'
+        | 'kommend',
     })),
-    ...etappen.map((e) => ({
-      art: 'etappe' as const,
-      datum: datumBeiAlter(geburt, e.von),
-      etappe: e,
-      ende: datumBeiAlter(geburt, e.bis),
-    })),
-    { art: 'heute' as const, datum },
+    ...etappen.map((e) => ({ art: 'etappe' as const, datum: beginn(kind, e), etappe: e, status: etappenStatus(kind, e) })),
+    { art: 'heute' as const, datum: kind.jetzt },
   ];
-  // Bei gleichem Datum: U vor Etappe, „heute“ zuletzt
+  // Bei gleichem Datum: U vor Etappe, „heute“ nach allem, was heute beginnt
   const rang = { u: 0, etappe: 1, heute: 2 };
   return eintraege.sort((a, b) => a.datum.getTime() - b.datum.getTime() || rang[a.art] - rang[b.art]);
 }

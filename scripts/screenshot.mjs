@@ -1,5 +1,6 @@
 // Screenshot der laufenden Dev-App mit Edge (headless) – unabhängig vom Browser-Pane.
 // Aufruf: node scripts/screenshot.mjs "<url-pfad-und-query>" <datei.png> [breite] [hoehe] [dunkel]
+// Tipp (Git Bash): MSYS_NO_PATHCONV=1 davorsetzen, sonst wird "/" zu einem Windows-Pfad.
 // Beispiel: node scripts/screenshot.mjs "/?demo=elefant,2026-04-19,Mila&ansicht=weg" weg.png 375 2400
 import { execFileSync } from 'node:child_process';
 import { resolve } from 'node:path';
@@ -11,6 +12,7 @@ execFileSync(EDGE, [
   '--headless=new',
   '--disable-gpu',
   '--hide-scrollbars',
+  '--virtual-time-budget=4000', // Seite erst fertig laden lassen (Bilder, Schrift)
   `--window-size=${breite},${hoehe}`,
   ...(dunkel ? ['--force-dark-mode', '--blink-settings=preferredColorScheme=0'] : []),
   `--screenshot=${resolve(datei)}`,

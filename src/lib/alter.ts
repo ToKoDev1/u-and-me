@@ -60,12 +60,12 @@ export function alterAm(geburt: Date, datum: Date): AlterAufgeteilt {
 
 const mehrzahl = (n: number, eins: string, viele: string) => `${n} ${n === 1 ? eins : viele}`;
 
-/** Alter so, wie Eltern es sagen würden: „12 Tage“, „3 Wochen“, „5 Monate, 1 Woche“ */
+/** Alter so, wie Eltern es sagen würden: „12 Tage“, „3 Wochen“, „5 Monate und 1 Woche“ */
 export function alterAlsText(alter: AlterAufgeteilt): string {
   if (alter.tage < 14) return mehrzahl(alter.tage, 'Tag', 'Tage');
   if (alter.monate < 2) return mehrzahl(Math.floor(alter.tage / 7), 'Woche', 'Wochen');
   const monate = mehrzahl(alter.monate, 'Monat', 'Monate');
-  return alter.restWochen > 0 ? `${monate}, ${mehrzahl(alter.restWochen, 'Woche', 'Wochen')}` : monate;
+  return alter.restWochen > 0 ? `${monate} und ${mehrzahl(alter.restWochen, 'Woche', 'Wochen')}` : monate;
 }
 
 /** „in 3 Tagen“, „in 2 Wochen“, „in 5 Wochen“ */
@@ -95,3 +95,18 @@ export function spanneAlsText(von: Alter, bis: Alter): string {
 }
 
 export const datumFormat = new Intl.DateTimeFormat('de-DE', { day: 'numeric', month: 'long', year: 'numeric' });
+
+export const kurzDatum = new Intl.DateTimeFormat('de-DE', { day: 'numeric', month: 'short' });
+export const monatJahr = new Intl.DateTimeFormat('de-DE', { month: 'short', year: 'numeric' });
+
+/** „im Sommer“ – für ungefähre Zeitangaben ohne Datum */
+export function jahreszeit(datum: Date): string {
+  const m = datum.getMonth();
+  if (m >= 2 && m <= 4) return 'Frühling';
+  if (m >= 5 && m <= 7) return 'Sommer';
+  if (m >= 8 && m <= 10) return 'Herbst';
+  return 'Winter';
+}
+
+/** Letzter Tag eines Zeitfensters (unsere Enddaten sind exklusiv) */
+export const letzterTag = (ende: Date) => new Date(ende.getFullYear(), ende.getMonth(), ende.getDate() - 1);

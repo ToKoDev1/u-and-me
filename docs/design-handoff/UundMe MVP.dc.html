@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics><meta name="design_doc_mode" content="canvas"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"><style>body{margin:0;background:#EFE8DC;font-family:system-ui,sans-serif}a{color:#3F5A78}a:hover{color:#4A3428}p,h1,h2,h3{margin:0}.dv-turn{padding:40px 44px 36px;border-bottom:1px solid rgba(0,0,0,.08);scroll-margin-top:16px}.dv-thd{display:flex;align-items:baseline;gap:10px;margin:0 0 8px}.dv-tid{font:600 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#1a1a1a;color:#fff;border-radius:4px;text-decoration:none}.dv-tname{font:600 14px/1.2 system-ui,sans-serif;color:#1a1a1a}.dv-intro{font:13px/1.55 system-ui,sans-serif;color:rgba(0,0,0,.6);max-width:780px;margin:0 0 24px}.dv-pair{display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap}.dv-card{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:18px;box-shadow:0 1px 3px rgba(0,0,0,.06);overflow:hidden}.dv-mode{font:600 10px ui-monospace,Menlo,monospace;color:rgba(0,0,0,.45);margin:0 0 6px 4px;text-transform:uppercase;letter-spacing:.08em}.dv-oid{font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none}</style></helmet>
+<section class="dv-turn" id="t2h">
+<div class="dv-thd"><a class="dv-tid" href="#t2h">2·0</a><span class="dv-tname">Heute / Du bist hier – Startseite mobil (aus 1b)</span></div>
+<p class="dv-intro">Das Maskottchen spricht in Sprechblasen, „Was euch gerade begegnen kann“ steht als erster, wärmster Block. Das Wegstück U4 → U5 zeigt, wo ihr gerade seid. Navigation als schwebende Pille unten.</p>
+<div class="dv-pair">
+<sc-for list="{{ themes }}" as="t" hint-placeholder-count="2">
+<div><div class="dv-mode">{{ t.label }}</div>
+<div class="dv-card"><div style="{{ t.vars }}">
+<div style="width:375px;background:var(--bg);color:var(--ink);font-family:Nunito,ui-rounded,system-ui,sans-serif;font-size:17px;line-height:1.5;position:relative">
+<div style="padding:10px 14px 8px"><div style="background:var(--surface2);border-radius:999px;padding:6px 14px;font-size:13px;color:var(--muted);text-align:center">u-und-me.de</div></div>
+<div style="display:flex;align-items:center;justify-content:space-between;padding:8px 20px 0"><span style="font-weight:800;font-size:16px">U &amp; Me</span><span style="font-size:12.5px;color:var(--muted);border:1.5px dashed var(--line);border-radius:999px;padding:2px 10px">Entwurf</span></div>
+<div style="padding:22px 20px 0;display:flex;gap:12px;align-items:flex-end">
+<div style="width:72px;height:72px;flex:none;border-radius:50%;border:2.5px solid var(--outline);background:var(--accentSoft) url(maskottchen/elefant-avatar.png) center/cover no-repeat;display:flex;align-items:center;justify-content:center;font:9px ui-monospace,Menlo,monospace;color:var(--muted);text-align:center"></div>
+<div style="flex:1;background:var(--accentSoft);border-radius:26px 26px 26px 8px;padding:16px 18px">
+<p style="font-size:15px;color:var(--muted);font-weight:700">Hallo!</p>
+<p style="font-size:19px;line-height:1.35;font-weight:700">Mila ist heute <b style="font-weight:800">5 Monate und 1 Woche</b> alt.</p>
+</div>
+</div>
+<div style="padding:16px 20px 0">
+<div style="background:var(--surface);border:1.5px solid var(--line);border-radius:26px;padding:16px 18px 14px;display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px"><span style="font-size:17px;font-weight:800">Du bist hier: zwischen U4 und U5</span></div>
+<div style="position:relative;height:52px">
+<div style="position:absolute;left:18px;right:18px;top:25px;height:3px;border-radius:3px;background:repeating-linear-gradient(90deg,var(--line2) 0 8px,transparent 8px 14px)"></div>
+<div style="position:absolute;left:60%;right:18px;top:19px;height:15px;border-radius:999px;background:var(--accentSoft)"></div>
+<div style="position:absolute;left:0;top:8px;width:36px;height:36px;border-radius:50%;background:var(--surface2);color:var(--muted);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px">U4</div>
+<div style="position:absolute;left:calc(64% - 26px);top:0;width:52px;height:52px;border-radius:50%;border:2.5px solid var(--outline);background:var(--accentSoft) url(maskottchen/elefant-avatar.png) center/cover no-repeat;display:flex;align-items:center;justify-content:center;font:8px ui-monospace,Menlo,monospace;color:var(--muted)"></div>
+<div style="position:absolute;right:0;top:8px;width:36px;height:36px;border-radius:50%;background:var(--accentInk);color:var(--onAccent);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px">U5</div>
+</div>
+<div style="display:flex;justify-content:space-between;gap:8px;font-size:13.5px;color:var(--muted);font-weight:600"><span>U4 im Sommer</span><span>U5-Fenster läuft bis 18. Nov.</span></div>
+</div>
+</div>
+<div style="padding:32px 20px 0;display:flex;flex-direction:column;gap:14px">
+<h2 style="font-size:22px;font-weight:800;line-height:1.25">Was euch gerade begegnen kann</h2>
+<div style="background:var(--warm);border-radius:28px 28px 28px 8px;padding:18px 20px;display:flex;flex-direction:column;gap:8px">
+<div style="font-size:13.5px;font-weight:700;color:var(--warmMuted)">Alltag · meist mit 4–7 Monaten</div>
+<h3 style="font-size:20px;font-weight:800;line-height:1.3">Beikost wird ein Thema</h3>
+<p>Frühestens ab dem 5., spätestens ab dem 7. Monat kann Brei oder Fingerfood dazukommen.</p>
+<div style="border-top:1.5px dashed var(--warmLine);padding-top:10px;font-size:15.5px"><b>Darauf könnt ihr achten:</b> Sitzt euer Kind mit Hilfe aufrecht und schaut euch neugierig beim Essen zu?</div>
+</div>
+<div style="background:var(--warm);border-radius:28px 28px 28px 8px;padding:18px 20px;display:flex;flex-direction:column;gap:8px">
+<div style="font-size:13.5px;font-weight:700;color:var(--warmMuted)">Alltag · meist mit 5–12 Monaten</div>
+<h3 style="font-size:20px;font-weight:800;line-height:1.3">Die ersten Zähne</h3>
+<p>Viele Kinder bekommen zwischen dem 6. und 10. Monat den ersten Zahn – manche früher, manche deutlich später.</p>
+<div style="border-top:1.5px dashed var(--warmLine);padding-top:10px;font-size:15.5px"><b>Ganz normal dabei:</b> Sabbern, Kauen und etwas mehr Unruhe.</div>
+</div>
+</div>
+<div style="padding:34px 20px 0;display:flex;flex-direction:column;gap:12px">
+<h2 style="font-size:20px;font-weight:800">Gerade dran</h2>
+<div style="background:var(--surface);border-radius:24px;padding:18px;display:flex;flex-direction:column;gap:8px;border:1.5px solid var(--line)">
+<div style="display:flex;gap:8px;flex-wrap:wrap"><span style="background:var(--aBewegungSoft);border-radius:999px;padding:2px 10px;font-size:13px;font-weight:800">Bewegung</span><span style="font-size:13.5px;color:var(--muted);padding:2px 0">meist mit 3–6 Monaten</span></div>
+<h3 style="font-size:18px;font-weight:800">Greift gezielt nach Dingen</h3>
+<p>Euer Baby streckt die Hände nach Spielzeug aus – und alles wandert in den Mund.</p>
+<div style="display:flex;gap:10px;align-items:flex-start;background:var(--tip);border-radius:18px;padding:12px 14px;font-size:15.5px"><span style="width:22px;height:22px;flex:none;border-radius:50%;background:var(--aAlltag);margin-top:1px"></span><span><b>Spielidee:</b> Ein Spielzeug knapp außer Reichweite legen und zum Greifen ermuntern.</span></div>
+</div>
+<div style="background:var(--surface);border-radius:24px;padding:18px;display:flex;flex-direction:column;gap:8px;border:1.5px solid var(--line)">
+<div style="display:flex;gap:8px;flex-wrap:wrap"><span style="background:var(--aBewegungSoft);border-radius:999px;padding:2px 10px;font-size:13px;font-weight:800">Bewegung</span><span style="font-size:13.5px;color:var(--muted);padding:2px 0">meist mit 4–7 Monaten</span></div>
+<h3 style="font-size:18px;font-weight:800">Dreht sich vom Rücken auf den Bauch</h3>
+<p>Erst zur Seite, dann ganz herum – manche drehen sich zuerst vom Bauch auf den Rücken.</p>
+<div style="display:flex;gap:10px;align-items:flex-start;background:var(--tip);border-radius:18px;padding:12px 14px;font-size:15.5px"><span style="width:22px;height:22px;flex:none;border-radius:50%;background:var(--warnDot);margin-top:1px"></span><span><b>Hinweis:</b> Ab jetzt nie mehr unbeaufsichtigt auf dem Wickeltisch lassen.</span></div>
+</div>
+</div>
+<div style="padding:34px 20px 0;display:flex;flex-direction:column;gap:12px">
+<h2 style="font-size:20px;font-weight:800">Als Nächstes, irgendwann</h2>
+<div style="display:flex;flex-wrap:wrap;gap:8px">
+<span style="background:var(--surface);border:1.5px solid var(--line);border-radius:999px;padding:8px 14px;font-size:15.5px"><b>Sitzt allein</b> <span style="color:var(--muted)">6–10 M.</span></span>
+<span style="background:var(--surface);border:1.5px solid var(--line);border-radius:999px;padding:8px 14px;font-size:15.5px"><b>Plappert Silbenketten</b> <span style="color:var(--muted)">6–10 M.</span></span>
+<span style="background:var(--surface);border:1.5px solid var(--line);border-radius:999px;padding:8px 14px;font-size:15.5px"><b>Fremdeln</b> <span style="color:var(--muted)">6–10 M.</span></span>
+</div>
+</div>
+<div style="padding:34px 20px 0">
+<div style="background:var(--surface);border:1.5px solid var(--warnLine);border-radius:24px;padding:20px;display:flex;flex-direction:column;gap:10px">
+<div style="display:flex;gap:12px;align-items:center"><span style="width:34px;height:34px;flex:none;border-radius:50%;background:var(--warn);color:var(--warnInk);display:flex;align-items:center;justify-content:center;font-weight:800">i</span><h2 style="font-size:17.5px;font-weight:800;line-height:1.3">Nicht bis zur nächsten U warten, wenn …</h2></div>
+<p>euer Kind nicht auf Geräusche reagiert, nicht versucht zu greifen oder Fähigkeiten wieder verliert.</p>
+<p style="font-size:15.5px;color:var(--muted)">Sprecht dann lieber zeitnah mit eurer Kinderarztpraxis.</p>
+</div>
+</div>
+<div style="padding:16px 20px 0">
+<div style="background:var(--surface);border-radius:28px;padding:20px;display:flex;flex-direction:column;gap:14px;box-shadow:0 2px 12px var(--shadow)">
+<div style="display:flex;justify-content:space-between;align-items:center"><span style="font-weight:800;font-size:19px">Nächste U: U5</span><span style="background:var(--accentSoft);border-radius:999px;padding:3px 12px;font-size:13.5px;font-weight:800">Zeitfenster läuft</span></div>
+<div style="display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center">
+<div style="background:var(--surface2);border-radius:18px;padding:10px;text-align:center"><div style="font-size:26px;font-weight:800;line-height:1">19.</div><div style="font-size:14px;color:var(--muted)">Sept. 2026</div></div>
+<span style="color:var(--muted)">bis</span>
+<div style="background:var(--surface2);border-radius:18px;padding:10px;text-align:center"><div style="font-size:26px;font-weight:800;line-height:1">18.</div><div style="font-size:14px;color:var(--muted)">Nov. 2026</div></div>
+</div>
+<div style="text-align:center;font-weight:800;color:var(--accentText)">Was bei der U5 passiert →</div>
+</div>
+</div>
+<div style="padding:24px 24px 110px;display:flex;flex-direction:column;gap:6px;font-size:13.5px;color:var(--muted)">
+<p>Quelle: <span style="text-decoration:underline">kindergesundheit-info.de</span> · Frühgeboren? <span style="text-decoration:underline">Korrigiertes Alter</span></p>
+<p>U &amp; Me ersetzt keine ärztliche Beratung.</p>
+</div>
+<div style="position:absolute;left:24px;right:24px;bottom:20px;background:var(--navBg);border-radius:999px;padding:6px;display:grid;grid-template-columns:repeat(3,1fr);gap:4px;box-shadow:0 6px 20px var(--shadow)">
+<span style="background:var(--navActive);color:var(--navActiveInk);border-radius:999px;padding:12px 0;text-align:center;font-size:15px;font-weight:800">Heute</span>
+<span style="color:var(--navInk);padding:12px 0;text-align:center;font-size:15px;font-weight:700">Nächste U</span>
+<span style="color:var(--navInk);padding:12px 0;text-align:center;font-size:15px;font-weight:700">Euer Weg</span>
+</div>
+</div>
+</div></div></div>
+</sc-for>
+</div>
+
+</section>
+
+
+<section class="dv-turn" id="t2a">
+<div class="dv-thd"><a class="dv-tid" href="#t2a">2·1</a><span class="dv-tname">Onboarding – Begrüßung &amp; Maskottchen, dann Geburtsdatum</span></div>
+<p class="dv-intro">Zwei kurze Schritte, kein Konto. Das gewählte Tier setzt den persönlichen Akzent (hier Elefant = Taubenblau). Schritt-Anzeige als Text, nicht als Balken. Hauptaktion immer unten im Daumenbereich.</p>
+<div class="dv-pair">
+<sc-for list="{{ themes }}" as="t" hint-placeholder-count="2">
+<div><div class="dv-mode">{{ t.label }} · Schritt 1</div>
+<div class="dv-card"><div style="{{ t.vars }}">
+<div style="width:375px;background:var(--bg);color:var(--ink);font-family:Nunito,ui-rounded,system-ui,sans-serif;font-size:17px;line-height:1.5">
+<div style="padding:10px 14px 8px"><div style="background:var(--surface2);border-radius:999px;padding:6px 14px;font-size:13px;color:var(--muted);text-align:center">u-und-me.de</div></div>
+<div style="padding:12px 20px 0;display:flex;justify-content:space-between;align-items:center"><span style="font-weight:800;font-size:16px">U &amp; Me</span><span style="font-size:13.5px;color:var(--muted);font-weight:700;white-space:nowrap;flex:none">Schritt 1 von 2</span></div>
+<div style="padding:26px 20px 0;display:flex;flex-direction:column;gap:8px">
+<h1 style="font-size:28px;font-weight:800;line-height:1.15">Schön, dass ihr da seid.</h1>
+<p style="color:var(--muted)">U &amp; Me begleitet euch zwischen den U-Untersuchungen – mit Spannbreiten statt Terminen.</p>
+</div>
+<div style="padding:26px 20px 0;display:flex;flex-direction:column;gap:12px">
+<h2 style="font-size:19px;font-weight:800">Wer begleitet euch?</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+<sc-for list="{{ t.mascots }}" as="m" hint-placeholder-count="4">
+<div style="{{ m.cardStyle }}">
+<div style="height:104px;display:flex;justify-content:center;align-items:flex-end"><div role="img" aria-label="{{ m.name }}" style="{{ m.imgStyle }}"></div></div>
+<div style="font-weight:800;font-size:16.5px;margin-top:8px">{{ m.name }}</div>
+<div style="font-size:13.5px;color:var(--muted);line-height:1.35">{{ m.story }}</div>
+</div>
+</sc-for>
+</div>
+</div>
+<div style="padding:28px 20px 22px"><div style="background:var(--accentInk);color:var(--onAccent);border-radius:999px;padding:15px;text-align:center;font-weight:800;font-size:17px">Weiter mit dem Elefantenbaby</div></div>
+</div></div></div></div>
+</sc-for>
+<sc-for list="{{ themes }}" as="t" hint-placeholder-count="2">
+<div><div class="dv-mode">{{ t.label }} · Schritt 2</div>
+<div class="dv-card"><div style="{{ t.vars }}">
+<div style="width:375px;background:var(--bg);color:var(--ink);font-family:Nunito,ui-rounded,system-ui,sans-serif;font-size:17px;line-height:1.5">
+<div style="padding:10px 14px 8px"><div style="background:var(--surface2);border-radius:999px;padding:6px 14px;font-size:13px;color:var(--muted);text-align:center">u-und-me.de</div></div>
+<div style="padding:12px 20px 0;display:flex;justify-content:space-between;align-items:center"><span style="font-weight:700;font-size:15.5px;color:var(--accentText);min-height:44px;display:flex;align-items:center">← Zurück</span><span style="font-size:13.5px;color:var(--muted);font-weight:700;white-space:nowrap;flex:none">Schritt 2 von 2</span></div>
+<div style="padding:14px 20px 0;display:flex;gap:12px;align-items:flex-end">
+<div style="width:72px;height:72px;flex:none;border-radius:50%;border:2.5px solid var(--outline);background:var(--accentSoft) url(maskottchen/elefant-avatar.png) center/cover no-repeat;display:flex;align-items:center;justify-content:center;font:9px ui-monospace,Menlo,monospace;color:var(--muted);text-align:center"></div>
+<div style="flex:1;background:var(--accentSoft);border-radius:26px 26px 26px 8px;padding:16px 18px"><p style="font-size:19px;line-height:1.35;font-weight:700">Wann ist euer Kind auf die Welt gekommen?</p></div>
+</div>
+<div style="padding:28px 20px 0;display:flex;flex-direction:column;gap:18px">
+<label style="display:flex;flex-direction:column;gap:6px"><span style="font-weight:800;font-size:15.5px">Geburtsdatum</span><span style="background:var(--surface);border:2px solid var(--accentInk);border-radius:18px;padding:14px 16px;font-size:18px;font-weight:700;display:flex;justify-content:space-between"><span>19.04.2026</span><span style="color:var(--muted);font-weight:600;font-size:15px">TT.MM.JJJJ</span></span></label>
+<label style="display:flex;flex-direction:column;gap:6px"><span style="font-weight:800;font-size:15.5px">Name <span style="font-weight:600;color:var(--muted)">(optional)</span></span><span style="background:var(--surface);border:1.5px solid var(--line2);border-radius:18px;padding:14px 16px;font-size:18px">Mila</span></label>
+<div style="background:var(--surface);border:1.5px solid var(--line);border-radius:18px;padding:14px 16px;display:flex;gap:12px;align-items:center"><span style="width:26px;height:26px;flex:none;border-radius:9px;border:2px solid var(--line2)"></span><span style="font-size:15.5px"><b>Zu früh geboren?</b> Dann tragt zusätzlich den errechneten Termin ein.</span></div>
+</div>
+<div style="padding:22px 20px 0"><div style="background:var(--tip);border-radius:20px;padding:14px 16px;display:flex;gap:12px;align-items:flex-start"><span style="width:30px;height:30px;flex:none;border-radius:50%;background:var(--aBewegungSoft);border:2px solid var(--aBewegung)"></span><p style="font-size:15.5px"><b>Alles bleibt auf diesem Gerät.</b> Kein Konto, keine Anmeldung – nichts wird verschickt.</p></div></div>
+<div style="padding:28px 20px 22px"><div style="background:var(--accentInk);color:var(--onAccent);border-radius:999px;padding:15px;text-align:center;font-weight:800;font-size:17px">Los geht’s</div></div>
+</div></div></div></div>
+</sc-for>
+</div>
+</section>
+
+<section class="dv-turn" id="t2b">
+<div class="dv-thd"><a class="dv-tid" href="#t2b">2·2</a><span class="dv-tname">Euer Weg – Zeitstrahl U1 bis U7 mit Etappen</span></div>
+<p class="dv-intro">Us sind große Stationen, Etappen kleine Punkte in Bereichsfarbe. Vergangenes: ruhig, gedämpft, durchgezogene Linie. Gerade dran: als Karte hervorgehoben. „Du bist hier“ trägt das Maskottchen als Wanderer. Kommendes: offene Ringe auf gestrichelter Linie. Nichts wird abgehakt.</p>
+<div class="dv-pair">
+<sc-for list="{{ themes }}" as="t" hint-placeholder-count="2">
+<div><div class="dv-mode">{{ t.label }}</div>
+<div class="dv-card"><div style="{{ t.vars }}">
+<div style="width:375px;background:var(--bg);color:var(--ink);font-family:Nunito,ui-rounded,system-ui,sans-serif;font-size:17px;line-height:1.5;position:relative">
+<div style="padding:10px 14px 8px"><div style="background:var(--surface2);border-radius:999px;padding:6px 14px;font-size:13px;color:var(--muted);text-align:center">u-und-me.de</div></div>
+<div style="padding:12px 20px 0;display:flex;flex-direction:column;gap:6px">
+<h1 style="font-size:26px;font-weight:800">Euer Weg</h1>
+<p style="font-size:15.5px;color:var(--muted)">Die Etappen stehen dort, wo sie frühestens typisch sind. Viele Kinder sind später dran – das ist normal.</p>
+<div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:6px">
+<span style="display:flex;align-items:center;gap:6px;background:var(--surface);border:1.5px solid var(--line);border-radius:999px;padding:3px 10px;font-size:13px;font-weight:700"><span style="width:9px;height:9px;border-radius:50%;background:var(--aAlltag)"></span>Alltag</span>
+<span style="display:flex;align-items:center;gap:6px;background:var(--surface);border:1.5px solid var(--line);border-radius:999px;padding:3px 10px;font-size:13px;font-weight:700"><span style="width:9px;height:9px;border-radius:50%;background:var(--aBewegung)"></span>Bewegung</span>
+<span style="display:flex;align-items:center;gap:6px;background:var(--surface);border:1.5px solid var(--line);border-radius:999px;padding:3px 10px;font-size:13px;font-weight:700"><span style="width:9px;height:9px;border-radius:50%;background:var(--aSprache)"></span>Sprache &amp; Laute</span>
+<span style="display:flex;align-items:center;gap:6px;background:var(--surface);border:1.5px solid var(--line);border-radius:999px;padding:3px 10px;font-size:13px;font-weight:700"><span style="width:9px;height:9px;border-radius:50%;background:var(--aMiteinander)"></span>Miteinander</span>
+</div>
+</div>
+<div style="padding:22px 16px 0 12px;display:flex;flex-direction:column">
+<sc-for list="{{ rows }}" as="r" hint-placeholder-count="12">
+<div style="display:grid;grid-template-columns:48px 1fr;gap:10px;position:relative">
+<div style="position:relative;display:flex;justify-content:center">
+<sc-if value="{{ r.past }}"><div style="position:absolute;top:0;bottom:0;left:22.5px;width:3px;background:var(--line2);opacity:.6"></div></sc-if>
+<sc-if value="{{ r.future }}"><div style="position:absolute;top:0;bottom:0;left:22.5px;width:3px;background:repeating-linear-gradient(180deg,var(--line2) 0 6px,transparent 6px 12px)"></div></sc-if>
+<sc-if value="{{ r.isU }}"><div style="{{ r.uStyle }}">{{ r.u }}</div></sc-if>
+<sc-if value="{{ r.isE }}"><div style="{{ r.dotStyle }}"></div></sc-if>
+<sc-if value="{{ r.isHere }}"><div style="position:relative;margin-top:10px;width:48px;height:48px;border-radius:50%;border:2.5px solid var(--outline);background:var(--accentSoft) url(maskottchen/elefant-avatar.png) center/cover no-repeat;display:flex;align-items:center;justify-content:center;font:8px ui-monospace,Menlo,monospace;color:var(--muted)"></div></sc-if>
+</div>
+<div style="padding:8px 0 14px;min-width:0">
+<sc-if value="{{ r.isU }}"><div><div style="{{ r.titleStyle }}">{{ r.title }}</div><div style="font-size:13.5px;color:var(--muted)">{{ r.meta }}</div><sc-if value="{{ r.running }}"><div style="display:inline-flex;margin-top:6px;background:var(--accentSoft);border-radius:999px;padding:2px 10px;font-size:13px;font-weight:800">Zeitfenster läuft</div></sc-if></div></sc-if>
+<sc-if value="{{ r.isEPlain }}"><div><div style="{{ r.titleStyle }}">{{ r.title }}</div><div style="font-size:13.5px;color:var(--muted)">{{ r.meta }}</div></div></sc-if>
+<sc-if value="{{ r.isENow }}"><div style="background:var(--surface);border:1.5px solid var(--line);border-radius:18px;padding:10px 14px;box-shadow:0 2px 10px var(--shadow)"><div style="font-size:12.5px;font-weight:800;color:var(--accentText)">Gerade dran</div><div style="font-weight:800;font-size:16.5px;line-height:1.3">{{ r.title }}</div><div style="font-size:13.5px;color:var(--muted)">{{ r.meta }}</div></div></sc-if>
+<sc-if value="{{ r.isHere }}"><div style="background:var(--accentSoft);border-radius:22px 22px 22px 8px;padding:12px 16px;margin-top:4px"><div style="font-weight:800;font-size:17px">Du bist hier</div><div style="font-size:14px;color:var(--muted)">26. September 2026 · Mila, 5 Monate 1 Woche</div></div></sc-if>
+</div>
+</div>
+</sc-for>
+</div>
+<div style="padding:10px 20px 110px;font-size:13.5px;color:var(--muted)">Quelle: <span style="text-decoration:underline">kindergesundheit-info.de</span> · <span style="text-decoration:underline">Angaben ändern</span></div>
+<div style="position:absolute;left:24px;right:24px;bottom:20px;background:var(--navBg);border-radius:999px;padding:6px;display:grid;grid-template-columns:repeat(3,1fr);gap:4px;box-shadow:0 6px 20px var(--shadow)">
+<span style="color:var(--navInk);padding:12px 0;text-align:center;font-size:15px;font-weight:700">Heute</span>
+<span style="color:var(--navInk);padding:12px 0;text-align:center;font-size:15px;font-weight:700">Nächste U</span>
+<span style="background:var(--navActive);color:var(--navActiveInk);border-radius:999px;padding:12px 0;text-align:center;font-size:15px;font-weight:800">Euer Weg</span>
+</div>
+</div></div></div></div>
+</sc-for>
+</div>
+</section>
+
+<section class="dv-turn" id="t2c">
+<div class="dv-thd"><a class="dv-tid" href="#t2c">2·3</a><span class="dv-tname">Nächste U – Detailseite U5</span></div>
+<p class="dv-intro">Zeitfenster mit echten Daten, Kalender-Button als Hauptaktion (lädt .ics), was untersucht wird, Beobachtungs-Checkliste zum Abhaken (klickbar – nur für euch, keine Bewertung) und Fragen an die Praxis.</p>
+<div class="dv-pair">
+<sc-for list="{{ themes }}" as="t" hint-placeholder-count="2">
+<div><div class="dv-mode">{{ t.label }}</div>
+<div class="dv-card"><div style="{{ t.vars }}">
+<div style="width:375px;background:var(--bg);color:var(--ink);font-family:Nunito,ui-rounded,system-ui,sans-serif;font-size:17px;line-height:1.5;position:relative">
+<div style="padding:10px 14px 8px"><div style="background:var(--surface2);border-radius:999px;padding:6px 14px;font-size:13px;color:var(--muted);text-align:center">u-und-me.de</div></div>
+<div style="padding:12px 20px 0;display:flex;align-items:center;gap:14px">
+<span style="width:64px;height:64px;flex:none;border-radius:50%;background:var(--accentInk);color:var(--onAccent);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:22px">U5</span>
+<div><div style="font-size:14px;color:var(--muted);font-weight:700">Nächste Untersuchung</div><h1 style="font-size:24px;font-weight:800;line-height:1.2">6. bis 7. Lebensmonat</h1></div>
+</div>
+<div style="padding:18px 20px 0">
+<div style="background:var(--surface);border-radius:28px;padding:18px;display:flex;flex-direction:column;gap:14px;box-shadow:0 2px 12px var(--shadow)">
+<div style="display:flex;justify-content:space-between;align-items:center"><span style="font-weight:800">Zeitfenster</span><span style="background:var(--accentSoft);border-radius:999px;padding:3px 12px;font-size:13.5px;font-weight:800">läuft</span></div>
+<div style="display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center">
+<div style="background:var(--surface2);border-radius:18px;padding:10px;text-align:center"><div style="font-size:26px;font-weight:800;line-height:1">19.</div><div style="font-size:14px;color:var(--muted)">Sept. 2026</div></div>
+<span style="color:var(--muted)">bis</span>
+<div style="background:var(--surface2);border-radius:18px;padding:10px;text-align:center"><div style="font-size:26px;font-weight:800;line-height:1">18.</div><div style="font-size:14px;color:var(--muted)">Nov. 2026</div></div>
+</div>
+<p style="font-size:15.5px;color:var(--muted)">Am besten jetzt einen Termin in der Praxis ausmachen – ein Tag irgendwo in diesem Fenster ist gut.</p>
+<div style="background:var(--accentInk);color:var(--onAccent);border-radius:999px;padding:15px;text-align:center;font-weight:800;font-size:17px">In meinen Kalender eintragen</div>
+<div style="text-align:center;font-size:13px;color:var(--muted);margin-top:-6px">Lädt eine Kalenderdatei (.ics) herunter</div>
+</div>
+</div>
+<div style="padding:30px 20px 0;display:flex;flex-direction:column;gap:10px">
+<h2 style="font-size:20px;font-weight:800">Was bei der U5 passiert</h2>
+<div style="background:var(--surface);border-radius:24px;padding:4px 18px;display:flex;flex-direction:column">
+<div style="padding:12px 0;border-bottom:1.5px solid var(--line)"><b>Wachstum &amp; Körper</b><div style="font-size:15.5px;color:var(--muted)">Messen, wiegen, abhören, Haut und Hüfte</div></div>
+<div style="padding:12px 0;border-bottom:1.5px solid var(--line)"><b>Bewegung</b><div style="font-size:15.5px;color:var(--muted)">Drehen, Greifen, Körperspannung</div></div>
+<div style="padding:12px 0;border-bottom:1.5px solid var(--line)"><b>Sehen &amp; Hören</b><div style="font-size:15.5px;color:var(--muted)">Reaktion auf Licht, Gesichter und Stimmen</div></div>
+<div style="padding:12px 0"><b>Gespräch</b><div style="font-size:15.5px;color:var(--muted)">Ernährung, Schlaf, Impfungen, Unfallschutz</div></div>
+</div>
+</div>
+<div style="padding:30px 20px 0;display:flex;flex-direction:column;gap:10px">
+<div><h2 style="font-size:20px;font-weight:800">Das könnt ihr vorher beobachten</h2><p style="font-size:15.5px;color:var(--muted)">Nur als Gedächtnisstütze für euch – es gibt kein Richtig oder Falsch.</p></div>
+<sc-for list="{{ t.checks }}" as="c" hint-placeholder-count="3">
+<div onClick="{{ c.toggle }}" style="background:var(--surface);border:1.5px solid var(--line);border-radius:18px;padding:12px 16px;min-height:52px;display:flex;gap:14px;align-items:center;cursor:pointer">
+<span style="{{ c.boxStyle }}">{{ c.mark }}</span><span>{{ c.text }}</span>
+</div>
+</sc-for>
+</div>
+<div style="padding:30px 20px 0;display:flex;flex-direction:column;gap:10px">
+<h2 style="font-size:20px;font-weight:800">Fragen an die Praxis</h2>
+<div style="background:var(--accentSoft);border-radius:22px 22px 22px 8px;padding:12px 16px">„Wann und wie mit Beikost starten?“</div>
+<div style="background:var(--accentSoft);border-radius:22px 22px 22px 8px;padding:12px 16px">„Ist unser Schlafrhythmus normal?“</div>
+<div style="border:2px dashed var(--line2);border-radius:22px;padding:12px 16px;color:var(--accentText);font-weight:800;text-align:center">+ Eigene Frage notieren</div>
+</div>
+<div style="padding:22px 24px 110px;font-size:13.5px;color:var(--muted)">Quelle: <span style="text-decoration:underline">kindergesundheit-info.de – Die Untersuchungen U1 bis U9</span></div>
+<div style="position:absolute;left:24px;right:24px;bottom:20px;background:var(--navBg);border-radius:999px;padding:6px;display:grid;grid-template-columns:repeat(3,1fr);gap:4px;box-shadow:0 6px 20px var(--shadow)">
+<span style="color:var(--navInk);padding:12px 0;text-align:center;font-size:15px;font-weight:700">Heute</span>
+<span style="background:var(--navActive);color:var(--navActiveInk);border-radius:999px;padding:12px 0;text-align:center;font-size:15px;font-weight:800">Nächste U</span>
+<span style="color:var(--navInk);padding:12px 0;text-align:center;font-size:15px;font-weight:700">Euer Weg</span>
+</div>
+</div></div></div></div>
+</sc-for>
+</div>
+</section>
+
+<section class="dv-turn" id="t2d">
+<div class="dv-thd"><a class="dv-tid" href="#t2d">2·4</a><span class="dv-tname">Startseite auf dem Desktop (1280 px)</span></div>
+<p class="dv-intro">Zentrierte Inhaltsbreite (max. 1120 px), zwei Spalten: links das Beruhigende und die Etappen, rechts eine ruhige Seitenleiste mit nächster U, Vorschau und Warnhinweis. Navigation wandert in die Kopfzeile. Ab ca. 900 px zweispaltig, darunter wie mobil.</p>
+<div class="dv-pair" style="flex-direction:column">
+<sc-for list="{{ themes }}" as="t" hint-placeholder-count="2">
+<div><div class="dv-mode">{{ t.label }}</div>
+<div class="dv-card"><div style="{{ t.vars }}">
+<div style="width:1280px;background:var(--bg);color:var(--ink);font-family:Nunito,ui-rounded,system-ui,sans-serif;font-size:17px;line-height:1.5">
+<div style="padding:10px 20px;background:var(--surface2)"><div style="max-width:520px;margin:0 auto;background:var(--surface);border-radius:999px;padding:6px 14px;font-size:13px;color:var(--muted);text-align:center">u-und-me.de</div></div>
+<div style="max-width:1120px;margin:0 auto;padding:22px 40px 0;display:flex;align-items:center;justify-content:space-between;gap:24px">
+<span style="font-weight:800;font-size:20px">U &amp; Me</span>
+<div style="background:var(--navBg);border-radius:999px;padding:5px;display:flex;gap:4px">
+<span style="background:var(--navActive);color:var(--navActiveInk);border-radius:999px;padding:9px 22px;font-size:15px;font-weight:800">Heute</span>
+<span style="color:var(--navInk);padding:9px 22px;font-size:15px;font-weight:700">Nächste U</span>
+<span style="color:var(--navInk);padding:9px 22px;font-size:15px;font-weight:700">Euer Weg</span>
+</div>
+<div style="display:flex;align-items:center;gap:10px"><span style="font-size:13px;color:var(--muted);border:1.5px dashed var(--line);border-radius:999px;padding:2px 10px">Entwurf</span><span style="width:40px;height:40px;border-radius:50%;border:2.5px solid var(--outline);background:var(--accentSoft) url(maskottchen/elefant-avatar.png) center/cover no-repeat"></span></div>
+</div>
+<div style="max-width:1120px;margin:0 auto;padding:36px 40px 56px;display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:40px;align-items:start">
+<div style="display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;gap:18px;align-items:flex-end">
+<div style="width:112px;height:112px;flex:none;border-radius:50%;border:3px solid var(--outline);background:var(--accentSoft) url(maskottchen/elefant-avatar.png) center/cover no-repeat;display:flex;align-items:center;justify-content:center;font:10px ui-monospace,Menlo,monospace;color:var(--muted)"></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px">
+<div style="background:var(--accentSoft);border-radius:30px 30px 30px 8px;padding:20px 24px"><p style="font-size:15.5px;color:var(--muted);font-weight:700">Hallo!</p><p style="font-size:26px;line-height:1.3;font-weight:700">Mila ist heute <b style="font-weight:800">5 Monate und 1 Woche</b> alt.</p></div>
+</div>
+</div>
+<div style="background:var(--surface);border:1.5px solid var(--line);border-radius:26px;padding:18px 24px;display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center">
+<span style="font-size:18px;font-weight:800">Du bist hier:<br>zwischen U4 und U5</span>
+<div style="position:relative;height:52px">
+<div style="position:absolute;left:18px;right:18px;top:25px;height:3px;background:repeating-linear-gradient(90deg,var(--line2) 0 8px,transparent 8px 14px)"></div>
+<div style="position:absolute;left:60%;right:18px;top:19px;height:15px;border-radius:999px;background:var(--accentSoft)"></div>
+<div style="position:absolute;left:0;top:8px;width:36px;height:36px;border-radius:50%;background:var(--surface2);color:var(--muted);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px">U4</div>
+<div style="position:absolute;left:calc(64% - 26px);top:0;width:52px;height:52px;border-radius:50%;border:2.5px solid var(--outline);background:var(--accentSoft) url(maskottchen/elefant-avatar.png) center/cover no-repeat"></div>
+<div style="position:absolute;right:0;top:8px;width:36px;height:36px;border-radius:50%;background:var(--accentInk);color:var(--onAccent);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px">U5</div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:14px">
+<h2 style="font-size:24px;font-weight:800">Was euch gerade begegnen kann</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+<div style="background:var(--warm);border-radius:28px 28px 28px 8px;padding:20px 22px;display:flex;flex-direction:column;gap:8px"><div style="font-size:13.5px;font-weight:700;color:var(--warmMuted)">Alltag · meist mit 4–7 Monaten</div><h3 style="font-size:20px;font-weight:800">Beikost wird ein Thema</h3><p>Frühestens ab dem 5., spätestens ab dem 7. Monat kann Brei oder Fingerfood dazukommen.</p><div style="border-top:1.5px dashed var(--warmLine);padding-top:10px;font-size:15.5px"><b>Darauf könnt ihr achten:</b> Sitzt euer Kind mit Hilfe aufrecht und schaut neugierig beim Essen zu?</div></div>
+<div style="background:var(--warm);border-radius:28px 28px 28px 8px;padding:20px 22px;display:flex;flex-direction:column;gap:8px"><div style="font-size:13.5px;font-weight:700;color:var(--warmMuted)">Alltag · meist mit 5–12 Monaten</div><h3 style="font-size:20px;font-weight:800">Die ersten Zähne</h3><p>Viele Kinder bekommen zwischen dem 6. und 10. Monat den ersten Zahn – manche früher, manche deutlich später.</p><div style="border-top:1.5px dashed var(--warmLine);padding-top:10px;font-size:15.5px"><b>Ganz normal dabei:</b> Sabbern, Kauen und etwas mehr Unruhe.</div></div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:14px">
+<h2 style="font-size:22px;font-weight:800">Gerade dran</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+<div style="background:var(--surface);border:1.5px solid var(--line);border-radius:24px;padding:20px;display:flex;flex-direction:column;gap:8px"><div style="display:flex;gap:8px"><span style="background:var(--aBewegungSoft);border-radius:999px;padding:2px 10px;font-size:13px;font-weight:800">Bewegung</span><span style="font-size:13.5px;color:var(--muted)">meist mit 3–6 Monaten</span></div><h3 style="font-size:18px;font-weight:800">Greift gezielt nach Dingen</h3><p>Euer Baby streckt die Hände nach Spielzeug aus – und alles wandert in den Mund.</p><div style="display:flex;gap:10px;background:var(--tip);border-radius:18px;padding:12px 14px;font-size:15.5px"><span style="width:22px;height:22px;flex:none;border-radius:50%;background:var(--aAlltag)"></span><span><b>Spielidee:</b> Spielzeug knapp außer Reichweite legen.</span></div></div>
+<div style="background:var(--surface);border:1.5px solid var(--line);border-radius:24px;padding:20px;display:flex;flex-direction:column;gap:8px"><div style="display:flex;gap:8px"><span style="background:var(--aBewegungSoft);border-radius:999px;padding:2px 10px;font-size:13px;font-weight:800">Bewegung</span><span style="font-size:13.5px;color:var(--muted)">meist mit 4–7 Monaten</span></div><h3 style="font-size:18px;font-weight:800">Dreht sich vom Rücken auf den Bauch</h3><p>Erst zur Seite, dann ganz herum – manche zuerst vom Bauch auf den Rücken.</p><div style="display:flex;gap:10px;background:var(--tip);border-radius:18px;padding:12px 14px;font-size:15.5px"><span style="width:22px;height:22px;flex:none;border-radius:50%;background:var(--warnDot)"></span><span><b>Hinweis:</b> Nie mehr unbeaufsichtigt auf dem Wickeltisch.</span></div></div>
+</div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px">
+<div style="background:var(--surface);border-radius:28px;padding:20px;display:flex;flex-direction:column;gap:14px;box-shadow:0 2px 12px var(--shadow)">
+<div style="display:flex;justify-content:space-between;align-items:center"><span style="font-weight:800;font-size:19px">Nächste U: U5</span><span style="background:var(--accentSoft);border-radius:999px;padding:3px 12px;font-size:13.5px;font-weight:800">Zeitfenster läuft</span></div>
+<div style="display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center"><div style="background:var(--surface2);border-radius:18px;padding:10px;text-align:center"><div style="font-size:26px;font-weight:800;line-height:1">19.</div><div style="font-size:14px;color:var(--muted)">Sept. 2026</div></div><span style="color:var(--muted)">bis</span><div style="background:var(--surface2);border-radius:18px;padding:10px;text-align:center"><div style="font-size:26px;font-weight:800;line-height:1">18.</div><div style="font-size:14px;color:var(--muted)">Nov. 2026</div></div></div>
+<div style="background:var(--accentInk);color:var(--onAccent);border-radius:999px;padding:13px;text-align:center;font-weight:800">In meinen Kalender eintragen</div>
+<div style="text-align:center;font-weight:800;color:var(--accentText);font-size:15.5px">Was bei der U5 passiert →</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;padding:4px 4px 0"><h2 style="font-size:18px;font-weight:800">Als Nächstes, irgendwann</h2><div style="display:flex;flex-wrap:wrap;gap:8px"><span style="background:var(--surface);border:1.5px solid var(--line);border-radius:999px;padding:7px 14px;font-size:15px"><b>Sitzt allein</b> <span style="color:var(--muted)">6–10 M.</span></span><span style="background:var(--surface);border:1.5px solid var(--line);border-radius:999px;padding:7px 14px;font-size:15px"><b>Plappert Silbenketten</b> <span style="color:var(--muted)">6–10 M.</span></span><span style="background:var(--surface);border:1.5px solid var(--line);border-radius:999px;padding:7px 14px;font-size:15px"><b>Fremdeln</b> <span style="color:var(--muted)">6–10 M.</span></span></div></div>
+<div style="background:var(--surface);border:1.5px solid var(--warnLine);border-radius:24px;padding:18px;display:flex;flex-direction:column;gap:8px"><div style="display:flex;gap:12px;align-items:center"><span style="width:32px;height:32px;flex:none;border-radius:50%;background:var(--warn);color:var(--warnInk);display:flex;align-items:center;justify-content:center;font-weight:800">i</span><h2 style="font-size:16.5px;font-weight:800;line-height:1.3">Nicht bis zur nächsten U warten, wenn …</h2></div><p style="font-size:15.5px">euer Kind nicht auf Geräusche reagiert, nicht versucht zu greifen oder Fähigkeiten wieder verliert. Sprecht dann zeitnah mit eurer Praxis.</p></div>
+<div style="font-size:13.5px;color:var(--muted);display:flex;flex-direction:column;gap:4px;padding:0 4px"><p>Quelle: <span style="text-decoration:underline">kindergesundheit-info.de</span></p><p>Frühgeboren? <span style="text-decoration:underline">Korrigiertes Alter</span></p><p>U &amp; Me ersetzt keine ärztliche Beratung.</p></div>
+</div>
+</div>
+</div></div></div></div>
+</sc-for>
+</div>
+</section>
+
+<section class="dv-turn" id="t2e">
+<div class="dv-thd"><a class="dv-tid" href="#t2e">2·5</a><span class="dv-tname">Komponenten – Navigation, Buttons, Eingabe, Checkliste, Avatar, Hinweise</span></div>
+<p class="dv-intro">Navigation: mobil eine schwebende Pille unten (Daumen, funktioniert in jedem Browser, respektiert <code>env(safe-area-inset-bottom)</code>), ab 900 px oben in der Kopfzeile. Keine Gesten als einziger Weg. Warnung ruhig: Rosé-Linie und „i“, kein Alarmrot.</p>
+<div class="dv-pair">
+<sc-for list="{{ themes }}" as="t" hint-placeholder-count="2">
+<div><div class="dv-mode">{{ t.label }}</div>
+<div class="dv-card"><div style="{{ t.vars }}">
+<div style="width:420px;background:var(--bg);color:var(--ink);font-family:Nunito,ui-rounded,system-ui,sans-serif;font-size:17px;line-height:1.5;padding:24px;box-sizing:border-box;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:column;gap:8px"><div style="font:11px ui-monospace,Menlo,monospace;color:var(--muted)">NAVIGATION</div>
+<div style="background:var(--navBg);border-radius:999px;padding:6px;display:grid;grid-template-columns:repeat(3,1fr);gap:4px;box-shadow:0 6px 20px var(--shadow)"><span style="background:var(--navActive);color:var(--navActiveInk);border-radius:999px;padding:12px 0;text-align:center;font-size:15px;font-weight:800">Heute</span><span style="color:var(--navInk);padding:12px 0;text-align:center;font-size:15px;font-weight:700">Nächste U</span><span style="color:var(--navInk);padding:12px 0;text-align:center;font-size:15px;font-weight:700">Euer Weg</span></div></div>
+<div style="display:flex;flex-direction:column;gap:8px"><div style="font:11px ui-monospace,Menlo,monospace;color:var(--muted)">BUTTONS</div>
+<div style="background:var(--accentInk);color:var(--onAccent);border-radius:999px;padding:14px;text-align:center;font-weight:800">In meinen Kalender eintragen</div>
+<div style="display:flex;gap:10px"><span style="flex:1;border:2px solid var(--accentInk);color:var(--accentText);border-radius:999px;padding:12px;text-align:center;font-weight:800">Zweitaktion</span><span style="flex:1;color:var(--accentText);padding:12px;text-align:center;font-weight:800;text-decoration:underline">Textlink</span></div></div>
+<div style="display:flex;flex-direction:column;gap:8px"><div style="font:11px ui-monospace,Menlo,monospace;color:var(--muted)">EINGABE · CHECKLISTE · AVATAR</div>
+<span style="background:var(--surface);border:2px solid var(--accentInk);border-radius:18px;padding:13px 16px;font-size:18px;font-weight:700">19.04.2026</span>
+<div style="display:flex;gap:10px"><div style="flex:1;background:var(--surface);border:1.5px solid var(--line);border-radius:18px;padding:12px 14px;display:flex;gap:12px;align-items:center"><span style="width:28px;height:28px;border-radius:10px;background:var(--accentInk);color:var(--onAccent);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px">✓</span><span style="font-size:15.5px">beobachtet</span></div><div style="flex:1;background:var(--surface);border:1.5px solid var(--line);border-radius:18px;padding:12px 14px;display:flex;gap:12px;align-items:center"><span style="width:28px;height:28px;border-radius:10px;border:2px solid var(--line2)"></span><span style="font-size:15.5px">offen</span></div></div>
+<div style="display:flex;gap:12px;align-items:center"><span style="width:72px;height:72px;border-radius:50%;border:2.5px solid var(--outline);background:var(--accentSoft) url(maskottchen/elefant-avatar.png) center/cover no-repeat"></span><span style="width:48px;height:48px;border-radius:50%;border:2.5px solid var(--outline);background:var(--accentSoft) url(maskottchen/elefant-avatar.png) center/cover no-repeat"></span><span style="width:32px;height:32px;border-radius:50%;border:2px solid var(--outline);background:var(--accentSoft) url(maskottchen/elefant-avatar.png) center/cover no-repeat"></span><span style="font-size:13.5px;color:var(--muted)">72 · 48 · 32 px, Umriss wie Maskottchen</span></div></div>
+<div style="display:flex;flex-direction:column;gap:10px"><div style="font:11px ui-monospace,Menlo,monospace;color:var(--muted)">HINWEISE</div>
+<div style="background:var(--surface);border:1.5px solid var(--warnLine);border-radius:24px;padding:16px 18px;display:flex;gap:12px"><span style="width:32px;height:32px;flex:none;border-radius:50%;background:var(--warn);color:var(--warnInk);display:flex;align-items:center;justify-content:center;font-weight:800">i</span><div><b style="font-size:16px">Nicht bis zur nächsten U warten, wenn …</b><p style="font-size:15px">… sprecht dann zeitnah mit eurer Kinderarztpraxis.</p></div></div>
+<div style="background:var(--tip);border-radius:20px;padding:14px 16px;display:flex;gap:12px"><span style="width:28px;height:28px;flex:none;border-radius:50%;background:var(--aSpracheSoft);border:2px solid var(--aSprache)"></span><p style="font-size:15px"><b>Frühgeboren?</b> Für die Entwicklung zählt das <i>korrigierte Alter</i> – ab dem errechneten Termin. Die U-Termine richten sich nach dem tatsächlichen Geburtsdatum.</p></div>
+<div style="background:var(--tip);border-radius:20px;padding:14px 16px;display:flex;gap:12px"><span style="width:28px;height:28px;flex:none;border-radius:50%;background:var(--aBewegungSoft);border:2px solid var(--aBewegung)"></span><p style="font-size:15px">U &amp; Me ersetzt keine ärztliche Beratung. Wenn ihr euch Sorgen macht, fragt immer eure Kinderarztpraxis.</p></div>
+<div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><span style="font-size:13px;color:var(--muted);border:1.5px dashed var(--line2);border-radius:999px;padding:3px 12px">Entwurf · noch nicht fachlich geprüft</span><span style="font-size:13px;color:var(--muted)">Quelle: <span style="text-decoration:underline">kindergesundheit-info.de</span></span></div></div>
+</div></div></div></div>
+</sc-for>
+</div>
+</section>
+
+<section class="dv-turn" id="t2f">
+<div class="dv-thd"><a class="dv-tid" href="#t2f">2·6</a><span class="dv-tname">App-Icon &amp; Startbildschirm (PWA)</span></div>
+<p class="dv-intro">A: Elefanten-Avatar auf Taubenblau (maskable, Motiv in der inneren 80 %-Zone). B: neutrales Wortzeichen für alle, die kein Tier auf dem Homescreen wollen. Splash: Hintergrund #DDE5EF hell / #141D2B dunkel, theme-color = Seitenhintergrund.</p>
+<div style="display:flex;gap:40px;flex-wrap:wrap;align-items:flex-end;font-family:Nunito,ui-rounded,system-ui,sans-serif">
+<div style="display:flex;flex-direction:column;gap:10px;align-items:center"><div style="width:180px;height:180px;border-radius:40px;background:#DDE5EF;display:flex;align-items:center;justify-content:center"><div style="width:120px;height:120px;border-radius:50%;border:4px solid #4A3428;background:#FFFDF8 url(maskottchen/elefant-avatar.png) center/cover no-repeat;display:flex;align-items:center;justify-content:center;font:10px ui-monospace,Menlo,monospace;color:#4A3428"></div></div><span style="font:12px system-ui;color:rgba(0,0,0,.6)">A · Maskottchen</span></div>
+<div style="display:flex;flex-direction:column;gap:10px;align-items:center"><div style="width:180px;height:180px;border-radius:40px;background:#3F5A78;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#FBF3E6;line-height:1"><span style="font-size:84px;font-weight:800">U</span><span style="font-size:26px;font-weight:800;margin-top:-4px;color:#F2C98A">&amp; me</span></div><span style="font:12px system-ui;color:rgba(0,0,0,.6)">B · Wortzeichen</span></div>
+<div style="display:flex;flex-direction:column;gap:10px;align-items:center"><div style="display:flex;gap:16px"><div style="width:60px;height:60px;border-radius:14px;background:#DDE5EF;display:flex;align-items:center;justify-content:center"><div style="width:40px;height:40px;border-radius:50%;border:2px solid #4A3428;background:#FFFDF8 url(maskottchen/elefant-avatar.png) center/cover no-repeat"></div></div><div style="width:60px;height:60px;border-radius:14px;background:#3F5A78;display:flex;align-items:center;justify-content:center;color:#FBF3E6;font-weight:800;font-size:28px">U</div></div><span style="font:12px system-ui;color:rgba(0,0,0,.6)">Homescreen-Größe</span></div>
+<div style="display:flex;gap:16px">
+<div style="display:flex;flex-direction:column;gap:10px;align-items:center"><div style="width:120px;height:240px;border-radius:22px;background:#DDE5EF;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:#4A3428"><div style="width:64px;height:64px;border-radius:50%;border:3px solid #4A3428;background:#FFFDF8 url(maskottchen/elefant-avatar.png) center/cover no-repeat"></div><b style="font-size:16px">U &amp; Me</b></div><span style="font:12px system-ui;color:rgba(0,0,0,.6)">Splash hell</span></div>
+<div style="display:flex;flex-direction:column;gap:10px;align-items:center"><div style="width:120px;height:240px;border-radius:22px;background:#141D2B;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:#F5EEE3"><div style="width:64px;height:64px;border-radius:50%;border:3px solid #8FA3BC;background:#283A54 url(maskottchen/elefant-avatar.png) center/cover no-repeat"></div><b style="font-size:16px">U &amp; Me</b></div><span style="font:12px system-ui;color:rgba(0,0,0,.6)">Splash dunkel</span></div>
+</div>
+</div>
+</section>
+
+<section class="dv-turn" id="t2g">
+<div class="dv-thd"><a class="dv-tid" href="#t2g">2·7</a><span class="dv-tname">Design-Tokens</span></div>
+<p class="dv-intro">Als CSS-Variablen in <b>tokens.css</b> (im Projekt) für die React-Umsetzung – hell, dunkel (Nachtblau) und je Maskottchen ein persönlicher Akzent. Alle Textpaare erfüllen WCAG AA.</p>
+<div style="display:flex;gap:32px;flex-wrap:wrap;align-items:flex-start;font-family:Nunito,ui-rounded,system-ui,sans-serif;color:#4A3428">
+<div style="background:#fff;border-radius:18px;padding:20px 22px;display:flex;flex-direction:column;gap:6px;min-width:440px">
+<div style="display:grid;grid-template-columns:200px 100px 100px;gap:8px;font:11px ui-monospace,Menlo,monospace;color:rgba(0,0,0,.5)"><span>ROLLE</span><span>HELL</span><span>DUNKEL</span></div>
+<sc-for list="{{ tokenRows }}" as="k" hint-placeholder-count="14">
+<div style="display:grid;grid-template-columns:200px 100px 100px;gap:8px;align-items:center;font-size:14px">
+<div><b>{{ k.role }}</b><div style="font:10.5px ui-monospace,Menlo,monospace;color:rgba(0,0,0,.5)">{{ k.name }}</div></div>
+<div style="display:flex;align-items:center;gap:6px"><span style="{{ k.hStyle }}"></span><span style="font:10.5px ui-monospace,Menlo,monospace">{{ k.h }}</span></div>
+<div style="display:flex;align-items:center;gap:6px"><span style="{{ k.dStyle }}"></span><span style="font:10.5px ui-monospace,Menlo,monospace">{{ k.d }}</span></div>
+</div>
+</sc-for>
+</div>
+<div style="display:flex;flex-direction:column;gap:20px">
+<div style="background:#fff;border-radius:18px;padding:20px 22px;display:flex;flex-direction:column;gap:8px;min-width:360px">
+<div style="font:11px ui-monospace,Menlo,monospace;color:rgba(0,0,0,.5)">SCHRIFT · Nunito (selbst gehostet), Fallback ui-rounded / system-ui</div>
+<div style="font-size:30px;font-weight:800;line-height:1.15">XXL 30 / 1.15 · 800</div>
+<div style="font-size:22px;font-weight:800;line-height:1.25">XL 22 / 1.25 · 800</div>
+<div style="font-size:20px;font-weight:800;line-height:1.25">L 20 / 1.25 · 800</div>
+<div style="font-size:17px;line-height:1.5">M 17 / 1.5 · Grundschrift</div>
+<div style="font-size:15.5px;line-height:1.5">S 15,5 / 1.5 · Tipps, Nebentext</div>
+<div style="font-size:13px;line-height:1.4">XS 13 / 1.4 · Meta, Quellen</div>
+</div>
+<div style="background:#fff;border-radius:18px;padding:20px 22px;display:flex;flex-direction:column;gap:12px">
+<div style="font:11px ui-monospace,Menlo,monospace;color:rgba(0,0,0,.5)">RADIEN · 16 · 24 · 28 · Blase 26/26/26/8 · rund</div>
+<div style="display:flex;gap:12px;align-items:flex-end"><span style="width:56px;height:56px;border-radius:16px;background:#F5EBDC"></span><span style="width:56px;height:56px;border-radius:24px;background:#F5EBDC"></span><span style="width:56px;height:56px;border-radius:28px;background:#F5EBDC"></span><span style="width:72px;height:56px;border-radius:26px 26px 26px 8px;background:#DDE5EF"></span><span style="width:90px;height:40px;border-radius:999px;background:#3F5A78"></span></div>
+<div style="font:11px ui-monospace,Menlo,monospace;color:rgba(0,0,0,.5);margin-top:6px">ABSTÄNDE · 4 · 8 · 12 · 16 · 20 · 24 · 32 · 40 · Touch min. 48</div>
+<div style="display:flex;gap:8px;align-items:flex-end"><span style="width:4px;height:24px;background:#AFC0D4"></span><span style="width:8px;height:24px;background:#AFC0D4"></span><span style="width:12px;height:24px;background:#AFC0D4"></span><span style="width:16px;height:24px;background:#AFC0D4"></span><span style="width:20px;height:24px;background:#AFC0D4"></span><span style="width:24px;height:24px;background:#AFC0D4"></span><span style="width:32px;height:24px;background:#AFC0D4"></span><span style="width:40px;height:24px;background:#AFC0D4"></span></div>
+<div style="font:11px ui-monospace,Menlo,monospace;color:rgba(0,0,0,.5);margin-top:6px">PERSÖNLICHER AKZENT JE MASKOTTCHEN</div>
+<div style="display:flex;gap:10px"><span style="background:#3F5A78;color:#fff;border-radius:999px;padding:6px 12px;font-size:13px;font-weight:800">Elefant</span><span style="background:#3E6B66;color:#fff;border-radius:999px;padding:6px 12px;font-size:13px;font-weight:800">Pinguin</span><span style="background:#8A5F14;color:#fff;border-radius:999px;padding:6px 12px;font-size:13px;font-weight:800">Löwe</span><span style="background:#8A5A3C;color:#fff;border-radius:999px;padding:6px 12px;font-size:13px;font-weight:800">Hund</span></div>
+</div>
+</div>
+</div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { checks: {} };
+  renderVals() {
+    const hell = {
+      '--bg': '#FCF6EC', '--surface': '#FFFDF8', '--surface2': '#F5EBDC', '--ink': '#4A3428', '--muted': '#76604F',
+      '--line': '#EBDCC6', '--line2': '#C9B39C', '--outline': '#4A3428', '--shadow': 'rgba(74,52,40,.08)',
+      '--accentSoft': '#DDE5EF', '--accentInk': '#3F5A78', '--accentText': '#3F5A78', '--onAccent': '#FFFDF8',
+      '--warm': '#F8E4C0', '--warmMuted': '#7A5724', '--warmLine': '#DDBF8C', '--tip': '#F6EDDF',
+      '--warn': '#FAE2DC', '--warnInk': '#8A3F35', '--warnDot': '#D98378', '--warnLine': '#EDB9B0',
+      '--aAlltag': '#D9A441', '--aAlltagSoft': '#F5DDAE', '--aBewegung': '#5E8F8A', '--aBewegungSoft': '#D4E5E2',
+      '--aSprache': '#7F97B5', '--aSpracheSoft': '#DDE5EF', '--aMiteinander': '#E08E84',
+      '--stripeA': '#E8DAC5', '--stripeB': '#F4EADB',
+      '--navBg': '#4A3428', '--navInk': '#F4E8D8', '--navActive': '#FBF3E6', '--navActiveInk': '#4A3428'
+    };
+    const dunkel = {
+      '--bg': '#141D2B', '--surface': '#1D2839', '--surface2': '#263346', '--ink': '#F5EEE3', '--muted': '#B8C2CF',
+      '--line': '#2C3A4E', '--line2': '#56687F', '--outline': '#8FA3BC', '--shadow': 'rgba(0,0,0,.4)',
+      '--accentSoft': '#283A54', '--accentInk': '#AFC0D4', '--accentText': '#C3D2E3', '--onAccent': '#141D2B',
+      '--warm': '#3A3224', '--warmMuted': '#E8C68E', '--warmLine': '#665536', '--tip': '#263346',
+      '--warn': '#3B2830', '--warnInk': '#F4C3BA', '--warnDot': '#E89A8F', '--warnLine': '#6B4049',
+      '--aAlltag': '#E6B65A', '--aAlltagSoft': '#4A3F28', '--aBewegung': '#7FB0AA', '--aBewegungSoft': '#22403F',
+      '--aSprache': '#A6BAD2', '--aSpracheSoft': '#2C3D56', '--aMiteinander': '#F2A9A0',
+      '--stripeA': '#222E40', '--stripeB': '#2A384C',
+      '--navBg': '#F2E4D0', '--navInk': '#4A3428', '--navActive': '#1D2839', '--navActiveInk': '#F5EEE3'
+    };
+    const mascotData = [
+      ['Elefantenbaby', 'maskottchen/elefant.png', 'Die ganze Herde zieht die Kleinen groß.'],
+      ['Löwenbaby', 'maskottchen/loewe.png', 'Im Rudel packen alle mit an.'],
+      ['Pinguinbaby', 'maskottchen/pinguin.png', 'Der Papa brütet das Ei aus.'],
+      ['Hundebaby', 'maskottchen/hund.png', 'Der treue Begleiter.']
+    ];
+    const checkTexts = ['Dreht sich Mila vom Rücken auf den Bauch?', 'Greift sie mit beiden Händen?', 'Wie reagiert sie auf Stimmen?'];
+    const mk = (label, vars, key) => ({
+      label, vars,
+      mascots: mascotData.map(([name, file, story], i) => ({
+        name, story, imgStyle: { width: '100%', height: 100, background: 'url(' + file + ') center bottom/contain no-repeat' },
+        cardStyle: { background: i === 0 ? 'var(--accentSoft)' : 'var(--surface)', border: i === 0 ? '2.5px solid var(--accentInk)' : '1.5px solid var(--line)', borderRadius: 24, padding: 10, display: 'flex', flexDirection: 'column', gap: 2, cursor: 'pointer' }
+      })),
+      checks: checkTexts.map((text, i) => {
+        const id = key + i, on = !!this.state.checks[id];
+        return {
+          text, mark: on ? '✓' : '',
+          toggle: () => this.setState(s => ({ checks: { ...s.checks, [id]: !s.checks[id] } })),
+          boxStyle: { width: 28, height: 28, flex: 'none', borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: 15, background: on ? 'var(--accentInk)' : 'transparent', color: 'var(--onAccent)', border: on ? '2px solid var(--accentInk)' : '2px solid var(--line2)' }
+        };
+      })
+    });
+    const A = { Alltag: 'var(--aAlltag)', Bewegung: 'var(--aBewegung)', 'Sprache & Laute': 'var(--aSprache)', Miteinander: 'var(--aMiteinander)' };
+    const raw = [
+      ['u', 'p', 'U1', 'direkt nach der Geburt · 19. April 2026'],
+      ['u', 'p', 'U2', '3.–10. Lebenstag · 21.–28. April 2026'],
+      ['e', 'p', 'Phasen mit sehr häufigem Trinken', 'Alltag', '7 Tagen – 3 Monaten'],
+      ['e', 'p', 'Unruhige Abende, viel Weinen', 'Alltag', '2 Wochen – 3 Monaten'],
+      ['u', 'p', 'U3', '4.–5. Lebenswoche · 10.–23. Mai 2026'],
+      ['e', 'p', 'Hebt in Bauchlage den Kopf', 'Bewegung', '4 Wochen – 3 Monaten'],
+      ['e', 'p', 'Das erste „echte“ Lächeln', 'Miteinander', '5–10 Wochen'],
+      ['e', 'p', 'Gurrt und macht erste Laute', 'Sprache & Laute', '6 Wochen – 4 Monaten'],
+      ['u', 'p', 'U4', '3.–4. Lebensmonat · 19. Juni – 18. Aug. 2026'],
+      ['e', 'p', 'Lacht laut', 'Miteinander', '3–5 Monaten'],
+      ['e', 'n', 'Greift gezielt nach Dingen', 'Bewegung', '3–6 Monaten'],
+      ['e', 'p', 'Der Schlaf wird wieder unruhiger', 'Alltag', '3–5 Monaten'],
+      ['e', 'n', 'Dreht sich vom Rücken auf den Bauch', 'Bewegung', '4–7 Monaten'],
+      ['e', 'n', 'Beikost wird ein Thema', 'Alltag', '4–7 Monaten'],
+      ['u', 'n', 'U5', '6.–7. Lebensmonat · 19. Sept. – 18. Nov. 2026'],
+      ['e', 'n', 'Die ersten Zähne', 'Alltag', '5–12 Monaten'],
+      ['h'],
+      ['e', 'f', 'Sitzt allein', 'Bewegung', '6–10 Monaten', 'Okt. 2026'],
+      ['e', 'f', 'Plappert Silbenketten', 'Sprache & Laute', '6–10 Monaten', 'Okt. 2026'],
+      ['e', 'f', 'Fremdeln', 'Alltag', '6–10 Monaten', 'Okt. 2026'],
+      ['e', 'f', 'Robbt oder krabbelt', 'Bewegung', '7–11 Monaten', 'Nov. 2026'],
+      ['e', 'f', 'Zieht sich hoch zum Stehen', 'Bewegung', '8–12 Monaten', 'Dez. 2026'],
+      ['u', 'f', 'U6', '10.–12. Lebensmonat · 19. Jan. – 18. Apr. 2027'],
+      ['e', 'f', 'Pinzettengriff', 'Bewegung', '9–12 Monaten', 'Jan. 2027'],
+      ['e', 'f', 'Anhänglich, wenn ihr geht', 'Alltag', '9–18 Monaten', 'Jan. 2027'],
+      ['e', 'f', 'Winkt und zeigt auf Dinge', 'Miteinander', '9–14 Monaten', 'Jan. 2027'],
+      ['e', 'f', 'Läuft frei', 'Bewegung', '9–18 Monaten', 'Jan. 2027'],
+      ['e', 'f', 'Erste Wörter', 'Sprache & Laute', '10–18 Monaten', 'Feb. 2027'],
+      ['e', 'f', 'Der eigene Wille', 'Alltag', '15–24 Monaten', 'Juli 2027'],
+      ['e', 'f', 'Der Wortschatz wächst schnell', 'Sprache & Laute', '18–24 Monaten', 'Okt. 2027'],
+      ['u', 'f', 'U7', '21.–24. Lebensmonat · 19. Dez. 2027 – 18. Apr. 2028']
+    ];
+    const rows = raw.map(r => {
+      const [t, st] = r;
+      if (t === 'h') return { isHere: true, past: true };
+      const past = st === 'p' || st === 'n', future = st === 'f';
+      if (t === 'u') {
+        const uStyle = { position: 'relative', margin: '4px 0', width: 46, height: 46, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: 15,
+          background: st === 'p' ? 'var(--surface2)' : st === 'n' ? 'var(--accentInk)' : 'var(--surface)',
+          color: st === 'p' ? 'var(--muted)' : st === 'n' ? 'var(--onAccent)' : 'var(--ink)',
+          border: st === 'f' ? '2.5px solid var(--line2)' : 'none', boxSizing: 'border-box' };
+        return { isU: true, u: r[2], title: r[2] + '-Untersuchung', meta: r[3], running: st === 'n', past, future, uStyle,
+          titleStyle: { fontWeight: 800, fontSize: 18, color: st === 'p' ? 'var(--muted)' : 'var(--ink)' } };
+      }
+      const c = A[r[3]];
+      const dotStyle = { position: 'relative', marginTop: st === 'n' ? 22 : 14, width: 16, height: 16, borderRadius: '50%', boxSizing: 'border-box',
+        background: st === 'f' ? 'var(--bg)' : c, border: st === 'f' ? '3px solid ' + c : '3px solid var(--bg)', opacity: st === 'p' ? 0.6 : 1 };
+      const meta = r[3] + ' · meist mit ' + r[4] + (r[5] ? ' · ab ' + r[5] : '');
+      return { isE: true, isENow: st === 'n', isEPlain: st !== 'n', title: r[2], meta, past, future, dotStyle,
+        titleStyle: { fontWeight: st === 'p' ? 700 : 700, fontSize: 16, color: st === 'p' ? 'var(--muted)' : 'var(--ink)' } };
+    });
+    const tk = [
+      ['Hintergrund', '--farbe-hintergrund', '--bg'], ['Fläche', '--farbe-flaeche', '--surface'], ['Fläche 2', '--farbe-flaeche-2', '--surface2'],
+      ['Text', '--farbe-text', '--ink'], ['Text gedämpft', '--farbe-text-gedaempft', '--muted'], ['Linie', '--farbe-linie', '--line'],
+      ['Umriss', '--farbe-umriss', '--outline'], ['Akzent', '--farbe-akzent', '--accentInk'], ['Akzent-Fläche', '--farbe-akzent-flaeche', '--accentSoft'],
+      ['Beruhigend', '--farbe-beruhigend', '--warm'], ['Hinweis', '--farbe-hinweis', '--tip'], ['Warnung Fläche', '--farbe-warnung-flaeche', '--warn'],
+      ['Warnung Text', '--farbe-warnung-text', '--warnInk'], ['Alltag', '--farbe-alltag', '--aAlltag'], ['Bewegung', '--farbe-bewegung', '--aBewegung'],
+      ['Sprache', '--farbe-sprache', '--aSprache'], ['Miteinander', '--farbe-miteinander', '--aMiteinander']
+    ];
+    const sw = c => ({ width: 22, height: 22, borderRadius: 7, background: c, border: '1px solid rgba(0,0,0,.12)', flex: 'none' });
+    const tokenRows = tk.map(([role, name, k]) => ({ role, name, h: hell[k], d: dunkel[k], hStyle: sw(hell[k]), dStyle: sw(dunkel[k]) }));
+    return { themes: [mk('Hell', hell, 'h'), mk('Dunkel · Nachtblau', dunkel, 'd')], rows, tokenRows };
+  }
+}
+</script>
+</body>
+</html>
