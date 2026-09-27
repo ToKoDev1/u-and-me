@@ -389,7 +389,7 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 /* Menü hinter dem Avatar */
 .menue { position: relative; }
 .menue-knopf { display: flex; flex-direction: column; align-items: center; gap: 1px; min-width: 48px; min-height: 48px; padding: 2px 4px; border: 0; background: none; border-radius: var(--radius-s); cursor: pointer; color: var(--farbe-text); }
-.menue-kopf { height: 36px; width: auto; max-width: 64px; object-fit: contain; }
+.menue-kopf { height: 40px; width: auto; max-width: 64px; object-fit: contain; }
 .menue-name { max-width: 72px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: var(--groesse-xs); font-weight: var(--gewicht-halbfett); line-height: 1.1; }
 .menue-knopf:focus-visible { outline: 3px solid var(--farbe-akzent); outline-offset: 2px; }
 .menue-panel {
