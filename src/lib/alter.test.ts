@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { alterAm, alterAlsText, datumBeiAlter, parseDatum, spanneAlsText, tageZwischen } from './alter';
+import { abstandAlsText, alterAm, alterAlsText, datumBeiAlter, parseDatum, restzeitAlsText, spanneAlsText, tageZwischen, ungefaehr } from './alter';
 
 const d = (iso: string) => parseDatum(iso);
 const iso = (datum: Date) => datum.toLocaleDateString('sv-SE');
@@ -55,5 +55,26 @@ describe('spanneAlsText', () => {
     expect(spanneAlsText({ monate: 30 }, { monate: 48 })).toBe('2½–4 Jahren');
     expect(spanneAlsText({ monate: 15 }, { monate: 42 })).toBe('15 Monaten – 3½ Jahren');
     expect(spanneAlsText({ monate: 18 }, { monate: 24 })).toBe('18–24 Monaten'); // bis genau 2 Jahre: wie bisher
+  });
+});
+
+describe('ungefähre Zeitangaben', () => {
+  it('nennt Anfang, Mitte oder Ende des Monats – das Jahr nur, wenn es ein anderes ist', () => {
+    const jetzt = d('2026-09-27');
+    expect(ungefaehr(d('2026-10-03'), jetzt)).toBe('Anfang Oktober');
+    expect(ungefaehr(d('2026-11-15'), jetzt)).toBe('Mitte November');
+    expect(ungefaehr(d('2027-03-28'), jetzt)).toBe('Ende März 2027');
+  });
+
+  it('gibt große Abstände in Monaten und Jahren an', () => {
+    expect(abstandAlsText(5)).toBe('in 5 Tagen');
+    expect(abstandAlsText(42)).toBe('in 6 Wochen');
+    expect(abstandAlsText(213)).toBe('in etwa 7 Monaten');
+    expect(abstandAlsText(1708)).toBe('in etwa 4½ Jahren');
+  });
+
+  it('beschreibt die Restzeit eines Zeitfensters', () => {
+    expect(restzeitAlsText(3)).toBe('noch 3 Tage');
+    expect(restzeitAlsText(1)).toBe('nur noch heute');
   });
 });

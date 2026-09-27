@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from 'react';
 import { Link, Navigate, useLocation, useNavigate, useParams } from 'react-router-dom';
-import { abstandAlsText, letzterTag, tageZwischen } from '../lib/alter';
+import { abstandAlsText, letzterTag, restzeitAlsText, tageZwischen } from '../lib/alter';
 import {
   mitName,
   naechsteUntersuchung,
@@ -62,8 +62,9 @@ export function NaechsteU({ kind, notizen, onNotizen }: { kind: Kind } & NotizPr
             {termin.untersuchung.zeitraum}
           </h1>
         </div>
-        <Link to={`/u/${termin.untersuchung.id}/schritte`} className="u-schritte-knopf">
-          <span aria-hidden="true">▶</span> {termin.untersuchung.id} Schritt für Schritt
+        {/* Leiser Link statt dritter Knopf – die Hauptaktion steht im Zeitfenster */}
+        <Link to={`/u/${termin.untersuchung.id}/schritte`} className="u-schritte-link">
+          <span aria-hidden="true">▶</span> So läuft die {termin.untersuchung.id} ab – Schritt für Schritt
         </Link>
       </div>
       <Zeitfenster termin={termin} kind={kind} notizen={notizen} onNotizen={onNotizen} />
@@ -91,20 +92,23 @@ function Zeitfenster({ termin, kind, notizen, onNotizen }: { termin: UTermin; ki
   const erledigt = !!notizen.uErledigt[termin.untersuchung.id];
   const vorbei = termin.ende <= kind.jetzt;
   const laeuft = !vorbei && termin.beginn <= kind.jetzt;
+  const rest = laeuft ? tageZwischen(kind.jetzt, termin.ende) : Infinity;
   const status = erledigt
     ? 'erledigt'
     : vorbei
       ? 'vorbei'
-      : laeuft
-        ? 'Fenster läuft'
-        : abstandAlsText(tageZwischen(kind.jetzt, termin.beginn));
+      : rest <= 14
+        ? restzeitAlsText(rest)
+        : laeuft
+          ? 'läuft'
+          : abstandAlsText(tageZwischen(kind.jetzt, termin.beginn));
   const einTag = termin.untersuchung.id === 'U1';
 
   return (
     <section className="karte-schatten u-zeitfenster" aria-label="Zeitfenster">
       <div className="naechste-u-kopf">
         <span className="titel-klein">Zeitfenster</span>
-        <span className="pille">{status}</span>
+        <span className={`pille ${!erledigt && rest <= 14 ? 'pille-bald' : ''}`}>{status}</span>
       </div>
       {einTag ? (
         <p>Direkt nach der Geburt – meist noch im Kreißsaal.</p>

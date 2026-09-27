@@ -249,12 +249,6 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 .klein { font-size: var(--groesse-s); }
 .u-seite { display: flex; flex-direction: column; max-width: 640px; margin: 0 auto; }
 .u-kopf { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; padding-top: 12px; }
-.u-schritte-knopf {
-  margin-left: auto; display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 10px 18px;
-  border: 2px solid var(--farbe-akzent); border-radius: var(--radius-rund); color: var(--farbe-akzent-text); font-weight: 800; text-decoration: none;
-}
-.u-schritte-knopf:hover { background: var(--farbe-akzent-flaeche); }
-@media (max-width: 599px) { .u-schritte-knopf { width: 100%; margin-left: 0; } }
 .u-kreis-gross { width: 64px; height: 64px; flex: none; border-radius: 50%; background: var(--farbe-knopf); color: var(--farbe-auf-knopf); display: grid; place-items: center; font-weight: 800; font-size: 22px; }
 .u-kopf-meta { font-size: var(--groesse-xs); color: var(--farbe-text-gedaempft); font-weight: 700; }
 .u-kopf h1 { font-size: var(--groesse-xl); line-height: 1.2; }
@@ -474,9 +468,9 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 @media (prefers-reduced-motion: no-preference) {
   /* Antippen: gibt kurz nach wie bei iOS */
   .kachel:active, .zeile-link:active, .wichtig:active, .menue-kind:active, .menue-eintrag:active,
-  .u-schritte-knopf:active, .u-blaettern a:active { transform: scale(0.98); }
+  .u-blaettern a:active { transform: scale(0.98); }
   .knopf:active, .knopf-zweit:active, .menue-knopf:active { transform: scale(0.97); }
-  .knopf, .knopf-zweit, .u-schritte-knopf, .menue-kind, .menue-eintrag, .u-blaettern a, .menue-knopf { transition: transform var(--dauer-tipp) var(--kurve-raus), background-color var(--dauer-schnell) var(--kurve-wechsel); }
+  .knopf, .knopf-zweit, .menue-kind, .menue-eintrag, .u-blaettern a, .menue-knopf { transition: transform var(--dauer-tipp) var(--kurve-raus), background-color var(--dauer-schnell) var(--kurve-wechsel); }
 
   /* Ring zeichnet sich ein, danach erscheint der Heute-Knopf */
   /* :root[data-bereit] – erst wenn der Startbildschirm ausblendet (siehe main.tsx) */
@@ -515,7 +509,9 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 @keyframes bestaetigen { 0% { transform: scale(0.94); opacity: 0.4; } 60% { transform: scale(1.02); opacity: 1; } 100% { transform: scale(1); } }
 
 /* ---------- Sprung-Zoom unter der Zeitleiste ---------- */
-.zoom { display: flex; flex-direction: column; gap: var(--abstand-2); margin: 2px 10px 0; padding: var(--abstand-3) var(--abstand-4); border-radius: var(--radius-s); background: var(--farbe-flaeche); border: 1.5px solid var(--farbe-linie); text-decoration: none; color: var(--farbe-text); }
+/* Euer Weg: Zeitleiste und Zoom in einer Karte */
+.weg-karte { display: flex; flex-direction: column; gap: var(--abstand-2); padding: var(--abstand-4) var(--abstand-2) var(--abstand-2); background: var(--farbe-flaeche); border: 1.5px solid var(--farbe-linie); border-radius: var(--radius-m); }
+.zoom { display: flex; flex-direction: column; gap: var(--abstand-2); margin: 0; padding: var(--abstand-3) var(--abstand-3) var(--abstand-2); border-top: 1.5px solid var(--farbe-linie); border-radius: 0 0 var(--radius-s) var(--radius-s); text-decoration: none; color: var(--farbe-text); }
 .zoom-kopf { display: flex; justify-content: space-between; font-size: var(--groesse-xs); font-weight: var(--gewicht-fett); }
 .zoom-schiene { position: relative; height: 18px; margin: 0 6px; }
 .zoom-spur { position: absolute; left: 0; right: 0; top: 8px; height: 2px; border-radius: 1px; background: var(--farbe-linie-kraeftig); }
@@ -532,4 +528,17 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 .sprung-eintrag.vorbei .sprung-datum { color: var(--farbe-text-gedaempft); }
 .sprung-eintrag.jetzt .sprung-datum { background: var(--farbe-akzent-flaeche); padding: 1px 8px; border-radius: var(--radius-rund); }
 .sprung-termin { display: flex; flex-direction: column; gap: 2px; text-decoration: none; color: inherit; }
-.zoom-punkt.mehrere { top: 1px; width: 16px; height: 16px; margin-left: -8px; display: grid; place-items: center; font-size: 10px; font-weight: var(--gewicht-fett); line-height: 1; color: var(--farbe-auf-akzent); }
+.zoom-punkt.mehrere { top: -3px; width: 24px; height: 24px; margin-left: -12px; display: grid; place-items: center; font-size: var(--groesse-xs); font-weight: var(--gewicht-fett); line-height: 1; color: var(--farbe-auf-akzent); }
+.zoom-schiene { margin: 4px 12px 0; }
+.zoom-enden { display: flex; justify-content: space-between; margin: -2px 0 0; font-size: var(--groesse-xs); font-weight: var(--gewicht-fett); color: var(--farbe-text-gedaempft); }
+
+/* Frist läuft bald ab: ruhig in Honig, nicht in Rot */
+.pille-bald { background: var(--farbe-beruhigend); color: var(--farbe-beruhigend-text); }
+
+/* U-Seite: „So läuft die U ab“ als leiser Link unter dem Kopf */
+.u-schritte-link { flex-basis: 100%; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-weight: var(--gewicht-halbfett); color: var(--farbe-akzent-text); text-decoration: none; }
+.u-schritte-link:hover { text-decoration: underline; }
+
+/* Dunkel: Umriss-Knöpfe gedämpft, damit sie nachts nicht heller leuchten als der Hauptknopf */
+:root[data-theme="dunkel"] .knopf-zweit { border-color: color-mix(in srgb, var(--farbe-akzent) 50%, var(--farbe-flaeche)); }
+.wichtig.ohne-zipfel::before { display: none; }

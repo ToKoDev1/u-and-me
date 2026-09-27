@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom';
-import { kurzDatum, spanneAlsText } from '../lib/alter';
+import { spanneAlsText, ungefaehr } from '../lib/alter';
 import { sprungZoom, type ZoomEintrag } from '../lib/inhalte';
 import type { Kind } from '../lib/kind';
 import { useSeitentitel } from '../lib/seite';
 import { BereichMarke, QuelleLink } from './Unterseiten';
 
-const ZUSTAND_TEXT: Record<ZoomEintrag['zustand'], string> = { vorbei: 'war', jetzt: 'gerade', kommt: 'kommt' };
+/** Wann: nie als genauer Tag – „ab etwa Mitte März“, „seit etwa Anfang Juli“, „gerade“ */
+const wann = (e: ZoomEintrag, jetzt: Date) =>
+  e.zustand === 'jetzt' ? 'gerade' : `${e.zustand === 'vorbei' ? 'seit' : 'ab'} etwa ${ungefaehr(e.datum, jetzt)}`;
 
 /**
  * Zoom unter der Zeitleiste: die Strecke von der letzten zur nächsten U mit allen Sprüngen
@@ -28,17 +30,17 @@ export function SprungZoom({ kind }: { kind: Kind }) {
   const naechster = zoom.eintraege.find((e) => e.zustand === 'kommt') ?? zoom.eintraege.find((e) => e.zustand === 'jetzt');
 
   return (
-    <Link to="/spruenge" className="zoom" aria-label={`Sprünge zwischen ${zoom.von.id ?? 'Geburt'} und ${zoom.bis.id}: ${sprunge.length}`}>
+    <Link to="/spruenge" className="zoom">
       <span className="zoom-kopf">
-        <span>
-          {zoom.von.id ?? 'Geburt'} → {zoom.bis.id}
-        </span>
+        <span>Sprünge bis zur {zoom.bis.id}</span>
         <span className="gedaempft">
           {sprunge.length} {sprunge.length === 1 ? 'Sprung' : 'Sprünge'} ›
         </span>
       </span>
       <span className="zoom-schiene" aria-hidden="true">
         <span className="zoom-spur" />
+        {/* heute zuerst – so liegen die Punkte (mit Zahl) darüber und bleiben lesbar */}
+        <span className="zoom-heute" style={{ left: pos(kind.jetzt) }} />
         {[...gruppen.values()].map((g) => (
           <span
             key={g[0].id}
@@ -48,12 +50,15 @@ export function SprungZoom({ kind }: { kind: Kind }) {
             {g.length > 1 ? g.length : null}
           </span>
         ))}
-        <span className="zoom-heute" style={{ left: pos(kind.jetzt) }} />
+      </span>
+      <span className="zoom-enden" aria-hidden="true">
+        <span>{zoom.von.id ?? 'Geburt'}</span>
+        <span>{zoom.bis.id}</span>
       </span>
       {naechster && (
         <span className="zoom-naechster">
           <span className="gedaempft">{naechster.zustand === 'jetzt' ? 'Gerade:' : 'Nächster Sprung:'}</span> <b>{naechster.titel}</b>
-          <span className="gedaempft"> · {naechster.zustand === 'jetzt' ? 'läuft' : `ab ${kurzDatum.format(naechster.datum)}`}</span>
+          <span className="gedaempft"> · {naechster.zustand === 'jetzt' ? 'läuft' : `ab etwa ${ungefaehr(naechster.datum, kind.jetzt)}`}</span>
         </span>
       )}
     </Link>
@@ -70,8 +75,8 @@ export function Spruenge({ kind }: { kind: Kind }) {
       <h1 tabIndex={-1}>{zoom ? `Sprünge bis zur ${zoom.bis.id}` : 'Sprünge'}</h1>
       <p className="gedaempft">
         Was zwischen {zoom?.von.id ? `der ${zoom.von.id}` : 'der Geburt'} und {zoom ? `der ${zoom.bis.id}` : 'der nächsten U'} typisch
-        neu dazukommt. Das Datum zeigt, ab wann es bei vielen Kindern beginnt – jedes Kind hat sein eigenes Tempo, das sind
-        Spannbreiten, keine Termine.
+        neu dazukommt. „Ab etwa …“ zeigt, wann es bei vielen Kindern beginnt – jedes Kind hat sein eigenes Tempo, darum steht
+        immer auch die Spannbreite dabei.
       </p>
       {!zoom || zoom.eintraege.length === 0 ? (
         <p className="liste-leer">In dieser Zeit beginnt nichts Neues – euer Kind festigt, was es schon kann.</p>
@@ -80,7 +85,7 @@ export function Spruenge({ kind }: { kind: Kind }) {
           {zoom.eintraege.map((e) => (
             <li key={`${e.art}-${e.id}`} className={`sprung-eintrag ${e.zustand}`}>
               <span className="sprung-kopf">
-                <span className="sprung-datum">{e.zustand === 'jetzt' ? 'gerade' : `${ZUSTAND_TEXT[e.zustand]} ab ${kurzDatum.format(e.datum)}`}</span>
+                <span className="sprung-datum">{wann(e, kind.jetzt)}</span>
                 {e.etappe && <BereichMarke bereich={e.etappe.bereich} zusatz={`meist mit ${spanneAlsText(e.etappe.von, e.etappe.bis)}`} />}
               </span>
               {e.etappe ? (

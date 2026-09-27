@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { abstandAlsText, spanneAlsText, tageZwischen } from '../lib/alter';
+import { abstandAlsText, restzeitAlsText, spanneAlsText, tageZwischen } from '../lib/alter';
 import {
   aktuelleEtappen,
   aktuelleWoche,
@@ -19,7 +19,10 @@ import { SprungZoom } from './Spruenge';
 import { UZeitleiste } from './UZeitleiste';
 import { Zeitring } from './Zeitring';
 
-/** Startseite im reduzierten Stil: ein Zentrum, die nächste U, drei Kacheln, eine wichtige Sache */
+/**
+ * Startseite: Ring (wo ihr steht) → eine wichtige Sache → nächste U → euer Weg (Zeitleiste + Sprünge)
+ * → Bereiche → Zu erledigen → Warnzeichen. Läuft ein U-Fenster bald ab, steht die U ganz oben.
+ */
 export function Heute({ kind, notizen }: { kind: Kind; notizen: Notizen }) {
   useSeitentitel();
   const phase = aktuellePhase(kind);
@@ -32,6 +35,30 @@ export function Heute({ kind, notizen }: { kind: Kind; notizen: Notizen }) {
   // In den ersten 12 Wochen ersetzt die Woche „Heute wichtig“ – sie ist dann die wichtigste Orientierung
   const woche = aktuelleWoche(kind);
   const offen = offeneAufgaben(kind, notizen);
+  // Läuft das U-Fenster bald ab, gehört die U ganz nach oben
+  const restTage = naechsteU?.laeuftSchon ? tageZwischen(kind.jetzt, naechsteU.ende) : undefined;
+  const dringend = restTage !== undefined && restTage <= 14;
+
+  // Die nächste U: Wann sagt der Ring, die Karte sagt, was zu tun ist
+  const uKarte = naechsteU && (
+    <Link to="/naechste-u" className="zeile-link">
+      <span className="zeile-stapel">
+        <b>
+          {naechsteU.laeuftSchon
+            ? `${naechsteU.untersuchung.id}-Termin machen`
+            : `${naechsteU.untersuchung.id} vorbereiten`}
+        </b>
+        <span className="gedaempft klein">Zeitfenster, Kalender, Ablauf</span>
+      </span>
+      {dringend ? (
+        <span className="pille pille-bald">{restzeitAlsText(restTage)}</span>
+      ) : naechsteU.laeuftSchon ? (
+        <span className="pille">läuft</span>
+      ) : (
+        <span className="pille">{abstandAlsText(tageZwischen(kind.jetzt, naechsteU.beginn))}</span>
+      )}
+    </Link>
+  );
 
   const kacheln = [
     { pfad: '/begegnen', titel: 'Begegnet euch', n: begegnen.length, eins: 'Thema', viele: 'Themen' },
@@ -41,15 +68,15 @@ export function Heute({ kind, notizen }: { kind: Kind; notizen: Notizen }) {
 
   return (
     <div className="heute">
-      <UZeitleiste kind={kind} />
-      {/* Zoom auf die Strecke zwischen letzter und nächster U – mit den Sprüngen dieser Zeit */}
-      <SprungZoom kind={kind} />
       <Zeitring kind={kind} />
+
+      {/* Läuft das U-Fenster in den nächsten 14 Tagen ab, zuerst die U */}
+      {dringend && uKarte}
 
       {/* Das Wichtigste gleich unter dem Ring – als Sprechblase des Maskottchens.
           In den ersten 12 Wochen ist das die Lebenswoche, danach „Heute wichtig“. */}
       {woche && (
-        <Link to="/woche" className="wichtig">
+        <Link to="/woche" className={`wichtig ${dringend ? 'ohne-zipfel' : ''}`}>
           <span className="wichtig-label">{woche.woche}. Lebenswoche{kind.name ? ` mit ${kind.name}` : ''}</span>
           <span className="wichtig-titel">{woche.titel}</span>
           <span className="wichtig-text">{woche.typisch}</span>
@@ -58,7 +85,7 @@ export function Heute({ kind, notizen }: { kind: Kind; notizen: Notizen }) {
       )}
 
       {!woche && wichtig && (
-        <Link to={wichtig.bereich === 'alltag' ? '/begegnen' : '/entwicklung'} className="wichtig">
+        <Link to={wichtig.bereich === 'alltag' ? '/begegnen' : '/entwicklung'} className={`wichtig ${dringend ? 'ohne-zipfel' : ''}`}>
           <span className="wichtig-label">Heute wichtig</span>
           <span className="wichtig-titel">{wichtig.titel}</span>
           {/* Ein Tipp („Das hilft oft“) ist hier hilfreicher als die Beschreibung – andere Zusätze (z. B. Hinweise für ältere Kinder) nicht */}
@@ -67,24 +94,16 @@ export function Heute({ kind, notizen }: { kind: Kind; notizen: Notizen }) {
         </Link>
       )}
 
-      {naechsteU && (
-        // Wann die U dran ist, sagt schon der Ring – die Karte sagt, was zu tun ist
-        <Link to="/naechste-u" className="zeile-link">
-          <span className="zeile-stapel">
-            <b>
-              {naechsteU.laeuftSchon
-                ? `${naechsteU.untersuchung.id}-Termin machen`
-                : `${naechsteU.untersuchung.id} vorbereiten`}
-            </b>
-            <span className="gedaempft klein">Zeitfenster, Kalender, Ablauf</span>
-          </span>
-          {naechsteU.laeuftSchon ? (
-            <span aria-hidden="true">›</span>
-          ) : (
-            <span className="pille">{abstandAlsText(tageZwischen(kind.jetzt, naechsteU.beginn))}</span>
-          )}
-        </Link>
-      )}
+      {!dringend && uKarte}
+
+      {/* Euer Weg: Zeitleiste U1–U9 und Zoom auf die Strecke zwischen letzter und nächster U */}
+      <section className="weg-karte" aria-labelledby="weg-titel">
+        <h2 id="weg-titel" className="nur-screenreader">
+          Euer Weg von U zu U
+        </h2>
+        <UZeitleiste kind={kind} />
+        <SprungZoom kind={kind} />
+      </section>
 
       {phase && (
         <nav className="kacheln" aria-label="Bereiche">

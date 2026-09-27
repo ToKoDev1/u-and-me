@@ -1,4 +1,4 @@
-import { abstandAlsText, alterAm, alterAlsText, kurzDatum, letzterTag, monatJahr, tageZwischen } from '../lib/alter';
+import { alterAm, alterAlsText, kurzDatum, letzterTag, restzeitAlsText, tageZwischen } from '../lib/alter';
 import {
   letzteUntersuchung,
   maskottchenBild,
@@ -9,6 +9,7 @@ import {
 import type { Kind } from '../lib/kind';
 
 const R = 88; // Radius des Rings
+const kurzMonat = new Intl.DateTimeFormat('de-DE', { month: 'short' });
 const UMFANG = 2 * Math.PI * R;
 
 /**
@@ -37,21 +38,22 @@ export function Zeitring({ kind }: { kind: Kind }) {
   const unterzeile = !naechste
     ? null
     : naechste.laeuftSchon
-      ? `${naechste.untersuchung.id}-Fenster läuft bis ${kurzDatum.format(letzterTag(naechste.ende))}`
-      : `${naechste.untersuchung.id}-Fenster ab ${kurzDatum.format(naechste.beginn)}`;
+      ? `${naechste.untersuchung.id}-Zeitfenster läuft bis ${kurzDatum.format(letzterTag(naechste.ende))}` +
+        (tageZwischen(kind.jetzt, naechste.ende) <= 14 ? ` · ${restzeitAlsText(tageZwischen(kind.jetzt, naechste.ende))}` : '')
+      : `${naechste.untersuchung.id}-Zeitfenster ab ${kurzDatum.format(naechste.beginn)}`;
 
   // Kennzahlen unter dem Ring – nur Zeitangaben, nichts, was das Kind bewertet
   const tageAlt = tageZwischen(kind.geburt, kind.jetzt);
   const zahn = zahnTermine(kind).find((z) => kind.jetzt < z.ende);
+  // Die nächste U steht gleich darunter als Karte – hier nur, was es sonst nirgends gibt.
+  // Zahnarzt erst, wenn der Termin in den nächsten 4 Monaten beginnt (vorher ist „Z1“ nur Rauschen).
+  const zahnBald = zahn && tageZwischen(kind.jetzt, zahn.beginn) <= 120 ? zahn : undefined;
   const kennzahlen = [
-    tageAlt > 0 && tageAlt < 365 && { wert: String(tageAlt), text: tageAlt === 1 ? 'Tag alt' : 'Tage alt' },
-    naechste && {
-      wert: naechste.untersuchung.id,
-      text: naechste.laeuftSchon
-        ? `bis ${kurzDatum.format(letzterTag(naechste.ende))}`
-        : abstandAlsText(tageZwischen(kind.jetzt, naechste.beginn)),
+    tageAlt >= 14 && tageAlt < 365 && { wert: String(tageAlt), text: 'Tage alt' },
+    zahnBald && {
+      wert: zahnBald.termin.id,
+      text: zahnBald.beginn <= kind.jetzt ? 'Zahnarzt, jetzt' : `Zahnarzt ab ${kurzMonat.format(zahnBald.beginn)}`,
     },
-    zahn && { wert: zahn.termin.id, text: zahn.beginn <= kind.jetzt ? 'jetzt dran' : `ab ${monatJahr.format(zahn.beginn)}` },
   ].filter((k): k is { wert: string; text: string } => !!k);
 
   // Punkt auf dem Ring (im gedrehten Koordinatensystem: 0 = oben)
@@ -104,7 +106,8 @@ export function Zeitring({ kind }: { kind: Kind }) {
         )}
       </h1>
       <p className="zeitring-titel">{titel}</p>
-      {kennzahlen.length > 0 ? (
+      {unterzeile && <p className="zeitring-unterzeile">{unterzeile}</p>}
+      {kennzahlen.length > 0 && (
         <dl className="kennzahlen">
           {kennzahlen.map((k) => (
             <div key={k.wert} className="kennzahl">
@@ -113,8 +116,6 @@ export function Zeitring({ kind }: { kind: Kind }) {
             </div>
           ))}
         </dl>
-      ) : (
-        unterzeile && <p className="zeitring-unterzeile">{unterzeile}</p>
       )}
     </section>
   );

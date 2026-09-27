@@ -74,10 +74,35 @@ export function alterAlsText(alter: AlterAufgeteilt): string {
 }
 
 /** „in 3 Tagen“, „in 2 Wochen“, „in 5 Wochen“ */
+/** „morgen“, „in 5 Tagen“, „in 6 Wochen“, „in etwa 7 Monaten“, „in etwa 2 Jahren“ – ab 12 Wochen ungefähr */
 export function abstandAlsText(tage: number): string {
   if (tage <= 1) return tage === 1 ? 'morgen' : 'heute';
   if (tage < 14) return `in ${tage} Tagen`;
-  return `in ${Math.round(tage / 7)} Wochen`;
+  if (tage < 84) return `in ${Math.round(tage / 7)} Wochen`;
+  const monate = Math.round(tage / 30.44);
+  if (monate < 24) return `in etwa ${monate} Monaten`;
+  const jahre = Math.round((tage / 365.25) * 2) / 2; // halbe Jahre
+  return `in etwa ${String(jahre).replace('.5', '½')} Jahren`;
+}
+
+/** Restzeit bis zu einem Ende: „noch 3 Tage“, „noch 1 Tag“, „noch 2 Wochen“ */
+export function restzeitAlsText(tage: number): string {
+  if (tage <= 1) return 'nur noch heute';
+  if (tage < 14) return `noch ${tage} Tage`;
+  return `noch ${Math.round(tage / 7)} Wochen`;
+}
+
+const MONATE = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
+
+/**
+ * Ungefährer Zeitpunkt statt genauem Tag: „Anfang März“, „Mitte Juni“, „Ende Oktober 2027“.
+ * Das Jahr steht nur dabei, wenn es nicht das Jahr von „jetzt“ ist.
+ */
+export function ungefaehr(datum: Date, jetzt: Date): string {
+  const tag = datum.getDate();
+  const teil = tag <= 10 ? 'Anfang' : tag <= 20 ? 'Mitte' : 'Ende';
+  const jahr = datum.getFullYear() !== jetzt.getFullYear() ? ` ${datum.getFullYear()}` : '';
+  return `${teil} ${MONATE[datum.getMonth()]}${jahr}`;
 }
 
 type Einheit = { einzahl: string; mehrzahl: string };
