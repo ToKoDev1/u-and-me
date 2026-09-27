@@ -1,5 +1,5 @@
 [
-  {"id": "elefant", "name": "Elefantenbaby", "geschichte": "Die ganze Herde zieht die Kleinen groß."},
+  {"id": "elefant", "name": "Elefantenbaby", "geschichte": "Die ganze Herde zieht die Kleinen groß.", "kopf": "elefant-kopf.png"},
   {"id": "loewe", "name": "Löwenbaby", "geschichte": "Im Rudel packen alle mit an."},
   {"id": "pinguin", "name": "Pinguinbaby", "geschichte": "Der Papa brütet das Ei aus."},
   {"id": "hund", "name": "Hundebaby", "geschichte": "Der treue Begleiter."}

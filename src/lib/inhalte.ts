@@ -68,7 +68,13 @@ export type Untersuchung = {
   ohneMessen?: boolean;
 };
 export type MaskottchenId = 'loewe' | 'hund' | 'pinguin' | 'elefant';
-export type Maskottchen = { id: MaskottchenId; name: string; geschichte: string };
+export type Maskottchen = {
+  id: MaskottchenId;
+  name: string;
+  geschichte: string;
+  /** freigestellter Kopf ohne Kreis (public/maskottchen/…) – fehlt er, zeigt die App den runden Avatar */
+  kopf?: string;
+};
 
 export const phasen = phasenDaten.phasen as Phase[];
 export const etappen = etappenDaten.etappen as Etappe[];
@@ -93,6 +99,12 @@ export const bereichsName: Record<Bereich, string> = {
 };
 
 /** Pfad zum Maskottchen-Bild – BASE_URL, damit es auch unter einem Unterordner (GitHub Pages) funktioniert */
+/** Bild des freigestellten Kopfes – oder undefined, solange es für dieses Tier noch keinen gibt */
+export const maskottchenKopf = (id: MaskottchenId): string | undefined => {
+  const datei = maskottchen.find((m) => m.id === id)?.kopf;
+  return datei && `${import.meta.env.BASE_URL}maskottchen/${datei}`;
+};
+
 export const maskottchenBild = (id: MaskottchenId, avatar = false) =>
   `${import.meta.env.BASE_URL}maskottchen/${id}${avatar ? '-avatar' : ''}.svg`;
 

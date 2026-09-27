@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { alterAlsText, alterAm } from '../lib/alter';
 import { darstellungLaden, darstellungSpeichern, type Darstellung } from '../lib/darstellung';
+import { maskottchenKopf } from '../lib/inhalte';
 import { kindAus } from '../lib/kind';
 import type { Daten } from '../lib/speicher';
 import { Avatar } from './Avatar';
@@ -63,7 +64,17 @@ export function KinderMenue({ daten, onKindWaehlen }: Props) {
         aria-label={`Menü – ${aktiv.profil.name ?? 'euer Kind'}`}
         onClick={() => setOffen(!offen)}
       >
-        <Avatar tier={aktiv.profil.maskottchen} groesse={40} />
+        {/* Nur der Kopf, ohne Kreis – solange es für das Tier noch keinen gibt, der runde Avatar */}
+        {maskottchenKopf(aktiv.profil.maskottchen) ? (
+          <img className="menue-kopf" src={maskottchenKopf(aktiv.profil.maskottchen)} alt="" />
+        ) : (
+          <Avatar tier={aktiv.profil.maskottchen} groesse={40} />
+        )}
+        {aktiv.profil.name && (
+          <span className="menue-name" aria-hidden="true">
+            {aktiv.profil.name}
+          </span>
+        )}
       </button>
 
       {offen && (
