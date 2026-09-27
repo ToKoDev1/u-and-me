@@ -483,18 +483,19 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
   .knopf, .knopf-zweit, .u-schritte-knopf, .menue-kind, .menue-eintrag, .u-blaettern a, .menue-knopf { transition: transform var(--dauer-tipp) var(--kurve-raus), background-color var(--dauer-schnell) var(--kurve-wechsel); }
 
   /* Ring zeichnet sich ein, danach erscheint der Heute-Knopf */
-  .ring-zeit { animation: ring-zeichnen var(--dauer-ring) var(--kurve-wechsel) both; }
-  .ring-heute, .ring-marke { transform-box: fill-box; transform-origin: center; animation: knopf-rein var(--dauer-menue) var(--kurve-raus) calc(var(--dauer-ring) - 120ms) both; }
-  .zeitring-tier { animation: auftauchen var(--dauer-seite) var(--kurve-raus) backwards; }
+  /* :root[data-bereit] – erst wenn der Startbildschirm ausblendet (siehe main.tsx) */
+  :root[data-bereit] .ring-zeit { animation: ring-zeichnen var(--dauer-ring) var(--kurve-wechsel) both; }
+  :root[data-bereit] .ring-heute, :root[data-bereit] .ring-marke { transform-box: fill-box; transform-origin: center; animation: knopf-rein var(--dauer-menue) var(--kurve-raus) calc(var(--dauer-ring) - 120ms) both; }
+  :root[data-bereit] .zeitring-tier { animation: auftauchen var(--dauer-seite) var(--kurve-raus) backwards; }
 
   /* Startseite: Bausteine erscheinen leicht versetzt nacheinander */
   /* backwards: nach dem Erscheinen gibt die Animation transform wieder frei (für Antippen/Hover) */
-  .heute > * { animation: auftauchen var(--dauer-seite) var(--kurve-raus) backwards; }
-  .heute > :nth-child(2) { animation-delay: 40ms; }
-  .heute > :nth-child(3) { animation-delay: 80ms; }
-  .heute > :nth-child(4) { animation-delay: 120ms; }
-  .heute > :nth-child(5) { animation-delay: 160ms; }
-  .heute > :nth-child(n + 6) { animation-delay: 200ms; }
+  :root[data-bereit] .heute > * { animation: auftauchen var(--dauer-seite) var(--kurve-raus) backwards; }
+  :root[data-bereit] .heute > :nth-child(2) { animation-delay: 40ms; }
+  :root[data-bereit] .heute > :nth-child(3) { animation-delay: 80ms; }
+  :root[data-bereit] .heute > :nth-child(4) { animation-delay: 120ms; }
+  :root[data-bereit] .heute > :nth-child(5) { animation-delay: 160ms; }
+  :root[data-bereit] .heute > :nth-child(n + 6) { animation-delay: 200ms; }
 
   /* Andere Seiten blenden weich ein (Kopf- und Fußzeile bleiben stehen) */
   .seite-inhalt { animation: einblenden var(--dauer-seite) var(--kurve-raus); }

@@ -46,9 +46,15 @@ registerSW({
 // Startbildschirm aus index.html kurz zeigen (die Erklärung übernimmt beim ersten Öffnen die Welcome-Tour)
 const ANZEIGE_MS = 1500;
 const start = document.getElementById('start');
+// data-bereit: ab jetzt ist die App sichtbar – erst dann starten die Animationen der Startseite
+// (sonst liefen Ring und Aufbau unsichtbar hinter dem Startbildschirm ab)
+const bereit = () => (document.documentElement.dataset.bereit = '');
 if (start) {
   window.setTimeout(() => {
     start.classList.add('weg');
+    bereit();
     window.setTimeout(() => start.remove(), 400); // nach dem Ausblenden (0,35 s)
   }, Math.max(0, ANZEIGE_MS - performance.now()));
+} else {
+  bereit();
 }
