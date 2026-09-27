@@ -18,6 +18,7 @@ const pfade = {
       <path d="M12 11v5M12 8h.01" />
     </>
   ),
+  schild: <path d="M12 3l7 3v5.5c0 4.3-3 7.9-7 9.5-4-1.6-7-5.2-7-9.5V6l7-3z" />,
   haken: <path d="M5 12.5l4.5 4.5L19 7.5" />,
   herunterladen: <path d="M12 4v11M7 10l5 5 5-5M5 20h14" />,
   hochladen: <path d="M12 16V5M7 10l5-5 5 5M5 20h14" />,

@@ -69,7 +69,12 @@ export function Schrittfolge({ seiten, fertigText, onFertig, kopf, abbrechenText
   return (
     <main className="tour" onTouchStart={beiStart} onTouchEnd={beiEnde}>
       <div className="tour-oben">
-        <span className="tour-kopf">{kopf}</span>
+        <span className="tour-kopf">
+          {kopf && <span>{kopf}</span>}
+          <span className="tour-zaehler">
+            Schritt {nr + 1} von {seiten.length}
+          </span>
+        </span>
         {!letzte && (
           <button type="button" className="tour-skip" onClick={onFertig}>
             {abbrechenText}

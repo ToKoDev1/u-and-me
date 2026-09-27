@@ -187,7 +187,9 @@ img { display: block; }
 .bereich-punkt.miteinander { background: var(--farbe-miteinander); }
 .bereich-punkt.denken { background: var(--farbe-denken); }
 .zusatzzeile { margin-top: 6px; padding: 10px 12px; border-radius: 14px; background: var(--farbe-hinweis); font-size: var(--groesse-s); }
-.zusatzzeile.hinweis b { color: var(--farbe-warnung-text); }
+.zusatzzeile.sicherheit { display: flex; gap: 10px; align-items: flex-start; background: var(--farbe-warnung-flaeche); border: 1.5px solid var(--farbe-warnung-linie); }
+.zusatzzeile.sicherheit .symbol { flex: none; width: 20px; height: 20px; margin-top: 1px; color: var(--farbe-warnung-text); }
+.zusatzzeile.sicherheit b { color: var(--farbe-warnung-text); }
 .unterabschnitt { padding-top: 18px; }
 .unterabschnitt-titel { font-size: var(--groesse-l); }
 .liste-leer { margin-top: 8px; padding: 18px; border-radius: 20px; background: var(--farbe-flaeche); color: var(--farbe-text-gedaempft); text-align: center; }
@@ -306,9 +308,9 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 .zr-regler::-moz-range-thumb { width: 18px; height: 18px; border-radius: 50%; background: var(--farbe-akzent); border: 3px solid var(--farbe-flaeche); }
 .zr-marken { position: relative; height: 18px; margin: 0 10px; font-size: var(--groesse-xs); font-weight: 800; color: var(--farbe-text-gedaempft); }
 /* Trefferfläche ≥ 44 px, sichtbar bleibt nur die Beschriftung */
-.zr-marken a { position: absolute; top: -14px; transform: translateX(-50%); text-decoration: none; min-width: 36px; min-height: 44px; padding: 14px 4px 0; text-align: center; }
+.zr-marken a { position: absolute; top: -14px; transform: translateX(-50%); text-decoration: none; min-width: 28px; min-height: 44px; padding: 14px 4px 0; text-align: center; }
 .zr-marken a.vorbei { color: var(--farbe-text-gedaempft); font-weight: 700; }
-.zr-marken a.naechste { color: var(--farbe-akzent-text); }
+.zr-marken a.naechste { color: var(--farbe-akzent-text); min-width: 44px; z-index: 1; } /* die nächste U ist das große Ziel, liegt über den Nachbarn */
 .zr-marken a:hover { text-decoration: underline; }
 .u-zeitleiste .zr-marken { height: 38px; } /* Platz für den Haken unter dem Namen */
 .zahn-kopf { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
@@ -352,7 +354,8 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 /* Welcome-Tour */
 .tour { min-height: 100dvh; max-width: 520px; margin: 0 auto; padding: 12px 20px 28px; display: flex; flex-direction: column; background: var(--farbe-hintergrund); }
 .tour-oben { display: flex; justify-content: space-between; align-items: center; gap: 12px; min-height: 44px; }
-.tour-kopf { font-size: var(--groesse-xs); font-weight: 800; color: var(--farbe-text-gedaempft); }
+.tour-kopf { display: flex; flex-direction: column; font-size: var(--groesse-s); font-weight: 800; line-height: 1.3; }
+.tour-zaehler { font-size: var(--groesse-xs); font-weight: 700; color: var(--farbe-text-gedaempft); }
 .schritt-karte { width: 100%; max-width: 420px; text-align: left; background: var(--farbe-flaeche); border: 1.5px solid var(--farbe-linie); border-radius: var(--radius-m); padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; font-size: var(--groesse-s); }
 .schritt-karte ul { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 4px; }
 .schritt-karte .knopf { margin-top: 6px; }
@@ -433,7 +436,7 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 .woche-link { font-weight: 800; color: var(--farbe-akzent-text); text-decoration: none; margin-top: 4px; }
 .quellen-liste { display: flex; flex-direction: column; gap: 4px; }
 .aufgaben li { gap: 6px; }
-.aufgabe-kopf { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 10px; flex: 1; }
+.aufgabe-kopf { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; flex: 1; } /* Pille immer unter dem Titel – feste Position */
 .aufgabe-erledigt .aufgabe-kopf b { color: var(--farbe-text-gedaempft); text-decoration: line-through; }
 .pille-frist { background: var(--farbe-hinweis); color: var(--farbe-warnung-text); }
 .kontakte li { gap: 4px; }
@@ -528,7 +531,7 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 .sprung-kopf { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; }
 .sprung-datum { font-size: var(--groesse-xs); font-weight: var(--gewicht-fett); color: var(--farbe-akzent-text); text-transform: uppercase; letter-spacing: .04em; }
 .sprung-eintrag.vorbei .sprung-datum { color: var(--farbe-text-gedaempft); }
-.sprung-eintrag.jetzt .sprung-datum { background: var(--farbe-akzent-flaeche); padding: 1px 8px; border-radius: var(--radius-rund); }
+.sprung-eintrag.frisch .sprung-datum { background: var(--farbe-akzent-flaeche); padding: 1px 8px; border-radius: var(--radius-rund); }
 .sprung-termin { display: flex; flex-direction: column; gap: 2px; text-decoration: none; color: inherit; }
 .zoom-punkt.mehrere { top: -3px; width: 24px; height: 24px; margin-left: -12px; display: grid; place-items: center; font-size: var(--groesse-xs); font-weight: var(--gewicht-fett); line-height: 1; color: var(--farbe-auf-akzent); }
 .zoom-schiene { margin: 4px 12px 0; }
@@ -546,3 +549,9 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 .wichtig.ohne-zipfel::before { display: none; }
 .onboarding-auswahl-titel { font: inherit; margin: 0; }
 .onboarding-auswahl-titel:focus, .onboarding h1:focus { outline: none; }
+
+/* Ring-Legende: klein und leise unter der Unterzeile */
+.ring-legende { display: flex; justify-content: center; flex-wrap: wrap; gap: 4px 14px; margin-top: 6px; font-size: var(--groesse-xs); color: var(--farbe-text-gedaempft); }
+.ring-legende span { display: inline-flex; align-items: center; gap: 6px; }
+.ring-legende i { width: 16px; height: 6px; border-radius: 3px; background: var(--farbe-akzent); }
+.ring-legende .ring-legende-fenster { opacity: .3; }

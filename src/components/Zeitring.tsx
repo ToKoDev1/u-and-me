@@ -107,6 +107,17 @@ export function Zeitring({ kind }: { kind: Kind }) {
       </h1>
       <p className="zeitring-titel">{titel}</p>
       {unterzeile && <p className="zeitring-unterzeile">{unterzeile}</p>}
+      {/* Legende: Der Ring zeigt vergangene Zeit, keinen Fortschritt des Kindes */}
+      {naechste && (
+        <p className="ring-legende" aria-hidden="true">
+          <span>
+            <i className="ring-legende-zeit" /> seit der {vorher?.untersuchung.id ?? 'Geburt'}
+          </span>
+          <span>
+            <i className="ring-legende-fenster" /> {naechste.untersuchung.id}-Zeitfenster
+          </span>
+        </p>
+      )}
       {kennzahlen.length > 0 && (
         <dl className="kennzahlen">
           {kennzahlen.map((k) => (

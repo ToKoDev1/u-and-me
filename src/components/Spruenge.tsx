@@ -3,11 +3,11 @@ import { spanneAlsText, ungefaehr } from '../lib/alter';
 import { sprungZoom, type ZoomEintrag } from '../lib/inhalte';
 import type { Kind } from '../lib/kind';
 import { useSeitentitel } from '../lib/seite';
-import { BereichMarke, QuelleLink } from './Unterseiten';
+import { BereichMarke, QuelleLink, TippZeile } from './Unterseiten';
 
-/** Wann: nie als genauer Tag – „ab etwa Mitte März“, „seit etwa Anfang Juli“, „gerade“ */
-const wann = (e: ZoomEintrag, jetzt: Date) =>
-  e.zustand === 'jetzt' ? 'gerade' : `${e.zustand === 'vorbei' ? 'seit' : 'ab'} etwa ${ungefaehr(e.datum, jetzt)}`;
+/** Wann: nie als genauer Tag – „ab etwa Mitte März“, „seit etwa Anfang Juli“, „gerade“ (nur der frischeste) */
+const wann = (e: ZoomEintrag, jetzt: Date, frisch: boolean) =>
+  frisch ? 'gerade' : `${e.zustand === 'kommt' ? 'ab' : 'seit'} etwa ${ungefaehr(e.datum, jetzt)}`;
 
 /**
  * Zoom unter der Zeitleiste: die Strecke von der letzten zur nächsten U mit allen Sprüngen
@@ -69,6 +69,8 @@ export function SprungZoom({ kind }: { kind: Kind }) {
 export function Spruenge({ kind }: { kind: Kind }) {
   useSeitentitel('Sprünge');
   const zoom = sprungZoom(kind);
+  // Nur der zuletzt begonnene Sprung bekommt die Markierung „gerade“ – sonst leuchten zu viele
+  const frischster = zoom?.eintraege.filter((e) => e.zustand === 'jetzt').at(-1);
   return (
     <div className="unterseite">
       <Link to="/" className="zurueck-link">← Heute</Link>
@@ -83,9 +85,9 @@ export function Spruenge({ kind }: { kind: Kind }) {
       ) : (
         <ol className="ruhige-liste sprung-liste">
           {zoom.eintraege.map((e) => (
-            <li key={`${e.art}-${e.id}`} className={`sprung-eintrag ${e.zustand}`}>
+            <li key={`${e.art}-${e.id}`} className={`sprung-eintrag ${e.zustand} ${e === frischster ? 'frisch' : ''}`}>
               <span className="sprung-kopf">
-                <span className="sprung-datum">{wann(e, kind.jetzt)}</span>
+                <span className="sprung-datum">{wann(e, kind.jetzt, e === frischster)}</span>
                 {e.etappe && <BereichMarke bereich={e.etappe.bereich} zusatz={`meist mit ${spanneAlsText(e.etappe.von, e.etappe.bis)}`} />}
               </span>
               {e.etappe ? (
@@ -97,11 +99,7 @@ export function Spruenge({ kind }: { kind: Kind }) {
                       <b>{e.etappe.zusatz.label}</b> {e.etappe.zusatz.text}
                     </p>
                   )}
-                  {e.etappe.tipp && (
-                    <p className={`zusatzzeile ${e.etappe.tippArt === 'hinweis' ? 'hinweis' : ''}`}>
-                      <b>{e.etappe.tippArt === 'hinweis' ? 'Hinweis:' : 'Spielidee:'}</b> {e.etappe.tipp}
-                    </p>
-                  )}
+                  <TippZeile etappe={e.etappe} />
                   <QuelleLink quelle={e.etappe.quelle} />
                 </>
               ) : (

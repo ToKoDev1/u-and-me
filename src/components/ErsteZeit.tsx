@@ -106,7 +106,6 @@ export function Erledigen({ kind, notizen, onNotizen }: { kind: Kind; notizen: N
   useSeitentitel('Zu erledigen');
   const alle = aufgabenFuer(kind);
   const istErledigt = (id: string) => notizen.erledigt.includes(id);
-  const sortiert = [...alle.filter((a) => !istErledigt(a.id)), ...alle.filter((a) => istErledigt(a.id))];
 
   function umschalten(id: string) {
     const erledigt = istErledigt(id) ? notizen.erledigt.filter((x) => x !== id) : [...notizen.erledigt, id];
@@ -121,7 +120,8 @@ export function Erledigen({ kind, notizen, onNotizen }: { kind: Kind; notizen: N
         Was nach der Geburt an Formalitäten ansteht – mit Fristen passend zur Geburt von {kind.name ?? 'eurem Kind'}. Hakt ab, was erledigt ist.
       </p>
       <ul className="ruhige-liste aufgaben">
-        {sortiert.map((a) => {
+        {/* Feste Reihenfolge nach Frist – beim Abhaken springt nichts */}
+        {alle.map((a) => {
           const erledigt = istErledigt(a.id);
           const vorbei = a.ende <= kind.jetzt;
           const status = erledigt
@@ -131,7 +131,7 @@ export function Erledigen({ kind, notizen, onNotizen }: { kind: Kind; notizen: N
               : a.beginn > kind.jetzt
               ? `ab ${kurzDatum.format(a.beginn)}`
               : vorbei && a.frist
-                ? 'Frist vorbei – fragt trotzdem nach'
+                ? 'noch nachholen?'
                 : `${a.frist ? 'bis' : 'am besten bis'} ${kurzDatum.format(letzterTag(a.ende))}`;
           return (
             <li key={a.id} className={erledigt ? 'aufgabe-erledigt' : ''}>
@@ -140,7 +140,7 @@ export function Erledigen({ kind, notizen, onNotizen }: { kind: Kind; notizen: N
                 <span className="kaestchen check-kaestchen" aria-hidden="true">{erledigt ? '✓' : ''}</span>
                 <span className="aufgabe-kopf">
                   <b>{a.titel}</b>
-                  <span className={`pille ${a.frist && !erledigt ? 'pille-frist' : ''}`}>{status}</span>
+                  <span className={`pille ${a.frist && !erledigt && !vorbei ? 'pille-frist' : ''}`}>{status}</span>
                 </span>
               </label>
               {!erledigt && (

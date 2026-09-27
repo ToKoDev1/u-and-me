@@ -14,6 +14,7 @@ import {
 } from '../lib/inhalte';
 import type { Kind } from '../lib/kind';
 import { useSeitentitel } from '../lib/seite';
+import { Symbol } from './Symbol';
 
 /** Gemeinsamer Aufbau: Zurück, Titel, Einleitung, Inhalt, Fußnoten */
 function Unterseite({ titel, kurztitel, intro, children }: { titel: string; kurztitel: string; intro: string; children: ReactNode }) {
@@ -87,13 +88,28 @@ function EtappenEintrag({ e }: { e: Etappe }) {
       <BereichMarke bereich={e.bereich} zusatz={`meist mit ${spanneAlsText(e.von, e.bis)}`} />
       <h2>{e.titel}</h2>
       <p>{e.text}</p>
-      {e.tipp && (
-        <p className={`zusatzzeile ${e.tippArt === 'hinweis' ? 'hinweis' : ''}`}>
-          <b>{e.tippArt === 'hinweis' ? 'Hinweis:' : 'Spielidee:'}</b> {e.tipp}
-        </p>
-      )}
+      <TippZeile etappe={e} />
       <QuelleLink quelle={e.quelle} />
     </li>
+  );
+}
+
+/** Spielidee (warm) oder Sicherheitshinweis (eigenes Muster: Schild + Rosé-Fläche) */
+export function TippZeile({ etappe }: { etappe: Etappe }) {
+  if (!etappe.tipp) return null;
+  if (etappe.tippArt === 'hinweis')
+    return (
+      <p className="zusatzzeile sicherheit">
+        <Symbol name="schild" />
+        <span>
+          <b>Zur Sicherheit:</b> {etappe.tipp}
+        </span>
+      </p>
+    );
+  return (
+    <p className="zusatzzeile">
+      <b>Spielidee:</b> {etappe.tipp}
+    </p>
   );
 }
 
@@ -161,8 +177,11 @@ export function Spielen({ kind }: { kind: Kind }) {
               <h2>{s.titel}</h2>
               <p>{s.text}</p>
               {s.hinweis && (
-                <p className="zusatzzeile hinweis">
-                  <b>Hinweis:</b> {s.hinweis}
+                <p className="zusatzzeile sicherheit">
+                  <Symbol name="schild" />
+                  <span>
+                    <b>Zur Sicherheit:</b> {s.hinweis}
+                  </span>
                 </p>
               )}
             </li>

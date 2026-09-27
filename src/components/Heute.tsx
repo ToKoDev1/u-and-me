@@ -62,6 +62,20 @@ export function Heute({ kind, notizen }: { kind: Kind; notizen: Notizen }) {
     </Link>
   );
 
+  // Zu erledigen: die Aufgabe mit der nächsten Frist – ohne Zähler, damit es nicht nach Pflichtliste klingt
+  const naechsteAufgabe = offen[0];
+  const aufgabeTage = naechsteAufgabe?.frist ? tageZwischen(kind.jetzt, naechsteAufgabe.ende) : undefined;
+  const aufgabeDringend = aufgabeTage !== undefined && aufgabeTage > 0 && aufgabeTage <= 7;
+  const aufgabenKarte = naechsteAufgabe && (
+    <Link to="/erledigen" className="zeile-link">
+      <span className="zeile-stapel">
+        <b>{naechsteAufgabe.titel}</b>
+        <span className="gedaempft klein">Zu erledigen · als Nächstes</span>
+      </span>
+      {aufgabeDringend ? <span className="pille pille-bald">{restzeitAlsText(aufgabeTage)}</span> : <span aria-hidden="true">›</span>}
+    </Link>
+  );
+
   const kacheln = [
     { pfad: '/begegnen', titel: 'Begegnet euch', n: begegnen.length, eins: 'Thema', viele: 'Themen' },
     { pfad: '/entwicklung', titel: 'Gerade dran', n: geradeDran.length, eins: 'Schritt', viele: 'Schritte' },
@@ -100,6 +114,9 @@ export function Heute({ kind, notizen }: { kind: Kind; notizen: Notizen }) {
 
       {!dringend && uKarte}
 
+      {/* Eine Frist in den nächsten 7 Tagen (z. B. Standesamt) gehört nach oben */}
+      {aufgabeDringend && aufgabenKarte}
+
       {/* Euer Weg: Zeitleiste U1–U9 und Zoom auf die Strecke zwischen letzter und nächster U */}
       <section className="weg-karte" aria-labelledby="weg-titel">
         <h2 id="weg-titel" className="nur-screenreader">
@@ -122,7 +139,7 @@ export function Heute({ kind, notizen }: { kind: Kind; notizen: Notizen }) {
               // Nichts drin → keine Verlinkung auf eine leere Seite
               <div key={k.pfad} className="kachel kachel-ruhig">
                 <span className="kachel-titel">{k.titel}</span>
-                <span className="kachel-info">ruhige Zeit</span>
+                <span className="kachel-info">gerade nichts Neues</span>
               </div>
             ),
           )}
@@ -151,15 +168,7 @@ export function Heute({ kind, notizen }: { kind: Kind; notizen: Notizen }) {
         </section>
       )}
 
-      {offen.length > 0 && (
-        <Link to="/erledigen" className="zeile-link">
-          <span>
-            <b>Zu erledigen</b>
-            <span className="gedaempft"> · {offen[0].titel}</span>
-          </span>
-          <span className="pille">{offen.length} offen</span>
-        </Link>
-      )}
+      {!aufgabeDringend && aufgabenKarte}
 
       {phase?.abklaeren && (
         // Warnzeichen immer erreichbar – auch wenn „Gerade dran“ gerade leer ist
