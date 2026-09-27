@@ -12,7 +12,7 @@
       "titel": "Erst etwas leichter, dann wieder schwerer",
       "text": "In den ersten Tagen nimmt euer Baby etwas ab. Etwa ab dem 4. Lebenstag steigt das Gewicht wieder, und bis zum Alter von etwa 2 Wochen ist das Geburtsgewicht meist wieder erreicht.",
       "zusatz": {
-        "label": "Ganz normal dabei:",
+        "label": "Gut zu wissen:",
         "text": "Bis zu 10 Prozent weniger als bei der Geburt sind kein Grund zur Sorge. Eure Hebamme behält das Gewicht im Blick."
       },
       "von": {
@@ -52,8 +52,8 @@
       "titel": "Schlafen rund um die Uhr",
       "text": "Neugeborene schlafen im Schnitt 16 bis 18 Stunden, verteilt über Tag und Nacht. Einen Tag-Nacht-Rhythmus gibt es noch nicht – nach 4 bis 6 Wochen wird der Schlaf langsam regelmäßiger.",
       "zusatz": {
-        "label": "Ganz normal dabei:",
-        "text": "Manche Babys schlafen deutlich mehr oder weniger. Nachts oft aufzuwachen ist jetzt wichtig – so meldet euer Baby, was es braucht."
+        "label": "Gut zu wissen:",
+        "text": "Manche Babys schlafen deutlich mehr oder weniger. Nachts oft aufzuwachen gehört jetzt dazu – so meldet euer Baby, was es braucht."
       },
       "von": {
         "tage": 0
@@ -130,10 +130,10 @@
       "id": "heultage",
       "bereich": "alltag",
       "titel": "Gefühle fahren Achterbahn",
-      "text": "In den ersten Tagen nach der Geburt schwankt die Stimmung oft ohne erkennbaren Grund zwischen Glück und Traurigkeit – die sogenannten Heultage. Die Hormone stellen sich um, dazu kommen wenig Schlaf und viel Neues.",
+      "text": "In den ersten Tagen nach der Geburt schwankt die Stimmung oft ohne erkennbaren Grund zwischen Glück und Traurigkeit – der Baby-Blues (auch Heultage genannt). Die Hormone stellen sich um, dazu kommen wenig Schlaf und viel Neues.",
       "zusatz": {
-        "label": "Ganz normal dabei:",
-        "text": "Heultage sind keine Krankheit und gehen meist nach Stunden oder wenigen Tagen vorbei. Hält die Traurigkeit länger als ein bis zwei Wochen an, sprecht mit eurer Hebamme oder Ärztin."
+        "label": "Gut zu wissen:",
+        "text": "Der Baby-Blues ist keine Krankheit und geht meist nach Stunden oder wenigen Tagen vorbei. Hält die Traurigkeit länger als ein bis zwei Wochen an, sprecht mit eurer Hebamme oder Ärztin."
       },
       "von": {
         "tage": 3
@@ -152,7 +152,7 @@
       "titel": "Phasen mit sehr häufigem Trinken",
       "text": "Es gibt Tage, an denen euer Baby fast ständig trinken möchte. Das ist in den ersten Wochen häufig.",
       "zusatz": {
-        "label": "Ganz normal dabei:",
+        "label": "Gut zu wissen:",
         "text": "Es ist kein Zeichen, dass euer Baby nicht satt wird."
       },
       "von": {
@@ -264,7 +264,7 @@
       "titel": "Der Schlaf wird wieder unruhiger",
       "text": "Um den 4. Monat herum schlafen viele Babys plötzlich schlechter und wachen nachts öfter auf.",
       "zusatz": {
-        "label": "Ganz normal dabei:",
+        "label": "Gut zu wissen:",
         "text": "Der Schlaf reift gerade – das geht meist von selbst vorbei."
       },
       "von": {
@@ -314,7 +314,7 @@
       "titel": "Die ersten Zähne",
       "text": "Viele Kinder bekommen mit 6 bis 8 Monaten den ersten Zahn – manche früher, manche deutlich später.",
       "zusatz": {
-        "label": "Ganz normal dabei:",
+        "label": "Gut zu wissen:",
         "text": "Sabbern, Kauen und etwas mehr Unruhe."
       },
       "von": {
@@ -364,7 +364,7 @@
       "titel": "Fremdeln",
       "text": "Euer Kind reagiert auf fremde Menschen plötzlich zurückhaltend oder weint.",
       "zusatz": {
-        "label": "Ganz normal dabei:",
+        "label": "Gut zu wissen:",
         "text": "Ein gutes Zeichen – euer Kind unterscheidet jetzt klar zwischen vertraut und fremd. Gebt ihm Zeit und drängt es nicht auf fremde Arme."
       },
       "von": {
@@ -411,9 +411,9 @@
     {
       "id": "pinzettengriff",
       "bereich": "bewegung",
-      "titel": "Pinzettengriff",
+      "titel": "Greift mit Daumen und Zeigefinger",
       "text": "Kleine Dinge werden mit Daumen und Zeigefinger aufgehoben – auch Krümel vom Boden.",
-      "tipp": "Kleine, weiche Fingerfood-Stücke sind perfektes Training.",
+      "tipp": "Kleine, weiche Fingerfood-Stücke sind eine gute Übung.",
       "tippArt": "spiel",
       "von": {
         "monate": 9
@@ -456,7 +456,7 @@
       "id": "laufen",
       "bereich": "bewegung",
       "titel": "Läuft frei",
-      "text": "Die ersten freien Schritte! Bei vielen um den 1. Geburtstag – aber auch mit 18 Monaten ist das noch ganz normal.",
+      "text": "Die ersten freien Schritte! Bei vielen um den 1. Geburtstag, bei manchen einige Monate später.",
       "von": {
         "monate": 9
       },
@@ -508,7 +508,7 @@
       "titel": "Will selbst essen",
       "text": "Euer Kind möchte am Familientisch mitessen – mit Fingern und Löffel. Manche führen den Löffel schon mit 11 Monaten zum Mund, andere erst mit 2 Jahren.",
       "zusatz": {
-        "label": "Ganz normal dabei:",
+        "label": "Gut zu wissen:",
         "text": "Kleckern gehört zum Lernen. Kleine Löffel und Schalen statt flacher Teller machen es leichter."
       },
       "von": {
@@ -567,7 +567,7 @@
       "text": "„Nein!“ und „Selber!“ – euer Kind will mitbestimmen, und nicht alles klappt schon so, wie es will. Mit der Sprache werden die Wutanfälle meist seltener, nach dem dritten Geburtstag oft deutlich.",
       "zusatz": {
         "label": "Das hilft oft:",
-        "text": "Ruhig bleiben und in der Nähe bleiben, bis euer Kind wieder ansprechbar ist. Danach kurz über die Wut reden – das Verhalten war nicht gut, euer Kind ist es trotzdem."
+        "text": "Ruhig bleiben und in der Nähe bleiben, bis euer Kind wieder ansprechbar ist. Danach kurz über die Wut reden – und macht deutlich: Das Verhalten war nicht okay, euer Kind habt ihr trotzdem lieb."
       },
       "von": {
         "monate": 15
@@ -728,7 +728,7 @@
       "id": "nachts-trocken",
       "bereich": "alltag",
       "titel": "Nachts trocken – oder noch nicht",
-      "text": "Nachts dauert es meist länger als tagsüber. Bis zum Alter von fünf Jahren ist es normal, wenn ab und zu noch etwas ins Bett geht – manche Kinder brauchen noch länger.",
+      "text": "Nachts dauert es meist länger als tagsüber. Bis zum Alter von fünf Jahren kommt es häufig vor, dass ab und zu noch etwas ins Bett geht – manche Kinder brauchen noch länger.",
       "zusatz": {
         "label": "Darauf könnt ihr achten:",
         "text": "Ist euer Kind fünf oder älter, nässt regelmäßig ein und leidet darunter – oder macht ihr euch Sorgen –, sprecht mit eurer Kinderarztpraxis."
@@ -750,8 +750,8 @@
       "titel": "Der Mittagsschlaf wird seltener",
       "text": "Mit drei Jahren schläft etwa die Hälfte der Kinder noch mittags, mit vier ungefähr jedes dritte. Mit fünf bis sechs Jahren hört der Mittagsschlaf meist ganz auf – wann, ist sehr verschieden.",
       "zusatz": {
-        "label": "Ganz normal dabei:",
-        "text": "Insgesamt schlafen Kinder in diesem Alter etwa 11 bis 13 Stunden am Tag – zwei Stunden mehr oder weniger sind völlig normal."
+        "label": "Gut zu wissen:",
+        "text": "Insgesamt schlafen Kinder in diesem Alter etwa 11 bis 13 Stunden am Tag – zwei Stunden mehr oder weniger sind häufig."
       },
       "von": {
         "monate": 30
@@ -804,7 +804,7 @@
       "id": "rollenspiele",
       "bereich": "miteinander",
       "titel": "Prinzessin, Tiger, Räuber",
-      "text": "Rollenspiele werden jetzt beliebt. Als Hexe, Tiger oder Räuber probiert euer Kind aus, wie andere die Welt sehen.",
+      "text": "Rollenspiele werden jetzt beliebt. Als Prinzessin, Tiger oder Räuber probiert euer Kind aus, wie andere die Welt sehen.",
       "tipp": "Spielt mit – und lasst euer Kind die Regie führen.",
       "tippArt": "spiel",
       "von": {
@@ -1011,7 +1011,7 @@
       "text": "Beim Start in Krippe oder Kita fließen morgens oft ein paar Tränen – auch wenn sich die meisten Kinder schnell eingewöhnen. Bis zur Einschulung lernen Kinder, mit Trennungen weitgehend allein umzugehen.",
       "zusatz": {
         "label": "Das hilft oft:",
-        "text": "Ein kurzes, liebevolles Abschiedsritual und ein Versprechen, das ihr haltet: „Nach dem Mittagessen hole ich dich.“"
+        "text": "Ein kurzes, liebevolles Abschiedsritual und ein Versprechen, das ihr haltet: „Nach dem Mittagessen hole ich dich ab.“"
       },
       "von": {
         "monate": 12
@@ -1129,7 +1129,7 @@
       "bereich": "miteinander",
       "titel": "Neugierig auf den eigenen Körper",
       "text": "Kinder entdecken ihren ganzen Körper – auch die Geschlechtsteile. Das ist Teil einer gesunden Entwicklung. Ab etwa drei Jahren verstehen sie, dass es dafür passende und unpassende Orte gibt.",
-      "tipp": "Fragen ernst nehmen und Körperteile richtig benennen (Vulva, Penis). Und: Dein Körper gehört dir – du darfst Nein sagen.",
+      "tipp": "Fragen ernst nehmen und Körperteile richtig benennen (Vulva, Penis). Und sagt eurem Kind: „Dein Körper gehört dir – du darfst Nein sagen.“",
       "tippArt": "spiel",
       "von": {
         "monate": 24
@@ -1146,7 +1146,7 @@
       "id": "wasser-schwimmen",
       "bereich": "bewegung",
       "titel": "Wasserratte werden",
-      "text": "Im Vorschulalter ist ein guter Zeitpunkt, schwimmen zu lernen. Vorher helfen Planschen, Tauchen in der Badewanne und Wasser übers Gesicht, damit keine Angst entsteht.",
+      "text": "Das Vorschulalter ist ein guter Zeitpunkt, schwimmen zu lernen. Vorher helfen Planschen, Tauchen in der Badewanne und Wasser übers Gesicht, damit keine Angst entsteht.",
       "tipp": "Auch mit Seepferdchen ist euer Kind noch kein sicherer Schwimmer – am und im Wasser immer in Reichweite bleiben.",
       "tippArt": "hinweis",
       "von": {

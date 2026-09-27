@@ -52,7 +52,7 @@ export function Onboarding({ vorher, onFertig, onAbbrechen, nameNoetig, onEntfer
     if (zuFrueh) {
       if (!termin) return { feld: 'termin', text: 'Bitte tragt den errechneten Termin ein – oder nehmt den Haken bei „Zu früh geboren?“ heraus.' };
       const abstand = tageZwischen(geburt, parseDatum(termin));
-      if (abstand <= 0) return { feld: 'termin', text: 'Der errechnete Termin sollte nach dem Geburtsdatum liegen.' };
+      if (abstand <= 0) return { feld: 'termin', text: 'Der errechnete Termin sollte nach dem Geburtsdatum liegen – bitte prüft ihn noch einmal.' };
       if (abstand > 18 * 7) return { feld: 'termin', text: 'Der errechnete Termin liegt ungewöhnlich weit nach der Geburt – bitte prüft ihn noch einmal.' };
     }
     return null;
@@ -97,7 +97,7 @@ export function Onboarding({ vorher, onFertig, onAbbrechen, nameNoetig, onEntfer
         </div>
         <div className="onboarding-intro">
           <h1>{vorher ? 'Angaben ändern' : onAbbrechen ? 'Ein weiteres Kind' : 'Schön, dass ihr da seid.'}</h1>
-          <p className="gedaempft">U &amp; Me begleitet euch zwischen den U-Untersuchungen – mit Spannbreiten statt Terminen.</p>
+          <p className="gedaempft">U &amp; Me begleitet euch zwischen den U-Untersuchungen – mit Spannbreiten statt Stichtagen.</p>
         </div>
 
         <div className="onboarding-frage">

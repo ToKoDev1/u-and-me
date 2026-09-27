@@ -35,9 +35,9 @@ export function Datenschutz() {
     e.target.value = '';
     if (!datei) return;
     const daten = sicherungLesen(await datei.text());
-    if (!daten) return setMeldung('Diese Datei ist keine gültige U & Me-Sicherung.');
-    if (!window.confirm('Die Angaben auf diesem Gerät werden durch die Sicherung ersetzt. Fortfahren?')) return;
-    if (!sicherungEinspielen(daten)) return setMeldung('Die Sicherung konnte nicht gespeichert werden.');
+    if (!daten) return setMeldung('Diese Datei ist keine U & Me-Sicherung. Wählt eine Datei, die ihr mit „Sicherung herunterladen“ gespeichert habt (u-and-me-sicherung-….json).');
+    if (!window.confirm('Sicherung einspielen? Die jetzigen Angaben auf diesem Gerät werden dabei ersetzt.')) return;
+    if (!sicherungEinspielen(daten)) return setMeldung('Die Sicherung konnte nicht gespeichert werden. Bitte versucht es noch einmal oder prüft, ob euer Browser Daten speichern darf.');
     window.location.assign(import.meta.env.BASE_URL); // neu laden mit den eingespielten Daten
   }
 

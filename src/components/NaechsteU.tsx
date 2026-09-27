@@ -254,7 +254,7 @@ function Notizbereich({ termin, kind, notizen, onNotizen }: { termin: UTermin; k
               aria-label="Eigene Frage"
               autoFocus
             />
-            <button type="submit" className="knopf">Merken</button>
+            <button type="submit" className="knopf">Frage speichern</button>
           </form>
         ) : (
           <button type="button" className="frage-neu" onClick={() => setEingabeOffen(true)}>+ Eigene Frage notieren</button>

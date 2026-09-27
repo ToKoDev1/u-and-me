@@ -26,7 +26,7 @@
           "text": "Der pH-Wert zeigt, wie gut euer Baby während der Geburt mit Sauerstoff versorgt war"
         },
         {
-          "titel": "Messen & Wiegen",
+          "titel": "Messen und Wiegen",
           "text": "Gewicht, Körperlänge und ein Blick auf äußere Fehlbildungen"
         },
         {
@@ -88,7 +88,7 @@
           "text": "Haut, Sinnesorgane, Herz, Lunge und Bauch, Geschlechtsorgane, Knochen, Muskeln und Nerven"
         },
         {
-          "titel": "Messen & Wiegen",
+          "titel": "Messen und Wiegen",
           "text": "Gewicht und Körperlänge"
         },
         {
@@ -198,7 +198,7 @@
       ],
       "fragen": [
         "Welche Impfungen stehen bald an?",
-        "Ist das viele Weinen am Abend normal?"
+        "Was hilft uns bei dem vielen Weinen am Abend?"
       ],
       "impfQuelle": {
         "name": "STIKO-Empfehlungen 2026 (Epid. Bulletin 4/2026, RKI)",
@@ -262,7 +262,7 @@
       "impfungen": "Um die U4 herum stehen die zweiten Impfungen an (mit etwa 4 Monaten: Sechsfachimpfung, Pneumokokken, Meningokokken B); die ersten gab es meist schon mit 2 Monaten. Auch die Rotavirus-Schluckimpfung wird in dieser Zeit abgeschlossen.",
       "mitbringen": [
         "Gesundheitskarte",
-        "Impfausweis",
+        "Impfpass",
         "Gelbes Kinderuntersuchungsheft"
       ],
       "beobachten": [
@@ -285,7 +285,7 @@
         },
         {
           "titel": "Sehen und Hören",
-          "text": "Sie prüft, ob euer Baby sehen und hören kann – beides ist für die Entwicklung besonders wichtig."
+          "text": "Sie schaut, wie euer Baby auf Licht, Gesichter und Geräusche reagiert – Sehen und Hören sind für die Entwicklung besonders wichtig."
         },
         {
           "titel": "Die Fontanelle",
@@ -336,7 +336,7 @@
       "impfungen": "Zur U5 ist laut Impfkalender keine neue Standardimpfung vorgesehen – ein guter Anlass, gemeinsam in den Impfpass zu schauen, ob bisher alles vollständig ist. Hat euer Baby noch keinen RSV-Schutz, könnt ihr das hier ansprechen.",
       "mitbringen": [
         "Gesundheitskarte",
-        "Impfausweis",
+        "Impfpass",
         "Gelbes Kinderuntersuchungsheft"
       ],
       "beobachten": [
@@ -401,7 +401,7 @@
         },
         {
           "titel": "Entwicklung",
-          "text": "Screening auf Entwicklungsverzögerungen"
+          "text": "Ein Blick darauf, wie sich euer Kind insgesamt entwickelt"
         },
         {
           "titel": "Miteinander",
@@ -415,7 +415,7 @@
       "impfungen": "Rund um die U6 wird die Grundimmunisierung abgeschlossen: mit etwa 11 Monaten die letzte Sechsfach- und Pneumokokkenimpfung sowie die erste Masern-Mumps-Röteln- und Windpocken-Impfung, mit etwa 12 Monaten die dritte Meningokokken-B-Impfung. Das kann auf mehrere Termine verteilt werden.",
       "mitbringen": [
         "Gesundheitskarte",
-        "Impfausweis",
+        "Impfpass",
         "Gelbes Kinderuntersuchungsheft mit Teilnahmekarte"
       ],
       "beobachten": [
@@ -491,7 +491,7 @@
       "impfungen": "Die zweite Masern-Mumps-Röteln- und Windpocken-Impfung ist schon mit etwa 15 Monaten dran, also zwischen U6 und U7. Bei der U7 schaut eure Praxis, ob alles vollständig ist, und holt Fehlendes bei Bedarf nach.",
       "mitbringen": [
         "Gesundheitskarte",
-        "Impfausweis",
+        "Impfpass",
         "Gelbes Kinderuntersuchungsheft"
       ],
       "beobachten": [
@@ -501,7 +501,7 @@
         "Wie ist {kind} mit anderen Kindern?"
       ],
       "fragen": [
-        "Ist die Sprachentwicklung im Rahmen?",
+        "Wie können wir die Sprache gut begleiten?",
         "Sind alle Impfungen vollständig?",
         "Wie gehen wir gut mit Wutanfällen um?"
       ],
@@ -541,7 +541,7 @@
       "passiert": [
         {
           "titel": "Körper",
-          "text": "Körperliche Untersuchung – die Ärztin achtet auf Auffälligkeiten in der Entwicklung"
+          "text": "Körperliche Untersuchung – wie hat sich euer Kind seit der U7 entwickelt?"
         },
         {
           "titel": "Sehen",
@@ -571,7 +571,7 @@
       },
       "mitbringen": [
         "Gesundheitskarte",
-        "Impfausweis",
+        "Impfpass",
         "Gelbes Kinderuntersuchungsheft mit Teilnahmekarte"
       ],
       "beobachten": [
@@ -588,7 +588,7 @@
       "schritte": [
         {
           "titel": "Körper",
-          "text": "Euer Kind wird körperlich untersucht. Die Ärztin achtet darauf, ob es Auffälligkeiten in der Entwicklung gibt."
+          "text": "Euer Kind wird körperlich untersucht. Die Ärztin schaut, wie es sich seit der U7 entwickelt hat."
         },
         {
           "titel": "Sehtest",
@@ -647,7 +647,7 @@
       },
       "mitbringen": [
         "Gesundheitskarte",
-        "Impfausweis",
+        "Impfpass",
         "Gelbes Kinderuntersuchungsheft mit Teilnahmekarte"
       ],
       "beobachten": [
@@ -657,7 +657,7 @@
         "Was beschäftigt {kind} gerade – Fragen, Ängste, Lieblingsthemen?"
       ],
       "fragen": [
-        "Hört und sieht unser Kind gut?",
+        "Was zeigen Seh- und Hörtest?",
         "Wie gehen wir mit Ängsten in diesem Alter um?",
         "Worauf sollten wir bei Medien achten?"
       ],
@@ -723,7 +723,7 @@
       },
       "mitbringen": [
         "Gesundheitskarte",
-        "Impfausweis",
+        "Impfpass",
         "Gelbes Kinderuntersuchungsheft mit Teilnahmekarte"
       ],
       "beobachten": [
@@ -762,14 +762,14 @@
     "text": "Von der U1 bis zur U9 – schön, dass U & Me euch begleiten durfte. Auch danach gibt es noch Vorsorge-Termine:",
     "termine": [
       {
-        "id": "J1",
-        "alter": "mit 12 bis 14 Jahren",
-        "text": "Jugenduntersuchung – zahlt jede gesetzliche Krankenkasse."
-      },
-      {
         "id": "U10 · U11",
         "alter": "im Grundschulalter",
         "text": "Zusätzliche Untersuchungen – zahlen bisher nur manche Kassen. Eine U10 als Kassenleistung für alle ist in Planung."
+      },
+      {
+        "id": "J1",
+        "alter": "mit 12 bis 14 Jahren",
+        "text": "Jugenduntersuchung – zahlt jede gesetzliche Krankenkasse."
       },
       {
         "id": "J2",

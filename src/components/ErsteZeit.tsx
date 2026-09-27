@@ -73,7 +73,7 @@ export function WocheSeite({ kind }: { kind: Kind }) {
         </Link>
       )}
       <Link to="/entwicklung#warnzeichen" className="zeile-link zeile-warnung">
-        <span className="zeile-warnung-text">Wann ihr nicht warten solltet</span>
+        <span className="zeile-warnung-text">Wann ihr nicht bis zur nächsten U warten solltet</span>
         <span aria-hidden="true">›</span>
       </Link>
 
@@ -118,7 +118,7 @@ export function Erledigen({ kind, notizen, onNotizen }: { kind: Kind; notizen: N
       <Link to="/" className="zurueck-link">← Heute</Link>
       <h1 tabIndex={-1}>Zu erledigen</h1>
       <p className="gedaempft">
-        Was nach der Geburt an Formalitäten ansteht – mit Daten für {kind.name ?? 'euer Kind'}. Hakt ab, was erledigt ist.
+        Was nach der Geburt an Formalitäten ansteht – mit Fristen passend zur Geburt von {kind.name ?? 'eurem Kind'}. Hakt ab, was erledigt ist.
       </p>
       <ul className="ruhige-liste aufgaben">
         {sortiert.map((a) => {

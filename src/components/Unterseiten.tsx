@@ -56,7 +56,7 @@ export function Begegnen({ kind }: { kind: Kind }) {
     <Unterseite
       titel="Was euch gerade begegnen kann"
       kurztitel="Begegnet euch"
-      intro="Typische Phasen in diesem Alter – damit ihr wisst: Das ist häufig und meist ganz normal."
+      intro="Was euch in diesem Alter häufig begegnet – damit ihr wisst, was dazugehören kann."
     >
       {eintraege.length === 0 ? (
         <Leer>Gerade ist es eher ruhig – euer Kind festigt, was es schon kann.</Leer>
@@ -105,7 +105,7 @@ export function Entwicklung({ kind }: { kind: Kind }) {
     <Unterseite
       titel="Gerade dran"
       kurztitel="Gerade dran"
-      intro="Entwicklungsschritte, deren typische Zeit gerade läuft. Jedes Kind hat sein eigenes Tempo – das sind Spannbreiten, keine Termine."
+      intro="Entwicklungsschritte, deren typische Zeit gerade läuft. Jedes Kind hat sein eigenes Tempo – das sind Spannbreiten, keine Stichtage."
     >
       {dran.length === 0 ? (
         <Leer>Gerade beginnt kein neuer Schritt – euer Kind festigt, was es schon kann.</Leer>
@@ -149,7 +149,7 @@ export function Spielen({ kind }: { kind: Kind }) {
     <Unterseite
       titel="Spielideen für diese Zeit"
       kurztitel="Spielideen"
-      intro="Keine Pflicht – was euch beiden Spaß macht, ist richtig."
+      intro="Keine Pflicht – was euch und eurem Kind Spaß macht, ist richtig."
     >
       {ideen.length === 0 ? (
         <Leer>Für dieses Alter folgen die Spielideen noch.</Leer>

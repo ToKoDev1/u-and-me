@@ -162,7 +162,7 @@ export function USchritte({ kind, notizen, onNotizen }: { kind: Kind; notizen: N
                 className="knopf knopf-zweit"
                 onClick={() => uKalenderHerunterladen(naechste, kind.name, kind.id)}
               >
-                {naechste.untersuchung.id} in den Kalender
+                {naechste.untersuchung.id} in den Kalender eintragen
               </button>
             )}
           </div>
@@ -178,7 +178,7 @@ export function USchritte({ kind, notizen, onNotizen }: { kind: Kind; notizen: N
       key={u.id} // neue U → wieder bei Schritt 1 beginnen
       kopf={`${u.id} Schritt für Schritt`}
       abbrechenText="Schließen"
-      fertigText={`Zurück zur ${u.id}`}
+      fertigText={`Fertig – zur ${u.id}`}
       onFertig={zurueck}
       seiten={seiten}
     />
