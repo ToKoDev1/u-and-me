@@ -29,7 +29,7 @@ export type Phase = {
   /** eigene Anregungen (Entwurf) */
   spielideen: Spielidee[];
 };
-export type Bereich = 'alltag' | 'bewegung' | 'sprache' | 'miteinander';
+export type Bereich = 'alltag' | 'bewegung' | 'sprache' | 'miteinander' | 'denken';
 export type Etappe = {
   id: string;
   bereich: Bereich;
@@ -96,6 +96,7 @@ export const bereichsName: Record<Bereich, string> = {
   bewegung: 'Bewegung',
   sprache: 'Sprache & Laute',
   miteinander: 'Miteinander',
+  denken: 'Denken & Entdecken',
 };
 
 /** Pfad zum Maskottchen-Bild – BASE_URL, damit es auch unter einem Unterordner (GitHub Pages) funktioniert */

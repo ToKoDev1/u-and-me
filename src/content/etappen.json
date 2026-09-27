@@ -931,6 +931,234 @@
         "name": "kindergesundheit-info.de – Zahnentwicklung",
         "url": "https://www.kindergesundheit-info.de/themen/risiken-vorbeugen/zahngesundheit/zahnentwicklung/"
       }
+    },
+    {
+      "id": "ursache-wirkung",
+      "bereich": "denken",
+      "titel": "Wenn ich das mache, passiert das",
+      "text": "Euer Kind entdeckt Zusammenhänge von Ursache und Wirkung – noch nicht immer richtig, oft mit viel Fantasie: Der Mond geht mit, weil er uns mag.",
+      "tipp": "Kugelbahn, Lichtschalter, Wasser umschütten: Was passiert, wenn …? Lasst euer Kind ausprobieren.",
+      "tippArt": "spiel",
+      "von": {
+        "monate": 24
+      },
+      "bis": {
+        "monate": 36
+      },
+      "quelle": {
+        "name": "kindergesundheit-info.de – Geistige Entwicklung",
+        "url": "https://www.kindergesundheit-info.de/themen/entwicklung/entwicklungsschritte/geistige-entwicklung/"
+      }
+    },
+    {
+      "id": "gedaechtnis",
+      "bereich": "denken",
+      "titel": "Ein Gedächtnis wie ein Elefant",
+      "text": "Lieder, Reime und ganze Geschichten sitzen plötzlich – und wehe, ihr lasst beim Vorlesen einen Satz aus. Auch erste Mengen („mehr“, „drei“) und Zeitbegriffe („gleich“, „morgen“) werden verständlicher.",
+      "tipp": "Lieblingsbücher immer wieder vorlesen – und euer Kind die bekannten Stellen ergänzen lassen.",
+      "tippArt": "spiel",
+      "von": {
+        "monate": 36
+      },
+      "bis": {
+        "monate": 48
+      },
+      "quelle": {
+        "name": "kindergesundheit-info.de – Geistige Entwicklung",
+        "url": "https://www.kindergesundheit-info.de/themen/entwicklung/entwicklungsschritte/geistige-entwicklung/"
+      }
+    },
+    {
+      "id": "farben-formen",
+      "bereich": "denken",
+      "titel": "Rot, Blau, Gelb – Kreis und Dreieck",
+      "text": "Euer Kind erkennt und benennt Grundfarben und Formen und denkt immer logischer.",
+      "tipp": "„Ich sehe was, was du nicht siehst“ – das Farbenspiel für unterwegs.",
+      "tippArt": "spiel",
+      "von": {
+        "monate": 48
+      },
+      "bis": {
+        "monate": 60
+      },
+      "quelle": {
+        "name": "kindergesundheit-info.de – Geistige Entwicklung",
+        "url": "https://www.kindergesundheit-info.de/themen/entwicklung/entwicklungsschritte/geistige-entwicklung/"
+      }
+    },
+    {
+      "id": "logisch-denken",
+      "bereich": "denken",
+      "titel": "Denkt immer logischer",
+      "text": "Euer Kind zieht eigene Schlüsse, vergleicht und plant – und die Welt der Fantasie tritt langsam etwas zurück.",
+      "tipp": "Kleine Rätsel und „Was wäre, wenn …?“-Fragen beim Abendessen.",
+      "tippArt": "spiel",
+      "von": {
+        "monate": 60
+      },
+      "bis": {
+        "monate": 84
+      },
+      "quelle": {
+        "name": "kindergesundheit-info.de – Geistige Entwicklung",
+        "url": "https://www.kindergesundheit-info.de/themen/entwicklung/entwicklungsschritte/geistige-entwicklung/"
+      }
+    },
+    {
+      "id": "abschied-kita",
+      "bereich": "alltag",
+      "titel": "Abschied an der Kita-Tür",
+      "text": "Beim Start in Krippe oder Kita fließen morgens oft ein paar Tränen – auch wenn sich die meisten Kinder schnell eingewöhnen. Bis zur Einschulung lernen Kinder, mit Trennungen weitgehend allein umzugehen.",
+      "zusatz": {
+        "label": "Das hilft oft:",
+        "text": "Ein kurzes, liebevolles Abschiedsritual und ein Versprechen, das ihr haltet: „Nach dem Mittagessen hole ich dich.“"
+      },
+      "von": {
+        "monate": 12
+      },
+      "bis": {
+        "monate": 48
+      },
+      "quelle": {
+        "name": "kindergesundheit-info.de – Kindliche Ängste",
+        "url": "https://www.kindergesundheit-info.de/themen/entwicklung/entwicklungsschritte/emotionale-entwicklung/kindliche-aengste/"
+      }
+    },
+    {
+      "id": "nachtschreck",
+      "bereich": "alltag",
+      "titel": "Schreien im Schlaf",
+      "text": "Nachtschreck ist zwischen zwei und sechs Jahren häufig: Euer Kind schreit panisch, wirkt verwirrt und lässt sich kaum beruhigen – und schläft danach einfach weiter, ohne sich zu erinnern.",
+      "zusatz": {
+        "label": "Das hilft oft:",
+        "text": "Nicht wecken, ruhig dabeibleiben und aufpassen, dass sich euer Kind nicht verletzt. Kommt es sehr oft vor und belastet euch, sprecht mit eurer Kinderarztpraxis."
+      },
+      "von": {
+        "monate": 24
+      },
+      "bis": {
+        "monate": 72
+      },
+      "quelle": {
+        "name": "kindergesundheit-info.de – Albträume, Nachtschreck und Schlafwandeln",
+        "url": "https://www.kindergesundheit-info.de/themen/schlafen/schlafprobleme/albtraeume-schlafwandeln/"
+      }
+    },
+    {
+      "id": "albtraeume",
+      "bereich": "alltag",
+      "titel": "Böse Träume",
+      "text": "Ab etwa drei Jahren erinnern sich Kinder an Albträume – manchmal noch Tage später. Anders als beim Nachtschreck sind sie wach, verängstigt und suchen Trost.",
+      "zusatz": {
+        "label": "Das hilft oft:",
+        "text": "Trösten und in Ruhe zuhören. Am nächsten Tag die Traumfigur malen – und vielleicht ein gutes Ende dazu erfinden."
+      },
+      "von": {
+        "monate": 36
+      },
+      "bis": {
+        "monate": 72
+      },
+      "quelle": {
+        "name": "kindergesundheit-info.de – Albträume, Nachtschreck und Schlafwandeln",
+        "url": "https://www.kindergesundheit-info.de/themen/schlafen/schlafprobleme/albtraeume-schlafwandeln/"
+      }
+    },
+    {
+      "id": "waehlerisch-essen",
+      "bereich": "alltag",
+      "titel": "Was ich nicht kenne, ess ich nicht",
+      "text": "Zwischen zwei und sechs Jahren lehnen viele Kinder Neues ab und essen am liebsten immer dasselbe. Das ist eine häufige Phase, die meist von selbst vorbeigeht.",
+      "zusatz": {
+        "label": "Das hilft oft:",
+        "text": "Gemeinsam essen, Neues immer wieder in kleinen Mengen anbieten – ohne Druck. Ihr seid das Vorbild."
+      },
+      "von": {
+        "monate": 24
+      },
+      "bis": {
+        "monate": 72
+      },
+      "quelle": {
+        "name": "Gesund ins Leben – Wenn Kleinkinder sehr wählerisch beim Essen sind",
+        "url": "https://www.gesund-ins-leben.de/fuer-fachkreise/ernaehrung-und-bewegung-fuer-kleinkinder/nachgefragt/was-tun-wenn-kleinkinder-sehr-waehlerisch-beim-essen-sind/"
+      }
+    },
+    {
+      "id": "selbst-putzen",
+      "bereich": "alltag",
+      "titel": "Zähne putzen – selbst und mit euch",
+      "text": "Ab etwa drei bis vier Jahren kann euer Kind selbst putzen. Nachputzen bleibt aber eure Aufgabe – bis zum Schulalter, vor allem abends.",
+      "zusatz": {
+        "label": "Darauf könnt ihr achten:",
+        "text": "Zweimal täglich, mit einer erbsengroßen Menge Kinderzahnpasta mit Fluorid."
+      },
+      "von": {
+        "monate": 36
+      },
+      "bis": {
+        "monate": 72
+      },
+      "quelle": {
+        "name": "kindergesundheit-info.de – So bleiben Kinderzähne gesund",
+        "url": "https://www.kindergesundheit-info.de/themen/risiken-vorbeugen/alltagstipps/zahngesundheit/empfehlungen/"
+      }
+    },
+    {
+      "id": "erste-medien",
+      "bereich": "alltag",
+      "titel": "Erste Filme und Hörspiele",
+      "text": "Bildschirme werden interessant. Empfehlung für drei- bis fünfjährige Kinder: höchstens 30 Minuten am Tag Bildschirm – und am besten gemeinsam. Unter drei Jahren möglichst gar nicht.",
+      "zusatz": {
+        "label": "Das hilft oft:",
+        "text": "Feste Regeln, die für alle gelten, und Filme gemeinsam anschauen und darüber reden."
+      },
+      "von": {
+        "monate": 36
+      },
+      "bis": {
+        "monate": 72
+      },
+      "quelle": {
+        "name": "kindergesundheit-info.de – Wie oft und wie lange dürfen Kinder Medien nutzen?",
+        "url": "https://www.kindergesundheit-info.de/themen/medien/alltagstipps/mediennutzung/hoechstdauer/"
+      }
+    },
+    {
+      "id": "koerper-entdecken",
+      "bereich": "miteinander",
+      "titel": "Neugierig auf den eigenen Körper",
+      "text": "Kinder entdecken ihren ganzen Körper – auch die Geschlechtsteile. Das ist Teil einer gesunden Entwicklung. Ab etwa drei Jahren verstehen sie, dass es dafür passende und unpassende Orte gibt.",
+      "tipp": "Fragen ernst nehmen und Körperteile richtig benennen (Vulva, Penis). Und: Dein Körper gehört dir – du darfst Nein sagen.",
+      "tippArt": "spiel",
+      "von": {
+        "monate": 24
+      },
+      "bis": {
+        "monate": 72
+      },
+      "quelle": {
+        "name": "kindergesundheit-info.de – Sexualentwicklung",
+        "url": "https://www.kindergesundheit-info.de/themen/entwicklung/entwicklungsschritte/sexualentwicklung/"
+      }
+    },
+    {
+      "id": "wasser-schwimmen",
+      "bereich": "bewegung",
+      "titel": "Wasserratte werden",
+      "text": "Im Vorschulalter ist ein guter Zeitpunkt, schwimmen zu lernen. Vorher helfen Planschen, Tauchen in der Badewanne und Wasser übers Gesicht, damit keine Angst entsteht.",
+      "tipp": "Auch mit Seepferdchen ist euer Kind noch kein sicherer Schwimmer – am und im Wasser immer in Reichweite bleiben.",
+      "tippArt": "hinweis",
+      "von": {
+        "monate": 48
+      },
+      "bis": {
+        "monate": 72
+      },
+      "quelle": {
+        "name": "kindergesundheit-info.de – Kinder sollten schwimmen lernen",
+        "url": "https://www.kindergesundheit-info.de/themen/sicher-aufwachsen/3-6-jahre/schwimmen-lernen/"
+      }
     }
   ]
 }

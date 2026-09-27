@@ -65,6 +65,7 @@ Farben, Schrift, Ton und die Grundidee (Zeitring, drei Kacheln, „Heute wichtig
 - [x] Für euch (`fuer-euch.json`): Baby-Blues/Wochenbett-Depression, Ansprechpartner, Elterntelefon, Telefonseelsorge, Frühe Hilfen
 - [ ] 🟡 Idee: „Noch nicht geboren“-Modus ab errechnetem Termin (Kinderarzt suchen, Hebamme, Checkliste vor der Geburt)
 - [ ] 🟡 Idee: nach Woche 12 monatlicher Begleiter bis zum 1. Geburtstag
+- [x] Mehr Sprünge für 2–6 Jahre (+12, neuer Bereich „Denken & Entdecken“): Kita-Abschied, Nachtschreck, Albträume, wählerisch essen, Zähne selbst putzen, erste Medien, Körper entdecken, Schwimmen, Ursache/Wirkung, Gedächtnis, Farben/Formen, logisch denken
 - [ ] 🔴 Test mit 2–3 Familien: zwei Wochen jede gegoogelte Frage notieren lassen und mit den Inhalten abgleichen
 
 ## Sprint 2 – Inhalte absichern

@@ -39,6 +39,7 @@
   --farbe-bewegung: #5E8F8A;        --farbe-bewegung-flaeche: #D4E5E2;
   --farbe-sprache: #7F97B5;         --farbe-sprache-flaeche: #DDE5EF;
   --farbe-miteinander: #E08E84;     --farbe-miteinander-flaeche: #F8DCD7;
+  --farbe-denken: #9A86B8;          --farbe-denken-flaeche: #E6DFF0;
   /* Navigation */
   --farbe-nav: #4A3428;
   --farbe-nav-text: #F4E8D8;
@@ -126,6 +127,7 @@
   --farbe-bewegung: #7FB0AA;        --farbe-bewegung-flaeche: #22403F;
   --farbe-sprache: #A6BAD2;         --farbe-sprache-flaeche: #2C3D56;
   --farbe-miteinander: #F2A9A0;     --farbe-miteinander-flaeche: #43303A;
+  --farbe-denken: #BCA9D8;          --farbe-denken-flaeche: #362E48;
   --farbe-nav: #F2E4D0;
   --farbe-nav-text: #4A3428;
   --farbe-nav-aktiv: #1D2839;

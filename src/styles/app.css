@@ -185,6 +185,7 @@ img { display: block; }
 .bereich-punkt.bewegung { background: var(--farbe-bewegung); }
 .bereich-punkt.sprache { background: var(--farbe-sprache); }
 .bereich-punkt.miteinander { background: var(--farbe-miteinander); }
+.bereich-punkt.denken { background: var(--farbe-denken); }
 .zusatzzeile { margin-top: 6px; padding: 10px 12px; border-radius: 14px; background: var(--farbe-hinweis); font-size: var(--groesse-s); }
 .zusatzzeile.hinweis b { color: var(--farbe-warnung-text); }
 .unterabschnitt { padding-top: 18px; }

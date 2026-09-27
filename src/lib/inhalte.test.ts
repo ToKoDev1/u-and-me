@@ -98,7 +98,7 @@ describe('Inhalte (JSON) sind plausibel', () => {
       const ids = liste.map((x) => x.id);
       expect(new Set(ids).size).toBe(ids.length);
     }
-    const bereiche = ['alltag', 'bewegung', 'sprache', 'miteinander'];
+    const bereiche = ['alltag', 'bewegung', 'sprache', 'miteinander', 'denken'];
     for (const e of etappen) expect(bereiche, e.id).toContain(e.bereich);
     for (const p of phasen) for (const s of p.spielideen) expect(bereiche, s.titel).toContain(s.bereich);
   });
