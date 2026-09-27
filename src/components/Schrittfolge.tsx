@@ -48,6 +48,8 @@ export function Schrittfolge({ seiten, fertigText, onFertig, kopf, abbrechenText
   // Pfeiltasten auf dem Desktop
   useEffect(() => {
     const taste = (e: KeyboardEvent) => {
+      // In Eingabefeldern (z. B. Datum) gehören die Pfeiltasten dem Feld
+      if (e.target instanceof Element && e.target.closest('input, select, textarea')) return;
       if (e.key === 'ArrowRight') setNr((n) => Math.min(n + 1, seiten.length - 1));
       if (e.key === 'ArrowLeft') setNr((n) => Math.max(n - 1, 0));
     };

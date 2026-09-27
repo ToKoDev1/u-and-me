@@ -1,7 +1,8 @@
-import { useEffect, useState, type FormEvent } from 'react';
+import { useEffect, useRef, useState, type FormEvent } from 'react';
 import { datumBeiAlter, heute, parseDatum, tageZwischen } from '../lib/alter';
 import { akzentSetzen } from '../lib/darstellung';
 import { begleitetBis, letzteUntersuchung, maskottchen, maskottchenBild, type MaskottchenId } from '../lib/inhalte';
+import { useSeitentitel } from '../lib/seite';
 import { speicherVerfuegbar, type Profil } from '../lib/speicher';
 import { SpeicherWarnung } from './Rahmen';
 import { Symbol } from './Symbol';
@@ -24,6 +25,21 @@ const isoHeute = () => heute().toLocaleDateString('sv-SE'); // sv-SE = YYYY-MM-D
 /** Schritt 1: Angaben zum Kind · Schritt 2: Maskottchen wählen */
 export function Onboarding({ vorher, onFertig, onAbbrechen, nameNoetig, onEntfernen, akzentDanach }: Props) {
   const [schritt, setSchritt] = useState<1 | 2>(1);
+  useSeitentitel(schritt === 1 ? (vorher ? 'Angaben ändern' : 'Angaben') : 'Begleiter wählen');
+  // Fokus: beim Schrittwechsel auf die Überschrift, bei einem Fehler auf das betroffene Feld
+  const titel1 = useRef<HTMLHeadingElement>(null);
+  const titel2 = useRef<HTMLHeadingElement>(null);
+  const geburtFeld = useRef<HTMLInputElement>(null);
+  const nameFeld = useRef<HTMLInputElement>(null);
+  const terminFeld = useRef<HTMLInputElement>(null);
+  const ersterSchritt = useRef(true);
+  useEffect(() => {
+    if (ersterSchritt.current) {
+      ersterSchritt.current = false;
+      return;
+    }
+    (schritt === 1 ? titel1 : titel2).current?.focus();
+  }, [schritt]);
   const [geburtsdatum, setGeburtsdatum] = useState(vorher?.geburtsdatum ?? '');
   const [name, setName] = useState(vorher?.name ?? '');
   const [zuFrueh, setZuFrueh] = useState(!!vorher?.errechneterTermin);
@@ -62,6 +78,10 @@ export function Onboarding({ vorher, onFertig, onAbbrechen, nameNoetig, onEntfer
     e.preventDefault();
     const problem = pruefen();
     setFehler(problem);
+    if (problem) {
+      const feld = { geburt: geburtFeld, name: nameFeld, termin: terminFeld }[problem.feld];
+      requestAnimationFrame(() => feld.current?.focus());
+    }
     if (!problem) {
       akzentSetzen(tier);
       setSchritt(2);
@@ -85,6 +105,7 @@ export function Onboarding({ vorher, onFertig, onAbbrechen, nameNoetig, onEntfer
 
   if (schritt === 1) {
     return (
+      <main>
       <form className="onboarding" onSubmit={weiter} noValidate>
         {!speicherVerfuegbar() && <SpeicherWarnung />}
         <div className="onboarding-kopf">
@@ -96,7 +117,7 @@ export function Onboarding({ vorher, onFertig, onAbbrechen, nameNoetig, onEntfer
           <span className="schritt">Schritt 1 von 2</span>
         </div>
         <div className="onboarding-intro">
-          <h1>{vorher ? 'Angaben ändern' : onAbbrechen ? 'Ein weiteres Kind' : 'Schön, dass ihr da seid.'}</h1>
+          <h1 ref={titel1} tabIndex={-1}>{vorher ? 'Angaben ändern' : onAbbrechen ? 'Ein weiteres Kind' : 'Schön, dass ihr da seid.'}</h1>
           <p className="gedaempft">U &amp; Me begleitet euch zwischen den U-Untersuchungen – mit Spannbreiten statt Stichtagen.</p>
         </div>
 
@@ -108,6 +129,7 @@ export function Onboarding({ vorher, onFertig, onAbbrechen, nameNoetig, onEntfer
           <label className="feld">
             <span className="feld-label">Geburtsdatum</span>
             <input
+              ref={geburtFeld}
               type="date"
               value={geburtsdatum}
               max={isoHeute()}
@@ -121,6 +143,7 @@ export function Onboarding({ vorher, onFertig, onAbbrechen, nameNoetig, onEntfer
           <label className="feld">
             <span className="feld-label">Name {!nameNoetig && <span className="gedaempft">(optional)</span>}</span>
             <input
+              ref={nameFeld}
               type="text"
               value={name}
               placeholder="z. B. Mila"
@@ -140,6 +163,7 @@ export function Onboarding({ vorher, onFertig, onAbbrechen, nameNoetig, onEntfer
             <label className="feld">
               <span className="feld-label">Errechneter Termin</span>
               <input
+                ref={terminFeld}
                 type="date"
                 value={termin}
                 aria-invalid={fehler?.feld === 'termin'}
@@ -167,17 +191,21 @@ export function Onboarding({ vorher, onFertig, onAbbrechen, nameNoetig, onEntfer
           )}
         </div>
       </form>
+      </main>
     );
   }
 
   return (
+    <main>
     <form className="onboarding" onSubmit={fertig}>
       <div className="onboarding-kopf">
         <button type="button" className="zurueck" onClick={() => setSchritt(1)}>← Zurück</button>
         <span className="schritt">Schritt 2 von 2</span>
       </div>
       <fieldset className="onboarding-auswahl">
-        <legend>Wer begleitet {name.trim() || 'euch'}?</legend>
+        <legend>
+          <h1 ref={titel2} tabIndex={-1} className="onboarding-auswahl-titel">Wer begleitet {name.trim() || 'euch'}?</h1>
+        </legend>
         <p className="gedaempft onboarding-auswahl-text">Sucht euch einen Begleiter aus – er zeigt euch, wo ihr gerade steht.</p>
         <div className="tier-raster">
           {maskottchen.map((m) => (
@@ -195,5 +223,6 @@ export function Onboarding({ vorher, onFertig, onAbbrechen, nameNoetig, onEntfer
         <button type="submit" className="knopf">{vorher ? 'Speichern' : 'Los geht’s'}</button>
       </div>
     </form>
+    </main>
   );
 }

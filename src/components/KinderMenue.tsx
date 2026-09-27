@@ -54,13 +54,20 @@ export function KinderMenue({ daten, onKindWaehlen }: Props) {
   if (!aktiv) return null;
 
   return (
-    <div className="menue">
+    <div
+      className="menue"
+      // Wandert der Tastatur-Fokus aus dem Menü heraus, schließt es sich
+      onBlur={(e) => {
+        const ziel = e.relatedTarget;
+        if (offen && ziel && !e.currentTarget.contains(ziel)) setOffen(false);
+      }}
+    >
       <button
         ref={knopf}
         type="button"
         className="menue-knopf"
         aria-expanded={offen}
-        aria-controls="kinder-menue"
+        aria-controls={offen ? 'kinder-menue' : undefined}
         aria-label={`Menü – ${aktiv.profil.name ?? 'euer Kind'}`}
         onClick={() => setOffen(!offen)}
       >

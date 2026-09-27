@@ -176,7 +176,7 @@ img { display: block; }
 .ruhige-liste { list-style: none; margin: 8px 0 0; padding: 4px 18px; background: var(--farbe-flaeche); border: 1.5px solid var(--farbe-linie); border-radius: var(--radius-m); }
 .ruhige-liste li { display: flex; flex-direction: column; gap: 4px; padding: 16px 0; border-bottom: 1.5px solid var(--farbe-linie); }
 .ruhige-liste li:last-child { border-bottom: 0; }
-.ruhige-liste h2 { font-size: var(--groesse-l); }
+.ruhige-liste h2, .ruhige-liste h3 { font-size: var(--groesse-l); }
 .ruhige-liste.kompakt li { padding: 12px 0; gap: 2px; }
 .ruhige-liste.kompakt h2 { font-size: var(--groesse-m); }
 .bereich-marke { display: inline-flex; align-items: center; gap: 6px; font-size: var(--groesse-xs); font-weight: 700; }
@@ -228,18 +228,18 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 .feld-label { font-weight: 800; font-size: var(--groesse-s); }
 .feld-label .gedaempft { font-weight: 600; }
 .feld input[type='date'], .feld input[type='text'] {
-  background: var(--farbe-flaeche); border: 1.5px solid var(--farbe-linie-kraeftig); border-radius: 18px;
+  background: var(--farbe-flaeche); border: 1.5px solid var(--farbe-eingaberahmen); border-radius: 18px;
   padding: 13px 16px; font-size: var(--groesse-l); font-weight: 700; min-height: 54px; width: 100%;
 }
 .feld input:focus { outline: none; border: 2px solid var(--farbe-akzent); padding: 12.5px 15.5px; }
 .feld input::placeholder { font-weight: 400; color: var(--farbe-text-gedaempft); }
-.feld input[aria-invalid='true'] { border: 2px solid var(--farbe-warnung-punkt); padding: 12.5px 15.5px; }
+.feld input[aria-invalid='true'] { border: 2px solid var(--farbe-fehlerrahmen); padding: 12.5px 15.5px; }
 .ankreuzen {
   background: var(--farbe-flaeche); border: 1.5px solid var(--farbe-linie); border-radius: 18px;
   padding: 14px 16px; display: flex; gap: 12px; align-items: center; cursor: pointer; font-size: var(--groesse-s);
 }
 .ankreuzen input { position: absolute; opacity: 0; pointer-events: none; }
-.kaestchen { width: 26px; height: 26px; flex: none; border-radius: 9px; border: 2px solid var(--farbe-linie-kraeftig); display: grid; place-items: center; font-weight: 800; font-size: var(--groesse-s); color: var(--farbe-auf-akzent); }
+.kaestchen { width: 26px; height: 26px; flex: none; border-radius: 9px; border: 2px solid var(--farbe-eingaberahmen); display: grid; place-items: center; font-weight: 800; font-size: var(--groesse-s); color: var(--farbe-auf-akzent); }
 .ankreuzen:has(input:checked) .kaestchen { background: var(--farbe-akzent); border-color: var(--farbe-akzent); }
 .ankreuzen:has(input:focus-visible) { outline: 3px solid var(--farbe-akzent); outline-offset: 2px; }
 .datenschutz { padding-top: 22px; }
@@ -344,7 +344,7 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 .fusszeile-version { font-size: var(--groesse-xs); opacity: .8; }
 
 /* Quellen und Notfall */
-.quelle-link { align-self: flex-start; font-size: var(--groesse-xs); color: var(--farbe-text-gedaempft); margin-top: 2px; }
+.quelle-link { align-self: flex-start; font-size: var(--groesse-xs); color: var(--farbe-text-gedaempft); padding-block: 6px; margin-block: -4px; }
 .notfall { font-weight: 800; color: var(--farbe-warnung-text); }
 .zeile-warnung { border-color: var(--farbe-warnung-linie); color: var(--farbe-warnung-text); font-weight: 700; font-size: var(--groesse-s); }
 .zeile-warnung-text { display: flex; align-items: center; gap: 10px; }
@@ -365,8 +365,9 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 .tour-bild { height: 190px; width: auto; margin-bottom: 8px; }
 .tour-bild.logo { height: auto; width: 170px; }
 .tour-unten { display: flex; flex-direction: column; gap: 20px; }
-.tour-punkte { display: flex; justify-content: center; gap: 4px; }
-.tour-punkte button { width: 28px; height: 28px; border: 0; background: none; padding: 0; cursor: pointer; display: grid; place-items: center; }
+.tour-punkte { display: flex; justify-content: center; gap: 0; }
+/* 44 px Tippfläche; bei vielen Schritten dürfen die Punkte schmaler werden (mind. 24 px) */
+.tour-punkte button { flex: 0 1 44px; min-width: 24px; height: 44px; border: 0; background: none; padding: 0; cursor: pointer; display: grid; place-items: center; }
 .tour-punkte button::after { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--farbe-linie-kraeftig); transition: width var(--dauer-schnell) var(--kurve-wechsel); }
 .tour-punkte button.aktiv::after { width: 24px; border-radius: 5px; background: var(--farbe-akzent); }
 .tour-knoepfe { display: grid; grid-template-columns: 1fr 1.4fr; gap: 12px; }
@@ -394,6 +395,7 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 .menue-kind.aktiv:hover { background: var(--farbe-akzent-flaeche); }
 .menue-kind-text { display: flex; flex-direction: column; line-height: 1.3; flex: 1; font-size: var(--groesse-s); }
 .menue-kind-text .gedaempft { font-size: var(--groesse-xs); }
+.menue-kind.aktiv .gedaempft { color: var(--farbe-text); } /* auf der Akzentfläche reicht gedämpft nicht für 4,5:1 */
 .menue-haken { font-weight: 800; color: var(--farbe-akzent-text); padding-right: 6px; }
 .menue-eintrag { display: flex; align-items: center; min-height: 44px; padding: 0 8px; border-radius: 12px; text-decoration: none; font-size: var(--groesse-s); }
 .menue-eintrag:hover { background: var(--farbe-hintergrund); }
@@ -442,7 +444,7 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 /* U abhaken */
 .u-abgehakt { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding: 10px 14px; border-radius: 16px; background: var(--farbe-akzent-flaeche); }
 .u-abgehakt-text { display: inline-flex; align-items: center; gap: 6px; font-weight: 800; color: var(--farbe-akzent-text); }
-.u-abgehakt input[type='date'] { font: inherit; min-height: 44px; padding: 4px 10px; border: 1.5px solid var(--farbe-linie); border-radius: 12px; background: var(--farbe-flaeche); color: var(--farbe-text); }
+.u-abgehakt input[type='date'] { font: inherit; min-height: 44px; padding: 4px 10px; border: 1.5px solid var(--farbe-eingaberahmen); border-radius: 12px; background: var(--farbe-flaeche); color: var(--farbe-text); }
 .link-leise { margin-left: auto; min-height: 44px; border: 0; background: none; cursor: pointer; font: inherit; font-size: var(--groesse-xs); color: var(--farbe-text-gedaempft); text-decoration: underline; }
 .zr-fenster.erledigt { opacity: 1; background: var(--farbe-linie-kraeftig); }
 .zr-marken a.erledigt { color: var(--farbe-text); }
@@ -542,3 +544,5 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 /* Dunkel: Umriss-Knöpfe gedämpft, damit sie nachts nicht heller leuchten als der Hauptknopf */
 :root[data-theme="dunkel"] .knopf-zweit { border-color: color-mix(in srgb, var(--farbe-akzent) 50%, var(--farbe-flaeche)); }
 .wichtig.ohne-zipfel::before { display: none; }
+.onboarding-auswahl-titel { font: inherit; margin: 0; }
+.onboarding-auswahl-titel:focus, .onboarding h1:focus { outline: none; }

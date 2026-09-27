@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from 'react';
+import { useEffect, useRef, useState, type FormEvent } from 'react';
 import { Link, Navigate, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { abstandAlsText, letzterTag, restzeitAlsText, tageZwischen } from '../lib/alter';
 import {
@@ -181,6 +181,16 @@ function Notizbereich({ termin, kind, notizen, onNotizen }: { termin: UTermin; k
   const u = termin.untersuchung;
   const [neueFrage, setNeueFrage] = useState('');
   const [eingabeOffen, setEingabeOffen] = useState(false);
+  // Nach Speichern/Löschen: Fokus zurück auf „+ Eigene Frage“ (sonst fällt er ins Leere) und kurze Ansage
+  const neuKnopf = useRef<HTMLButtonElement>(null);
+  const [ansage, setAnsage] = useState('');
+  const fokusZurueck = useRef(false);
+  useEffect(() => {
+    if (fokusZurueck.current && !eingabeOffen) {
+      neuKnopf.current?.focus();
+      fokusZurueck.current = false;
+    }
+  });
 
   const beobachtet = notizen.beobachtet[u.id] ?? [];
   const eigene = notizen.eigeneFragen[u.id] ?? [];
@@ -198,6 +208,7 @@ function Notizbereich({ termin, kind, notizen, onNotizen }: { termin: UTermin; k
     e.preventDefault();
     const frage = neueFrage.trim();
     // Leer oder schon notiert (Groß-/Kleinschreibung egal) → nichts doppelt speichern
+    fokusZurueck.current = true;
     if (!frage || eigene.some((f) => f.toLowerCase() === frage.toLowerCase())) {
       setNeueFrage('');
       setEingabeOffen(false);
@@ -206,9 +217,12 @@ function Notizbereich({ termin, kind, notizen, onNotizen }: { termin: UTermin; k
     aendern({ ...notizen, eigeneFragen: { ...notizen.eigeneFragen, [u.id]: [...eigene, frage] } });
     setNeueFrage('');
     setEingabeOffen(false);
+    setAnsage(`Frage gespeichert: ${frage}`);
   }
 
   function frageLoeschen(index: number) {
+    fokusZurueck.current = true;
+    setAnsage('Frage gelöscht');
     aendern({ ...notizen, eigeneFragen: { ...notizen.eigeneFragen, [u.id]: eigene.filter((_, i) => i !== index) } });
   }
 
@@ -257,8 +271,9 @@ function Notizbereich({ termin, kind, notizen, onNotizen }: { termin: UTermin; k
             <button type="submit" className="knopf">Frage speichern</button>
           </form>
         ) : (
-          <button type="button" className="frage-neu" onClick={() => setEingabeOffen(true)}>+ Eigene Frage notieren</button>
+          <button ref={neuKnopf} type="button" className="frage-neu" onClick={() => setEingabeOffen(true)}>+ Eigene Frage notieren</button>
         )}
+        <p className="nur-screenreader" aria-live="polite">{ansage}</p>
         <p className="gedaempft klein">Die Fragen und Beobachtungen sind Anregungen und bleiben nur auf diesem Gerät.</p>
       </section>
     </>

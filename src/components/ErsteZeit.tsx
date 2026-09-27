@@ -183,7 +183,7 @@ export function FuerEuch() {
         <ul className="ruhige-liste kontakte">
           {fuerEuch.kontakte.map((k) => (
             <li key={k.name}>
-              <h2>{k.name}</h2>
+              <h3>{k.name}</h3>
               {'nummer' in k && k.nummer && (
                 <a className="kontakt-nummer" href={`tel:${k.nummer.replace(/\s/g, '')}`}>
                   {k.nummer}

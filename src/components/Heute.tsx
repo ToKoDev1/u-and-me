@@ -42,6 +42,8 @@ export function Heute({ kind, notizen }: { kind: Kind; notizen: Notizen }) {
   // Die nächste U: Wann sagt der Ring, die Karte sagt, was zu tun ist
   const uKarte = naechsteU && (
     <Link to="/naechste-u" className="zeile-link">
+      {/* Unsichtbare Überschriften: Screenreader können so von Abschnitt zu Abschnitt springen */}
+      <h2 className="nur-screenreader">Nächste Untersuchung</h2>
       <span className="zeile-stapel">
         <b>
           {naechsteU.laeuftSchon
@@ -77,6 +79,7 @@ export function Heute({ kind, notizen }: { kind: Kind; notizen: Notizen }) {
           In den ersten 12 Wochen ist das die Lebenswoche, danach „Heute wichtig“. */}
       {woche && (
         <Link to="/woche" className={`wichtig ${dringend ? 'ohne-zipfel' : ''}`}>
+          <h2 className="nur-screenreader">Diese Woche</h2>
           <span className="wichtig-label">{woche.woche}. Lebenswoche{kind.name ? ` mit ${kind.name}` : ''}</span>
           <span className="wichtig-titel">{woche.titel}</span>
           <span className="wichtig-text">{woche.typisch}</span>
@@ -86,7 +89,8 @@ export function Heute({ kind, notizen }: { kind: Kind; notizen: Notizen }) {
 
       {!woche && wichtig && (
         <Link to={wichtig.bereich === 'alltag' ? '/begegnen' : '/entwicklung'} className={`wichtig ${dringend ? 'ohne-zipfel' : ''}`}>
-          <span className="wichtig-label">Heute wichtig</span>
+          <h2 className="nur-screenreader">Heute wichtig</h2>
+          <span className="wichtig-label" aria-hidden="true">Heute wichtig</span>
           <span className="wichtig-titel">{wichtig.titel}</span>
           {/* Ein Tipp („Das hilft oft“) ist hier hilfreicher als die Beschreibung – andere Zusätze (z. B. Hinweise für ältere Kinder) nicht */}
           <span className="wichtig-text">{wichtig.zusatz?.label === 'Das hilft oft:' ? wichtig.zusatz.text : wichtig.text}</span>
@@ -106,7 +110,8 @@ export function Heute({ kind, notizen }: { kind: Kind; notizen: Notizen }) {
       </section>
 
       {phase && (
-        <nav className="kacheln" aria-label="Bereiche">
+        <nav className="kacheln" aria-labelledby="bereiche-titel">
+          <h2 id="bereiche-titel" className="nur-screenreader">Mehr zu dieser Zeit</h2>
           {kacheln.map((k) =>
             k.n > 0 ? (
               <Link key={k.pfad} to={k.pfad} className="kachel">

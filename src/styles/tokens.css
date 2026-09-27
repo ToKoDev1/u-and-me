@@ -9,6 +9,8 @@
   --farbe-flaeche-2: #F5EBDC;
   --farbe-linie: #EBDCC6;
   --farbe-linie-kraeftig: #C9B39C;
+  --farbe-eingaberahmen: #957E69; /* Eingabefelder und Kästchen: ≥ 3:1 zur Fläche */
+  --farbe-fehlerrahmen: #B85C5C; /* Rahmen bei Eingabefehlern: ≥ 3:1 */
   --farbe-umriss: #4A3428;
   --farbe-schatten: rgba(74, 52, 40, .08);
   /* Text */
@@ -102,6 +104,8 @@
   --farbe-flaeche-2: #263346;
   --farbe-linie: #2C3A4E;
   --farbe-linie-kraeftig: #56687F;
+  --farbe-eingaberahmen: #7D8FA8;
+  --farbe-fehlerrahmen: #E89A8F;
   --farbe-umriss: #8FA3BC;
   --farbe-schatten: rgba(0, 0, 0, .4);
   --farbe-text: #F5EEE3;

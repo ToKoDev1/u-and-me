@@ -210,7 +210,7 @@ export function Zahnarzt({ kind }: { kind: Kind }) {
         <ul className="ruhige-liste">
           {zahnarzt.passiert.map((p) => (
             <li key={p.titel}>
-              <h2>{p.titel}</h2>
+              <h3>{p.titel}</h3>
               <p>{p.text}</p>
             </li>
           ))}
