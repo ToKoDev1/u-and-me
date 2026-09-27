@@ -560,3 +560,10 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 .ring-legende span { display: inline-flex; align-items: center; gap: 6px; }
 .ring-legende i { width: 16px; height: 6px; border-radius: 3px; background: var(--farbe-akzent); }
 .ring-legende .ring-legende-fenster { opacity: .3; }
+
+/* iPhone-Hinweis: Home-Bildschirm, damit Safari nichts löscht */
+.ios-hinweis { background: var(--farbe-flaeche); border: 1.5px solid var(--farbe-linie); border-radius: var(--radius-m); padding: 16px 18px; display: flex; flex-direction: column; gap: 10px; font-size: var(--groesse-s); }
+.ios-hinweis h2 { display: flex; align-items: center; gap: 8px; font-size: var(--groesse-m); }
+.ios-hinweis h2 .symbol { width: 20px; height: 20px; color: var(--farbe-akzent-text); }
+.ios-hinweis ol { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 4px; }
+.u-sichern-tipp { flex-basis: 100%; font-size: var(--groesse-xs); color: var(--farbe-text-gedaempft); }

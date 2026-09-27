@@ -3,9 +3,8 @@ import { Link } from 'react-router-dom';
 import { useSeitentitel } from '../lib/seite';
 import {
   allesLoeschen,
-  datenLaden,
   sicherungEinspielen,
-  sicherungErstellen,
+  sicherungHerunterladen,
   sicherungLesen,
   speicherVerfuegbar,
 } from '../lib/speicher';
@@ -18,15 +17,7 @@ export function Datenschutz() {
   const dateiFeld = useRef<HTMLInputElement>(null);
 
   function exportieren() {
-    const sicherung = sicherungErstellen(datenLaden());
-    if (!sicherung) return setMeldung('Es sind noch keine Angaben gespeichert.');
-    const blob = new Blob([JSON.stringify(sicherung, null, 2)], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = `u-and-me-sicherung-${new Date().toLocaleDateString('sv-SE')}.json`;
-    link.click();
-    URL.revokeObjectURL(url);
+    if (!sicherungHerunterladen()) return setMeldung('Es sind noch keine Angaben gespeichert.');
     setMeldung('Die Sicherung wurde heruntergeladen. Bewahrt sie gut auf – sie enthält eure Angaben.');
   }
 

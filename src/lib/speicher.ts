@@ -238,3 +238,52 @@ export function tourMerken(): void {
     // ohne Speicher kommt die Tour eben beim nächsten Mal wieder
   }
 }
+
+// ---- Datensicherheit -----------------------------------------------------------
+
+/** Lädt die Sicherung als Datei herunter. false, wenn es noch nichts zu sichern gibt. */
+export function sicherungHerunterladen(): boolean {
+  const sicherung = sicherungErstellen(datenLaden());
+  if (!sicherung) return false;
+  const blob = new Blob([JSON.stringify(sicherung, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = `u-and-me-sicherung-${new Date().toLocaleDateString('sv-SE')}.json`;
+  link.click();
+  URL.revokeObjectURL(url);
+  return true;
+}
+
+/**
+ * Bittet den Browser, die Angaben nicht von selbst zu löschen (z. B. bei Speichermangel).
+ * Stillschweigend – manche Browser fragen nie nach, andere entscheiden selbst.
+ */
+export function speicherDauerhaftMachen(): void {
+  navigator.storage?.persist?.().catch(() => {});
+}
+
+const IOS_HINWEIS = `${PRAEFIX}ios-hinweis-weg`;
+
+/**
+ * iPhone/iPad im Safari-Tab (nicht vom Home-Bildschirm gestartet):
+ * Safari löscht Website-Daten nach einigen Tagen ohne Besuch – auf dem Home-Bildschirm nicht.
+ */
+export function iosHinweisZeigen(): boolean {
+  const ios = /iPhone|iPad|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  const standalone = window.matchMedia('(display-mode: standalone)').matches || (navigator as { standalone?: boolean }).standalone === true;
+  if (!ios || standalone) return false;
+  try {
+    return localStorage.getItem(IOS_HINWEIS) !== '1';
+  } catch {
+    return true;
+  }
+}
+
+export function iosHinweisWeg(): void {
+  try {
+    localStorage.setItem(IOS_HINWEIS, '1');
+  } catch {
+    // dann kommt der Hinweis eben wieder
+  }
+}

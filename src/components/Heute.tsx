@@ -14,6 +14,7 @@ import {
 import type { Kind } from '../lib/kind';
 import type { Notizen } from '../lib/speicher';
 import { useSeitentitel } from '../lib/seite';
+import { IosHinweis } from './IosHinweis';
 import { Symbol } from './Symbol';
 import { SprungZoom } from './Spruenge';
 import { UZeitleiste } from './UZeitleiste';
@@ -116,6 +117,8 @@ export function Heute({ kind, notizen }: { kind: Kind; notizen: Notizen }) {
 
       {/* Eine Frist in den nächsten 7 Tagen (z. B. Standesamt) gehört nach oben */}
       {aufgabeDringend && aufgabenKarte}
+
+      <IosHinweis />
 
       {/* Euer Weg: Zeitleiste U1–U9 und Zoom auf die Strecke zwischen letzter und nächster U */}
       <section className="weg-karte" aria-labelledby="weg-titel">

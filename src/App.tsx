@@ -25,6 +25,7 @@ import {
   kindWaehlen,
   leereDaten,
   notizenSetzen,
+  speicherDauerhaftMachen,
   tourGesehen,
   tourMerken,
   type Daten,
@@ -55,6 +56,12 @@ export default function App() {
 
   // Persönlicher Akzent nach gewähltem Maskottchen
   useEffect(() => akzentSetzen(profil?.maskottchen), [profil]);
+
+  // Sobald es Angaben gibt: den Browser bitten, sie nicht von selbst zu löschen (nicht im Demo-Modus)
+  const hatAngaben = daten.kinder.length > 0;
+  useEffect(() => {
+    if (hatAngaben && !demoProfil) speicherDauerhaftMachen();
+  }, [hatAngaben]);
 
   /** Neuen Stand übernehmen und speichern (im Demo-Modus nur im Speicher der Seite) */
   function aendern(neu: Daten) {
