@@ -347,7 +347,12 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 
 /* Quellen und Notfall */
 .quelle-link { align-self: flex-start; font-size: var(--groesse-xs); color: var(--farbe-text-gedaempft); padding-block: 6px; margin-block: -4px; }
-.notfall { font-weight: 800; color: var(--farbe-warnung-text); }
+.notfall { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; font-weight: 800; color: var(--farbe-warnung-text); }
+/* 112 direkt antippbar – ruhig in Rosé, groß genug für zittrige Finger */
+.knopf-notruf { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 10px 22px; border-radius: var(--radius-rund); background: var(--farbe-warnung-flaeche); border: 2px solid var(--farbe-fehlerrahmen); color: var(--farbe-warnung-text); font-weight: 800; text-decoration: none; }
+.knopf-notruf:hover { background: var(--farbe-warnung-linie); }
+.warnzeichen-liste { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 6px; }
+.warnzeichen-liste li::marker { color: var(--farbe-warnung-text); }
 .zeile-warnung { border-color: var(--farbe-warnung-linie); color: var(--farbe-warnung-text); font-weight: 700; font-size: var(--groesse-s); }
 .zeile-warnung-text { display: flex; align-items: center; gap: 10px; }
 

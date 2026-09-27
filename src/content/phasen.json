@@ -15,7 +15,13 @@
       "bis": {
         "tage": 10
       },
-      "abklaeren": "euer Kind 38 °C oder mehr hat oder auffällig kühl ist, schlapp wirkt oder kaum trinken mag, schon am ersten Lebenstag gelb wird oder die Gelbfärbung deutlich zunimmt oder kaum noch nasse Windeln hat. Eure Hebamme ist dafür ebenfalls eine gute Ansprechpartnerin.",
+      "abklaeren": [
+        "euer Kind 38 °C oder mehr hat oder auffällig kühl ist",
+        "es schlapp wirkt oder kaum trinken mag",
+        "es schon am ersten Lebenstag gelb wird oder die Gelbfärbung deutlich zunimmt",
+        "es kaum noch nasse Windeln hat"
+      ],
+      "abklaerenZusatz": "Eure Hebamme ist dafür ebenfalls eine gute Ansprechpartnerin.",
       "spielideen": [
         {
           "bereich": "miteinander",
@@ -58,7 +64,12 @@
       "bis": {
         "tage": 35
       },
-      "abklaeren": "euer Kind 38 °C oder mehr hat, schlapp wirkt oder nicht trinken mag, der Stuhl mehrmals sehr hell, grauweiß oder fast farblos ist (vergleicht ihn mit der Stuhlfarbkarte im gelben Heft) oder es immer wieder erbricht.",
+      "abklaeren": [
+        "euer Kind 38 °C oder mehr hat",
+        "es schlapp wirkt oder nicht trinken mag",
+        "der Stuhl mehrmals sehr hell, grauweiß oder fast farblos ist (vergleicht ihn mit der Stuhlfarbkarte im gelben Heft)",
+        "euer Kind immer wieder erbricht"
+      ],
       "spielideen": [
         {
           "bereich": "bewegung",
@@ -111,7 +122,12 @@
       "bis": {
         "monate": 3
       },
-      "abklaeren": "euer Kind 38 °C oder mehr hat, schlapp wirkt oder kaum trinkt, nicht auf Geräusche oder eure Stimme reagiert oder auffällig wenig Arme und Beine bewegt.",
+      "abklaeren": [
+        "euer Kind 38 °C oder mehr hat",
+        "es schlapp wirkt oder kaum trinkt",
+        "es nicht auf Geräusche oder eure Stimme reagiert",
+        "es auffällig wenig Arme und Beine bewegt"
+      ],
       "spielideen": [
         {
           "bereich": "bewegung",
@@ -164,7 +180,12 @@
       "bis": {
         "monate": 6
       },
-      "abklaeren": "euer Kind nicht auf Geräusche reagiert und den Kopf nicht zur Geräuschquelle dreht, eine Hand oder Körperseite auffällig bevorzugt oder Fähigkeiten, die es schon konnte, wieder verliert. Fieber, das länger als einen Tag anhält, gehört ebenfalls in die Praxis.",
+      "abklaeren": [
+        "euer Kind nicht auf Geräusche reagiert und den Kopf nicht zur Geräuschquelle dreht",
+        "es eine Hand oder Körperseite auffällig bevorzugt",
+        "es Fähigkeiten, die es schon konnte, wieder verliert",
+        "Fieber länger als einen Tag anhält"
+      ],
       "spielideen": [
         {
           "bereich": "bewegung",
@@ -218,7 +239,12 @@
       "bis": {
         "monate": 11
       },
-      "abklaeren": "euer Kind nicht auf Geräusche oder Ansprechen reagiert, mit etwa sechs Monaten noch oft schielt, nur eine Hand oder Körperseite benutzt oder Fähigkeiten, die es schon konnte, wieder verliert.",
+      "abklaeren": [
+        "euer Kind nicht auf Geräusche oder Ansprechen reagiert",
+        "es mit etwa sechs Monaten noch oft schielt",
+        "es nur eine Hand oder Körperseite benutzt",
+        "es Fähigkeiten, die es schon konnte, wieder verliert"
+      ],
       "spielideen": [
         {
           "bereich": "miteinander",
@@ -277,7 +303,11 @@
       "bis": {
         "monate": 15
       },
-      "abklaeren": "euer Kind nicht reagiert, wenn ihr es leise ansprecht, nicht auf Dinge zeigt oder euren Blick nicht sucht oder Fähigkeiten, die es schon konnte, wieder verliert.",
+      "abklaeren": [
+        "euer Kind nicht reagiert, wenn ihr es leise ansprecht",
+        "es nicht auf Dinge zeigt oder euren Blick nicht sucht",
+        "es Fähigkeiten, die es schon konnte, wieder verliert"
+      ],
       "notfall": "Bei Atemnot (etwa nach dem Verschlucken eines kleinen Teils), einem Krampfanfall oder wenn euer Kind kaum ansprechbar ist: sofort 112.",
       "quellen": [
         {
@@ -321,7 +351,12 @@
       "bis": {
         "monate": 20
       },
-      "abklaeren": "euer Kind mit etwa 18 Monaten noch nicht frei läuft, noch keine ersten Wörter oder Babywörter wie „wau-wau“ benutzt, nicht auf leises Ansprechen reagiert oder Fähigkeiten, die es schon konnte, wieder verliert.",
+      "abklaeren": [
+        "euer Kind mit etwa 18 Monaten noch nicht frei läuft",
+        "es noch keine ersten Wörter oder Babywörter wie „wau-wau“ benutzt",
+        "es nicht auf leises Ansprechen reagiert",
+        "es Fähigkeiten, die es schon konnte, wieder verliert"
+      ],
       "notfall": "Bei Atemnot (etwa nach dem Verschlucken eines kleinen Teils), einem Krampfanfall oder wenn euer Kind kaum ansprechbar ist: sofort 112.",
       "quellen": [
         {
@@ -369,7 +404,12 @@
       "bis": {
         "monate": 24
       },
-      "abklaeren": "euer Kind mit etwa 20 Monaten noch nicht frei läuft, kaum auf leises Ansprechen reagiert oder Fähigkeiten wie Wörter, Blickkontakt oder Spiel wieder verliert. Fragen zur Sprache könnt ihr gut bei der U7 ansprechen.",
+      "abklaeren": [
+        "euer Kind mit etwa 20 Monaten noch nicht frei läuft",
+        "es kaum auf leises Ansprechen reagiert",
+        "es Fähigkeiten wie Wörter, Blickkontakt oder Spiel wieder verliert"
+      ],
+      "abklaerenZusatz": "Fragen zur Sprache könnt ihr gut bei der U7 ansprechen.",
       "spielideen": [
         {
           "bereich": "miteinander",
@@ -422,7 +462,12 @@
       "bis": {
         "monate": 33
       },
-      "abklaeren": "euer Kind mit gut 2 Jahren weniger als 50 Wörter spricht oder noch keine Zwei-Wort-Sätze bildet, oft die Augen zusammenkneift, schielt oder den Kopf schief hält, kaum auf leises Ansprechen reagiert – oder Fähigkeiten, die es schon hatte, wieder verliert.",
+      "abklaeren": [
+        "euer Kind mit gut 2 Jahren weniger als 50 Wörter spricht oder noch keine Zwei-Wort-Sätze bildet",
+        "es oft die Augen zusammenkneift, schielt oder den Kopf schief hält",
+        "es kaum auf leises Ansprechen reagiert",
+        "es Fähigkeiten, die es schon hatte, wieder verliert"
+      ],
       "notfall": "Bei Atemnot, einem Krampfanfall oder wenn euer Kind kaum ansprechbar ist: sofort 112.",
       "quellen": [
         {
@@ -477,7 +522,12 @@
       "bis": {
         "monate": 45
       },
-      "abklaeren": "Sprechen eurem Kind über Monate große Mühe macht – etwa mit Grimassen oder Mitbewegungen von Kopf und Armen, wenn Silben nicht herauskommen –, es oft blinzelt, die Augen reibt oder schief schaut, kaum reagiert, wenn ihr leise sprecht, oder Fähigkeiten wieder verliert.",
+      "abklaeren": [
+        "Sprechen eurem Kind über Monate große Mühe macht – etwa mit Grimassen oder Mitbewegungen von Kopf und Armen, wenn Silben nicht herauskommen",
+        "euer Kind oft blinzelt, die Augen reibt oder schief schaut",
+        "es kaum reagiert, wenn ihr leise sprecht",
+        "es Fähigkeiten wieder verliert"
+      ],
       "notfall": "Bei Atemnot, einem Krampfanfall oder wenn euer Kind kaum ansprechbar ist: sofort 112.",
       "quellen": [
         {
@@ -531,7 +581,12 @@
       "bis": {
         "monate": 59
       },
-      "abklaeren": "euer Kind mit 4 bis 5 Jahren noch sehr schwer zu verstehen ist, Stottern länger als etwa ein halbes Jahr anhält oder mit sichtbarer Anstrengung verbunden ist, es oft blinzelt, schief schaut oder Farben wie Rot und Grün schlecht unterscheidet – oder Fähigkeiten wieder verliert.",
+      "abklaeren": [
+        "euer Kind mit 4 bis 5 Jahren noch sehr schwer zu verstehen ist",
+        "Stottern länger als etwa ein halbes Jahr anhält oder mit sichtbarer Anstrengung verbunden ist",
+        "euer Kind oft blinzelt, schief schaut oder Farben wie Rot und Grün schlecht unterscheidet",
+        "es Fähigkeiten wieder verliert"
+      ],
       "notfall": "Bei Atemnot, einem Krampfanfall oder wenn euer Kind kaum ansprechbar ist: sofort 112.",
       "quellen": [
         {
@@ -585,7 +640,13 @@
       "bis": {
         "monate": 64
       },
-      "abklaeren": "euer Kind noch sehr schwer zu verstehen ist, über Monate stottert, oft blinzelt, schief schaut oder Farben schlecht unterscheidet – oder Fähigkeiten wieder verliert. Sorgen rund um den Schulstart könnt ihr gut bei der U9 ansprechen.",
+      "abklaeren": [
+        "euer Kind noch sehr schwer zu verstehen ist",
+        "es über Monate stottert",
+        "es oft blinzelt, schief schaut oder Farben schlecht unterscheidet",
+        "es Fähigkeiten wieder verliert"
+      ],
+      "abklaerenZusatz": "Sorgen rund um den Schulstart könnt ihr gut bei der U9 ansprechen.",
       "notfall": "Bei Atemnot, einem Krampfanfall oder wenn euer Kind kaum ansprechbar ist: sofort 112.",
       "quellen": [
         {

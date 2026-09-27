@@ -5,6 +5,7 @@ import type { Kind } from '../lib/kind';
 import { useSeitentitel } from '../lib/seite';
 import type { Notizen } from '../lib/speicher';
 import { useWischen } from '../lib/wischen';
+import { Notfall } from './Unterseiten';
 
 function QuelleLink({ quelle }: { quelle: Quelle }) {
   return (
@@ -198,7 +199,7 @@ export function FuerEuch() {
           ))}
         </ul>
       </section>
-      <p className="notfall">{fuerEuch.notfall}</p>
+      <Notfall text={fuerEuch.notfall} />
     </div>
   );
 }

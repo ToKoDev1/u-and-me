@@ -21,7 +21,10 @@ export type Phase = {
   titel: string;
   von: Alter;
   bis: Alter;
-  abklaeren: string | null;
+  /** Warnzeichen als Aufzählung – Einleitung „Nicht bis zur nächsten U warten, wenn …“ */
+  abklaeren: string[] | null;
+  /** Satz nach der Aufzählung, z. B. „Eure Hebamme ist …“ */
+  abklaerenZusatz?: string;
   /** echte Notfälle („sofort 112“), optional */
   notfall?: string | null;
   /** Quellen für die Warnzeichen */

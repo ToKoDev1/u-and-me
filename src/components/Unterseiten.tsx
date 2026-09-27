@@ -94,6 +94,18 @@ function EtappenEintrag({ e }: { e: Etappe }) {
   );
 }
 
+/** Notfall-Hinweis mit direkt antippbarer 112 – ruhig in Rosé, nicht alarmierend rot */
+export function Notfall({ text }: { text: string }) {
+  return (
+    <div className="notfall">
+      <p>{text}</p>
+      <a className="knopf-notruf" href="tel:112">
+        112 anrufen
+      </a>
+    </div>
+  );
+}
+
 /** Spielidee (warm) oder Sicherheitshinweis (eigenes Muster: Schild + Rosé-Fläche) */
 export function TippZeile({ etappe }: { etappe: Etappe }) {
   if (!etappe.tipp) return null;
@@ -149,9 +161,15 @@ export function Entwicklung({ kind }: { kind: Kind }) {
             <span className="i-kreis" aria-hidden="true">i</span>
             <h2 id="warnung-titel">Nicht bis zur nächsten U warten, wenn …</h2>
           </div>
-          <p>{phase.abklaeren}</p>
-          <p className="gedaempft klein">Sprecht dann lieber zeitnah mit eurer Kinderarztpraxis.</p>
-          {phase.notfall && <p className="notfall">{phase.notfall}</p>}
+          <ul className="warnzeichen-liste">
+            {phase.abklaeren.map((z) => (
+              <li key={z}>{z}</li>
+            ))}
+          </ul>
+          <p className="gedaempft klein">
+            Sprecht dann lieber zeitnah mit eurer Kinderarztpraxis.{phase.abklaerenZusatz && ` ${phase.abklaerenZusatz}`}
+          </p>
+          {phase.notfall && <Notfall text={phase.notfall} />}
           {phase.quellen?.map((q) => <QuelleLink key={q.url} quelle={q} />)}
         </section>
       )}
