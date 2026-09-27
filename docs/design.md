@@ -67,7 +67,7 @@ Bewusst feste Größen (gehören zu einem Bauteil): Schriftzug im Logo (`.wortma
 
 | Bauteil | Klasse | Regel |
 |---|---|---|
-| Zeitring | `.zeitring` | Zentrum der Startseite: Maskottchen im Ring. Der Ring zeigt nur **Zeit** (letzte → nächste U), nie einen Fortschritt des Kindes. Im Dunkeln eine flache, warme Scheibe dahinter („Mond“). |
+| Zeitring | `.zeitring` | Zentrum der Startseite: Maskottchen im Ring, Knopf „heute“ am Bogenende, feine Marke am Beginn des U-Fensters; darunter bis zu drei Kennzahlen (`.kennzahlen`: Tage alt im 1. Jahr · nächste U · nächster Zahnarzt-Termin). Der Ring zeigt nur **Zeit** (letzte → nächste U), nie einen Fortschritt des Kindes. Im Dunkeln eine flache, warme Scheibe dahinter („Mond“). |
 | Sprechblase | `.wichtig` | Das Wichtigste des Tages direkt unter dem Ring, mit Zipfel zum Maskottchen: in den ersten 12 Wochen die Lebenswoche, danach „Heute wichtig“. Es gibt immer genau eine. |
 | Zeilen-Karte | `.zeile-link` | Eine Aktion pro Karte. Sagt, **was zu tun ist** („U5-Termin machen“), nicht was schon woanders steht. |
 | Kacheln | `.kachel` | Drei Einstiege (Begegnet euch, Gerade dran, Spielideen). Leere Kachel = „ruhige Zeit“, nicht verlinkt. |
@@ -79,10 +79,11 @@ Bewusst feste Größen (gehören zu einem Bauteil): Schriftzug im Logo (`.wortma
 
 ## Bewegung
 
-- Nur CSS (`transition`, `@keyframes`), keine Animations-Bibliotheken.
-- Kurz und weich (180–350 ms, `ease`/`ease-out`), keine Dauer-Animationen.
-- `prefers-reduced-motion: reduce` wird immer respektiert.
-- Kein Belohnungs-Feuerwerk – Rückmeldungen bestätigen Handlungen der Eltern, nie „Leistungen“ des Kindes.
+- Nur CSS (`transition`, `@keyframes`), keine Animations-Bibliotheken. Nur `transform` und `opacity` animieren (Ausnahme: der Ring zeichnet sich einmal über `stroke-dasharray` ein).
+- Dauern und Kurven als Tokens: `--dauer-tipp` 100 · `--dauer-schnell` 180 · `--dauer-menue` 220 · `--dauer-seite` 300 · `--dauer-ring` 800 ms; `--kurve-raus` (Hereinkommen), `--kurve-rein` (Hinausgehen), `--kurve-wechsel` (Zustandswechsel). Kein `ease`.
+- Keine Dauer-Animationen. Alles steht im Abschnitt „Bewegung“ am Ende von `app.css` innerhalb von `prefers-reduced-motion: no-preference`.
+- Muster: Antippen gibt nach (`scale(0.97–0.98)`), Hover hebt leicht an (nur bei `hover: hover`), Startseite erscheint leicht versetzt, andere Seiten blenden ein, Menü öffnet aus der Avatar-Ecke, Ring zeichnet sich ein.
+- Kein Belohnungs-Feuerwerk – beim Abhaken nur ein kurzes Bestätigen der Handlung der Eltern, nie „Leistungen“ des Kindes.
 
 ## Offene Punkte
 

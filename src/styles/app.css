@@ -28,7 +28,11 @@ img { display: block; }
 .nur-screenreader { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
 @media (prefers-reduced-motion: no-preference) {
-  a, button, .kachel, .zeile-link, .wichtig { transition: background-color 180ms ease-out, border-color 180ms ease-out, color 180ms ease-out; }
+  a, button, .kachel, .zeile-link, .wichtig {
+    transition: background-color var(--dauer-schnell) var(--kurve-wechsel), border-color var(--dauer-schnell) var(--kurve-wechsel),
+      color var(--dauer-schnell) var(--kurve-wechsel), box-shadow var(--dauer-schnell) var(--kurve-wechsel),
+      transform var(--dauer-tipp) var(--kurve-raus);
+  }
 }
 
 /* ---------- Rahmen: Kopfzeile, Navigation ---------- */
@@ -366,7 +370,7 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 .schritt-karte .knopf { margin-top: 6px; }
 .tour-inhalt .quelle-link { align-self: center; }
 .tour-skip { background: none; border: 0; padding: 10px 6px; font: inherit; font-size: var(--groesse-s); font-weight: 700; color: var(--farbe-text-gedaempft); cursor: pointer; }
-.tour-inhalt { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; text-align: center; animation: tour-rein .35s ease; }
+.tour-inhalt { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; text-align: center; animation: tour-rein var(--dauer-seite) var(--kurve-raus); }
 .tour-inhalt h1 { font-size: var(--groesse-xl); line-height: 1.2; }
 .tour-inhalt h1:focus { outline: none; }
 .tour-inhalt p { max-width: 380px; font-size: var(--groesse-m); line-height: 1.5; color: var(--farbe-text-gedaempft); }
@@ -375,7 +379,7 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 .tour-unten { display: flex; flex-direction: column; gap: 20px; }
 .tour-punkte { display: flex; justify-content: center; gap: 4px; }
 .tour-punkte button { width: 28px; height: 28px; border: 0; background: none; padding: 0; cursor: pointer; display: grid; place-items: center; }
-.tour-punkte button::after { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--farbe-linie-kraeftig); transition: width .2s ease; }
+.tour-punkte button::after { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--farbe-linie-kraeftig); transition: width var(--dauer-schnell) var(--kurve-wechsel); }
 .tour-punkte button.aktiv::after { width: 24px; border-radius: 5px; background: var(--farbe-akzent); }
 .tour-knoepfe { display: grid; grid-template-columns: 1fr 1.4fr; gap: 12px; }
 .tour-breit { grid-column: 1 / -1; }
@@ -421,8 +425,8 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 .u-blaettern { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 28px; padding-top: 16px; border-top: 1.5px solid var(--farbe-linie); }
 .u-blaettern a { min-height: 44px; min-width: 64px; display: inline-flex; align-items: center; padding: 0 12px; border-radius: var(--radius-rund); font-weight: 800; color: var(--farbe-akzent-text); text-decoration: none; background: var(--farbe-akzent-flaeche); }
 .u-blaettern a:last-child { justify-content: flex-end; }
-.rein-von-rechts { animation: rein-rechts .3s ease; }
-.rein-von-links { animation: rein-links .3s ease; }
+.rein-von-rechts { animation: rein-rechts var(--dauer-seite) var(--kurve-raus); }
+.rein-von-links { animation: rein-links var(--dauer-seite) var(--kurve-raus); }
 @keyframes rein-rechts { from { opacity: 0; transform: translateX(28px); } to { opacity: 1; transform: none; } }
 @keyframes rein-links { from { opacity: 0; transform: translateX(-28px); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { .rein-von-rechts, .rein-von-links { animation: none; } }
@@ -458,3 +462,57 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 .zr-haken svg { width: 11px; height: 11px; stroke-width: 3.2; }
 .u-abgehakt-text svg { color: var(--farbe-erledigt); }
 .schritt-karte + .u-abgehakt, .tour-inhalt .u-abgehakt, .tour-inhalt > .knopf { width: 100%; max-width: 420px; }
+
+/* ---------- Kennzahlen unter dem Ring ---------- */
+.kennzahlen { display: flex; justify-content: center; margin: var(--abstand-4) 0 0; padding: 0; }
+.kennzahl { flex: 1 1 0; max-width: 118px; display: flex; flex-direction: column; align-items: center; padding: 0 var(--abstand-3); }
+.kennzahl + .kennzahl { border-left: 1.5px solid var(--farbe-linie); }
+.kennzahl-wert { font-size: var(--groesse-xl); font-weight: var(--gewicht-fett); line-height: 1.1; font-variant-numeric: tabular-nums; letter-spacing: -0.01em; }
+.kennzahl-text { margin: 2px 0 0; font-size: var(--groesse-xs); font-weight: var(--gewicht-halbfett); color: var(--farbe-text-gedaempft); white-space: nowrap; }
+.ring-marke { fill: var(--farbe-flaeche); }
+.ring-heute { fill: var(--farbe-akzent); stroke: var(--farbe-hintergrund); stroke-width: 3.5; }
+
+/* ---------- Bewegung (siehe docs/design.md und .claude/skills/animation-micro-interactions) ----------
+   Nur transform und opacity (Ausnahme: der Ring zeichnet sich einmal über stroke-dasharray ein).
+   Alles hier nur ohne „Bewegung reduzieren“. */
+@media (prefers-reduced-motion: no-preference) {
+  /* Antippen: gibt kurz nach wie bei iOS */
+  .kachel:active, .zeile-link:active, .wichtig:active, .menue-kind:active, .menue-eintrag:active,
+  .u-schritte-knopf:active, .u-blaettern a:active { transform: scale(0.98); }
+  .knopf:active, .knopf-zweit:active, .menue-knopf:active { transform: scale(0.97); }
+  .knopf, .knopf-zweit, .u-schritte-knopf, .menue-kind, .menue-eintrag, .u-blaettern a, .menue-knopf { transition: transform var(--dauer-tipp) var(--kurve-raus), background-color var(--dauer-schnell) var(--kurve-wechsel); }
+
+  /* Ring zeichnet sich ein, danach erscheint der Heute-Knopf */
+  .ring-zeit { animation: ring-zeichnen var(--dauer-ring) var(--kurve-wechsel) both; }
+  .ring-heute, .ring-marke { transform-box: fill-box; transform-origin: center; animation: knopf-rein var(--dauer-menue) var(--kurve-raus) calc(var(--dauer-ring) - 120ms) both; }
+  .zeitring-tier { animation: auftauchen var(--dauer-seite) var(--kurve-raus) backwards; }
+
+  /* Startseite: Bausteine erscheinen leicht versetzt nacheinander */
+  /* backwards: nach dem Erscheinen gibt die Animation transform wieder frei (für Antippen/Hover) */
+  .heute > * { animation: auftauchen var(--dauer-seite) var(--kurve-raus) backwards; }
+  .heute > :nth-child(2) { animation-delay: 40ms; }
+  .heute > :nth-child(3) { animation-delay: 80ms; }
+  .heute > :nth-child(4) { animation-delay: 120ms; }
+  .heute > :nth-child(5) { animation-delay: 160ms; }
+  .heute > :nth-child(n + 6) { animation-delay: 200ms; }
+
+  /* Andere Seiten blenden weich ein (Kopf- und Fußzeile bleiben stehen) */
+  .seite-inhalt { animation: einblenden var(--dauer-seite) var(--kurve-raus); }
+
+  /* Menü öffnet aus der Ecke des Avatars */
+  .menue-panel { transform-origin: top right; animation: menue-auf var(--dauer-menue) var(--kurve-raus); }
+
+  /* Abhaken: kleine Bestätigung der Handlung – kein Feuerwerk */
+  .u-abgehakt { animation: bestaetigen var(--dauer-seite) var(--kurve-raus); }
+  .zr-haken { animation: knopf-rein var(--dauer-menue) var(--kurve-raus) both; }
+  .check-eintrag:has(input:checked) .kaestchen { animation: bestaetigen var(--dauer-menue) var(--kurve-raus); }
+}
+@media (prefers-reduced-motion: no-preference) and (hover: hover) {
+  .kachel:hover, .zeile-link:hover, .wichtig:hover { transform: translateY(-1px); box-shadow: var(--schatten-weich); }
+}
+@keyframes ring-zeichnen { from { stroke-dasharray: 0 999; } }
+@keyframes knopf-rein { from { opacity: 0; transform: scale(0.4); } to { opacity: 1; transform: scale(1); } }
+@keyframes auftauchen { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes einblenden { from { opacity: 0; } to { opacity: 1; } }
+@keyframes menue-auf { from { opacity: 0; transform: translateY(-4px) scale(0.96); } to { opacity: 1; transform: none; } }
+@keyframes bestaetigen { 0% { transform: scale(0.94); opacity: 0.4; } 60% { transform: scale(1.02); opacity: 1; } 100% { transform: scale(1); } }

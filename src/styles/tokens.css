@@ -63,6 +63,16 @@
   /* Abstände (4er-Raster) */
   --abstand-1: 4px;  --abstand-2: 8px;  --abstand-3: 12px; --abstand-4: 16px;
   --abstand-5: 20px; --abstand-6: 24px; --abstand-8: 32px; --abstand-10: 40px;
+
+  /* Bewegung: kurz und weich. Kurven bewusst gewählt statt „ease“ */
+  --dauer-tipp: 100ms;    /* Antippen */
+  --dauer-schnell: 180ms; /* Hover, Farbwechsel */
+  --dauer-menue: 220ms;   /* Menü, kleine Einblendungen */
+  --dauer-seite: 300ms;   /* Seitenwechsel, Karten erscheinen */
+  --dauer-ring: 800ms;    /* Ring zeichnet sich ein (einmal beim Öffnen) */
+  --kurve-raus: cubic-bezier(0, 0, 0.2, 1);     /* Hereinkommen: schnell los, weich landen */
+  --kurve-rein: cubic-bezier(0.4, 0, 1, 1);     /* Hinausgehen */
+  --kurve-wechsel: cubic-bezier(0.4, 0, 0.2, 1); /* Zustandswechsel auf der Stelle */
   --seitenrand-mobil: 20px;
   --inhalt-max: 1120px;
 

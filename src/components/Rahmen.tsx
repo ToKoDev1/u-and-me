@@ -52,7 +52,10 @@ export function Rahmen({ profil, daten, onKindWaehlen, oben, onZeitreise }: Prop
       {oben}
       {!speicherVerfuegbar() && <SpeicherWarnung />}
       <main className="seite">
-        <Outlet />
+        {/* key: bei jeder neuen Adresse weich einblenden – Kopf- und Fußzeile bleiben stehen */}
+        <div key={pathname} className="seite-inhalt">
+          <Outlet />
+        </div>
       </main>
       <Fusszeile fruehgeboren={kindAus(profil).fruehgeboren} onZeitreise={onZeitreise} />
     </div>
