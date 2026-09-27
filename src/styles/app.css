@@ -39,7 +39,7 @@ img { display: block; }
 .wortmarke { display: inline-flex; align-items: center; gap: 8px; font-weight: 800; font-size: 16px; text-decoration: none; }
 .wortmarke-logo { height: 36px; width: auto; }
 .chip-entwurf {
-  font-size: 12.5px; color: var(--farbe-text-gedaempft);
+  font-size: var(--groesse-xs); color: var(--farbe-text-gedaempft);
   border: 1.5px dashed var(--farbe-linie); border-radius: var(--radius-rund); padding: 2px 10px;
   white-space: nowrap;
 }
@@ -63,7 +63,7 @@ img { display: block; }
 /* ---------- Bausteine ---------- */
 .sprechblase { background: var(--farbe-akzent-flaeche); border-radius: var(--radius-blase); padding: 16px 18px; }
 .karte-schatten { background: var(--farbe-flaeche); border-radius: var(--radius-l); padding: 20px; box-shadow: var(--schatten-weich); }
-.pille { display: inline-flex; background: var(--farbe-akzent-flaeche); border-radius: var(--radius-rund); padding: 3px 12px; font-size: 13.5px; font-weight: 800; white-space: nowrap; }
+.pille { display: inline-flex; background: var(--farbe-akzent-flaeche); border-radius: var(--radius-rund); padding: 3px 12px; font-size: var(--groesse-xs); font-weight: 800; white-space: nowrap; }
 .klein { font-size: var(--groesse-s); }
 .abschnitt { display: flex; flex-direction: column; gap: 12px; padding-top: 34px; }
 .abschnitt > h2, .abschnitt > div > h2 { font-size: var(--groesse-l); }
@@ -71,22 +71,22 @@ img { display: block; }
 .knopf {
   display: block; width: 100%; border: 0; cursor: pointer; text-align: center; text-decoration: none;
   background: var(--farbe-knopf); color: var(--farbe-auf-knopf);
-  border-radius: var(--radius-rund); padding: 15px; font-size: 17px; font-weight: 800;
+  border-radius: var(--radius-rund); padding: 15px; font-size: var(--groesse-m); font-weight: 800;
   min-height: var(--beruehrflaeche-min);
 }
 
 /* Warnhinweis – ruhig, kein Rot */
 .warnhinweis { background: var(--farbe-flaeche); border: 1.5px solid var(--farbe-warnung-linie); border-radius: var(--radius-m); padding: 20px; display: flex; flex-direction: column; gap: 10px; }
 .warnhinweis-kopf { display: flex; gap: 12px; align-items: center; }
-.warnhinweis-kopf h2 { font-size: 17.5px; line-height: 1.3; }
+.warnhinweis-kopf h2 { font-size: var(--groesse-m); line-height: 1.3; }
 .i-kreis { width: 34px; height: 34px; flex: none; border-radius: 50%; background: var(--farbe-warnung-flaeche); color: var(--farbe-warnung-text); display: grid; place-items: center; font-weight: 800; }
 
 /* Zeitfenster-Kopf und Datumskacheln (Nächste U) */
 .naechste-u-kopf { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
 .datumskacheln { display: grid; grid-template-columns: 1fr auto 1fr; gap: 10px; align-items: center; }
 .datumskachel { background: var(--farbe-flaeche-2); border-radius: 18px; padding: 10px; text-align: center; }
-.datumskachel .tag { font-size: 26px; font-weight: 800; line-height: 1; }
-.datumskachel .monat { font-size: 14px; color: var(--farbe-text-gedaempft); }
+.datumskachel .tag { font-size: var(--groesse-xl); font-weight: 800; line-height: 1; }
+.datumskachel .monat { font-size: var(--groesse-xs); color: var(--farbe-text-gedaempft); }
 
 /* Fußzeile – auf jeder Seite gleich, immer am Seitenende */
 .app { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; }
@@ -95,13 +95,13 @@ img { display: block; }
 .fusszeile {
   width: 100%; max-width: 640px; margin: 0 auto; padding: 40px 20px calc(24px + env(safe-area-inset-bottom));
   display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center;
-  font-size: 12.5px; line-height: 1.5; color: var(--farbe-text-gedaempft);
+  font-size: var(--groesse-xs); line-height: 1.5; color: var(--farbe-text-gedaempft);
 }
 .fusszeile a, .fusszeile button.link { color: inherit; text-decoration: underline; background: none; border: 0; padding: 10px 4px; margin: -10px 0; cursor: pointer; font-size: inherit; }
 .fusszeile-info { max-width: 440px; background: var(--farbe-hinweis); border-radius: 14px; padding: 10px 12px; }
 .fusszeile-einstellungen { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px 14px; margin-top: 6px; }
 .titel-mit-quelle { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
-.titel-mit-quelle a { font-size: 12.5px; color: var(--farbe-text-gedaempft); white-space: nowrap; }
+.titel-mit-quelle a { font-size: var(--groesse-xs); color: var(--farbe-text-gedaempft); white-space: nowrap; }
 
 .hinweisbox { background: var(--farbe-hinweis); border-radius: 20px; padding: 14px 16px; display: flex; gap: 12px; align-items: flex-start; font-size: var(--groesse-s); }
 .symbol { width: 24px; height: 24px; flex: none; }
@@ -114,10 +114,11 @@ img { display: block; }
 .zeitring-grafik { position: relative; width: 196px; height: 196px; }
 .zeitring-grafik svg { width: 100%; height: 100%; }
 .zeitring-grafik svg { position: relative; } /* über dem Lichtschein */
-/* Nachtlicht: im Dunkelmodus ein warmer Schein hinter dem Maskottchen, wie eine Nachttischlampe */
+/* Nachtlicht: im Dunkelmodus eine warme, flache Scheibe hinter dem Maskottchen – wie ein Mond.
+   Bewusst flächig, kein Verlauf (Bilderbuch-Stil, siehe docs/design.md) */
 :root[data-theme="dunkel"] .zeitring-grafik::before {
-  content: ""; position: absolute; inset: -22%; border-radius: 50%; pointer-events: none;
-  background: radial-gradient(circle, color-mix(in srgb, var(--farbe-beruhigend-text) 30%, transparent) 0%, transparent 70%);
+  content: ""; position: absolute; inset: -9%; border-radius: 50%; pointer-events: none;
+  background: color-mix(in srgb, var(--farbe-beruhigend-text) 9%, transparent);
 }
 .ring-spur, .ring-fenster, .ring-zeit { fill: none; stroke-width: 11; }
 .ring-spur { stroke: var(--farbe-linie); }
@@ -125,12 +126,12 @@ img { display: block; }
 .ring-zeit { stroke: var(--farbe-akzent); stroke-linecap: round; }
 .zeitring-mitte { position: absolute; inset: 0; display: grid; place-items: center; }
 .zeitring-tier { height: 124px; width: 124px; object-fit: contain; }
-.zeitring-alter { font-size: 28px; font-weight: 800; line-height: 1.15; margin-top: 10px; }
+.zeitring-alter { font-size: var(--groesse-xxl); font-weight: 800; line-height: 1.15; margin-top: 10px; }
 .zeitring-alter:focus, main h1:focus { outline: none; }
 .zeitring-name { display: block; font-size: var(--groesse-s); font-weight: 700; color: var(--farbe-text-gedaempft); margin-bottom: 2px; }
 .kachel-ruhig { opacity: 1; background: transparent; border-style: dashed; }
 .kachel-ruhig .kachel-titel { color: var(--farbe-text-gedaempft); }
-.zeitring-titel { font-size: 17px; font-weight: 700; margin-top: 4px; }
+.zeitring-titel { font-size: var(--groesse-m); font-weight: 700; margin-top: 4px; }
 .zeitring-unterzeile { font-size: var(--groesse-s); color: var(--farbe-text-gedaempft); }
 
 .kacheln { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
@@ -140,8 +141,8 @@ img { display: block; }
   padding: 12px 6px; text-align: center; text-decoration: none;
 }
 .kachel:hover, .zeile-link:hover { border-color: var(--farbe-linie-kraeftig); }
-.kachel-titel { font-weight: 800; font-size: 15px; line-height: 1.25; }
-.kachel-info { font-size: 13px; color: var(--farbe-text-gedaempft); }
+.kachel-titel { font-weight: 800; font-size: var(--groesse-s); line-height: 1.25; }
+.kachel-info { font-size: var(--groesse-xs); color: var(--farbe-text-gedaempft); }
 
 /* Sprechblase des Maskottchens: der Zipfel oben zeigt zum Tier im Ring */
 .wichtig {
@@ -153,9 +154,9 @@ img { display: block; }
   content: ""; position: absolute; top: -9px; left: 50%; width: 20px; height: 20px;
   background: inherit; border-radius: 5px 0 0 0; transform: translateX(-50%) rotate(45deg);
 }
-.wichtig-label { font-size: 12.5px; letter-spacing: .08em; text-transform: uppercase; font-weight: 800; color: var(--farbe-beruhigend-text); }
+.wichtig-label { font-size: var(--groesse-xs); letter-spacing: .08em; text-transform: uppercase; font-weight: 800; color: var(--farbe-beruhigend-text); }
 .wichtig-titel { font-size: var(--groesse-l); font-weight: 800; line-height: 1.3; }
-.wichtig-meta { font-size: 13.5px; font-weight: 700; color: var(--farbe-beruhigend-text); margin-top: 4px; }
+.wichtig-meta { font-size: var(--groesse-xs); font-weight: 700; color: var(--farbe-beruhigend-text); margin-top: 4px; }
 
 .zeile-link {
   display: flex; justify-content: space-between; align-items: center; gap: 10px; min-height: 56px;
@@ -167,14 +168,14 @@ img { display: block; }
 /* ---------- Unterseiten: ruhige Listen in einer Fläche ---------- */
 .unterseite { max-width: 640px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; padding-top: 8px; }
 .zurueck-link { align-self: flex-start; min-height: 44px; display: inline-flex; align-items: center; color: var(--farbe-akzent-text); font-weight: 700; font-size: var(--groesse-s); text-decoration: none; }
-.unterseite h1 { font-size: 26px; }
+.unterseite h1 { font-size: var(--groesse-xl); }
 .ruhige-liste { list-style: none; margin: 8px 0 0; padding: 4px 18px; background: var(--farbe-flaeche); border: 1.5px solid var(--farbe-linie); border-radius: var(--radius-m); }
 .ruhige-liste li { display: flex; flex-direction: column; gap: 4px; padding: 16px 0; border-bottom: 1.5px solid var(--farbe-linie); }
 .ruhige-liste li:last-child { border-bottom: 0; }
-.ruhige-liste h2 { font-size: 18px; }
+.ruhige-liste h2 { font-size: var(--groesse-l); }
 .ruhige-liste.kompakt li { padding: 12px 0; gap: 2px; }
-.ruhige-liste.kompakt h2 { font-size: 16px; }
-.bereich-marke { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; }
+.ruhige-liste.kompakt h2 { font-size: var(--groesse-m); }
+.bereich-marke { display: inline-flex; align-items: center; gap: 6px; font-size: var(--groesse-xs); font-weight: 700; }
 .bereich-punkt { width: 10px; height: 10px; border-radius: 50%; flex: none; }
 .bereich-punkt.alltag { background: var(--farbe-alltag); }
 .bereich-punkt.bewegung { background: var(--farbe-bewegung); }
@@ -183,19 +184,19 @@ img { display: block; }
 .zusatzzeile { margin-top: 6px; padding: 10px 12px; border-radius: 14px; background: var(--farbe-hinweis); font-size: var(--groesse-s); }
 .zusatzzeile.hinweis b { color: var(--farbe-warnung-text); }
 .unterabschnitt { padding-top: 18px; }
-.unterabschnitt-titel { font-size: 18px; }
+.unterabschnitt-titel { font-size: var(--groesse-l); }
 .liste-leer { margin-top: 8px; padding: 18px; border-radius: 20px; background: var(--farbe-flaeche); color: var(--farbe-text-gedaempft); text-align: center; }
 .unterseite .warnhinweis { margin-top: 18px; }
 
 /* ---------- Onboarding ---------- */
 .onboarding { padding: 0 20px 22px; max-width: 520px; margin: 0 auto; }
 .onboarding-kopf { display: flex; justify-content: space-between; align-items: center; padding-top: 16px; min-height: 60px; }
-.schritt { font-size: 13.5px; color: var(--farbe-text-gedaempft); font-weight: 700; white-space: nowrap; }
+.schritt { font-size: var(--groesse-xs); color: var(--farbe-text-gedaempft); font-weight: 700; white-space: nowrap; }
 .zurueck { background: none; border: 0; padding: 0; cursor: pointer; font-weight: 700; font-size: var(--groesse-s); color: var(--farbe-akzent-text); min-height: 44px; }
-.onboarding h1 { font-size: 28px; line-height: 1.15; }
+.onboarding h1 { font-size: var(--groesse-xxl); line-height: 1.15; }
 .onboarding-intro { padding-top: 26px; display: flex; flex-direction: column; gap: 8px; }
 .onboarding-auswahl { margin-top: 26px; }
-.onboarding-auswahl legend { font-size: 19px; font-weight: 800; padding: 0; margin-bottom: 12px; float: left; width: 100%; }
+.onboarding-auswahl legend { font-size: var(--groesse-l); font-weight: 800; padding: 0; margin-bottom: 12px; float: left; width: 100%; }
 .onboarding-auswahl .tier-raster { clear: both; }
 fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 .tier-raster { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
@@ -212,18 +213,18 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 .tier-karte:has(input:focus-visible) { outline: 3px solid var(--farbe-akzent); outline-offset: 2px; }
 .tier-bild { height: 104px; display: flex; justify-content: center; align-items: flex-end; }
 .tier-bild img { height: 100px; width: 100%; object-fit: contain; object-position: center bottom; }
-.tier-geschichte { font-size: 13.5px; color: var(--farbe-text-gedaempft); line-height: 1.35; margin-top: 8px; text-align: center; }
+.tier-geschichte { font-size: var(--groesse-xs); color: var(--farbe-text-gedaempft); line-height: 1.35; margin-top: 8px; text-align: center; }
 .onboarding-auswahl-text { clear: both; margin-bottom: 14px; }
 .onboarding-cta { padding-top: 28px; }
 .onboarding-frage { padding-top: 26px; }
-.onboarding-frage .sprechblase p { font-size: 19px; line-height: 1.35; font-weight: 700; }
+.onboarding-frage .sprechblase p { font-size: var(--groesse-l); line-height: 1.35; font-weight: 700; }
 .felder { padding-top: 28px; display: flex; flex-direction: column; gap: 18px; }
 .feld { display: flex; flex-direction: column; gap: 6px; }
 .feld-label { font-weight: 800; font-size: var(--groesse-s); }
 .feld-label .gedaempft { font-weight: 600; }
 .feld input[type='date'], .feld input[type='text'] {
   background: var(--farbe-flaeche); border: 1.5px solid var(--farbe-linie-kraeftig); border-radius: 18px;
-  padding: 13px 16px; font-size: 18px; font-weight: 700; min-height: 54px; width: 100%;
+  padding: 13px 16px; font-size: var(--groesse-l); font-weight: 700; min-height: 54px; width: 100%;
 }
 .feld input:focus { outline: none; border: 2px solid var(--farbe-akzent); padding: 12.5px 15.5px; }
 .feld input::placeholder { font-weight: 400; color: var(--farbe-text-gedaempft); }
@@ -233,7 +234,7 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
   padding: 14px 16px; display: flex; gap: 12px; align-items: center; cursor: pointer; font-size: var(--groesse-s);
 }
 .ankreuzen input { position: absolute; opacity: 0; pointer-events: none; }
-.kaestchen { width: 26px; height: 26px; flex: none; border-radius: 9px; border: 2px solid var(--farbe-linie-kraeftig); display: grid; place-items: center; font-weight: 800; font-size: 15px; color: var(--farbe-auf-akzent); }
+.kaestchen { width: 26px; height: 26px; flex: none; border-radius: 9px; border: 2px solid var(--farbe-linie-kraeftig); display: grid; place-items: center; font-weight: 800; font-size: var(--groesse-s); color: var(--farbe-auf-akzent); }
 .ankreuzen:has(input:checked) .kaestchen { background: var(--farbe-akzent); border-color: var(--farbe-akzent); }
 .ankreuzen:has(input:focus-visible) { outline: 3px solid var(--farbe-akzent); outline-offset: 2px; }
 .datenschutz { padding-top: 22px; }
@@ -250,11 +251,12 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 .u-schritte-knopf:hover { background: var(--farbe-akzent-flaeche); }
 @media (max-width: 599px) { .u-schritte-knopf { width: 100%; margin-left: 0; } }
 .u-kreis-gross { width: 64px; height: 64px; flex: none; border-radius: 50%; background: var(--farbe-knopf); color: var(--farbe-auf-knopf); display: grid; place-items: center; font-weight: 800; font-size: 22px; }
-.u-kopf-meta { font-size: 14px; color: var(--farbe-text-gedaempft); font-weight: 700; }
-.u-kopf h1 { font-size: 24px; line-height: 1.2; }
+.u-kopf-meta { font-size: var(--groesse-xs); color: var(--farbe-text-gedaempft); font-weight: 700; }
+.u-kopf h1 { font-size: var(--groesse-xl); line-height: 1.2; }
+.u-kopf > div { flex: 1; min-width: 0; } /* Titel bleibt neben dem U-Kreis und bricht lieber selbst um */
 .u-zeitfenster { display: flex; flex-direction: column; gap: 14px; padding: 18px; margin-top: 18px; }
 .titel-klein { font-weight: 800; }
-.knopf-hinweis { text-align: center; font-size: 13px; color: var(--farbe-text-gedaempft); margin-top: -6px; }
+.knopf-hinweis { text-align: center; font-size: var(--groesse-xs); color: var(--farbe-text-gedaempft); margin-top: -6px; }
 .u-seite .abschnitt { padding-top: 30px; gap: 10px; }
 .liste-karte { background: var(--farbe-flaeche); border-radius: var(--radius-m); padding: 4px 18px; display: flex; flex-direction: column; }
 .liste-eintrag { padding: 12px 0; border-bottom: 1.5px solid var(--farbe-linie); }
@@ -276,7 +278,7 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
   color: var(--farbe-akzent-text); font-weight: 800; text-align: center; cursor: pointer; min-height: var(--beruehrflaeche-min);
 }
 .frage-eingabe { display: flex; gap: 8px; }
-.frage-eingabe input { flex: 1; min-width: 0; background: var(--farbe-flaeche); border: 2px solid var(--farbe-akzent); border-radius: 18px; padding: 10px 14px; font-size: 17px; }
+.frage-eingabe input { flex: 1; min-width: 0; background: var(--farbe-flaeche); border: 2px solid var(--farbe-akzent); border-radius: 18px; padding: 10px 14px; font-size: var(--groesse-m); }
 .frage-eingabe .knopf { width: auto; padding: 10px 18px; }
 
 /* ---------- Zeitreise (Test-Werkzeug) ---------- */
@@ -285,7 +287,7 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
   position: relative; width: 100%;
   margin: 12px 0 0; padding: 12px 20px 10px; display: flex; flex-direction: column; gap: 8px;
   background: var(--farbe-hinweis); border-top: 1px solid var(--farbe-linie); border-bottom: 1px solid var(--farbe-linie);
-  font-size: 14px;
+  font-size: var(--groesse-xs);
 }
 .zeitreise-kopf { display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; }
 .zeitreise-kopf > span { flex: 1; color: var(--farbe-text-gedaempft); }
@@ -303,14 +305,14 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 .zr-regler::-moz-range-track { height: 32px; background: transparent; }
 .zr-regler::-webkit-slider-thumb { -webkit-appearance: none; width: 24px; height: 24px; margin-top: 4px; border-radius: 50%; background: var(--farbe-akzent); border: 3px solid var(--farbe-flaeche); box-shadow: var(--schatten-weich); }
 .zr-regler::-moz-range-thumb { width: 18px; height: 18px; border-radius: 50%; background: var(--farbe-akzent); border: 3px solid var(--farbe-flaeche); }
-.zr-marken { position: relative; height: 18px; margin: 0 10px; font-size: 12.5px; font-weight: 800; color: var(--farbe-text-gedaempft); }
+.zr-marken { position: relative; height: 18px; margin: 0 10px; font-size: var(--groesse-xs); font-weight: 800; color: var(--farbe-text-gedaempft); }
 /* Trefferfläche ≥ 44 px, sichtbar bleibt nur die Beschriftung */
 .zr-marken a { position: absolute; top: -14px; transform: translateX(-50%); text-decoration: none; min-width: 36px; min-height: 44px; padding: 14px 4px 0; text-align: center; }
 .zr-marken a.vorbei { color: var(--farbe-text-gedaempft); font-weight: 700; }
 .zr-marken a.naechste { color: var(--farbe-akzent-text); }
 .zr-marken a:hover { text-decoration: underline; }
 .u-zeitleiste .zr-marken { height: 38px; } /* Platz für den Haken unter dem Namen */
-.zr-zahn { position: relative; height: 22px; margin: 8px 10px 0; font-size: 11.5px; font-weight: 700; color: var(--farbe-text-gedaempft); }
+.zr-zahn { position: relative; height: 22px; margin: 8px 10px 0; font-size: var(--groesse-xs); font-weight: 700; color: var(--farbe-text-gedaempft); }
 .zr-zahnfenster { position: absolute; top: 0; height: 3px; border-radius: 2px; background: var(--farbe-linie-kraeftig); opacity: .6; }
 .zr-zahnfenster.naechste { background: var(--farbe-akzent); opacity: .7; }
 .zr-zahn a { position: absolute; top: -6px; transform: translateX(-50%); min-width: 32px; min-height: 32px; padding: 10px 4px 0; text-align: center; color: inherit; text-decoration: none; }
@@ -323,7 +325,7 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 @media (min-width: 900px) {
   .kopfzeile { max-width: var(--inhalt-max); margin: 0 auto; padding: 22px 40px 0; }
   .wortmarke { font-size: 20px; }
-  .chip-entwurf { font-size: 13px; }
+  .chip-entwurf { font-size: var(--groesse-xs); }
   .seite { max-width: var(--inhalt-max); margin: 0 auto; padding: 36px 40px 0; }
   .fusszeile { padding-bottom: 32px; }
   .zeitring-grafik { width: 260px; height: 260px; }
@@ -334,12 +336,12 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 
 /* ---------- Fehlerseite ---------- */
 .fehlerseite { max-width: 480px; margin: 0 auto; padding: 64px 20px; display: flex; flex-direction: column; gap: 16px; }
-.fehlerseite h1 { font-size: 26px; }
+.fehlerseite h1 { font-size: var(--groesse-xl); }
 .knopf-zweit { background: transparent; color: var(--farbe-akzent-text); border: 2px solid var(--farbe-akzent); }
 
 /* ---------- Datenschutz & Daten ---------- */
 .text-liste { padding: 18px; display: flex; flex-direction: column; gap: 8px; }
-.text-liste h2 { font-size: 17px; margin-top: 6px; }
+.text-liste h2 { font-size: var(--groesse-m); margin-top: 6px; }
 .text-liste a { color: var(--farbe-akzent-text); }
 .knopf-mit-symbol { display: flex; align-items: center; justify-content: center; gap: 10px; }
 .knopf-loeschen {
@@ -347,10 +349,10 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
   border-radius: var(--radius-rund); padding: 12px 16px; font-weight: 700; cursor: pointer; min-height: var(--beruehrflaeche-min);
 }
 .speicher-warnung { margin: 12px 20px 0; padding: 12px 16px; border-radius: 18px; background: var(--farbe-warnung-flaeche); color: var(--farbe-warnung-text); font-weight: 700; font-size: var(--groesse-s); }
-.fusszeile-version { font-size: 11.5px; opacity: .8; }
+.fusszeile-version { font-size: var(--groesse-xs); opacity: .8; }
 
 /* Quellen und Notfall */
-.quelle-link { align-self: flex-start; font-size: 12.5px; color: var(--farbe-text-gedaempft); margin-top: 2px; }
+.quelle-link { align-self: flex-start; font-size: var(--groesse-xs); color: var(--farbe-text-gedaempft); margin-top: 2px; }
 .notfall { font-weight: 800; color: var(--farbe-warnung-text); }
 .zeile-warnung { border-color: var(--farbe-warnung-linie); color: var(--farbe-warnung-text); font-weight: 700; font-size: var(--groesse-s); }
 .zeile-warnung-text { display: flex; align-items: center; gap: 10px; }
@@ -358,16 +360,16 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 /* Welcome-Tour */
 .tour { min-height: 100dvh; max-width: 520px; margin: 0 auto; padding: 12px 20px 28px; display: flex; flex-direction: column; background: var(--farbe-hintergrund); }
 .tour-oben { display: flex; justify-content: space-between; align-items: center; gap: 12px; min-height: 44px; }
-.tour-kopf { font-size: 14px; font-weight: 800; color: var(--farbe-text-gedaempft); }
+.tour-kopf { font-size: var(--groesse-xs); font-weight: 800; color: var(--farbe-text-gedaempft); }
 .schritt-karte { width: 100%; max-width: 420px; text-align: left; background: var(--farbe-flaeche); border: 1.5px solid var(--farbe-linie); border-radius: var(--radius-m); padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; font-size: var(--groesse-s); }
 .schritt-karte ul { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 4px; }
 .schritt-karte .knopf { margin-top: 6px; }
 .tour-inhalt .quelle-link { align-self: center; }
-.tour-skip { background: none; border: 0; padding: 10px 6px; font: inherit; font-size: 15px; font-weight: 700; color: var(--farbe-text-gedaempft); cursor: pointer; }
+.tour-skip { background: none; border: 0; padding: 10px 6px; font: inherit; font-size: var(--groesse-s); font-weight: 700; color: var(--farbe-text-gedaempft); cursor: pointer; }
 .tour-inhalt { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; text-align: center; animation: tour-rein .35s ease; }
-.tour-inhalt h1 { font-size: 26px; line-height: 1.2; }
+.tour-inhalt h1 { font-size: var(--groesse-xl); line-height: 1.2; }
 .tour-inhalt h1:focus { outline: none; }
-.tour-inhalt p { max-width: 380px; font-size: 17px; line-height: 1.5; color: var(--farbe-text-gedaempft); }
+.tour-inhalt p { max-width: 380px; font-size: var(--groesse-m); line-height: 1.5; color: var(--farbe-text-gedaempft); }
 .tour-bild { height: 190px; width: auto; margin-bottom: 8px; }
 .tour-bild.logo { height: auto; width: 170px; }
 .tour-unten { display: flex; flex-direction: column; gap: 20px; }
@@ -390,27 +392,27 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
   background: var(--farbe-flaeche); border: 1.5px solid var(--farbe-linie); border-radius: var(--radius-m);
   box-shadow: var(--schatten-nav); display: flex; flex-direction: column; gap: 2px;
 }
-.menue-titel { font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--farbe-text-gedaempft); padding: 2px 8px 6px; }
+.menue-titel { font-size: var(--groesse-xs); text-transform: uppercase; letter-spacing: .06em; color: var(--farbe-text-gedaempft); padding: 2px 8px 6px; }
 .menue-kinder { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; }
 .menue-kind { display: flex; align-items: center; gap: 12px; width: 100%; padding: 8px; border: 0; border-radius: 16px; background: none; cursor: pointer; text-align: left; min-height: 56px; }
 .menue-kind.aktiv { background: var(--farbe-akzent-flaeche); }
 .menue-kind:hover { background: var(--farbe-hintergrund); }
 .menue-kind.aktiv:hover { background: var(--farbe-akzent-flaeche); }
-.menue-kind-text { display: flex; flex-direction: column; line-height: 1.3; flex: 1; font-size: 15.5px; }
-.menue-kind-text .gedaempft { font-size: 13.5px; }
+.menue-kind-text { display: flex; flex-direction: column; line-height: 1.3; flex: 1; font-size: var(--groesse-s); }
+.menue-kind-text .gedaempft { font-size: var(--groesse-xs); }
 .menue-haken { font-weight: 800; color: var(--farbe-akzent-text); padding-right: 6px; }
-.menue-eintrag { display: flex; align-items: center; min-height: 44px; padding: 0 8px; border-radius: 12px; text-decoration: none; font-size: 15.5px; }
+.menue-eintrag { display: flex; align-items: center; min-height: 44px; padding: 0 8px; border-radius: 12px; text-decoration: none; font-size: var(--groesse-s); }
 .menue-eintrag:hover { background: var(--farbe-hintergrund); }
 .menue-neu { font-weight: 800; color: var(--farbe-akzent-text); }
 .menue-panel hr { width: 100%; border: 0; border-top: 1.5px solid var(--farbe-linie); margin: 8px 0; }
 .menue-darstellung { display: flex; gap: 4px; padding: 8px 4px 2px; }
-.menue-darstellung button { flex: 1; min-height: 44px; padding: 4px 6px; border: 1.5px solid var(--farbe-linie); border-radius: var(--radius-rund); background: none; cursor: pointer; font-size: 13.5px; color: var(--farbe-text-gedaempft); }
+.menue-darstellung button { flex: 1; min-height: 44px; padding: 4px 6px; border: 1.5px solid var(--farbe-linie); border-radius: var(--radius-rund); background: none; cursor: pointer; font-size: var(--groesse-xs); color: var(--farbe-text-gedaempft); }
 .menue-darstellung button[aria-pressed='true'] { border-color: var(--farbe-akzent); color: var(--farbe-akzent-text); font-weight: 800; }
-.knopf-leise { display: block; width: 100%; margin-top: 14px; min-height: 44px; border: 0; background: none; cursor: pointer; font-size: 15px; color: var(--farbe-text-gedaempft); text-decoration: underline; }
+.knopf-leise { display: block; width: 100%; margin-top: 14px; min-height: 44px; border: 0; background: none; cursor: pointer; font-size: var(--groesse-s); color: var(--farbe-text-gedaempft); text-decoration: underline; }
 
 /* Abschluss nach der letzten U */
 .abschluss { display: flex; flex-direction: column; gap: 10px; padding: 20px; }
-.abschluss h2 { font-size: 19px; }
+.abschluss h2 { font-size: var(--groesse-l); }
 .abschluss ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; }
 .abschluss li { display: flex; flex-direction: column; gap: 2px; padding: 10px 12px; border-radius: 14px; background: var(--farbe-hintergrund); font-size: var(--groesse-s); }
 .abschluss li .gedaempft { font-weight: 400; }
@@ -427,11 +429,11 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 
 /* Die ersten 12 Wochen, Zu erledigen, Für euch */
 .woche-seite { gap: 12px; }
-.woche-jetzt { margin-left: 8px; font-size: 12px; padding: 1px 10px; }
+.woche-jetzt { margin-left: 8px; font-size: var(--groesse-xs); padding: 1px 10px; }
 .woche-abschnitte { display: flex; flex-direction: column; }
 .woche-abschnitte > div { display: flex; flex-direction: column; gap: 4px; padding: 16px 0; border-bottom: 1.5px solid var(--farbe-linie); }
 .woche-abschnitte > div:last-child { border-bottom: 0; }
-.woche-abschnitte h2 { font-size: 17px; }
+.woche-abschnitte h2 { font-size: var(--groesse-m); }
 .woche-link { font-weight: 800; color: var(--farbe-akzent-text); text-decoration: none; margin-top: 4px; }
 .quellen-liste { display: flex; flex-direction: column; gap: 4px; }
 .aufgaben li { gap: 6px; }
@@ -447,7 +449,7 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 .u-abgehakt { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding: 10px 14px; border-radius: 16px; background: var(--farbe-akzent-flaeche); }
 .u-abgehakt-text { display: inline-flex; align-items: center; gap: 6px; font-weight: 800; color: var(--farbe-akzent-text); }
 .u-abgehakt input[type='date'] { font: inherit; min-height: 44px; padding: 4px 10px; border: 1.5px solid var(--farbe-linie); border-radius: 12px; background: var(--farbe-flaeche); color: var(--farbe-text); }
-.link-leise { margin-left: auto; min-height: 44px; border: 0; background: none; cursor: pointer; font: inherit; font-size: 14px; color: var(--farbe-text-gedaempft); text-decoration: underline; }
+.link-leise { margin-left: auto; min-height: 44px; border: 0; background: none; cursor: pointer; font: inherit; font-size: var(--groesse-xs); color: var(--farbe-text-gedaempft); text-decoration: underline; }
 .zr-fenster.erledigt { opacity: 1; background: var(--farbe-linie-kraeftig); }
 .zr-marken a.erledigt { color: var(--farbe-text); }
 .zr-marken a { display: inline-flex; flex-direction: column; align-items: center; gap: 3px; white-space: nowrap; }

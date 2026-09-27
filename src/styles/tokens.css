@@ -48,12 +48,12 @@
   /* Schrift – Nunito selbst gehostet, Fallback System */
   --schrift: "Nunito", ui-rounded, "SF Pro Rounded", system-ui, sans-serif;
   --schrift-mono: ui-monospace, Menlo, monospace;
-  --groesse-xs: 13px;   /* Meta, Quellen */
+  --groesse-xs: 13.5px; /* Meta, Pillen, Quellen, Beschriftungen – kleinste Größe in der App */
   --groesse-s: 15.5px;  /* Tipps, Nebentext */
   --groesse-m: 17px;    /* Grundschrift */
-  --groesse-l: 20px;    /* Abschnitt, Kartentitel */
-  --groesse-xl: 22px;   /* Seitentitel */
-  --groesse-xxl: 30px;  /* Alter, Hero */
+  --groesse-l: 19px;    /* Abschnitt, Kartentitel */
+  --groesse-xl: 26px;   /* Seitentitel, große Zahlen */
+  --groesse-xxl: 28px;  /* Alter im Ring, Onboarding */
   --zeilenhoehe-text: 1.5;
   --zeilenhoehe-titel: 1.25;
   --gewicht-normal: 400;
