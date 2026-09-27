@@ -23,7 +23,7 @@ Web-App, die Eltern zwischen den U-Untersuchungen (U1–U9, Geburt bis Einschulu
 - **Logo ist immer der Elefantenkopf** – unabhängig davon, welches Tier als Avatar gewählt ist (entschieden 26.09.2026).
 - Dunkelmodus ist Pflicht und soll warm wirken (Nachtlicht), nicht kalt invertiert.
 - Keine Rosa/Hellblau-Codierung, keine Bewertung des Kindes (Ampeln, Scores, Streaks).
-- Details: `docs/claude-design/briefing.md` (später `docs/design.md` mit den finalen Werten).
+- Details: `docs/design.md` (Regeln, Tokens, Bauteile – Werte stehen in `src/styles/tokens.css`), Ursprung: `docs/claude-design/briefing.md`.
 
 ## Technik
 
