@@ -8,7 +8,7 @@ import uSchritteDaten from '../content/u-schritte.json';
 import wochenDaten from '../content/wochen.json';
 import orgaDaten from '../content/orga.json';
 import fuerEuchDaten from '../content/fuer-euch.json';
-import { datumBeiAlter, imZeitfenster, tageZwischen, type Alter } from './alter';
+import { datumBeiAlter, imZeitfenster, parseDatum, tageZwischen, type Alter } from './alter';
 import type { Kind } from './kind';
 import type { Notizen } from './speicher';
 
@@ -243,4 +243,65 @@ export function offeneAufgaben(kind: Kind, notizen: Notizen): AufgabeMitDatum[] 
   return aufgabenFuer(kind).filter(
     (a) => a.beginn <= kind.jetzt && !notizen.erledigt.includes(a.id) && kind.jetzt.getTime() < a.ende.getTime() + 30 * TAG_MS,
   );
+}
+
+// ---- Sprung-Zoom: die Strecke zwischen letzter und nächster U ----------------------
+
+export type ZoomEintrag = {
+  art: 'sprung' | 'zahnarzt';
+  id: string;
+  titel: string;
+  datum: Date;
+  zustand: 'vorbei' | 'jetzt' | 'kommt';
+  etappe?: Etappe;
+};
+
+export type Zoom = {
+  von: { id: string | null; datum: Date };
+  bis: { id: string; datum: Date };
+  eintraege: ZoomEintrag[];
+};
+
+/**
+ * Zoom auf die Strecke von der letzten erledigten U (bzw. der U davor) bis zum Ende der nächsten offenen U.
+ * Darin: alle Sprünge (= Etappen), die in dieser Zeit beginnen, und die Zahnarzt-Termine.
+ * Nach der letzten U gibt es keinen Zoom.
+ */
+export function sprungZoom(kind: Kind): Zoom | undefined {
+  const naechste = naechsteUntersuchung(kind);
+  if (!naechste) return undefined;
+  const vorher = vorherigeUntersuchung(kind);
+  const erledigtAm = vorher && kind.uErledigt[vorher.untersuchung.id];
+  const vonDatum = vorher ? (erledigtAm ? parseDatum(erledigtAm) : vorher.beginn) : kind.geburt;
+  const bisDatum = naechste.ende;
+  const drin = (d: Date) => d >= vonDatum && d < bisDatum;
+
+  const sprunge: ZoomEintrag[] = etappen
+    .filter((e) => drin(beginn(kind, e)))
+    .map((e) => {
+      const status = etappenStatus(kind, e);
+      return {
+        art: 'sprung' as const,
+        id: e.id,
+        titel: e.titel,
+        datum: beginn(kind, e),
+        zustand: status === 'vergangen' ? ('vorbei' as const) : status === 'gerade-dran' ? ('jetzt' as const) : ('kommt' as const),
+        etappe: e,
+      };
+    });
+  const zahn: ZoomEintrag[] = zahnTermine(kind)
+    .filter((z) => drin(z.beginn))
+    .map((z) => ({
+      art: 'zahnarzt' as const,
+      id: z.termin.id,
+      titel: `Zahnarzt ${z.termin.id}`,
+      datum: z.beginn,
+      zustand: z.ende <= kind.jetzt ? ('vorbei' as const) : z.beginn <= kind.jetzt ? ('jetzt' as const) : ('kommt' as const),
+    }));
+
+  return {
+    von: { id: vorher?.untersuchung.id ?? null, datum: vonDatum },
+    bis: { id: naechste.untersuchung.id, datum: bisDatum },
+    eintraege: [...sprunge, ...zahn].sort((a, b) => a.datum.getTime() - b.datum.getTime()),
+  };
 }

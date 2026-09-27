@@ -74,7 +74,8 @@ Bewusst feste Größen (gehören zu einem Bauteil): Schriftzug im Logo (`.wortma
 | Hauptknopf | `.knopf` | Höchstens einer pro Bereich. Im Dunkeln gedämpft, damit er nachts nicht blendet. |
 | Zweitknopf | `.knopf-zweit` | Umriss in Akzentfarbe, transparent. |
 | Pille | `.pille` | Kurzer Status („Fenster läuft“, „in 3 Wochen“, „3 offen“). |
-| U-Zeitleiste | `.u-zeitleiste` | U-Fenster als Abschnitte, heute als Punkt; darunter leiser die Zahnarzt-Termine, beschriftet mit „Zahnarzt“, wenn links Platz ist. |
+| U-Zeitleiste | `.u-zeitleiste` | U1–U9 durchgehend (Wurzel-Skala, damit U1–U3 nicht kleben), U-Fenster als Abschnitte, heute als Punkt, erledigte U mit grünem Haken. Keine Zahnarzt-Zeile mehr. |
+| Sprung-Zoom | `.zoom` | Direkt unter der Zeitleiste: Strecke von der letzten erledigten zur nächsten offenen U. Punkte = Sprünge (unsere Etappen) und Zahnarzt-Termine (Raute), Heute-Kreis, gleicher Tag = ein Punkt mit Zahl. Führt zur Seite „Sprünge“. |
 | Warnhinweis | `.zeile-warnung` | Ruhig, Rosé statt Rot; immer erreichbar. |
 
 ## Bewegung

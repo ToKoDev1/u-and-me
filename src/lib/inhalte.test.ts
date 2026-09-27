@@ -10,6 +10,7 @@ import {
   etappenStatus,
   naechsteUntersuchung,
   phasen,
+  sprungZoom,
   untersuchungen,
   uTermin,
   vorherigeUntersuchung,
@@ -123,6 +124,27 @@ describe('Inhalte (JSON) sind plausibel', () => {
       expect(a.quelle.url, a.id).toMatch(/^https:\/\//);
       expect(tage(a.von), a.id).toBeLessThan(tage(a.bis));
     }
+  });
+});
+
+describe('Sprung-Zoom', () => {
+  it('reicht von der letzten zur nächsten U und enthält die Sprünge dazwischen', () => {
+    const z = sprungZoom(kind('2026-06-01', '2026-09-26'))!; // knapp 4 Monate, U4-Fenster läuft
+    expect(z.von.id).toBe('U3');
+    expect(z.bis.id).toBe('U4');
+    expect(z.eintraege.map((e) => e.id)).toContain('soziales-laecheln');
+    expect(z.eintraege.every((e) => e.datum >= z.von.datum && e.datum < z.bis.datum)).toBe(true);
+  });
+
+  it('beginnt am Tag, an dem die letzte U abgehakt wurde', () => {
+    const k = kindAus({ maskottchen: 'elefant', geburtsdatum: '2026-04-19' }, parseDatum('2026-09-26'), 'x', { U5: '2026-09-20' });
+    const z = sprungZoom(k)!;
+    expect(z.von).toEqual({ id: 'U5', datum: parseDatum('2026-09-20') });
+    expect(z.bis.id).toBe('U6');
+  });
+
+  it('gibt es nach der letzten U nicht mehr', () => {
+    expect(sprungZoom(kind('2020-01-01', '2026-09-26'))).toBeUndefined();
   });
 });
 

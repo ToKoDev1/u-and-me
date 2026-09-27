@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { datumBeiAlter, datumFormat, tageZwischen } from '../lib/alter';
-import { begleitetBis, naechsteUntersuchung, uTermine, zahnTermine } from '../lib/inhalte';
+import { begleitetBis, naechsteUntersuchung, uTermine } from '../lib/inhalte';
 import type { Kind } from '../lib/kind';
 import { Symbol } from './Symbol';
 
@@ -10,44 +10,24 @@ type Props = {
   onDatum?: (datum: Date) => void;
 };
 
-/**
- * Lebensabschnitte der Leiste. Über die ganze Zeit (0 bis gut 5 Jahre) wären U1–U3 winzig –
- * deshalb zeigt die Anzeige nur den Abschnitt, in dem das Kind gerade ist.
- * Die ersten zwei Jahre sind am Anfang gedehnt (Wurzel-Skala), damit U1–U3 nicht übereinanderliegen.
- */
-type Abschnitt = { vonMonate: number; bisMonate: number | null; wurzel: boolean };
-const ERSTE_JAHRE: Abschnitt = { vonMonate: 0, bisMonate: 24, wurzel: true };
-const BIS_ZUR_EINSCHULUNG: Abschnitt = { vonMonate: 18, bisMonate: null, wurzel: false }; // null = bis „begleitet bis“
-const GESAMT: Abschnitt = { vonMonate: 0, bisMonate: null, wurzel: true }; // für den Schieberegler
-
 const SCHRITTE = 1000;
-const PLATZ_FUER_BESCHRIFTUNG = 0.3; // Anteil der Leiste, den „Zahnarzt“ links braucht
 const plusTage = (d: Date, n: number) => new Date(d.getFullYear(), d.getMonth(), d.getDate() + n);
 
-/** Zeitleiste mit den U-Zeitfenstern als Abschnitten, „heute“ als Punkt und den Zahnarzt-Terminen darunter */
+/**
+ * Zeitleiste U1–U9 mit den U-Zeitfenstern als Abschnitten und „heute“ als Punkt.
+ * Die Achse ist am Anfang gedehnt (Wurzel-Skala), damit U1–U3 in den ersten Wochen nicht übereinanderliegen.
+ * Die Details zwischen zwei Us zeigt der Zoom darunter (SprungZoom).
+ */
 export function UZeitleiste({ kind, onDatum }: Props) {
   const tageBis = (d: Date) => tageZwischen(kind.geburt, d);
-  const tageBeiMonat = (m: number) => tageBis(datumBeiAlter(kind.geburt, { monate: m }));
   const heute = tageBis(kind.jetzt);
+  const spanne = tageBis(datumBeiAlter(kind.geburt, begleitetBis)) - 1;
 
-  // Abschnitt nach Alter UND nächster offener U: Ist die U7 schon abgehakt, gehört die U7a auf die Leiste
-  const naechsterTermin = naechsteUntersuchung(kind);
-  const ersteJahre = heute < tageBeiMonat(24) && !!naechsterTermin && tageBis(naechsterTermin.beginn) < tageBeiMonat(24);
-  const abschnitt = onDatum ? GESAMT : ersteJahre ? ERSTE_JAHRE : BIS_ZUR_EINSCHULUNG;
-  const startTage = tageBeiMonat(abschnitt.vonMonate);
-  const endeTage = abschnitt.bisMonate === null ? tageBis(datumBeiAlter(kind.geburt, begleitetBis)) : tageBeiMonat(abschnitt.bisMonate);
-  const spanne = endeTage - 1 - startTage;
-
-  /** Tag seit Geburt → Position 0 … 1 im Abschnitt */
-  const position = (tage: number) => {
-    const anteil = Math.min(Math.max(tage - startTage, 0), spanne) / spanne;
-    return abschnitt.wurzel ? Math.sqrt(anteil) : anteil;
-  };
+  /** Tag seit Geburt → Position 0 … 1 */
+  const position = (tage: number) => Math.sqrt(Math.min(Math.max(tage, 0), spanne) / spanne);
   const prozent = (tage: number) => `${position(tage) * 100}%`;
-  /** Nur zeigen, was in den Abschnitt hineinragt */
-  const sichtbar = (von: number, bis: number) => bis > startTage && von < endeTage;
 
-  const naechste = naechsterTermin?.untersuchung.id;
+  const naechste = naechsteUntersuchung(kind)?.untersuchung.id;
   const termine = uTermine(kind)
     .map((t) => ({
       ...t,
@@ -60,22 +40,7 @@ export function UZeitleiste({ kind, onDatum }: Props) {
           : t.untersuchung.id === naechste
             ? 'naechste'
             : 'kommend',
-    }))
-    .filter((t) => sichtbar(t.von, t.bis));
-
-  const zahn = zahnTermine(kind)
-    .map((z) => {
-      const von = tageBis(z.beginn);
-      const bis = tageBis(z.ende);
-      return {
-        ...z,
-        von,
-        bis,
-        mitte: (position(von) + position(bis)) / 2,
-        zustand: z.ende <= kind.jetzt ? 'vorbei' : z.beginn <= kind.jetzt ? 'naechste' : 'kommend',
-      };
-    })
-    .filter((z) => sichtbar(z.von, z.bis));
+  }));
 
   // Beschriftungen, die zu dicht liegen (U1/U2 in den ersten Tagen), zu „U1·2“ zusammenfassen
   const ABSTAND = 0.07;
@@ -148,27 +113,6 @@ export function UZeitleiste({ kind, onDatum }: Props) {
         })}
       </nav>
 
-      {/* Zweite, leisere Zeile: Zahnarzt-Termine */}
-      <nav className="zr-zahn" aria-label="Zahnarzt-Termine">
-        {/* Beschriftung, damit „Z1“ verständlich ist – nur wenn links vor dem ersten Termin Platz ist */}
-        {zahn.length > 0 && position(zahn[0].von) >= PLATZ_FUER_BESCHRIFTUNG && (
-          <Link to="/zahnarzt" className="zr-zahn-titel" aria-hidden="true" tabIndex={-1}>
-            Zahnarzt
-          </Link>
-        )}
-        {zahn.map((z) => (
-          <span key={z.termin.id}>
-            <span
-              className={`zr-zahnfenster ${z.zustand}`}
-              style={{ left: prozent(z.von), width: `calc(${prozent(z.bis)} - ${prozent(z.von)})` }}
-              aria-hidden="true"
-            />
-            <Link to="/zahnarzt" className={z.zustand} style={{ left: `${z.mitte * 100}%` }} aria-label={`Zahnarzt ${z.termin.id}`}>
-              {z.termin.id}
-            </Link>
-          </span>
-        ))}
-      </nav>
     </div>
   );
 }

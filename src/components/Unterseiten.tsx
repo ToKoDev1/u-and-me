@@ -28,7 +28,7 @@ function Unterseite({ titel, kurztitel, intro, children }: { titel: string; kurz
   );
 }
 
-function BereichMarke({ bereich, zusatz }: { bereich: Bereich; zusatz?: string }) {
+export function BereichMarke({ bereich, zusatz }: { bereich: Bereich; zusatz?: string }) {
   return (
     <span className="bereich-marke">
       <span className={`bereich-punkt ${bereich}`} aria-hidden="true" />
@@ -39,7 +39,7 @@ function BereichMarke({ bereich, zusatz }: { bereich: Bereich; zusatz?: string }
 }
 
 /** Kleiner Quellen-Link unter einem Eintrag */
-function QuelleLink({ quelle }: { quelle?: Quelle }) {
+export function QuelleLink({ quelle }: { quelle?: Quelle }) {
   if (!quelle) return null;
   return (
     <a className="quelle-link" href={quelle.url} target="_blank" rel="noreferrer">

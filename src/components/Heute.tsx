@@ -15,6 +15,7 @@ import type { Kind } from '../lib/kind';
 import type { Notizen } from '../lib/speicher';
 import { useSeitentitel } from '../lib/seite';
 import { Symbol } from './Symbol';
+import { SprungZoom } from './Spruenge';
 import { UZeitleiste } from './UZeitleiste';
 import { Zeitring } from './Zeitring';
 
@@ -41,6 +42,8 @@ export function Heute({ kind, notizen }: { kind: Kind; notizen: Notizen }) {
   return (
     <div className="heute">
       <UZeitleiste kind={kind} />
+      {/* Zoom auf die Strecke zwischen letzter und nächster U – mit den Sprüngen dieser Zeit */}
+      <SprungZoom kind={kind} />
       <Zeitring kind={kind} />
 
       {/* Das Wichtigste gleich unter dem Ring – als Sprechblase des Maskottchens.

@@ -7,6 +7,7 @@ import { Erledigen, FuerEuch, WocheSeite } from './components/ErsteZeit';
 import { NaechsteU } from './components/NaechsteU';
 import { Onboarding } from './components/Onboarding';
 import { Rahmen } from './components/Rahmen';
+import { Spruenge } from './components/Spruenge';
 import { USchritte } from './components/USchritte';
 import { Willkommen } from './components/Willkommen';
 import { Zeitreise } from './components/Zeitreise';
@@ -141,6 +142,7 @@ export default function App() {
         <Route path="entwicklung" element={<Entwicklung kind={kind} />} />
         <Route path="spielen" element={<Spielen kind={kind} />} />
         <Route path="zahnarzt" element={<Zahnarzt kind={kind} />} />
+        <Route path="spruenge" element={<Spruenge kind={kind} />} />
         <Route path="naechste-u" element={<NaechsteU kind={kind} notizen={eintrag.notizen} onNotizen={notizenAendern} />} />
         <Route path="u/:id" element={<NaechsteU kind={kind} notizen={eintrag.notizen} onNotizen={notizenAendern} />} />
         <Route path="datenschutz" element={<Datenschutz />} />
