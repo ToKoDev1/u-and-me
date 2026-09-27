@@ -30,7 +30,10 @@ export function UZeitleiste({ kind, onDatum }: Props) {
   const tageBeiMonat = (m: number) => tageBis(datumBeiAlter(kind.geburt, { monate: m }));
   const heute = tageBis(kind.jetzt);
 
-  const abschnitt = onDatum ? GESAMT : heute < tageBeiMonat(24) ? ERSTE_JAHRE : BIS_ZUR_EINSCHULUNG;
+  // Abschnitt nach Alter UND nächster offener U: Ist die U7 schon abgehakt, gehört die U7a auf die Leiste
+  const naechsterTermin = naechsteUntersuchung(kind);
+  const ersteJahre = heute < tageBeiMonat(24) && !!naechsterTermin && tageBis(naechsterTermin.beginn) < tageBeiMonat(24);
+  const abschnitt = onDatum ? GESAMT : ersteJahre ? ERSTE_JAHRE : BIS_ZUR_EINSCHULUNG;
   const startTage = tageBeiMonat(abschnitt.vonMonate);
   const endeTage = abschnitt.bisMonate === null ? tageBis(datumBeiAlter(kind.geburt, begleitetBis)) : tageBeiMonat(abschnitt.bisMonate);
   const spanne = endeTage - 1 - startTage;
@@ -44,7 +47,7 @@ export function UZeitleiste({ kind, onDatum }: Props) {
   /** Nur zeigen, was in den Abschnitt hineinragt */
   const sichtbar = (von: number, bis: number) => bis > startTage && von < endeTage;
 
-  const naechste = naechsteUntersuchung(kind)?.untersuchung.id;
+  const naechste = naechsterTermin?.untersuchung.id;
   const termine = uTermine(kind)
     .map((t) => ({
       ...t,
