@@ -16,6 +16,7 @@ Web-App, die Eltern zwischen den U-Untersuchungen (U1–U9, Geburt bis Einschulu
 - **Tonalität:** Deutsch, freundlich-sachlich, beruhigend. Entwicklung immer als Spannbreite, nie als Stichtag. Keine Diagnosen, keine Bewertung des Kindes.
 - **Kein „Sprünge“-Modell** (Wonder Weeks o. ä.) – stattdessen eigene **Etappen** (`src/content/etappen.json`) mit Spannbreiten, keine festen Wochen, keine übernommenen Namen oder Texte.
   In der Oberfläche heißen die Etappen **„Sprünge“** (Entscheidung 27.09.2026) – der Begriff ist Eltern vertraut; Inhalte bleiben unsere eigenen, mit Quelle und Spannbreite.
+  Wann ein Sprung beginnt, zeigt die App **ungefähr** („ab etwa Mitte März“) – nie als genauen Tag.
 
 ## Design
 

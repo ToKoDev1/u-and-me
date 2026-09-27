@@ -43,4 +43,4 @@ Hier geht es nicht um Conversion oder Abbruchraten, sondern darum, dass sich Elt
 - Tonalität: deutsch, freundlich-sachlich, beruhigend. Keine Ausrufezeichen-Häufung, kein Marketing.
 - Entwicklung **immer als Spannbreite**, nie als Stichtag („meist zwischen … und …“). Keine Diagnosen, keine Bewertung des Kindes, keine Vergleiche mit „normal“.
 - Inhaltliche Texte (Phasen, Etappen, U-Untersuchungen) liegen in `src/content/*.json` und nennen ihre Quelle – beim Umformulieren den fachlichen Inhalt nicht verändern; bei Unsicherheit markieren statt raten.
-- Kein „Sprünge“-Vokabular (Wonder Weeks o. ä.), stattdessen „Etappen“.
+- Die eigenen Etappen heißen in der Oberfläche „Sprünge“ (Entscheidung 27.09.2026) – aber keine Wonder-Weeks-Inhalte, keine festen Wochen. Beginn nur ungefähr („ab etwa Mitte März“), dazu immer die Spannbreite.

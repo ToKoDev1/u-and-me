@@ -22,7 +22,7 @@ Nebenziel: Das Projekt dient dazu, **das Bauen von Software mit Claude Code zu l
 - **Beruhigen statt verunsichern.** Kinder entwickeln sich unterschiedlich schnell. Wir zeigen Korridore („zwischen 6 und 10 Monaten“), keine Deadlines.
 - **Informieren, nicht diagnostizieren.** Die App bewertet das Kind nicht. Sie erklärt, was typisch ist, und nennt klar, bei welchen Warnzeichen man nicht bis zur nächsten U warten sollte.
 - **Seriöse Quellen.** Jeder Inhalt nennt seine Quelle (z. B. kindergesundheit-info.de, G-BA Kinder-Richtlinie, STIKO).
-- **Keine „Sprünge“.** Wir übernehmen kein wissenschaftlich umstrittenes Sprung-Modell.
+- **Kein Sprung-Modell mit festen Wochen.** Wir übernehmen kein wissenschaftlich umstrittenes Modell. Unsere eigenen Etappen heißen in der Oberfläche aber „Sprünge“ (Entscheidung 27.09.2026).
 
 ## Umfang v1
 
@@ -49,9 +49,11 @@ Nebenziel: Das Projekt dient dazu, **das Bauen von Software mit Claude Code zu l
 5. **Hinweis für Frühgeborene** – gut sichtbarer Hinweis, dass bei Frühchen für die Entwicklung das *korrigierte Alter* zählt (Alter ab errechnetem Geburtstermin), die U-Termine aber nach dem tatsächlichen Geburtsdatum laufen. Die App rechnet in v1 selbst noch nicht mit korrigiertem Alter.
 6. **Allgemeiner Hinweis** – die App ersetzt keine ärztliche Beratung; bei Sorgen immer die Kinderarztpraxis fragen.
 
-### Etappen statt „Sprünge“
+### Etappen (in der Oberfläche: „Sprünge“)
 
 Zwischen zwei Us liegen oft Monate. Damit sichtbar wird, was in dieser Zeit passiert, gibt es **Etappen**: kleine Entwicklungsschritte und typische Alltagsphasen, jeweils mit **Spannbreite** („meist mit 6–10 Monaten“), nie mit festem Termin. Bewusst *kein* Sprünge-Modell à la „Oje, ich wachse!“ – das ist wissenschaftlich nicht belegt, erzeugt mit festen Wochen Druck, und Namen/Inhalte sind geschützt.
+
+Seit 27.09.2026 heißen die Etappen in der Oberfläche **„Sprünge“** – der Begriff ist Eltern vertraut, die Inhalte bleiben unsere eigenen. Eltern möchten sehen, wann der nächste Sprung ungefähr beginnt: Deshalb zeigt die App einen **ungefähren Beginn** („ab etwa Mitte März“), nie einen genauen Tag, und daneben immer die Spannbreite.
 
 Bereiche: Alltag (→ „Was euch begegnen kann“), Bewegung, Sprache & Laute, Miteinander. Spielideen hängen als Tipp an der passenden Etappe. Inhalte: `src/content/etappen.json`.
 
