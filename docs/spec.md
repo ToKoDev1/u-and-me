@@ -20,7 +20,7 @@ Nebenziel: Das Projekt dient dazu, **das Bauen von Software mit Claude Code zu l
 ## Haltung
 
 - **Beruhigen statt verunsichern.** Kinder entwickeln sich unterschiedlich schnell. Wir zeigen Korridore („zwischen 6 und 10 Monaten“), keine Deadlines.
-- **Informieren, nicht diagnostizieren.** Die App bewertet das Kind nicht. Sie erklärt, was typisch ist, und nennt klar, bei welchen Warnzeichen man nicht bis zur nächsten U warten sollte.
+- **Orientierung geben, nicht diagnostizieren.** Die App zeigt, wo das Kind im Vergleich zu den Referenzwerten aus dem gelben Heft steht (Entwicklungspunkte, Wachstumskurven) – sachlich und ohne Urteil; die Einschätzung macht die Praxis (Entscheidung 10.10.2026). Sie erklärt, was typisch ist, und nennt klar, bei welchen Warnzeichen man nicht bis zur nächsten U warten sollte.
 - **Seriöse Quellen.** Jeder Inhalt nennt seine Quelle (z. B. kindergesundheit-info.de, G-BA Kinder-Richtlinie, STIKO).
 - **Kein Sprung-Modell mit festen Wochen.** Wir übernehmen kein wissenschaftlich umstrittenes Modell. Unsere eigenen Etappen heißen in der Oberfläche aber „Sprünge“ (Entscheidung 27.09.2026).
 
@@ -83,7 +83,7 @@ Die bekannteste App im Bereich (4,6★, ~39.500 Bewertungen). Ihr Erfolg liegt w
 - Keine Accounts, kein Login, kein Backend
 - Keine Speicherung von Daten auf einem Server
 - Kein Tracking / keine Analytics
-- Keine Bewertung oder „Ampel“ zur Entwicklung des Kindes
+- Keine wertenden Urteile, Ampeln oder Vergleiche mit anderen Kindern (Referenzwerte aus dem gelben Heft sind erlaubt)
 - Keine Push-Benachrichtigungen
 - Keine native App (App Store)
 

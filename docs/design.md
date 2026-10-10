@@ -6,7 +6,7 @@ Stand: Version 0.7 · 27.09.2026. Die verbindlichen Werte stehen in `src/styles/
 
 - **Bilderbuch:** warm, rund, verspielt – Texte trotzdem klar und gut lesbar. Die Wärme kommt aus den Maskottchen und ihren Farben, nicht aus Deko.
 - **Flächig:** keine Fotos, kein 3D, **keine Verläufe**, höchstens sehr weiche Schatten.
-- **Beruhigen statt bewerten:** keine Ampeln, Scores, Streaks, Fortschrittsbalken für das Kind. Entwicklung immer als Spannbreite. Keine Rosa/Hellblau-Codierung.
+- **Orientierung statt Urteil:** keine Ampeln, Scores, Streaks, Fortschrittsbalken oder Vergleiche mit anderen Kindern. Referenzwerte aus dem gelben Heft (Entwicklungspunkte zum Abhaken, Wachstumskurven) sind erlaubt – ruhig dargestellt, ohne Warnfarben, mit Quelle (Entscheidung 10.10.2026). Entwicklung immer als Spannbreite. Keine Rosa/Hellblau-Codierung.
 - **Für müde Eltern am Handy, oft nachts:** Mobile first (375 px), wenig Elemente pro Screen, das Wichtigste oben, große Berührflächen.
 - **Hell und dunkel gleichwertig.** Dunkel wirkt wie ein Nachtlicht, nicht wie ein invertierter Bildschirm.
 - **Local-first auch im Design:** keine externen Schriften, Icons oder CDNs.

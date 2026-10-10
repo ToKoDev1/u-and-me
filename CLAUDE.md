@@ -13,7 +13,8 @@ Web-App, die Eltern zwischen den U-Untersuchungen (U1–U9, Geburt bis Einschulu
 - **Local-first:** Keine Daten an Server senden. Kein Backend, keine Accounts, kein Tracking, keine externen Analytics- oder Font-Dienste.
 - **Inhalte als Daten:** Texte zu Phasen, Etappen und U-Untersuchungen gehören in JSON-Dateien unter `src/content/`, nicht in Komponenten.
 - **Quellen:** Jeder fachliche Inhalt nennt seine Quelle. Keine erfundenen Fakten; bei Unsicherheit markieren statt raten.
-- **Tonalität:** Deutsch, freundlich-sachlich, beruhigend. Entwicklung immer als Spannbreite, nie als Stichtag. Keine Diagnosen, keine Bewertung des Kindes.
+- **Tonalität:** Deutsch, freundlich-sachlich, beruhigend. Entwicklung immer als Spannbreite, nie als Stichtag. Keine Diagnosen.
+- **Orientierung statt Urteil** (Entscheidung 10.10.2026): Die App darf zeigen, wo ein Kind im Vergleich zu Referenzwerten steht – z. B. die Entwicklungspunkte und Wachstumskurven aus dem gelben Heft, zum Abhaken vor der U. Immer sachlich, mit Quelle, ohne wertende Wörter („gut“, „zu klein“, „hinterher“). Ein „Noch nicht“ ist ein Gesprächspunkt für die Praxis, kein Alarm – die Einschätzung macht die Ärztin oder der Arzt.
 - **Kein „Sprünge“-Modell** (Wonder Weeks o. ä.) – stattdessen eigene **Etappen** (`src/content/etappen.json`) mit Spannbreiten, keine festen Wochen, keine übernommenen Namen oder Texte.
   In der Oberfläche heißen die Etappen **„Sprünge“** (Entscheidung 27.09.2026) – der Begriff ist Eltern vertraut; Inhalte bleiben unsere eigenen, mit Quelle und Spannbreite.
   Wann ein Sprung beginnt, zeigt die App **ungefähr** („ab etwa Mitte März“) – nie als genauen Tag.
@@ -24,7 +25,7 @@ Web-App, die Eltern zwischen den U-Untersuchungen (U1–U9, Geburt bis Einschulu
 - Vier wählbare Maskottchen: Löwen-, Hunde-, Pinguin- und Elefantenbaby.
 - **Logo ist immer der Elefantenkopf** – unabhängig davon, welches Tier als Avatar gewählt ist (entschieden 26.09.2026).
 - Dunkelmodus ist Pflicht und soll warm wirken (Nachtlicht), nicht kalt invertiert.
-- Keine Rosa/Hellblau-Codierung, keine Bewertung des Kindes (Ampeln, Scores, Streaks).
+- Keine Rosa/Hellblau-Codierung. Keine Ampeln, Scores, Streaks oder Vergleiche mit anderen Kindern – Referenzwerte (Entwicklungspunkte, Perzentilen) ja, ruhig dargestellt.
 - Details: `docs/design.md` (Regeln, Tokens, Bauteile – Werte stehen in `src/styles/tokens.css`), Ursprung: `docs/claude-design/briefing.md`.
 
 ## Technik

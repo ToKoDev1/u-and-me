@@ -77,7 +77,8 @@ Farben, Schrift, Ton und die Grundidee (Zeitring, drei Kacheln, „Heute wichtig
 - [x] Korrektur U5: Hören wird erfragt, nicht getestet
 - [x] Sehtest ab U7a (jedes Auge einzeln, Pflaster, 3 m), Hörtest und Urin-Teststreifen zur U8, Aussprache-Tipp zur U9
 - [x] Zahnarzt: ein Satz pro Z-Termin, Zahnpasta-Menge nach Alter
-- [ ] ⚪ Idee: Wachstumskurven aus dem Heft – bewusst nicht übernommen (Bewertung des Kindes), höchstens als Erklärung „Was die Kurven im Heft bedeuten“
+- [ ] 🔴 M · Entwicklungspunkte aus dem Heft als Vorbereitungsliste pro U (Ja / Noch nicht / Unsicher), Zusammenfassung im Gespräch
+- [ ] 🟡 M–L · Wachstumskurven (Größe, Gewicht, Kopfumfang, BMI) nach Kromeyer-Hauschild – braucht die Zahlentabellen, nicht das Bild aus dem Heft
 
 - [x] 🔴 M · **Impfungen auf STIKO-Impfkalender 2026** (RSV-Prophylaxe, Rotavirus ab 6. Woche, MenB prüfen) – mit Verweis + Stand statt fester Aufzählung
 - [x] 🔴 M · **Warnzeichen für alle Phasen** (erste Tage, U2–U3, U6–U7, U7) – wörtlich aus Quellen
@@ -132,7 +133,7 @@ Farben, Schrift, Ton und die Grundidee (Zeitring, drei Kacheln, „Heute wichtig
 
 ## Bewusst nicht
 
-- Wachstums-/Gewichtskurven mit Perzentilen (Bewertung, Sorge) – höchstens freies Notizfeld
+- ~~Wachstums-/Gewichtskurven mit Perzentilen~~ → seit 10.10.2026 erwünscht („Orientierung statt Urteil“), siehe oben
 - Schlaf-, Still-, Windel-Tracker (Kontrollzwang, gibt es besser)
 - Streaks, Punkte, Abzeichen, Freischalten, Ranglisten, Fortschrittsbalken
 - Push-Benachrichtigungen mit Aktivitätsdruck
