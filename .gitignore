@@ -5,3 +5,6 @@ dist/
 
 # Weitergabe-Pakete lassen sich jederzeit aus docs/claude-design/ neu erzeugen
 docs/*.zip
+
+# Fremde Quelldokumente (z. B. gelbes Heft als PDF) nur lokal lesen, nicht veröffentlichen
+docs/quellen/*.pdf
