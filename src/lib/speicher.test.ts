@@ -83,8 +83,10 @@ describe('Laden aus dem Speicher', () => {
   });
 
   it('liefert immer vollständige Notizen', () => {
-    expect(alsNotizen({ beobachtet: { U5: ['a', 3] }, eigeneFragen: 'x' })).toEqual({ beobachtet: { U5: ['a'] }, eigeneFragen: {}, erledigt: [], uErledigt: {} });
+    expect(alsNotizen({ beobachtet: { U5: ['a', 3] }, eigeneFragen: 'x' })).toEqual({ beobachtet: { U5: ['a'] }, eigeneFragen: {}, erledigt: [], uErledigt: {}, entwicklung: {} });
     expect(alsNotizen({ uErledigt: { U4: '2026-03-01', U5: 'gestern' } }).uErledigt).toEqual({ U4: '2026-03-01' });
+    // Nur gültige Antworten bleiben; leere Us fallen weg
+    expect(alsNotizen({ entwicklung: { U7: { 'u7-1': 'ja', 'u7-2': 'vielleicht' }, U8: { 'u8-1': 3 }, U9: 'x' } }).entwicklung).toEqual({ U7: { 'u7-1': 'ja' } });
   });
 
   it('allesLoeschen entfernt nur Schlüssel von U & Me', () => {
@@ -124,7 +126,7 @@ describe('mehrere Kinder', () => {
     expect(d.kinder).toHaveLength(2);
     expect(aktivesKind(d)?.profil.maskottchen).toBe('loewe'); // neues Kind wird gleich gezeigt
 
-    d = notizenSetzen(d, zweites, { beobachtet: {}, eigeneFragen: { U7: ['nur Ben'] }, erledigt: ['kindergeld'], uErledigt: {} });
+    d = notizenSetzen(d, zweites, { beobachtet: {}, eigeneFragen: { U7: ['nur Ben'] }, erledigt: ['kindergeld'], uErledigt: {}, entwicklung: {} });
     d = kindWaehlen(d, erstes);
     expect(aktivesKind(d)?.notizen.eigeneFragen).toEqual({}); // Notizen gehören zum Kind
 

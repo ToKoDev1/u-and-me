@@ -271,6 +271,22 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 .check-kaestchen { width: 28px; height: 28px; border-radius: 10px; }
 .check-eintrag:has(input:checked) .kaestchen { background: var(--farbe-akzent); border-color: var(--farbe-akzent); }
 .check-eintrag:has(input:focus-visible) { outline: 3px solid var(--farbe-akzent); outline-offset: 2px; }
+/* Was kann euer Kind schon? – ruhig: gewählt ist farbig, aber nie in Warnfarben */
+.entwicklung-bereich { display: flex; flex-direction: column; gap: 8px; }
+.entwicklung-bereich-titel { font-size: var(--groesse-s); font-weight: 800; color: var(--farbe-text-gedaempft); padding-top: 6px; }
+.entwicklung-punkt { border: 1.5px solid var(--farbe-linie); border-radius: 18px; background: var(--farbe-flaeche); padding: 12px 14px 14px; margin: 0; min-width: 0; }
+.entwicklung-punkt legend { float: left; width: 100%; padding: 0 0 10px; }
+.entwicklung-wahl { clear: both; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.entwicklung-option {
+  position: relative; min-height: 44px; display: grid; place-items: center; text-align: center; padding: 4px 6px;
+  border: 1.5px solid var(--farbe-eingaberahmen); border-radius: var(--radius-rund); font-size: var(--groesse-s); font-weight: 700; cursor: pointer;
+}
+.entwicklung-option input { position: absolute; opacity: 0; pointer-events: none; }
+.entwicklung-option:has(input:focus-visible) { outline: 3px solid var(--farbe-akzent); outline-offset: 2px; }
+.entwicklung-option.ist-ja:has(input:checked) { background: var(--farbe-akzent); border-color: var(--farbe-akzent); color: var(--farbe-auf-akzent); }
+.entwicklung-option.ist-nein:has(input:checked), .entwicklung-option.ist-unsicher:has(input:checked) {
+  background: var(--farbe-beruhigend); border-color: var(--farbe-beruhigend-linie); color: var(--farbe-beruhigend-text);
+}
 .frage-blase { background: var(--farbe-akzent-flaeche); border-radius: 22px 22px 22px 8px; padding: 12px 16px; }
 .frage-blase.eigene { display: flex; justify-content: space-between; gap: 8px; align-items: flex-start; }
 .frage-blase.eigene button { background: none; border: 0; font-size: 20px; line-height: 1; cursor: pointer; color: var(--farbe-text-gedaempft); min-width: 44px; min-height: 44px; margin: -10px -10px -10px 0; }

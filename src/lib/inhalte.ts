@@ -8,9 +8,10 @@ import uSchritteDaten from '../content/u-schritte.json';
 import wochenDaten from '../content/wochen.json';
 import orgaDaten from '../content/orga.json';
 import fuerEuchDaten from '../content/fuer-euch.json';
+import entwicklungDaten from '../content/entwicklung.json';
 import { datumBeiAlter, imZeitfenster, parseDatum, tageZwischen, type Alter } from './alter';
 import type { Kind } from './kind';
-import type { Notizen } from './speicher';
+import type { Antwort, Notizen } from './speicher';
 
 export type Quelle = { name: string; url: string };
 export type Status = 'entwurf' | 'geprueft';
@@ -315,4 +316,26 @@ export function sprungZoom(kind: Kind): Zoom | undefined {
     bis: { id: naechste.untersuchung.id, datum: bisDatum },
     eintraege: [...sprunge, ...zahn].sort((a, b) => a.datum.getTime() - b.datum.getTime()),
   };
+}
+
+// ---- Was kann euer Kind schon? (Entwicklungspunkte aus dem gelben Heft) --------
+
+export type EntwicklungsBereich = keyof typeof entwicklungDaten.bereiche;
+export type EntwicklungsPunkt = { id: string; bereich: EntwicklungsBereich; text: string };
+export const entwicklung = entwicklungDaten as Omit<typeof entwicklungDaten, 'untersuchungen'> & {
+  untersuchungen: Record<string, EntwicklungsPunkt[]>;
+};
+
+/** Die Entwicklungspunkte einer U (U1 und U2 haben keine) */
+export const entwicklungsPunkte = (uId: string): EntwicklungsPunkt[] => entwicklung.untersuchungen[uId] ?? [];
+
+/** Für das Gespräch: alles, was ihr mit „Noch nicht“ oder „Unsicher“ beantwortet habt */
+export function offeneEntwicklungsPunkte(uId: string, notizen: Notizen, kind: Kind) {
+  const antworten = notizen.entwicklung[uId] ?? {};
+  const punkte = entwicklungsPunkte(uId);
+  const beantwortet = punkte.filter((p) => antworten[p.id]).length;
+  const offen = punkte
+    .filter((p) => antworten[p.id] === 'nein' || antworten[p.id] === 'unsicher')
+    .map((p) => ({ text: mitName(p.text, kind), antwort: entwicklung.antworten[antworten[p.id] as Antwort] }));
+  return { gesamt: punkte.length, beantwortet, offen };
 }

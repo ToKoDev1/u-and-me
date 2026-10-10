@@ -1,0 +1,456 @@
+{
+  "_hinweis": "Entwicklungspunkte aus der „Orientierenden Beurteilung der Entwicklung“ im gelben Heft (quelle), in Elternsprache übertragen, Inhalt unverändert. Zum Abhaken vor der U; Antworten bleiben auf dem Gerät. {kind} = Name bzw. „euer Kind“. Ids bleiben stabil, sonst gehen gespeicherte Antworten verloren.",
+  "quelle": {
+    "name": "G-BA – Kinderuntersuchungsheft (gelbes Heft), Stand Juni 2026",
+    "url": "https://www.g-ba.de/downloads/17-98-4160/260618_G-BA_Kinderuntersuchungsheft_WEB.pdf"
+  },
+  "titel": "Was kann {kind} schon?",
+  "intro": "Auf diese Punkte schaut die Praxis bei der {u} – sie stehen so im gelben Heft. Geht sie vorher in Ruhe durch, dann habt ihr im Termin alles beisammen.",
+  "hinweis": "Ein „Noch nicht“ ist ein Gesprächspunkt, keine Diagnose. Kinder entwickeln sich unterschiedlich schnell – wie es einzuordnen ist, besprecht ihr mit eurer Ärztin oder eurem Arzt.",
+  "antworten": {
+    "ja": "Ja",
+    "nein": "Noch nicht",
+    "unsicher": "Unsicher"
+  },
+  "bereiche": {
+    "bewegung": "Bewegung",
+    "haende": "Hände und Finger",
+    "denken": "Wahrnehmen und Denken",
+    "sprache": "Sprache",
+    "gefuehle": "Gefühle und Selbstständigkeit",
+    "miteinander": "Miteinander"
+  },
+  "gespraech": {
+    "titel": "Das wollt ihr ansprechen",
+    "leer": "Ihr habt die Liste „Was kann {kind} schon?“ noch nicht ausgefüllt – das geht auf der Seite der U.",
+    "allesJa": "Bei allen Punkten aus dem gelben Heft habt ihr „Ja“ angekreuzt."
+  },
+  "untersuchungen": {
+    "U3": [
+      {
+        "id": "u3-1",
+        "bereich": "bewegung",
+        "text": "Hält den Kopf mindestens 3 Sekunden, wenn ihr {kind} bäuchlings in der Luft haltet."
+      },
+      {
+        "id": "u3-2",
+        "bereich": "bewegung",
+        "text": "Hält in Rückenlage den Kopf etwa 10 Sekunden gerade in der Mitte."
+      },
+      {
+        "id": "u3-3",
+        "bereich": "haende",
+        "text": "Öffnet die Hände ab und zu von selbst – meist sind sie noch eher geschlossen."
+      },
+      {
+        "id": "u3-4",
+        "bereich": "denken",
+        "text": "Folgt mit den Augen einem Gegenstand ein Stück nach beiden Seiten."
+      },
+      {
+        "id": "u3-5",
+        "bereich": "gefuehle",
+        "text": "Schaut aufmerksam in eure Gesichter, wenn ihr nah seid."
+      }
+    ],
+    "U4": [
+      {
+        "id": "u4-1",
+        "bereich": "bewegung",
+        "text": "Strampelt kräftig mit Armen und Beinen – abwechselnd und mit beiden Seiten."
+      },
+      {
+        "id": "u4-2",
+        "bereich": "bewegung",
+        "text": "Hält den Kopf mindestens 30 Sekunden aufrecht, wenn ihr {kind} sitzend haltet."
+      },
+      {
+        "id": "u4-3",
+        "bereich": "bewegung",
+        "text": "Liegt auf dem Bauch, stützt sich auf die Unterarme und hebt den Kopf etwa eine Minute lang."
+      },
+      {
+        "id": "u4-4",
+        "bereich": "haende",
+        "text": "Bringt die Hände von selbst vor dem Körper zusammen."
+      },
+      {
+        "id": "u4-5",
+        "bereich": "denken",
+        "text": "Schaut einem Gesicht nach, das sich bewegt."
+      },
+      {
+        "id": "u4-6",
+        "bereich": "denken",
+        "text": "Dreht den Kopf, um nach einem bekannten Geräusch zu suchen."
+      },
+      {
+        "id": "u4-7",
+        "bereich": "gefuehle",
+        "text": "Hält Blickkontakt und lächelt zurück, wenn ihr lächelt."
+      }
+    ],
+    "U5": [
+      {
+        "id": "u5-1",
+        "bereich": "bewegung",
+        "text": "Stützt sich in Bauchlage mit gestreckten Armen auf die Hände."
+      },
+      {
+        "id": "u5-2",
+        "bereich": "bewegung",
+        "text": "Hält den Kopf in einer Linie mit dem Körper und beugt die Arme, wenn ihr {kind} an den Händen hochzieht."
+      },
+      {
+        "id": "u5-3",
+        "bereich": "bewegung",
+        "text": "Federt mit den Beinen, wenn ihr {kind} aufrecht haltet."
+      },
+      {
+        "id": "u5-4",
+        "bereich": "haende",
+        "text": "Gibt Spielzeug von einer Hand in die andere."
+      },
+      {
+        "id": "u5-5",
+        "bereich": "denken",
+        "text": "Greift Dinge mit beiden Händen und steckt sie in den Mund."
+      },
+      {
+        "id": "u5-6",
+        "bereich": "sprache",
+        "text": "Plappert Silbenketten wie „ge-ge-ge“ oder „dei-dei-dei“."
+      },
+      {
+        "id": "u5-7",
+        "bereich": "gefuehle",
+        "text": "Lacht hörbar, wenn ihr {kind} neckt."
+      },
+      {
+        "id": "u5-8",
+        "bereich": "gefuehle",
+        "text": "Verhält sich bei vertrauten und fremden Menschen unterschiedlich."
+      },
+      {
+        "id": "u5-9",
+        "bereich": "gefuehle",
+        "text": "Freut sich, wenn ein anderes Kind auftaucht."
+      }
+    ],
+    "U6": [
+      {
+        "id": "u6-1",
+        "bereich": "bewegung",
+        "text": "Sitzt frei mit geradem Rücken, ohne umzukippen."
+      },
+      {
+        "id": "u6-2",
+        "bereich": "bewegung",
+        "text": "Zieht sich in den Stand hoch und bleibt einige Sekunden stehen."
+      },
+      {
+        "id": "u6-3",
+        "bereich": "bewegung",
+        "text": "Dreht sich selbst vom Rücken auf den Bauch und zurück."
+      },
+      {
+        "id": "u6-4",
+        "bereich": "haende",
+        "text": "Greift kleine Dinge zwischen Daumen und gestrecktem Zeigefinger."
+      },
+      {
+        "id": "u6-5",
+        "bereich": "haende",
+        "text": "Klopft zwei Bauklötze aneinander."
+      },
+      {
+        "id": "u6-6",
+        "bereich": "denken",
+        "text": "Gibt euch einen Gegenstand, wenn ihr darum bittet."
+      },
+      {
+        "id": "u6-7",
+        "bereich": "denken",
+        "text": "Schaut in die Richtung, in die ihr mit dem Finger zeigt."
+      },
+      {
+        "id": "u6-8",
+        "bereich": "sprache",
+        "text": "Plappert längere Silbenketten und Doppelsilben wie „ba-ba“ oder „da-da“."
+      },
+      {
+        "id": "u6-9",
+        "bereich": "sprache",
+        "text": "Ahmt Laute nach."
+      },
+      {
+        "id": "u6-10",
+        "bereich": "gefuehle",
+        "text": "Trinkt allein aus der Flasche, aus Becher oder Tasse mit etwas Hilfe."
+      },
+      {
+        "id": "u6-11",
+        "bereich": "gefuehle",
+        "text": "Unterscheidet zwischen fremden und vertrauten Menschen."
+      },
+      {
+        "id": "u6-12",
+        "bereich": "gefuehle",
+        "text": "Freut sich über andere Kinder."
+      }
+    ],
+    "U7": [
+      {
+        "id": "u7-1",
+        "bereich": "bewegung",
+        "text": "Läuft längere Zeit frei und sicher."
+      },
+      {
+        "id": "u7-2",
+        "bereich": "bewegung",
+        "text": "Geht 3 Stufen hinunter, eine Stufe nach der anderen, und hält sich dabei mit einer Hand fest."
+      },
+      {
+        "id": "u7-3",
+        "bereich": "haende",
+        "text": "Kritzelt eine flache Spirale."
+      },
+      {
+        "id": "u7-4",
+        "bereich": "haende",
+        "text": "Wickelt Bonbons oder andere kleine Dinge aus."
+      },
+      {
+        "id": "u7-5",
+        "bereich": "denken",
+        "text": "Stapelt 3 Bauklötze."
+      },
+      {
+        "id": "u7-6",
+        "bereich": "denken",
+        "text": "Zeigt im Bilderbuch auf bekannte Dinge."
+      },
+      {
+        "id": "u7-7",
+        "bereich": "sprache",
+        "text": "Sagt mindestens 10 richtige Wörter – Mama und Papa nicht mitgezählt."
+      },
+      {
+        "id": "u7-8",
+        "bereich": "sprache",
+        "text": "Versteht einfache Bitten und macht mit."
+      },
+      {
+        "id": "u7-9",
+        "bereich": "sprache",
+        "text": "Zeigt mit Kopfschütteln oder „Nein“, wenn {kind} etwas nicht will."
+      },
+      {
+        "id": "u7-10",
+        "bereich": "sprache",
+        "text": "Zeigt auf 3 Körperteile oder schaut hin, wenn ihr sie nennt."
+      },
+      {
+        "id": "u7-11",
+        "bereich": "gefuehle",
+        "text": "Spielt etwa 15 Minuten allein, wenn ihr nicht im Zimmer, aber in der Nähe seid."
+      },
+      {
+        "id": "u7-12",
+        "bereich": "gefuehle",
+        "text": "Isst selbst mit dem Löffel."
+      },
+      {
+        "id": "u7-13",
+        "bereich": "gefuehle",
+        "text": "Interessiert sich für andere Kinder."
+      },
+      {
+        "id": "u7-14",
+        "bereich": "miteinander",
+        "text": "Zieht euch irgendwohin, um euch etwas zu zeigen."
+      }
+    ],
+    "U7a": [
+      {
+        "id": "u7a-1",
+        "bereich": "bewegung",
+        "text": "Springt mit beiden Beinen sicher von der untersten Treppenstufe."
+      },
+      {
+        "id": "u7a-2",
+        "bereich": "bewegung",
+        "text": "Steigt 2 Stufen im Wechselschritt und hält sich dabei mit der Hand fest."
+      },
+      {
+        "id": "u7a-3",
+        "bereich": "haende",
+        "text": "Greift auch sehr kleine Dinge gezielt mit Daumen, Zeige- und Mittelfinger."
+      },
+      {
+        "id": "u7a-4",
+        "bereich": "denken",
+        "text": "Hört zu und spielt konzentriert, auch So-tun-als-ob-Spiele."
+      },
+      {
+        "id": "u7a-5",
+        "bereich": "denken",
+        "text": "Öffnet große Knöpfe selbst."
+      },
+      {
+        "id": "u7a-6",
+        "bereich": "sprache",
+        "text": "Spricht Sätze aus mindestens drei Wörtern."
+      },
+      {
+        "id": "u7a-7",
+        "bereich": "sprache",
+        "text": "Spricht von sich als „ich“."
+      },
+      {
+        "id": "u7a-8",
+        "bereich": "sprache",
+        "text": "Kennt und sagt den eigenen Rufnamen."
+      },
+      {
+        "id": "u7a-9",
+        "bereich": "gefuehle",
+        "text": "Bleibt gut ein paar Stunden bei einer vertrauten Person."
+      },
+      {
+        "id": "u7a-10",
+        "bereich": "gefuehle",
+        "text": "Hilft im Haushalt mit und will dabei sein."
+      },
+      {
+        "id": "u7a-11",
+        "bereich": "miteinander",
+        "text": "Spielt mit gleichaltrigen Kindern, auch Rollenspiele."
+      }
+    ],
+    "U8": [
+      {
+        "id": "u8-1",
+        "bereich": "bewegung",
+        "text": "Fährt Laufrad oder ein ähnliches Fahrzeug sicher und zielgerichtet."
+      },
+      {
+        "id": "u8-2",
+        "bereich": "bewegung",
+        "text": "Hüpft über ein 20 bis 50 Zentimeter breites Blatt."
+      },
+      {
+        "id": "u8-3",
+        "bereich": "haende",
+        "text": "Hält den Stift richtig zwischen den ersten drei Fingern."
+      },
+      {
+        "id": "u8-4",
+        "bereich": "haende",
+        "text": "Malt geschlossene Kreise."
+      },
+      {
+        "id": "u8-5",
+        "bereich": "denken",
+        "text": "Fragt „Warum?“, „Wie?“, „Wo?“, „Wieso?“ und „Woher?“."
+      },
+      {
+        "id": "u8-6",
+        "bereich": "sprache",
+        "text": "Spricht Sätze mit etwa 6 Wörtern, in Kindersprache."
+      },
+      {
+        "id": "u8-7",
+        "bereich": "sprache",
+        "text": "Erzählt Geschichten ungefähr in der richtigen Reihenfolge."
+      },
+      {
+        "id": "u8-8",
+        "bereich": "gefuehle",
+        "text": "Zieht sich selbst an und aus."
+      },
+      {
+        "id": "u8-9",
+        "bereich": "gefuehle",
+        "text": "Gießt Getränke selbst ein."
+      },
+      {
+        "id": "u8-10",
+        "bereich": "gefuehle",
+        "text": "Findet bei alltäglichen Dingen meist selbst wieder ins Gleichgewicht – auch nach kleinen Enttäuschungen."
+      },
+      {
+        "id": "u8-11",
+        "bereich": "miteinander",
+        "text": "Spielt mit anderen Kindern, auch Rollenspiele, und hält sich an Spielregeln."
+      }
+    ],
+    "U9": [
+      {
+        "id": "u9-1",
+        "bereich": "bewegung",
+        "text": "Hüpft auf einem Bein, rechts und links, und steht kurz auf einem Bein."
+      },
+      {
+        "id": "u9-2",
+        "bereich": "bewegung",
+        "text": "Fängt einen größeren Ball."
+      },
+      {
+        "id": "u9-3",
+        "bereich": "bewegung",
+        "text": "Geht Treppen im Wechselschritt rauf und runter, ohne sich festzuhalten."
+      },
+      {
+        "id": "u9-4",
+        "bereich": "haende",
+        "text": "Malt einen Kreis, ein Quadrat und ein Dreieck nach."
+      },
+      {
+        "id": "u9-5",
+        "bereich": "haende",
+        "text": "Hält den Stift wie Erwachsene."
+      },
+      {
+        "id": "u9-6",
+        "bereich": "haende",
+        "text": "Schneidet mit der Kinderschere an einer geraden Linie entlang."
+      },
+      {
+        "id": "u9-7",
+        "bereich": "denken",
+        "text": "Erkennt und benennt mindestens 3 Farben."
+      },
+      {
+        "id": "u9-8",
+        "bereich": "sprache",
+        "text": "Spricht fast alles richtig aus – einzelne Laute dürfen noch fehlen."
+      },
+      {
+        "id": "u9-9",
+        "bereich": "sprache",
+        "text": "Erzählt Erlebnisse in der richtigen Reihenfolge, in einfachen, richtigen Sätzen."
+      },
+      {
+        "id": "u9-10",
+        "bereich": "gefuehle",
+        "text": "Wechselt sich im Spiel mit anderen Kindern ab und teilt."
+      },
+      {
+        "id": "u9-11",
+        "bereich": "gefuehle",
+        "text": "Findet meist selbst wieder ins Gleichgewicht, auch nach kleinen Enttäuschungen."
+      },
+      {
+        "id": "u9-12",
+        "bereich": "miteinander",
+        "text": "Lädt andere Kinder ein und wird selbst eingeladen."
+      },
+      {
+        "id": "u9-13",
+        "bereich": "miteinander",
+        "text": "Spielt gern Rollenspiele – verkleiden, Tiere, Ritter, Piraten, Helden –, auch mit anderen Kindern."
+      }
+    ]
+  }
+}

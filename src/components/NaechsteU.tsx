@@ -15,6 +15,7 @@ import type { Kind } from '../lib/kind';
 import { uKalenderHerunterladen } from '../lib/kalender';
 import type { Notizen } from '../lib/speicher';
 import { Datumskacheln } from './Datumskacheln';
+import { EntwicklungsListe } from './Entwicklung';
 import { Symbol } from './Symbol';
 import { UAbhaken } from './UAbhaken';
 import { useSeitentitel } from '../lib/seite';
@@ -72,6 +73,7 @@ export function NaechsteU({ kind, notizen, onNotizen }: { kind: Kind } & NotizPr
       <Zeitfenster termin={termin} kind={kind} notizen={notizen} onNotizen={onNotizen} />
       <WasPassiert termin={termin} />
       <PraxisFragt termin={termin} kind={kind} />
+      <EntwicklungsListe termin={termin} kind={kind} notizen={notizen} onNotizen={onNotizen} />
       {/* key: Zustand beim Wechsel der U neu laden */}
       <Notizbereich key={termin.untersuchung.id} termin={termin} kind={kind} notizen={notizen} onNotizen={onNotizen} />
       <nav className="u-blaettern" aria-label="Andere U-Untersuchungen">

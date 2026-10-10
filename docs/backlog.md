@@ -77,7 +77,7 @@ Farben, Schrift, Ton und die Grundidee (Zeitring, drei Kacheln, „Heute wichtig
 - [x] Korrektur U5: Hören wird erfragt, nicht getestet
 - [x] Sehtest ab U7a (jedes Auge einzeln, Pflaster, 3 m), Hörtest und Urin-Teststreifen zur U8, Aussprache-Tipp zur U9
 - [x] Zahnarzt: ein Satz pro Z-Termin, Zahnpasta-Menge nach Alter
-- [ ] 🔴 M · Entwicklungspunkte aus dem Heft als Vorbereitungsliste pro U (Ja / Noch nicht / Unsicher), Zusammenfassung im Gespräch
+- [x] 🔴 M · Entwicklungspunkte aus dem Heft als Vorbereitungsliste pro U (Ja / Noch nicht / Unsicher), Zusammenfassung im Gespräch
 - [ ] 🟡 M–L · Wachstumskurven (Größe, Gewicht, Kopfumfang, BMI) nach Kromeyer-Hauschild – braucht die Zahlentabellen, nicht das Bild aus dem Heft
 
 - [x] 🔴 M · **Impfungen auf STIKO-Impfkalender 2026** (RSV-Prophylaxe, Rotavirus ab 6. Woche, MenB prüfen) – mit Verweis + Stand statt fester Aufzählung

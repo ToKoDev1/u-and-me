@@ -1,6 +1,15 @@
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import { datumFormat } from '../lib/alter';
-import { maskottchenBild, mitName, uSchritte, uTermine, untersuchungen, type Quelle } from '../lib/inhalte';
+import {
+  entwicklung,
+  maskottchenBild,
+  mitName,
+  offeneEntwicklungsPunkte,
+  uSchritte,
+  uTermine,
+  untersuchungen,
+  type Quelle,
+} from '../lib/inhalte';
 import { uKalenderHerunterladen } from '../lib/kalender';
 import type { Kind } from '../lib/kind';
 import { useSeitentitel } from '../lib/seite';
@@ -39,6 +48,7 @@ export function USchritte({ kind, notizen, onNotizen }: { kind: Kind; notizen: N
   const eigene = notizen.eigeneFragen[u.id] ?? [];
   const beobachtet = (notizen.beobachtet[u.id] ?? []).filter((b) => u.beobachten.includes(b)).map((b) => mitName(b, kind));
   const gespraechThemen = u.passiert.find((p) => p.titel === 'Gespräch')?.text;
+  const stand = offeneEntwicklungsPunkte(u.id, notizen, kind);
 
   const seiten: Seite[] = [];
 
@@ -115,6 +125,24 @@ export function USchritte({ kind, notizen, onNotizen }: { kind: Kind; notizen: N
               <p className="gedaempft klein">{alt.gespraech.leer}</p>
             )}
           </div>
+          {stand.gesamt > 0 && (
+            <div className="schritt-karte">
+              <b>{entwicklung.gespraech.titel}</b>
+              {stand.offen.length > 0 ? (
+                <ul>
+                  {stand.offen.map((o) => (
+                    <li key={o.text}>
+                      {o.text} <span className="gedaempft">({o.antwort})</span>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="gedaempft klein">
+                  {stand.beantwortet === 0 ? mitName(entwicklung.gespraech.leer, kind) : entwicklung.gespraech.allesJa}
+                </p>
+              )}
+            </div>
+          )}
           <QuelleLink quelle={uQuelle} />
         </>
       ),

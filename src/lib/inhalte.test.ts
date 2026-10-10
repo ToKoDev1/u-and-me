@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { datumBeiAlter, parseDatum, tageZwischen, type Alter } from './alter';
 import {
+  entwicklung,
+  entwicklungsPunkte,
   heftQuelle,
   aktuellePhase,
   aktuelleWoche,
@@ -114,6 +116,19 @@ describe('Inhalte (JSON) sind plausibel', () => {
       expect(u.praxisFragt?.length ?? 0, `${u.id}: Praxis fragt`).toBeLessThanOrEqual(4);
     }
     expect(heftQuelle.url).toMatch(/^https:\/\/www\.g-ba\.de\//);
+  });
+
+  it('Entwicklungspunkte: nur für vorhandene Us, eindeutige Ids, bekannte Bereiche', () => {
+    const ids = new Set<string>();
+    for (const [uId, punkte] of Object.entries(entwicklung.untersuchungen)) {
+      expect(untersuchungen.map((u) => u.id), uId).toContain(uId);
+      for (const p of punkte) {
+        expect(ids.has(p.id), p.id).toBe(false);
+        ids.add(p.id);
+        expect(Object.keys(entwicklung.bereiche), p.id).toContain(p.bereich);
+      }
+    }
+    for (const u of untersuchungen.slice(2)) expect(entwicklungsPunkte(u.id).length, u.id).toBeGreaterThan(0);
   });
 
   it('die ersten 12 Wochen sind vollständig, lückenlos und belegt', () => {

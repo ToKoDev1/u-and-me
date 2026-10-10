@@ -17,7 +17,11 @@ export type Notizen = {
   erledigt: string[];
   /** U-Id → Datum, an dem die U war ("YYYY-MM-DD") */
   uErledigt: Record<string, string>;
+  /** U-Id → Entwicklungspunkt-Id → Antwort auf „Was kann euer Kind schon?“ */
+  entwicklung: Record<string, Record<string, Antwort>>;
 };
+export type Antwort = 'ja' | 'nein' | 'unsicher';
+const ANTWORTEN: readonly unknown[] = ['ja', 'nein', 'unsicher'];
 
 /** Ein Kind mit seinen Angaben und Notizen */
 export type KindEintrag = { id: string; profil: Profil; notizen: Notizen };
@@ -98,12 +102,20 @@ export function alsNotizen(wert: unknown): Notizen {
   const erledigt = Array.isArray(o.erledigt) ? o.erledigt.filter((t): t is string => typeof t === 'string') : [];
   const uErledigt: Record<string, string> = {};
   if (istObjekt(o.uErledigt)) for (const [u, d] of Object.entries(o.uErledigt)) if (istIsoDatum(d)) uErledigt[u] = d;
-  return { beobachtet: alsTextListen(o.beobachtet), eigeneFragen: alsTextListen(o.eigeneFragen), erledigt, uErledigt };
+  const entwicklung: Record<string, Record<string, Antwort>> = {};
+  if (istObjekt(o.entwicklung)) {
+    for (const [u, antworten] of Object.entries(o.entwicklung)) {
+      if (!istObjekt(antworten)) continue;
+      const gueltig = Object.entries(antworten).filter((e): e is [string, Antwort] => ANTWORTEN.includes(e[1]));
+      if (gueltig.length) entwicklung[u] = Object.fromEntries(gueltig);
+    }
+  }
+  return { beobachtet: alsTextListen(o.beobachtet), eigeneFragen: alsTextListen(o.eigeneFragen), erledigt, uErledigt, entwicklung };
 }
 
 // ---- Öffentliche Funktionen ------------------------------------------------------
 
-export const leereNotizen = (): Notizen => ({ beobachtet: {}, eigeneFragen: {}, erledigt: [], uErledigt: {} });
+export const leereNotizen = (): Notizen => ({ beobachtet: {}, eigeneFragen: {}, erledigt: [], uErledigt: {}, entwicklung: {} });
 export const leereDaten = (): Daten => ({ version: 2, kinder: [], aktiv: null });
 
 const neueId = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
