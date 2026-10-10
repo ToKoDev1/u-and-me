@@ -70,6 +70,15 @@ Farben, Schrift, Ton und die Grundidee (Zeitring, drei Kacheln, „Heute wichtig
 
 ## Sprint 2 – Inhalte absichern
 
+**Gelbes Heft eingearbeitet (10.10.2026, Quelle: G-BA Kinderuntersuchungsheft, Stand Juni 2026 – PDF lokal unter `docs/quellen/`, nicht im Repo)**
+- [x] Jede U ab U2: „Danach fragt euch die Praxis“ – die Elternfragen aus dem Heft (Sprache, Hören, Schnarchen, Trinken, Stuhlfarbe …)
+- [x] „Gut zu wissen“: Impfpass zur U3; Teilnahmekarte und Vertraulichkeit (Kita/Schule dürfen keinen Einblick verlangen) zur U6 und U9
+- [x] Stuhlfarbkarte mit 24-Stunden-Regel (U2, U3, Warnzeichen U2–U3)
+- [x] Korrektur U5: Hören wird erfragt, nicht getestet
+- [x] Sehtest ab U7a (jedes Auge einzeln, Pflaster, 3 m), Hörtest und Urin-Teststreifen zur U8, Aussprache-Tipp zur U9
+- [x] Zahnarzt: ein Satz pro Z-Termin, Zahnpasta-Menge nach Alter
+- [ ] ⚪ Idee: Wachstumskurven aus dem Heft – bewusst nicht übernommen (Bewertung des Kindes), höchstens als Erklärung „Was die Kurven im Heft bedeuten“
+
 - [x] 🔴 M · **Impfungen auf STIKO-Impfkalender 2026** (RSV-Prophylaxe, Rotavirus ab 6. Woche, MenB prüfen) – mit Verweis + Stand statt fester Aufzählung
 - [x] 🔴 M · **Warnzeichen für alle Phasen** (erste Tage, U2–U3, U6–U7, U7) – wörtlich aus Quellen
 - [x] 🔴 S · „Lauflernwagen“ → „Schiebewagen/Karton – kein Gehfrei“

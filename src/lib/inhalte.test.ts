@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { datumBeiAlter, parseDatum, tageZwischen, type Alter } from './alter';
 import {
+  heftQuelle,
   aktuellePhase,
   aktuelleWoche,
   aufgaben,
@@ -108,7 +109,11 @@ describe('Inhalte (JSON) sind plausibel', () => {
       expect(u.passiert.length, u.id).toBeGreaterThan(0);
       expect(u.url, u.id).toMatch(/^https:\/\//);
       expect(u.schritte.length, `${u.id}: Schritt für Schritt`).toBeGreaterThanOrEqual(3);
+      // Ab der U2 fragt die Praxis laut gelbem Heft nach – höchstens 4, damit es ruhig bleibt
+      if (u.id !== 'U1') expect(u.praxisFragt?.length, `${u.id}: Praxis fragt`).toBeGreaterThan(0);
+      expect(u.praxisFragt?.length ?? 0, `${u.id}: Praxis fragt`).toBeLessThanOrEqual(4);
     }
+    expect(heftQuelle.url).toMatch(/^https:\/\/www\.g-ba\.de\//);
   });
 
   it('die ersten 12 Wochen sind vollständig, lückenlos und belegt', () => {

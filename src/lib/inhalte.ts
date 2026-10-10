@@ -69,6 +69,10 @@ export type Untersuchung = {
   vorher?: string;
   /** Messen und Wiegen steckt schon in den Schritten (U1) */
   ohneMessen?: boolean;
+  /** Fragen, die die Praxis laut gelbem Heft an die Eltern stellt; {kind} wie oben */
+  praxisFragt?: string[];
+  /** praktischer Hinweis aus dem gelben Heft (z. B. Impfpass, Teilnahmekarte) */
+  gutZuWissen?: string;
 };
 export type MaskottchenId = 'loewe' | 'hund' | 'pinguin' | 'elefant';
 export type Maskottchen = {
@@ -92,6 +96,9 @@ export const uSchritte = uSchritteDaten;
 /** Was nach der letzten U kommt (J1, Zusatz-Untersuchungen) */
 export const danach = untersuchungenDaten.danach;
 export const untersuchungenAbgerufen: string = untersuchungenDaten.abgerufen;
+/** Das gelbe Heft (G-BA) als Quelle für praxisFragt und gutZuWissen */
+export const heftQuelle: Quelle = untersuchungenDaten.heftQuelle;
+export const praxisFragtHinweis: string = untersuchungenDaten.praxisFragtHinweis;
 export const maskottchen = maskottchenDaten as Maskottchen[];
 
 export const bereichsName: Record<Bereich, string> = {
@@ -182,7 +189,7 @@ export function vorherigeUntersuchung(kind: Kind): UTermin | undefined {
 
 // ---- Zahnarzt Z1–Z3 ----------------------------------------------------------
 
-export type ZahnTermin = { id: string; zeitraum: string; von: Alter; bis: Alter };
+export type ZahnTermin = { id: string; zeitraum: string; von: Alter; bis: Alter; text?: string };
 export const zahnarzt = zahnarztDaten as Omit<typeof zahnarztDaten, 'termine'> & { termine: ZahnTermin[] };
 
 /** Zahnarzt-Termine mit Datum – wie die U-Termine nach tatsächlichem Geburtsdatum */

@@ -238,6 +238,7 @@ export function Zahnarzt({ kind }: { kind: Kind }) {
                 · {datumFormat.format(beginn)} bis {datumFormat.format(letzterTag(ende))}
               </span>
             </p>
+            {termin.text && <p className="gedaempft">{termin.text}</p>}
           </li>
         ))}
       </ul>
@@ -255,6 +256,19 @@ export function Zahnarzt({ kind }: { kind: Kind }) {
       </section>
 
       <section className="unterabschnitt">
+        <h2 className="unterabschnitt-titel">{zahnarzt.zahnpasta.titel}</h2>
+        <p>{zahnarzt.zahnpasta.intro}</p>
+        <ul className="ruhige-liste kompakt">
+          {zahnarzt.zahnpasta.stufen.map((st) => (
+            <li key={st.alter}>
+              <h3>{st.alter}</h3>
+              <p>{st.text}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="unterabschnitt">
         <h2 className="unterabschnitt-titel">Gut zu wissen</h2>
         <ul className="ruhige-liste kompakt">
           {zahnarzt.hinweise.map((h) => (
@@ -265,6 +279,7 @@ export function Zahnarzt({ kind }: { kind: Kind }) {
         </ul>
         <QuelleLink quelle={zahnarzt.quelle} />
         <QuelleLink quelle={zahnarzt.zeitraumQuelle} />
+        <QuelleLink quelle={zahnarzt.heftQuelle} />
       </section>
     </Unterseite>
   );

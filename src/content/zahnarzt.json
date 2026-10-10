@@ -36,7 +36,8 @@
       },
       "bis": {
         "monate": 9
-      }
+      },
+      "text": "Bei den meisten Babys kommen jetzt die ersten Zähne, meist zuerst die unteren mittleren Schneidezähne. Ihr übt gemeinsam, wie ihr sie putzt."
     },
     {
       "id": "Z2",
@@ -46,7 +47,8 @@
       },
       "bis": {
         "monate": 20
-      }
+      },
+      "text": "Weitere Milchzähne kommen dazu: seitliche Schneidezähne, erste Backenzähne und Eckzähne. Die Praxis schaut auch, ob sich der Zahnschmelz gut gebildet hat."
     },
     {
       "id": "Z3",
@@ -56,7 +58,8 @@
       },
       "bis": {
         "monate": 33
-      }
+      },
+      "text": "Bis etwa zum 30. Lebensmonat ist das Milchgebiss mit 20 Zähnen bei den meisten Kindern komplett. Geschaut wird auch aufs Schlucken und Sprechen."
     },
     {
       "id": "Z4",
@@ -66,7 +69,8 @@
       },
       "bis": {
         "monate": 48
-      }
+      },
+      "text": "Die Praxis schaut, ob alle Zähne da sind, schätzt das Kariesrisiko ein und achtet auf Zahnfehlstellungen."
     },
     {
       "id": "Z5",
@@ -76,7 +80,8 @@
       },
       "bis": {
         "monate": 60
-      }
+      },
+      "text": "Karies entsteht jetzt öfter an den Backenzähnen, auch zwischen den Zähnen. Manchmal hilft ein kleines Röntgenbild, genauer hinzuschauen."
     },
     {
       "id": "Z6",
@@ -86,7 +91,30 @@
       },
       "bis": {
         "monate": 72
-      }
+      },
+      "text": "Mit etwa 5 bis 7 Jahren kommen die ersten bleibenden Backenzähne – gut versteckt hinter den Milchzähnen und schwer zu putzen. Ab 6 Jahren gibt es weitere Vorsorge, zum Beispiel das Versiegeln der Backenzähne."
     }
-  ]
+  ],
+  "heftQuelle": {
+    "name": "G-BA – Kinderuntersuchungsheft (gelbes Heft), Stand Juni 2026",
+    "url": "https://www.g-ba.de/downloads/17-98-4160/260618_G-BA_Kinderuntersuchungsheft_WEB.pdf"
+  },
+  "zahnpasta": {
+    "titel": "Wie viel Zahnpasta?",
+    "intro": "Ab dem ersten Zahn putzt ihr morgens und abends. So viel Zahnpasta empfiehlt das gelbe Heft:",
+    "stufen": [
+      {
+        "alter": "Bis zum 2. Geburtstag",
+        "text": "So viel wie ein Reiskorn, Zahnpasta mit 1.000 ppm Fluorid. Bekommt euer Baby Fluoridtabletten: bis zum 1. Geburtstag Zahnpasta ohne Fluorid, danach keine Tabletten mehr, sondern Zahnpasta mit Fluorid."
+      },
+      {
+        "alter": "Ab dem 2. Geburtstag",
+        "text": "So viel wie eine Erbse, Zahnpasta mit 1.000 ppm Fluorid."
+      },
+      {
+        "alter": "Ab dem 6. Geburtstag",
+        "text": "Bis zu einem vollen Bürstenkopf, Zahnpasta mit 1.450 ppm Fluorid."
+      }
+    ]
+  }
 }

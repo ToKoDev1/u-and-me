@@ -67,7 +67,7 @@
       "abklaeren": [
         "euer Kind 38 °C oder mehr hat",
         "es schlapp wirkt oder nicht trinken mag",
-        "der Stuhl mehrmals sehr hell, grauweiß oder fast farblos ist (vergleicht ihn mit der Stuhlfarbkarte im gelben Heft)",
+        "der Stuhl sehr hell, grauweiß oder fast farblos ist – so blass wie auf den Feldern 5 bis 7 der Stuhlfarbkarte im gelben Heft. Dann innerhalb von 24 Stunden in die Praxis",
         "euer Kind immer wieder erbricht"
       ],
       "spielideen": [
@@ -110,6 +110,10 @@
         {
           "name": "kindergesundheit-info.de – Wann ein Arztbesuch zwingend ist",
           "url": "https://www.kindergesundheit-info.de/themen/krankes-kind/krankheitszeichen/arztbesuch-zwingend/"
+        },
+        {
+          "name": "G-BA – Kinderuntersuchungsheft (gelbes Heft), Stand Juni 2026",
+          "url": "https://www.g-ba.de/downloads/17-98-4160/260618_G-BA_Kinderuntersuchungsheft_WEB.pdf"
         }
       ]
     },

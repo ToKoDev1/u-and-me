@@ -2,8 +2,10 @@ import { useEffect, useRef, useState, type FormEvent } from 'react';
 import { Link, Navigate, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { abstandAlsText, letzterTag, restzeitAlsText, tageZwischen } from '../lib/alter';
 import {
+  heftQuelle,
   mitName,
   naechsteUntersuchung,
+  praxisFragtHinweis,
   uTermin,
   uTermine,
   untersuchungenAbgerufen,
@@ -69,6 +71,7 @@ export function NaechsteU({ kind, notizen, onNotizen }: { kind: Kind } & NotizPr
       </div>
       <Zeitfenster termin={termin} kind={kind} notizen={notizen} onNotizen={onNotizen} />
       <WasPassiert termin={termin} />
+      <PraxisFragt termin={termin} kind={kind} />
       {/* key: Zustand beim Wechsel der U neu laden */}
       <Notizbereich key={termin.untersuchung.id} termin={termin} kind={kind} notizen={notizen} onNotizen={onNotizen} />
       <nav className="u-blaettern" aria-label="Andere U-Untersuchungen">
@@ -172,6 +175,40 @@ function WasPassiert({ termin }: { termin: UTermin }) {
           </p>
         </div>
       )}
+      {u.gutZuWissen && (
+        <div className="hinweisbox">
+          <Symbol name="info" className="hinweisbox-symbol" />
+          <p>
+            <b>Gut zu wissen:</b> {u.gutZuWissen}{' '}
+            <a className="quelle-link" href={heftQuelle.url} target="_blank" rel="noreferrer">
+              Quelle: {heftQuelle.name}
+            </a>
+          </p>
+        </div>
+      )}
+    </section>
+  );
+}
+
+/** Was die Praxis laut gelbem Heft fragt – damit ihr euch in Ruhe vorher Gedanken machen könnt */
+function PraxisFragt({ termin, kind }: { termin: UTermin; kind: Kind }) {
+  const fragen = termin.untersuchung.praxisFragt ?? [];
+  if (fragen.length === 0) return null;
+  return (
+    <section className="abschnitt">
+      <div>
+        <h2>Danach fragt euch die Praxis</h2>
+        <p className="gedaempft klein">Diese Fragen stehen im gelben Heft. Wer sie vorher kennt, kann in Ruhe darüber nachdenken.</p>
+      </div>
+      <div className="liste-karte">
+        {fragen.map((f) => (
+          <div key={f} className="liste-eintrag">{mitName(f, kind)}</div>
+        ))}
+      </div>
+      <p className="gedaempft klein">{praxisFragtHinweis}</p>
+      <a className="quelle-link" href={heftQuelle.url} target="_blank" rel="noreferrer">
+        Quelle: {heftQuelle.name}
+      </a>
     </section>
   );
 }

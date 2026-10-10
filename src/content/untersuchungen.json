@@ -1,5 +1,5 @@
 {
-  "_hinweis": "Zeitfenster nach G-BA Kinder-Richtlinie. 'von'/'bis' = Alter ab Geburt (bis = exklusiv). 'passiert', 'impfungen' und 'mitbringen' (auch U7a–U9) sind aus der jeweiligen Quellseite (kindergesundheit-info.de, abgerufen am 26.09.2026) zusammengefasst. 'beobachten' und 'fragen' sind eigene Anregungen (Entwurf). {kind} wird durch den Namen bzw. 'euer Kind' ersetzt. 'impfungen' + 'impfQuelle' nach STIKO-Empfehlungen 2026 (Epid. Bulletin 4/2026), abgerufen am 26.09.2026. 'schritte' = Untersuchungsschritte für „Ux Schritt für Schritt“, aus derselben Quellseite (url) zusammengefasst, abgerufen am 26.09.2026.",
+  "_hinweis": "Zeitfenster nach G-BA Kinder-Richtlinie. 'von'/'bis' = Alter ab Geburt (bis = exklusiv). 'passiert', 'impfungen' und 'mitbringen' (auch U7a–U9) sind aus der jeweiligen Quellseite (kindergesundheit-info.de, abgerufen am 26.09.2026) zusammengefasst. 'beobachten' und 'fragen' sind eigene Anregungen (Entwurf). {kind} wird durch den Namen bzw. 'euer Kind' ersetzt. 'impfungen' + 'impfQuelle' nach STIKO-Empfehlungen 2026 (Epid. Bulletin 4/2026), abgerufen am 26.09.2026. 'schritte' = Untersuchungsschritte für „Ux Schritt für Schritt“, aus derselben Quellseite (url) zusammengefasst, abgerufen am 26.09.2026. 'praxisFragt' und 'gutZuWissen' sind aus dem gelben Heft (heftQuelle) in eigenen Worten zusammengefasst: die Fragen, die die Praxis laut Heft an die Eltern stellt (Anamnese), und praktische Hinweise aus den Elterninformationen.",
   "abgerufen": "26.09.2026",
   "quelle": {
     "name": "kindergesundheit-info.de – Die Untersuchungen U1 bis U9",
@@ -137,7 +137,7 @@
         },
         {
           "titel": "Gelbsucht im Blick",
-          "text": "Die Ärztin achtet darauf, ob eine Gelbsucht behandelt werden muss. Schaut auch selbst auf die Farbe des Stuhls – ist er auffällig hell, sprecht die Praxis an."
+          "text": "Die Ärztin achtet darauf, ob eine Gelbsucht behandelt werden muss. Schaut auch selbst auf die Farbe des Stuhls: Im gelben Heft gibt es dafür eine Stuhlfarbkarte. Ist der Stuhl so blass wie auf den Feldern 5, 6 oder 7, geht innerhalb von 24 Stunden zur Ärztin oder zum Arzt."
         },
         {
           "titel": "Vitamine für Knochen und Zähne",
@@ -148,7 +148,13 @@
           "text": "Gibt es Risiken für die Hüfte, wird der Ultraschall der Hüftgelenke schon jetzt gemacht – sonst bei der U3."
         }
       ],
-      "vorher": "Die U2 findet meist noch in der Geburtsklinik statt. Nach einer Hausgeburt oder frühen Entlassung macht ihr selbst zeitnah einen Termin aus."
+      "vorher": "Die U2 findet meist noch in der Geburtsklinik statt. Nach einer Hausgeburt oder frühen Entlassung macht ihr selbst zeitnah einen Termin aus.",
+      "praxisFragt": [
+        "Wie klappt das Trinken?",
+        "Welche Farbe hat der Stuhl? Dafür gibt es die Stuhlfarbkarte im Heft.",
+        "Wie erlebt ihr das Schreien eures Babys?",
+        "Gibt es in der Familie Augenerkrankungen, angeborene Hörstörungen, Immundefekte oder Hüftprobleme?"
+      ]
     },
     {
       "id": "U3",
@@ -215,7 +221,7 @@
         },
         {
           "titel": "Gelbsucht im Blick",
-          "text": "Noch einmal wird geschaut, ob eine Gelbsucht behandelt werden muss. Ein auffällig heller Stuhl kann ein Warnzeichen sein."
+          "text": "Noch einmal wird geschaut, ob eine Gelbsucht behandelt werden muss. Vergleicht den Stuhl weiter mit der Stuhlfarbkarte im gelben Heft – ist er blass, geht innerhalb von 24 Stunden in die Praxis."
         },
         {
           "titel": "Die Neugeborenen-Tests",
@@ -225,7 +231,14 @@
           "titel": "Wie geht es euch?",
           "text": "Auch eure Erschöpfung hat hier Platz. Wenn ihr euch überfordert fühlt, sagt es – die Praxis kennt Angebote, die entlasten."
         }
-      ]
+      ],
+      "praxisFragt": [
+        "Wie klappen Trinken und Füttern?",
+        "Welche Farbe hat der Stuhl?",
+        "Wie erlebt ihr das Schreien eures Babys?",
+        "Wer kümmert sich im Alltag um {kind} – und gibt es gerade besondere Belastungen in der Familie?"
+      ],
+      "gutZuWissen": "Bei der U3 bekommt ihr den Impfpass. Die erste Impfung ist ein eigener Termin, denn bis zur U4 gibt es keine Untersuchung – macht ihn am besten gleich mit aus."
     },
     {
       "id": "U4",
@@ -295,6 +308,12 @@
           "titel": "Eure Beobachtungen zählen",
           "text": "Sprecht an, was euch beschäftigt – ob Schlafmangel, Überforderung oder eine Frage zur Entwicklung. Was ihr beobachtet, ist wertvoll."
         }
+      ],
+      "praxisFragt": [
+        "Wie klappen Trinken und Füttern – spuckt oder erbricht {kind} oft?",
+        "Wie sind Stuhl und Verdauung?",
+        "Wie erlebt ihr das Schreien?",
+        "Wer kümmert sich im Alltag um {kind} – und gibt es gerade besondere Belastungen in der Familie?"
       ]
     },
     {
@@ -364,7 +383,7 @@
         },
         {
           "titel": "Hören",
-          "text": "Auch das Hören wird geprüft – es ist wichtig für die Sprachentwicklung."
+          "text": "Ihr werdet gefragt, ob euer Baby gut hört – ob es auf leise und laute Geräusche reagiert und den Kopf dorthin dreht."
         },
         {
           "titel": "Ihr und euer Baby",
@@ -374,6 +393,12 @@
           "titel": "Die ersten Zähne",
           "text": "Ihr bekommt Tipps zur Mundpflege und den Hinweis auf den ersten Zahnarzt-Termin Z1."
         }
+      ],
+      "praxisFragt": [
+        "Wie reagiert {kind} auf leise und laute Geräusche – dreht sich der Kopf dorthin?",
+        "Wie klappt das Essen?",
+        "War {kind} seit der letzten U ernsthaft krank oder wurde operiert?",
+        "Wer kümmert sich im Alltag um {kind} – und gibt es gerade besondere Belastungen in der Familie?"
       ]
     },
     {
@@ -416,7 +441,7 @@
       "mitbringen": [
         "Gesundheitskarte",
         "Impfpass",
-        "Gelbes Kinderuntersuchungsheft mit Teilnahmekarte"
+        "Gelbes Kinderuntersuchungsheft"
       ],
       "beobachten": [
         "Wie kommt {kind} gerade vom Fleck – robben, krabbeln, rutschen oder ganz anders?",
@@ -450,7 +475,14 @@
           "titel": "Zähne",
           "text": "Mundpflege, Fluorid und der Zahnarzt-Termin Z2 zwischen dem 10. und 20. Lebensmonat sind Thema."
         }
-      ]
+      ],
+      "praxisFragt": [
+        "Hört {kind} gut, auch leise Geräusche?",
+        "Schnarcht {kind} regelmäßig?",
+        "Wie klappt das Essen?",
+        "Wer kümmert sich im Alltag um {kind} – und gibt es gerade besondere Belastungen in der Familie?"
+      ],
+      "gutZuWissen": "Kita, Schule oder Jugendamt dürfen keinen Einblick in das gelbe Heft verlangen – ihr entscheidet, wer hineinschaut. Als Nachweis reicht die herausnehmbare Teilnahmekarte vorne im Heft, auf der jede U abgestempelt wird."
     },
     {
       "id": "U7",
@@ -526,6 +558,12 @@
           "titel": "Spielen und Miteinander",
           "text": "Ihr werdet gefragt, wie euer Kind spielt – allein, in der Familie, mit anderen Kindern – und wie der Kontakt zwischen euch ist."
         }
+      ],
+      "praxisFragt": [
+        "Seid ihr mit der Sprachentwicklung von {kind} zufrieden?",
+        "Wird {kind} von anderen gut verstanden?",
+        "Hört {kind} gut? Gibt es regelmäßiges Schnarchen?",
+        "Wie klappt das Essen – und bekommt {kind} Fluorid für die Zähne?"
       ]
     },
     {
@@ -545,7 +583,7 @@
         },
         {
           "titel": "Sehen",
-          "text": "Sehtest zur Früherkennung von Sehstörungen"
+          "text": "Sehtest – jedes Auge einzeln, meist mit Bildchen in etwa 3 Metern Abstand"
         },
         {
           "titel": "Zähne & Kiefer",
@@ -572,7 +610,7 @@
       "mitbringen": [
         "Gesundheitskarte",
         "Impfpass",
-        "Gelbes Kinderuntersuchungsheft mit Teilnahmekarte"
+        "Gelbes Kinderuntersuchungsheft"
       ],
       "beobachten": [
         "Was erzählt {kind} gerade am liebsten?",
@@ -592,7 +630,7 @@
         },
         {
           "titel": "Sehtest",
-          "text": "Mit einem Sehtest werden Sehstörungen früh erkannt."
+          "text": "Euer Kind schaut sich in etwa 3 Metern Abstand Bildchen an und sagt oder zeigt, was es sieht. Dabei wird meist ein Auge mit einem Pflaster abgeklebt. Spielt das vorher ruhig einmal zu Hause – zum Beispiel als Pirat."
         },
         {
           "titel": "Zähne und Kiefer",
@@ -602,6 +640,12 @@
           "titel": "Sprache",
           "text": "Die Sprachentwicklung bekommt bei der U7a besondere Aufmerksamkeit."
         }
+      ],
+      "praxisFragt": [
+        "Seid ihr mit der Sprachentwicklung von {kind} zufrieden?",
+        "Wird {kind} von anderen gut verstanden?",
+        "Stottert {kind}?",
+        "Hört {kind} gut? Gibt es regelmäßiges Schnarchen?"
       ]
     },
     {
@@ -625,7 +669,7 @@
         },
         {
           "titel": "Sehen & Hören",
-          "text": "Sehtest und Hörtest"
+          "text": "Sehtest (jedes Auge einzeln) und Hörtest mit Tönen in verschiedenen Höhen"
         },
         {
           "titel": "Sprache",
@@ -648,7 +692,7 @@
       "mitbringen": [
         "Gesundheitskarte",
         "Impfpass",
-        "Gelbes Kinderuntersuchungsheft mit Teilnahmekarte"
+        "Gelbes Kinderuntersuchungsheft"
       ],
       "beobachten": [
         "Wie bewegt sich {kind} am liebsten – rennen, klettern, Rad fahren?",
@@ -672,12 +716,22 @@
         },
         {
           "titel": "Sehen und Hören",
-          "text": "Es gibt einen Sehtest und einen Hörtest."
+          "text": "Beim Sehtest wird jedes Auge einzeln geprüft, meist mit einem Pflaster über dem anderen Auge. Beim Hörtest hört euer Kind Töne in verschiedenen Höhen, meist über Kopfhörer."
         },
         {
           "titel": "Sprache und Spielen",
           "text": "Die Ärztin hört, wie euer Kind spricht, und fragt, wie es spielt – allein, in der Familie, in der Gruppe."
+        },
+        {
+          "titel": "Urin-Test",
+          "text": "Bei der U8 wird auch der Urin mit einem Teststreifen untersucht. Fragt beim Termin-Ausmachen, ob ihr eine Probe mitbringen sollt."
         }
+      ],
+      "praxisFragt": [
+        "Seid ihr mit der Sprachentwicklung von {kind} zufrieden?",
+        "Wird {kind} von anderen gut verstanden?",
+        "Stottert {kind}?",
+        "Schnarcht {kind} regelmäßig?"
       ]
     },
     {
@@ -697,11 +751,11 @@
         },
         {
           "titel": "Sehen",
-          "text": "Sehtest zur Früherkennung von Sehstörungen"
+          "text": "Sehtest – jedes Auge einzeln, meist mit Bildchen in etwa 3 Metern Abstand"
         },
         {
           "titel": "Sprache",
-          "text": "Die Sprachentwicklung ist ein Schwerpunkt"
+          "text": "Die Sprachentwicklung ist ein Schwerpunkt. Spricht euer Kind noch nicht alle Laute richtig aus, bittet die Praxis, besonders darauf zu achten"
         },
         {
           "titel": "Euer Kind",
@@ -724,7 +778,7 @@
       "mitbringen": [
         "Gesundheitskarte",
         "Impfpass",
-        "Gelbes Kinderuntersuchungsheft mit Teilnahmekarte"
+        "Gelbes Kinderuntersuchungsheft"
       ],
       "beobachten": [
         "Worauf freut sich {kind} – und was macht vielleicht Sorgen, etwa beim Schulstart?",
@@ -754,7 +808,14 @@
           "titel": "Was euer Kind bewegt",
           "text": "Die Ärztin interessiert sich dafür, was euer Kind gern macht, was ihm Freude macht – und wovor es vielleicht Angst hat."
         }
-      ]
+      ],
+      "praxisFragt": [
+        "Seid ihr mit der Sprachentwicklung von {kind} zufrieden?",
+        "Wird {kind} von anderen gut verstanden?",
+        "Stottert {kind}?",
+        "Hört {kind} gut?"
+      ],
+      "gutZuWissen": "Kita, Schule oder Jugendamt dürfen keinen Einblick in das gelbe Heft verlangen – ihr entscheidet, wer hineinschaut. Als Nachweis reicht die herausnehmbare Teilnahmekarte vorne im Heft, auf der jede U abgestempelt wird."
     }
   ],
   "danach": {
@@ -782,5 +843,10 @@
       "name": "kinderaerzte-im-netz.de – Vorsorgeuntersuchungen für Kinder und Jugendliche",
       "url": "https://www.kinderaerzte-im-netz.de/vorsorge/"
     }
-  }
+  },
+  "heftQuelle": {
+    "name": "G-BA – Kinderuntersuchungsheft (gelbes Heft), Stand Juni 2026",
+    "url": "https://www.g-ba.de/downloads/17-98-4160/260618_G-BA_Kinderuntersuchungsheft_WEB.pdf"
+  },
+  "praxisFragtHinweis": "Im gelben Heft gibt es bei jeder U auch ein eigenes Feld für das, was euch an der Entwicklung oder am Verhalten eures Kindes beschäftigt. Sprecht es ruhig an – auch Kleinigkeiten."
 }
